@@ -1,0 +1,448 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+
+</head>
+
+<body class="bg-white text-gray-800">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <!-- <div class="text-2xl font-black tracking-tighter">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </div> -->
+            <!-- Logo -->
+            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </a>
+
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
+
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="{% url 'services' %}" class="nav-link">Services</a>
+                <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
+                <a href="{% url 'pricing' %}" class="nav-link">Pricing</a>
+
+                <!-- Learn Dropdown -->
+                <div class="relative">
+                    <button id="learnBtn" class="nav-link flex items-center gap-1">
+                        Learn
+                        <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div id="learnMenu"
+                        class="absolute left-0 mt-3 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible transition-all duration-200">
+                        <a href="{% url 'how_it_works' %}" class="dropdown-link">How It Works</a>
+                        <a href="#" class="dropdown-link">Blog</a>
+                        <a href="{% url 'about' %}" class="dropdown-link">About</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="#contact"
+                    class="bg-black text-white px-5 py-2 rounded-lg font-bold hover:bg-gray-900 transition">
+                    Get Access
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menuBtn" class="md:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+
+            <div class="px-6 py-4 space-y-4 font-bold">
+                <a href="#solutions" class="block mobile-link">Solutions</a>
+                <a href="#services" class="block mobile-link">Services</a>
+                <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
+                <a href="{% url 'pricing' %}" class="block mobile-link">Pricing</a>
+
+                <!-- Mobile Dropdown -->
+                <div>
+                    <button id="mobileLearnBtn" class="flex justify-between w-full mobile-link">
+                        Learn
+                        <span>+</span>
+                    </button>
+                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'how_it_works' %}" class="block text-gray-600">How It Works</a>
+                        <a href="#" class="block text-gray-600">Blog</a>
+                        <a href="{% url 'about' %}" class="block text-gray-600">About</a>
+                    </div>
+                </div>
+
+                <a href="#contact" class="block bg-black text-white text-center py-2 rounded-lg">
+                    Get Access
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Styles -->
+    <style>
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #FF4801;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 2.5rem;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: #fff7ed;
+            color: #FF4801;
+        }
+
+        .mobile-link {
+            padding: 0.5rem 0;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("max-h-[500px]");
+        });
+
+        const learnBtn = document.getElementById("learnBtn");
+        const learnMenu = document.getElementById("learnMenu");
+
+        learnBtn.addEventListener("click", () => {
+            learnMenu.classList.toggle("opacity-0");
+            learnMenu.classList.toggle("invisible");
+        });
+
+        const mobileLearnBtn = document.getElementById("mobileLearnBtn");
+        const mobileLearnMenu = document.getElementById("mobileLearnMenu");
+
+        mobileLearnBtn.addEventListener("click", () => {
+            mobileLearnMenu.classList.toggle("hidden");
+        });
+    </script>
+
+    <!-- Header Section -->
+    <section class="py-8 bg-[#FFF9F4]">
+    </section>
+
+    <!-- Services Section -->
+
+    <section class="bg-white/80 py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-4xl md:text-5xl font-semibold text-center tracking-tight text-black mb-14">
+                Our Services </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+                <div class="relative group"
+                    x-data="{ expanded: false }">
+                    <!-- corner accents -->
+                    <!-- <span class="absolute -top-3 -left-4 w-20 h-[2px] bg-orange-500 rotate-12"></span>
+                    <span class="absolute -bottom-3 -right-3 w-24 h-[2px] bg-orange-500"></span> -->
+
+                    <div
+                        class="bg-[#fafafa] border border-black/5 rounded-xl p-8 text-left transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white shadow-sm">
+
+                        <!-- Icon -->
+                        <!-- <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white text-2xl transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            ⚙️
+                        </div> -->
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.5 6.5c-1.8 0-3.2 1.5-3.2 3.3v28.4c0 1.8 1.4 3.3 3.2 3.3s3.2-1.5 3.2-3.3V9.8c0-1.8-1.4-3.3-3.2-3.3zM30.6 31.1c-1.1 0-2.1.6-2.7 1.6l-5.7 9.9c-.9 1.6-.3 3.7 1.4 4.6 1.6.9 3.7.3 4.6-1.4l5.7-9.9c.9-1.6.3-3.7-1.4-4.6-.5-.2-1-.2-1.9-.2z" />
+                            </svg>
+                        </div>
+
+
+                        <h3
+                            class="mt-5 text-lg font-semibold text-black group-hover:text-white transition-all duration-300">
+                            Google Ad Campaign Management
+                        </h3>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 line-clamp-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="!expanded">
+                            Strategy, setup, and optimization for profitable scaling, more leads without rising costs,
+                            better ROAS. End-to-end campaign management.
+                        </p>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="expanded">
+                            Strategy, setup, and optimization for profitable scaling, more leads without rising costs,
+                            better return on ad spend (ROAS). End-to-end campaign management.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative group" x-data="{ expanded: false }">
+                    <!-- corner accents -->
+                    <!-- <span class="absolute -top-3 -left-4 w-20 h-[2px] bg-orange-500 rotate-12"></span>
+                    <span class="absolute -bottom-3 -right-3 w-24 h-[2px] bg-orange-500"></span> -->
+
+                    <div
+                        class="bg-[#fafafa] border border-black/5 rounded-xl p-8 text-left transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white shadow-sm">
+
+                        <!-- Icon -->
+                        <!-- <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white text-2xl transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            📣
+                        </div> -->
+
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M100.28 448H7.4V148.9h92.88zm-46.44-339.8C24.2 108.2 0 83.9 0 54.6S24.2 1 53.84 1s53.88 24.3 53.88 53.6-24.2 53.6-53.88 53.6zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.38 0-55.8 37.8-55.8 76.9V448h-92.64V148.9h88.96v40.8h1.3c12.4-23.6 42.68-48.3 87.84-48.3 94 0 111.32 61.8 111.32 142.3V448z" />
+                            </svg>
+
+                        </div>
+
+                        <h3
+                            class="mt-5 text-lg font-semibold text-black group-hover:text-white transition-all duration-300">
+                            LinkedIn Ads
+                        </h3>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 line-clamp-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="!expanded">
+                            Ad creatives, copy, and landing page optimization, more leads without rising costs. Better
+                            return on ad spend (ROAS).
+                        </p>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="expanded">
+                            Ad creatives, copy, and landing page optimization, more leads without rising costs. Better
+                            return on ad spend (ROAS).
+                        </p>
+                    </div>
+                </div>
+                <div class="relative group" x-data="{ expanded: false }">
+                    <!-- corner accents -->
+                    <!-- <span class="absolute -top-3 -left-4 w-20 h-[2px] bg-orange-500 rotate-12"></span>
+                    <span class="absolute -bottom-3 -right-3 w-24 h-[2px] bg-orange-500"></span> -->
+
+                    <div
+                        class="bg-[#fafafa] border border-black/5 rounded-xl p-8 text-left transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white shadow-sm">
+
+                        <!-- Icon -->
+                        <!-- <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white text-2xl transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            🛒
+                        </div> -->
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            <svg class="w-7 h-7 fill-current" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M325.3 375.8c-65.5 48.5-160.2 59.4-236.7 22.4-8.2-3.9-16.3-8.6-24.1-13.7-3.2-2.1-.4-6.4 3.4-4.7 67.7 31.4 149.7 27 212.8-11.8 10.3-6.3 19.9-13.4 28.9-21.1 2.3-2.1 5.7 1.2 3.2 3.7zm79.2-23.1c-2.8-3.7-18.8-1.8-25.9-.8-2.1.3-2.4-1.6-.5-3 12-8.4 31.6-6 33.9-3.2 2.3 2.8-0.6 22.3-11.8 31.5-1.8 1.5-3.4.7-2.7-1.2 2.7-7.1 8.7-24.8 5.8-27.4zM155.7 159.8c0-22.3 15.2-38.5 40.2-38.5 27 0 44.5 14.7 44.5 50.8v98.1h-31.4v-92.7c0-15.5-7-24.2-20.8-24.2-12 0-19.3 7.9-19.3 22.8v94.1h-31.4V159.8zm239.5 74.3c0-52-31.5-79.7-70.6-79.7-39.1 0-70.6 27.7-70.6 79.7 0 52 31.5 79.7 70.6 79.7 39.1 0 70.6-27.7 70.6-79.7zm-31.4 0c0 39.7-17.9 55.9-39.2 55.9-21.2 0-39.2-16.2-39.2-55.9 0-39.7 17.9-55.9 39.2-55.9 21.3 0 39.2 16.3 39.2 55.9z" />
+                            </svg>
+
+                        </div>
+
+
+                        <h3
+                            class="mt-5 text-lg font-semibold text-black group-hover:text-white transition-all duration-300">
+                            Amazon Ads
+                        </h3>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 line-clamp-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="!expanded">
+                            Sales-focused traffic and conversion campaigns, better return on ad spend (ROAS). End-to-end
+                            campaign management.
+                        </p>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="expanded">
+                            Sales-focused traffic and conversion campaigns, better return on ad spend (ROAS). End-to-end
+                            campaign management.
+                        </p>
+                    </div>
+                </div>
+                <div class="relative group" x-data="{ expanded: false }">
+                    <!-- corner accents -->
+                    <!-- <span class="absolute -top-3 -left-4 w-20 h-[2px] bg-orange-500 rotate-12"></span>
+                    <span class="absolute -bottom-3 -right-3 w-24 h-[2px] bg-orange-500"></span> -->
+
+                    <div
+                        class="bg-[#fafafa] border border-black/5 rounded-xl p-8 text-left transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white shadow-sm">
+
+                        <!-- Icon Container -->
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            <!-- Meta SVG -->
+                            <svg class="w-7 h-7 transition-all duration-300 fill-current" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M36.5 36.2C33.6 36.2 30.9 32.9 27.8 28.7C25.4 25.3 22.7 21.4 20.5 21.4C20.4 21.4 20.3 21.4 20.2 21.5C17.2 22.1 16.1 29.6 16.1 29.6C16.1 29.6 15.3 36.2 11.5 36.2C7.7 36.2 4.6 31.5 4.6 24.4C4.6 17.3 8.2 11.7 13.4 11.7C18.7 11.7 22.7 17.5 25.6 22C28.5 17.5 32.4 11.7 37.7 11.7C42.9 11.7 46.5 17.3 46.5 24.4C46.5 31.5 43.4 36.2 39.6 36.2C39.6 36.2 39.6 36.2 39.5 36.2C39.4 36.2 39.3 36.2 39.2 36.2C39 36.2 38.8 36.2 38.5 36.1C38 36.2 37.5 36.2 36.9 36.2Z" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="mt-5 text-lg font-semibold text-black group-hover:text-white transition-all duration-300">
+                            Meta Ad Campaign Management
+                        </h3>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 line-clamp-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="!expanded">
+                            Strategy, setup, and optimization for profitable scaling, more leads without rising costs,
+                            better return on ad spend (ROAS). End-to-end campaign management.
+                        </p>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="expanded">
+                            Strategy, setup, and optimization for profitable scaling, more leads without rising costs,
+                            better return on ad spend (ROAS). End-to-end campaign management.
+                        </p>
+
+                    </div>
+                </div>
+                <div class="relative group" x-data="{ expanded: false }">
+                    <!-- corner accents -->
+                    <!-- <span class="absolute -top-3 -left-4 w-20 h-[2px] bg-orange-500 rotate-12"></span>
+                    <span class="absolute -bottom-3 -right-3 w-24 h-[2px] bg-orange-500"></span> -->
+
+                    <div
+                        class="bg-[#fafafa] border border-black/5 rounded-xl p-8 text-left transition-all duration-300 group-hover:bg-orange-500 group-hover:text-white shadow-sm">
+
+                        <!-- Icon Container -->
+                        <div
+                            class="flex items-center justify-center w-12 h-12 rounded-full bg-orange-500 text-white transition-all duration-300 group-hover:bg-white group-hover:text-orange-500">
+                            <!-- TikTok SVG -->
+                            <svg class="w-7 h-7 fill-current transition-all duration-300" viewBox="0 0 48 48"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M41.5,16.6c-3.4,0-6.6-1.1-9.2-3v16.7c0,7.7-6.3,14-14,14s-14-6.3-14-14s6.3-14,14-14c1.2,0,2.4,0.2,3.5,0.5v7.7
+                    c-1-0.8-2.3-1.2-3.5-1.2c-3.2,0-5.8,2.6-5.8,5.9s2.6,5.9,5.8,5.9c3.2,0,5.8-2.6,5.8-5.9V2.7h7.3c0.4,3.3,2.9,6.2,6.9,6.7V16.6z" />
+                            </svg>
+                        </div>
+
+                        <h3
+                            class="mt-5 text-lg font-semibold text-black group-hover:text-white transition-all duration-300">
+                            TikTok Shop
+                        </h3>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 line-clamp-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="!expanded">
+                            Facebook & Google ads that bring quality leads, more leads without rising costs, better
+                            return on ad spend (ROAS).
+                        </p>
+
+                        <p class="text-black text-sm leading-relaxed mt-2 group-hover:text-white/90 transition-all duration-300"
+                            x-show="expanded">
+                            Facebook & Google ads that bring quality leads, more leads without rising costs, better
+                            return on ad spend (ROAS).
+                        </p>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <section class="py-24 bg-white relative overflow-hidden">
+        <div
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px]">
+        </div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] opacity-30" style="transform: rotate(63.2664deg);">
+            <div class="absolute top-20 right-20 w-32 h-32 bg-[#FF4801]/20 rounded-full blur-2xl"></div>
+            <div class="absolute bottom-40 left-40 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
+        </div>
+        <div class="max-w-[1400px] mx-auto px-3 md:px-5 lg:px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center space-y-10">
+                <div style="opacity: 1; transform: none;">
+                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black mb-2">Ready to
+                        <span class="text-[#FF4801]">Grow with </span>Ads?
+                    </h2>
+                </div>
+                <div class="relative max-w-xl mx-auto" style="opacity: 1; transform: none;">
+                    <form id="hero-form" onsubmit="transferEmail(event)"
+                        class="flex items-center border-[0.5px] border-black rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-300 h-10 md:h-14 overflow-hidden pl-1 pr-1 py-1">
+                        <input id="hero-email-input" type="email" placeholder="name@company.com" required=""
+                            class="flex-1 bg-transparent border-none outline-none px-4 md:px-6 text-[0.9rem] md:text-lg text-black placeholder:text-zinc-500 min-w-0 h-full">
+                        <button type="submit"
+                            class="bg-orange-500 text-white px-6 md:px-8 h-full font-medium whitespace-nowrap hover:bg-orange-500 transition-colors flex items-center gap-2 rounded-md">
+                            <span class="text-sm md:text-lg">Get started</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4" aria-hidden="true">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div
+                    class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-zinc-500 text-sm font-medium">
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function transferEmail(event) {
+            event.preventDefault();
+
+            // Get email
+            const emailValue = document.getElementById('hero-email-input').value;
+
+            // Store email in localStorage
+            localStorage.setItem('prefillEmail', emailValue);
+
+            // Redirect to home page
+            window.location.href = '/';  // Django home page URL
+        }
+    </script>
+
+
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
