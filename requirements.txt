@@ -1,0 +1,9 @@
+Django>=5.0,<6.0
+gunicorn
+uvicorn
+psycopg2-binary
+dj-database-url
+whitenoise[brotli]
+asgiref>=3.7
+sqlparse>=0.4
+tzdata; sys_platform == "win32"
