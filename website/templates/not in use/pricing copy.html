@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - ADRYZE</title>
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+
+</head>
+
+<body>
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+
+            <!-- Logo -->
+            <!-- <div class="text-2xl font-black tracking-tighter">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </div> -->
+            <!-- Logo -->
+            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </a>
+
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
+
+                <a href="#solutions" class="nav-link">Solutions</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
+                <a href="{% url 'pricing' %}" class="nav-link">Pricing</a>
+
+                <!-- Learn Dropdown -->
+                <div class="relative">
+                    <button id="learnBtn" class="nav-link flex items-center gap-1">
+                        Learn
+                        <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
+                            viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <div id="learnMenu"
+                        class="absolute left-0 mt-3 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible transition-all duration-200">
+                        <a href="{% url 'how_it_works' %}" class="dropdown-link">How It Works</a>
+                        <a href="#" class="dropdown-link">Blog</a>
+                        <a href="{% url 'about' %}" class="dropdown-link">About</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="hidden md:block">
+                <a href="#contact"
+                    class="bg-black text-white px-5 py-2 rounded-lg font-bold hover:bg-gray-900 transition">
+                    Get Access
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button id="menuBtn" class="md:hidden">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu"
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+
+            <div class="px-6 py-4 space-y-4 font-bold">
+                <a href="#solutions" class="block mobile-link">Solutions</a>
+                <a href="#services" class="block mobile-link">Services</a>
+                <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
+                <a href="{% url 'pricing' %}" class="block mobile-link">Pricing</a>
+
+                <!-- Mobile Dropdown -->
+                <div>
+                    <button id="mobileLearnBtn" class="flex justify-between w-full mobile-link">
+                        Learn
+                        <span>+</span>
+                    </button>
+                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'how_it_works' %}" class="block text-gray-600">How It Works</a>
+                        <a href="#" class="block text-gray-600">Blog</a>
+                        <a href="{% url 'about' %}" class="block text-gray-600">About</a>
+                    </div>
+                </div>
+
+                <a href="#contact" class="block bg-black text-white text-center py-2 rounded-lg">
+                    Get Access
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Styles -->
+    <style>
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #FF4801;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 2.5rem;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: #fff7ed;
+            color: #FF4801;
+        }
+
+        .mobile-link {
+            padding: 0.5rem 0;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        menuBtn.addEventListener("click", () => {
+            mobileMenu.classList.toggle("max-h-[500px]");
+        });
+
+        const learnBtn = document.getElementById("learnBtn");
+        const learnMenu = document.getElementById("learnMenu");
+
+        learnBtn.addEventListener("click", () => {
+            learnMenu.classList.toggle("opacity-0");
+            learnMenu.classList.toggle("invisible");
+        });
+
+        const mobileLearnBtn = document.getElementById("mobileLearnBtn");
+        const mobileLearnMenu = document.getElementById("mobileLearnMenu");
+
+        mobileLearnBtn.addEventListener("click", () => {
+            mobileLearnMenu.classList.toggle("hidden");
+        });
+    </script>
+
+    {% load static %}
+    <div class="h-10 pt-12">
+    </div>
+    <div class="h-40 pt-12">
+        <h1 class="text-6xl font-bold text-black pt-12 px-16 text-center">Plans and Pricing</h1>
+    </div>
+    <div class="h-10 pt-12">
+    </div>
+
+    <div class="max-w-6xl mx-auto bg-white border-2 border-dotted border-orange-600
+ shadow-2xl">
+
+        <div class="grid grid-cols-1 md:grid-cols-3">
+
+            <!-- PLAN 1 -->
+            <div class="group p-10 border-b md:border-b-0 md:border-r transition-all duration-500 hover:bg-[#FF4801]/5">
+                <h3 class="text-2xl font-bold text-center mb-3">1000 Items</h3>
+
+                <div class="text-center mb-6">
+                    <span class="text-5xl font-bold">$199</span>
+                    <span class="text-gray-500"> / month</span>
+                </div>
+
+                <ul class="space-y-4 text-gray-600 mb-8">
+                    <li>• 1 project / language</li>
+                    <li>• Daily updates</li>
+                    <li>• Facebook & Instagram feeds</li>
+                    <li>• Chat & phone support</li>
+                </ul>
+
+                <a href="#contact" data-package="1000" class="purchase-btn block text-center py-3 border border-black font-semibold transition-all duration-500
+                group-hover:bg-[#FF4801] group-hover:text-white">
+                    Purchase Plan
+                </a>
+            </div>
+
+            <!-- PLAN 2 (Featured) -->
+            <div
+                class="group p-10 bg-[#FF4801]/5 border-b md:border-b-0 md:border-r border-dotted border-orange-600 relative transition-all duration-500 hover:bg-[#FF4801]/10">
+
+                <div class="absolute top-0 right-0 bg-[#FF4801] text-white text-xs px-4 py-1">
+                    MOST POPULAR
+                </div>
+
+                <h3 class="text-2xl font-bold text-center mb-3">2000 Items</h3>
+
+                <div class="text-center mb-6">
+                    <span class="text-5xl font-bold">$249</span>
+                    <span class="text-gray-500"> / month</span>
+                </div>
+
+                <ul class="space-y-4 text-gray-700 mb-8">
+                    <li>• 1 project / language</li>
+                    <li>• Daily updates</li>
+                    <li>• FB, Instagram & Pinterest</li>
+                    <li>• Priority support</li>
+                </ul>
+
+                <a href="#contact" data-package="2000"
+                    class="purchase-btn block text-center py-3 bg-[#FF4801] text-white font-semibold transition-all duration-500 hover:bg-black">
+                    Purchase Plan
+                </a>
+            </div>
+
+            <!-- PLAN 3 -->
+            <div class="group p-10 transition-all duration-500 hover:bg-[#FF4801]/5">
+                <h3 class="text-2xl font-bold text-center mb-3">3000 Items</h3>
+
+                <div class="text-center mb-6">
+                    <span class="text-5xl font-bold">$299</span>
+                    <span class="text-gray-500"> / month</span>
+                </div>
+
+                <ul class="space-y-4 text-gray-600 mb-8">
+                    <li>• 1 project / language</li>
+                    <li>• Daily updates</li>
+                    <li>• FB, Insta & Pinterest</li>
+                    <li>• Premium support</li>
+                </ul>
+
+                <a href="#contact" data-package="3000" class="purchase-btn block text-center py-3 border border-black font-semibold transition-all duration-500
+                group-hover:bg-[#FF4801] group-hover:text-white">
+                    Purchase Plan
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <section id="pricing" class="max-w-[1600px] mx-auto px-4 md:px-8 pb-32">
+        <div class="text-center mb-20">
+            <span class="text-[#FF4801] font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Investment
+                Tiers</span>
+            <h2 class="text-5xl md:text-7xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none">
+                Choose Your <span class="text-[#FF4801]">Scale.</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+            <div
+                class="group relative p-10 rounded-[3rem] bg-zinc-50 border border-zinc-200 flex flex-col justify-between transition-all duration-500 hover:border-zinc-400 hover:bg-white hover:shadow-2xl hover:shadow-black/5">
+                <div>
+                    <div class="flex justify-between items-start mb-12">
+                        <span
+                            class="px-4 py-1.5 rounded-full bg-white border border-zinc-200 text-[9px] font-black uppercase tracking-widest text-zinc-400">Starter</span>
+                        <div class="text-right">
+                            <span class="text-5xl font-[1000] tracking-tighter text-zinc-900">$199</span>
+                            <span class="text-zinc-400 text-[10px] block font-black uppercase tracking-widest">/
+                                Month</span>
+                        </div>
+                    </div>
+                    <h3
+                        class="text-3xl font-black tracking-tighter uppercase mb-8 group-hover:text-[#FF4801] transition-colors">
+                        1000 Items</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium">
+                            <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> 1 project / language
+                        </li>
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium">
+                            <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> Daily updates
+                        </li>
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium">
+                            <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> FB & IG feeds
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" data-package="1000"
+                    class="purchase-btn mt-12 block text-center py-5 rounded-2xl border-2 border-zinc-900 font-black uppercase tracking-widest text-xs hover:bg-zinc-900 hover:text-white transition-all duration-300">
+                    Purchase Plan
+                </a>
+            </div>
+
+            <div
+                class="relative p-1 rounded-[3.2rem] bg-gradient-to-br from-[#FF4801] to-orange-600 shadow-2xl scale-105 z-10">
+                <div
+                    class="h-full w-full bg-zinc-950 rounded-[3rem] p-10 flex flex-col justify-between overflow-hidden relative group">
+                    <div
+                        class="absolute -top-20 -right-20 w-40 h-40 bg-[#FF4801] rounded-full blur-[80px] opacity-20 group-hover:opacity-40 transition-opacity">
+                    </div>
+
+                    <div class="relative z-10">
+                        <div class="flex justify-between items-start mb-12">
+                            <span
+                                class="px-4 py-1.5 rounded-full bg-[#FF4801] text-white text-[9px] font-black uppercase tracking-widest animate-pulse">Most
+                                Popular</span>
+                            <div class="text-right text-white">
+                                <span class="text-5xl font-[1000] tracking-tighter">$249</span>
+                                <span class="text-zinc-500 text-[10px] block font-black uppercase tracking-widest">/
+                                    Month</span>
+                            </div>
+                        </div>
+                        <h3 class="text-3xl font-black tracking-tighter uppercase mb-8 text-white">2000 Items</h3>
+                        <ul class="space-y-4 text-zinc-400">
+                            <li class="flex items-center gap-3 font-medium">
+                                <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> 1 project / language
+                            </li>
+                            <li class="flex items-center gap-3 font-medium text-white">
+                                <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> FB, IG & Pinterest
+                            </li>
+                            <li class="flex items-center gap-3 font-medium">
+                                <div class="h-1.5 w-1.5 rounded-full bg-[#FF4801]"></div> Priority support
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="#contact" data-package="2000"
+                        class="purchase-btn relative z-10 mt-12 block text-center py-5 rounded-2xl bg-[#FF4801] text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-lg shadow-[#FF4801]/20">
+                        Get Started Now
+                    </a>
+                </div>
+            </div>
+
+            <div
+                class="group relative p-10 rounded-[3rem] bg-zinc-50 border border-zinc-200 flex flex-col justify-between transition-all duration-500 hover:border-zinc-400 hover:bg-white hover:shadow-2xl hover:shadow-black/5">
+                <div>
+                    <div class="flex justify-between items-start mb-12">
+                        <span
+                            class="px-4 py-1.5 rounded-full bg-white border border-zinc-200 text-[9px] font-black uppercase tracking-widest text-zinc-400">Enterprise</span>
+                        <div class="text-right">
+                            <span class="text-5xl font-[1000] tracking-tighter text-zinc-900">$299</span>
+                            <span class="text-zinc-400 text-[10px] block font-black uppercase tracking-widest">/
+                                Month</span>
+                        </div>
+                    </div>
+                    <h3
+                        class="text-3xl font-black tracking-tighter uppercase mb-8 group-hover:text-[#FF4801] transition-colors">
+                        3000 Items</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium">
+                            <div class="h-1.5 w-1.5 rounded-full bg-zinc-900"></div> All Social Feeds
+                        </li>
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium">
+                            <div class="h-1.5 w-1.5 rounded-full bg-zinc-900"></div> Premium 24/7 Support
+                        </li>
+                        <li class="flex items-center gap-3 text-zinc-600 font-medium italic opacity-60">
+                            Custom Scaling Logic
+                        </li>
+                    </ul>
+                </div>
+                <a href="#contact" data-package="3000"
+                    class="purchase-btn mt-12 block text-center py-5 rounded-2xl border-2 border-zinc-900 font-black uppercase tracking-widest text-xs hover:bg-zinc-900 hover:text-white transition-all duration-300">
+                    Purchase Plan
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        // Script to handle pre-filling the contact form based on the selected package
+        document.querySelectorAll('.purchase-btn').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const packageValue = this.getAttribute('data-package');
+                const packageSelect = document.getElementById('package');
+                if (packageSelect) {
+                    packageSelect.value = packageValue;
+                }
+            });
+        });
+    </script>
+
+    <!-- <section class="bg-white py-24 px-6">
+        <div class="max-w-7xl mx-auto">
+
+            <div class="text-center max-w-3xl mx-auto mb-20">
+            <span class="text-orange-600 font-semibold tracking-wide uppercase text-sm">
+                    Pricing
+                </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-black mt-4 mb-6">
+                    Improve Your Ad Performance
+                </h2>
+                <p class="text-lg text-gray-600">
+                    Premium creative systems for brands serious about scaling Meta Ads.
+                </p>
+            </div>
+
+            <div
+                class="relative bg-gradient-to-br from-orange-50 to-white border border-orange-100 rounded-3xl p-10 max-w-5xl mx-auto mb-24 shadow-xl">
+                <h3 class="text-2xl font-bold mb-3">Meta Ads Creative Testing Program</h3>
+                <p class="text-gray-600 mb-8">
+                    Designed for e-commerce brands scaling beyond <strong>€50K/month</strong>.
+                </p>
+
+                <ul class="grid sm:grid-cols-2 gap-4 text-gray-700 mb-10">
+                    <li>✔ Free Intake Call (15 min)</li>
+                    <li>✔ Strategy Call (45 min deep dive)</li>
+                    <li>✔ Creative Testing Framework</li>
+                    <li>✔ 5 Custom Static Ads / week</li>
+                    <li>✔ Monthly Strategy Review</li>
+                </ul>
+
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#"
+                        class="bg-orange-600 text-white px-8 py-4 rounded-2xl font-medium text-center hover:bg-orange-700 transition shadow-lg">
+                        Book Free Consult
+                    </a>
+                    <a href="#"
+                        class="border border-orange-600 text-orange-600 px-8 py-4 rounded-2xl font-medium text-center hover:bg-orange-50 transition">
+                        Book Strategy Call
+                    </a>
+                </div>
+                <div class="pt-10 relative group inline-block">
+                    <a href="{% url 'home' %}#contact"
+                        class="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+
+                        <span
+                            class="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                        </span>
+
+                        <span class="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
+                            <div class="relative z-10 flex items-center space-x-2">
+                                <span class="transition-all duration-500 group-hover:translate-x-1">
+                                    Get Strategy Call
+                                </span>
+
+                                <svg class="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
+                                    fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd"
+                                        d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                        </span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section> -->
+    <section class="max-w-7xl mx-auto px-7 py-6"> <!-- reduced py from 12 → 8 -->
+        <section class="bg-black text-white rounded-[32px] overflow-hidden">
+            <div
+                class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between px-6 md:px-8 py-6 gap-4">
+                <!-- py-12 → py-8, gap-8 → gap-6 -->
+
+                <!-- LEFT TEXT -->
+                <div class="flex-1 space-y-2"> <!-- space-y-4 → space-y-3 -->
+                    <div
+                        class="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500 text-orange-600 px-3 py-1.5 rounded-lg text-sm font-medium">
+                        <span class="bg-orange-500 w-2 h-2 rounded-full"></span>
+                        Advertising
+                    </div>
+
+                    <h2 class="text-2xl md:text-2xl font-semibold tracking-widest text-white leading-snug">
+                        Get More <span class="text-orange-400">Sales</span> & Leads.<br>
+                        <span class="text-orange-400">Fast,</span> Efficient Advertising
+                    </h2>
+
+                    <p class="text-sm md:text-sm text-gray-300 max-w-lg leading-snug"> <!-- reduced leading-relaxed -->
+                        Scale E-commerce & Lead Generation with Smart <br>Meta & Google Ads
+                    </p>
+
+                    <!-- <a href="#"
+                        class="inline-block text-center text-white font-semibold bg-transparent border border-white/30 hover:border-white hover:bg-white hover:text-black transition-all px-5 py-2 rounded-full text-sm">
+                        Explore more
+                    </a> -->
+                    <div class="pt-10 relative group inline-block">
+                        <a href="{% url 'home' %}#contact"
+                            class="relative inline-block p-px font-semibold leading-6 text-white bg-gray-800 shadow-2xl cursor-pointer rounded-xl shadow-zinc-900 transition-transform duration-300 ease-in-out hover:scale-105 active:scale-95">
+
+                            <!-- Animated gradient border -->
+                            <span
+                                class="absolute inset-0 rounded-xl bg-gradient-to-r from-orange-400 via-pink-500 to-purple-500 p-[2px] opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                            </span>
+
+                            <!-- Button inner -->
+                            <span class="relative z-10 block px-6 py-3 rounded-xl bg-gray-950">
+                                <div class="relative z-10 flex items-center space-x-2">
+                                    <span class="transition-all duration-500 group-hover:translate-x-1">
+                                        Explore more </span>
+
+                                    <svg class="w-6 h-6 transition-transform duration-500 group-hover:translate-x-1"
+                                        fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd"
+                                            d="M8.22 5.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L11.94 10 8.22 6.28a.75.75 0 0 1 0-1.06Z"
+                                            clip-rule="evenodd" />
+                                    </svg>
+                                </div>
+                            </span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT IMAGE -->
+                <div class="flex-1">
+                    <img src="{% static 'images/ads.jpg' %}" alt="AI Dashcam"
+                        class="w-full object-contain drop-shadow-md"> <!-- drop-shadow-lg → drop-shadow-md -->
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <footer
+        class="rounded-t-[32px] overflow-hidden text-white bg-gradient-to-tr from-[#FF4801]/90 to-[#FF4801]/80 py-16 px-8 md:px-16">
+
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
+
+            <!-- BRAND + ABOUT -->
+            <div class="space-y-6">
+                <div class="text-4xl font-bold tracking-tight">
+                    AD<span class="text-black">RYZE</span>
+                </div>
+                <p class="leading-relaxed font-sans text-white text-lg max-w-sm">
+                    Custom software solutions with precision engineering and cutting-edge technology to make life
+                    smarter, simpler, and more sustainable.
+                </p>
+
+                <!-- SOCIAL LINKS -->
+                <div class="flex gap-4 pt-2">
+                    <a href="https://www.linkedin.com/company/linkedin.comadryzeofficial/"
+                        class="hover:text-gray-200 transition text-sm font-medium">LinkedIn</a>
+                    <a href="https://www.facebook.com/share/1Qm2gQqckc/?mibextid=wwXIfr"
+                        class="hover:text-gray-200 transition text-sm font-medium">Facebook</a>
+                    <a href="https://pin.it/75w0i3JUB"
+                        class="hover:text-gray-200 transition text-sm font-medium">Pinterest</a>
+                    <a href="https://www.instagram.com/adryze_"
+                        class="hover:text-gray-200 transition text-sm font-medium">Instagram</a>
+                    <a href="https://x.com/remodify360?s=21"
+                        class="hover:text-gray-200 transition text-sm font-medium">X(Twitter)</a>
+                    <!-- <a href="tiktok.com/@adryze__" 
+                        class="hover:text-gray-200 transition text-sm font-medium">TikTok</a> -->
+                </div>
+            </div>
+
+            <!-- QUICK LINKS -->
+            <div class="space-y-6">
+                <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Navigation</h3>
+                <ul class="space-y-2">
+                    <li><a href="{% url 'about' %}" class="text-white hover:text-gray-300 transition">About</a></li>
+                    <li><a href="#skills" class="text-white hover:text-gray-300 transition">Services</a></li>
+                    <li><a href="{% url 'case_study' %}" class="text-white hover:text-gray-300 transition">Case
+                            Studies</a></li>
+                    <li><a href="#" class="text-white hover:text-gray-300 transition">Privacy & Terms</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTACT FORM -->
+            <div id="contact" class="bg-[#FF4801]/80 p-6 rounded-lg shadow-lg">
+                <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-white">Contact Us</h3>
+                <form method="POST" action="{% url 'home' %}" class="space-y-4">
+                    {% csrf_token %}
+                    <input type="text" name="name" placeholder="Name" required
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
+
+                    <input type="email" name="email" id="contact-email" placeholder="Email" required
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
+
+                    <input type="text" name="company" placeholder="Company" required
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
+                    <label for="package" class="block text-sm font-medium text-white mb-1">
+                        Choose a package
+                    </label>
+
+                    <select id="package" name="package" required
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white focus:ring-2 focus:ring-orange-400 outline-none transition">
+
+                        <option value="" disabled selected class="text-black">-- Select a package --</option>
+                        <option value="1000" class="text-black">1000 items</option>
+                        <option value="2000" class="text-black">2000 items</option>
+                        <option value="3000" class="text-black">3000 items</option>
+                        <option value="custom" class="text-black">Custom items</option>
+
+                    </select>
+
+
+                    <input type="tel" name="phone" placeholder="Phone Number" required
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
+
+                    <textarea name="message" rows="3" placeholder="How can we help?"
+                        class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition"></textarea>
+
+                    <button type="submit"
+                        class="w-full py-3 bg-white bg-opacity-20 hover:bg-white hover:bg-opacity-30 text-white font-medium rounded-lg transition flex justify-center items-center gap-2">
+                        Submit <span>→</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function transferEmail(event) {
+            event.preventDefault();
+            const emailValue = document.getElementById('hero-email-input').value;
+            const contactSection = document.getElementById('contact');
+            const contactInput = document.getElementById('contact-email');
+
+            contactSection.scrollIntoView({ behavior: 'smooth' });
+
+            setTimeout(() => {
+                contactInput.value = emailValue;
+                contactInput.style.borderColor = "#DC2626";
+                contactInput.style.backgroundColor = "#FEF2F2";
+                document.querySelector('input[name="name"]').focus();
+            }, 500);
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const prefillEmail = localStorage.getItem('prefillEmail');
+            if (prefillEmail) {
+                const contactInput = document.getElementById('contact-email');
+                contactInput.value = prefillEmail;
+
+                // Highlight the field
+                // contactInput.style.borderColor = "#f0f4f5";
+                contactInput.style.backgroundColor = "#f0f4f5";
+                contactInput.style.color = "#000000";
+
+                // Focus on the name input
+                const nameInput = document.querySelector('input[name="name"]');
+                if (nameInput) nameInput.focus();
+
+                // Scroll to form
+                document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                // Clear the localStorage so it doesn't persist
+                localStorage.removeItem('prefillEmail');
+            }
+        });
+    </script>
+    <script>
+        document.querySelectorAll('.purchase-btn').forEach(btn => {
+            btn.addEventListener('click', function () {
+                const pkg = this.dataset.package;
+                const select = document.getElementById('package');
+                if (select) {
+                    select.value = pkg;
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+</html>

@@ -9,7 +9,7 @@ class Lead(models.Model):
     ]
     name = models.CharField(max_length=100)
     email = models.EmailField()
-    company = models.CharField(max_length=100, blank=True)
+    date = models.DateField(null=True, blank=True)
     package = models.CharField(max_length=20, choices=PACKAGE_CHOICES)
     phone = models.CharField(max_length=20)
     message = models.TextField(blank=True)

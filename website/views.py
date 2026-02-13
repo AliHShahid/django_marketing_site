@@ -23,7 +23,7 @@ def home(request):
         Lead.objects.create(
             name=request.POST.get('name'),
             email=request.POST.get('email'),
-            company=request.POST.get('company'),
+            date=request.POST.get('date'),
             package=request.POST.get('package'),
             phone=request.POST.get('phone'),
             message=request.POST.get('message')
@@ -49,3 +49,12 @@ def pricing(request):
 
 def services(request):
     return render(request, 'services.html')
+
+def ecommerce_case_study(request):
+    return render(request, 'ecommerce_case_study.html')
+
+def amazon_ppc_case_study(request):
+    return render(request, 'amazon_ppc_case_study.html')
+
+def beauty_brand_case_study(request):
+    return render(request, 'beauty_brand_case_study.html')

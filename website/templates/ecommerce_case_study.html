@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Case Study | Apparel Scale-Up | ADRYZE</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        /* Gen Z Text Glow & Selection */
+        ::selection {
+            background: #FF4801;
+            color: white;
+        }
+
+        /* Morphing animation for the bottom teaser */
+        @keyframes morph {
+
+            0%,
+            100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+
+            34% {
+                border-radius: 70% 30% 50% 50% / 30% 30% 70% 70%;
+            }
+
+            67% {
+                border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+            }
+        }
+
+        .animate-morph {
+            animation: morph 8s ease-in-out infinite;
+        }
+
+        /* Smooth scroll reveal utility */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body class="bg-white text-zinc-900 antialiased overflow-x-hidden">
+
+    <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-xl border-b border-zinc-100">
+        <div class="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="text-2xl font-[1000] tracking-tighter hover:scale-105 transition-transform">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </a>
+            <div class="hidden md:flex items-center gap-10">
+                <a href="#"
+                    class="text-xs font-black uppercase tracking-widest hover:text-[#FF4801] transition-colors">Case
+                    Studies</a>
+                <a href="#"
+                    class="text-xs font-black uppercase tracking-widest hover:text-[#FF4801] transition-colors">Services</a>
+                <a href="#"
+                    class="bg-zinc-900 text-white px-6 py-2.5 rounded-full text-xs font-black uppercase tracking-widest hover:bg-[#FF4801] transition-all">Get
+                    in Touch</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="case-study-detail" class="bg-white pt-40 pb-32">
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8 mb-32">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-end">
+                <div class="space-y-8">
+                    <div class="inline-flex items-center gap-3 bg-zinc-900 px-4 py-2 rounded-2xl">
+                        <span class="text-[10px] font-black uppercase tracking-[0.4em] text-[#FF4801]">Case Study —
+                            Apparel</span>
+                    </div>
+                    <h1
+                        class="text-6xl md:text-8xl lg:text-[11rem] font-[1000] tracking-tighter text-zinc-900 leading-[0.8] uppercase">
+                        Scale <br /> <span class="text-[#FF4801]">Velocity.</span>
+                    </h1>
+                    <p
+                        class="text-2xl md:text-3xl font-bold tracking-tight text-zinc-400 max-w-xl leading-tight uppercase">
+                        Transforming a stagnant apparel brand into a <span
+                            class="text-zinc-900 underline decoration-[#FF4801] decoration-4 underline-offset-8">revenue
+                            powerhouse</span> in 90 days.
+                    </p>
+                </div>
+
+                <div class="relative group">
+                    <div
+                        class="absolute -inset-10 bg-[#FF4801]/5 rounded-full blur-[100px] group-hover:bg-[#FF4801]/10 transition-colors">
+                    </div>
+                    <div class="relative flex flex-col items-center lg:items-end">
+                        <span
+                            class="text-[12rem] md:text-[18rem] font-[1000] tracking-tighter text-zinc-900 leading-none">+142<span
+                                class="text-[#FF4801]">%</span></span>
+                        <p class="text-xl font-black uppercase tracking-[0.5em] text-zinc-400 -mt-8">Revenue Growth</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-[1600px] mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-32">
+            <div
+                class="p-10 rounded-[3rem] bg-zinc-950 text-white flex flex-col justify-between border border-white/5 shadow-2xl">
+                <span class="text-[10px] font-black uppercase tracking-widest text-zinc-500">Timeline</span>
+                <div class="py-10">
+                    <span class="text-6xl font-black tracking-tighter">90</span>
+                    <span class="text-zinc-500 font-bold block uppercase">Days to Peak</span>
+                </div>
+            </div>
+
+            <div
+                class="p-10 rounded-[3rem] bg-[#FF4801] text-white flex flex-col justify-between shadow-2xl group hover:scale-105 transition-transform">
+                <span class="text-[10px] font-black uppercase tracking-widest opacity-60">Efficiency</span>
+                <div class="py-10">
+                    <span class="text-6xl font-black tracking-tighter">4.8<span class="text-sm italic">x</span></span>
+                    <span class="font-bold block uppercase">Average ROAS</span>
+                </div>
+            </div>
+
+            <div
+                class="p-10 rounded-[3rem] bg-zinc-50 border border-zinc-200 flex flex-col justify-between group overflow-hidden relative">
+                <div class="absolute -bottom-6 -right-6 text-9xl font-black text-zinc-100 select-none uppercase">Ads
+                </div>
+                <span class="text-[10px] font-black uppercase tracking-widest text-zinc-400">Reach</span>
+                <div class="py-10 relative z-10">
+                    <span class="text-6xl font-black tracking-tighter text-zinc-900">2.4M</span>
+                    <span class="text-zinc-500 font-bold block uppercase">Total Impressions</span>
+                </div>
+            </div>
+
+            <div class="p-10 rounded-[3rem] bg-zinc-50 border border-zinc-200 flex flex-col justify-between">
+                <span class="text-[10px] font-black uppercase tracking-widest text-zinc-400">Conversion</span>
+                <div class="py-10">
+                    <span class="text-6xl font-black tracking-tighter text-zinc-900">+89%</span>
+                    <span class="text-zinc-500 font-bold block uppercase">Add to Cart Rate</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col lg:flex-row gap-20 items-start">
+                <div class="flex-1 space-y-8 reveal">
+                    <div class="h-[2px] w-24 bg-[#FF4801]"></div>
+                    <h3 class="text-4xl font-black tracking-tighter uppercase text-zinc-900">The Friction</h3>
+                    <p class="text-xl text-zinc-500 leading-relaxed font-medium italic">
+                        "Scaling was hitting a ceiling. Acquisition costs were rising 20% month-over-month while revenue
+                        stayed flat. The brand had no predictable way to buy growth."
+                    </p>
+                </div>
+
+                <div class="flex-1 space-y-16 reveal">
+                    <div
+                        class="group border-l-4 border-zinc-100 pl-8 hover:border-[#FF4801] transition-all duration-500">
+                        <span class="text-xs font-black text-zinc-300 uppercase tracking-widest mb-2 block">Step
+                            01</span>
+                        <h4 class="text-2xl font-black text-zinc-900 uppercase mb-4 tracking-tight">Pixel Integrity &
+                            Audit</h4>
+                        <p class="text-zinc-500 font-medium leading-relaxed">We re-engineered the data tracking pipeline
+                            to capture missed conversions, reducing reported CPA by 34% instantly.</p>
+                    </div>
+                    <div
+                        class="group border-l-4 border-zinc-100 pl-8 hover:border-[#FF4801] transition-all duration-500">
+                        <span class="text-xs font-black text-zinc-300 uppercase tracking-widest mb-2 block">Step
+                            02</span>
+                        <h4 class="text-2xl font-black text-zinc-900 uppercase mb-4 tracking-tight">Algorithmic
+                            Aggression</h4>
+                        <p class="text-zinc-500 font-medium leading-relaxed">Implemented Advantage+ Meta campaigns
+                            paired with Performance Max Google Ads to target high-intent bottom-funnel shoppers.</p>
+                    </div>
+                    <div
+                        class="group border-l-4 border-zinc-100 pl-8 hover:border-[#FF4801] transition-all duration-500">
+                        <span class="text-xs font-black text-zinc-300 uppercase tracking-widest mb-2 block">Step
+                            03</span>
+                        <h4 class="text-2xl font-black text-zinc-900 uppercase mb-4 tracking-tight">Creative Loop
+                            Testing</h4>
+                        <p class="text-zinc-500 font-medium leading-relaxed">Deploying rapid creative iterations every
+                            72 hours to prevent ad fatigue and keep ROAS stable during the scale.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-32 bg-zinc-950 text-white relative overflow-hidden">
+        <svg class="absolute inset-0 w-full h-full opacity-10" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path d="M0 50 Q 25 25 50 50 T 100 50" stroke="#FF4801" stroke-width="0.1" fill="none" />
+            <path d="M0 70 Q 25 45 50 70 T 100 70" stroke="#FF4801" stroke-width="0.1" fill="none" />
+        </svg>
+
+        <div class="max-w-[1600px] mx-auto px-6 md:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-16">
+                <div class="space-y-6">
+                    <span class="text-[#FF4801] font-black text-[10px] uppercase tracking-[0.4em]">Internal Logic</span>
+                    <h3 class="text-4xl md:text-5xl font-[1000] tracking-tighter uppercase leading-none">The <br />
+                        Growth <br /> <span class="text-zinc-600">Engine.</span></h3>
+                    <p class="text-zinc-400 text-lg leading-relaxed">We built a machine that feeds on data to lower CPA
+                        while increasing order value.</p>
+                </div>
+                <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        class="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-md group hover:bg-[#FF4801] transition-all duration-500">
+                        <div
+                            class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-black/20 transition-colors">
+                            <svg class="w-6 h-6 text-[#FF4801] group-hover:text-white" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-width="3"
+                                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            </svg>
+                        </div>
+                        <h5 class="text-xl font-black uppercase mb-3">Predictable Bidding</h5>
+                        <p class="text-zinc-500 text-sm group-hover:text-white/80 transition-colors">Automated scripts
+                            managing bids every 15 minutes to capture lowest-cost inventory.</p>
+                    </div>
+                    <div
+                        class="p-8 rounded-[2.5rem] bg-white/5 border border-white/10 backdrop-blur-md group hover:bg-white transition-all duration-500">
+                        <div
+                            class="h-12 w-12 rounded-2xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-[#FF4801] transition-colors">
+                            <svg class="w-6 h-6 text-[#FF4801]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-width="3" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                <path stroke-width="3"
+                                    d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            </svg>
+                        </div>
+                        <h5 class="text-xl font-black uppercase mb-3 group-hover:text-black transition-colors">Creative
+                            Intelligence</h5>
+                        <p class="text-zinc-500 text-sm group-hover:text-zinc-600 transition-colors">Computer vision
+                            hook analysis driving higher retention.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-40 bg-white group cursor-pointer overflow-hidden relative">
+        <div class="max-w-[1600px] mx-auto px-6 text-center relative z-10">
+            <span
+                class="text-zinc-400 font-black text-xs uppercase tracking-[0.5em] mb-8 block group-hover:text-[#FF4801] transition-colors">Next
+                Case Study</span>
+            <a href="#" class="relative inline-block">
+                <h2
+                    class="text-6xl md:text-8xl lg:text-[10rem] font-[1000] tracking-tighter text-zinc-900 uppercase leading-none transition-all duration-700 group-hover:scale-110">
+                    SaaS <span
+                        class="italic text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 to-zinc-400 group-hover:from-[#FF4801] group-hover:to-orange-600 transition-all">Explosion.</span>
+                </h2>
+                <div
+                    class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-[#FF4801]/5 rounded-full blur-[100px] -z-10 animate-morph group-hover:bg-[#FF4801]/20 transition-all duration-1000">
+                </div>
+            </a>
+            <div class="mt-20 flex justify-center items-center gap-6">
+                <div
+                    class="h-[1px] w-24 bg-zinc-200 group-hover:w-40 group-hover:bg-[#FF4801] transition-all duration-700">
+                </div>
+                <span class="text-xs font-black uppercase tracking-widest">View Project</span>
+                <div
+                    class="h-[1px] w-24 bg-zinc-200 group-hover:w-40 group-hover:bg-[#FF4801] transition-all duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-zinc-950 py-20 px-8 rounded-t-[3rem]">
+        <div class="max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="text-3xl font-black text-white tracking-tighter">
+                AD<span class="text-[#FF4801]">RYZE</span>
+            </div>
+            <div class="flex gap-8 text-[10px] font-black uppercase tracking-widest text-zinc-500">
+                <a href="#" class="hover:text-white transition">Privacy</a>
+                <a href="#" class="hover:text-white transition">Terms</a>
+                <a href="#" class="hover:text-white transition">LinkedIn</a>
+            </div>
+            <p class="text-[10px] font-black text-zinc-700 uppercase tracking-widest">© 2026 ADRYZE</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.classList.add('active');
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+
+</body>
+
+</html>

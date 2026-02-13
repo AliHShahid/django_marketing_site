@@ -4,6 +4,7 @@
 <head>
   {% load static %}
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How It Works</title>
   <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -11,6 +12,10 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     /* Masonry grid using CSS columns */
@@ -41,17 +46,144 @@
       transform: translateY(-5px);
     }
   </style>
+  <style>
+    /* -------------------------------
+   GLOBAL RESPONSIVE FIXES
+--------------------------------*/
+    html,
+    body {
+      overflow-x: hidden;
+    }
+
+    /* Headings scale better on mobile */
+    h1 {
+      font-size: clamp(2rem, 6vw, 4rem) !important;
+    }
+
+    h2 {
+      font-size: clamp(1.8rem, 5vw, 3.5rem);
+    }
+
+    /* Navbar spacing */
+    @media (max-width: 768px) {
+      nav .h-20 {
+        height: 4rem;
+      }
+    }
+
+    /* Articles heading spacing */
+    @media (max-width: 640px) {
+      .h-40 {
+        height: auto;
+        padding-top: 6rem;
+      }
+    }
+
+    /* -------------------------------
+   CASE STUDY GRID FIX
+--------------------------------*/
+    @media (max-width: 1024px) {
+      .grid.lg\:grid-cols-3 {
+        grid-template-columns: 1fr !important;
+      }
+
+      .lg\:col-span-2 {
+        grid-column: span 1 / span 1 !important;
+      }
+    }
+
+    /* Reduce padding on small devices */
+    @media (max-width: 640px) {
+      .p-10 {
+        padding: 1.25rem !important;
+      }
+
+      .p-8 {
+        padding: 1.25rem !important;
+      }
+
+      .p-6 {
+        padding: 1rem !important;
+      }
+    }
+
+    /* -------------------------------
+   SLIDE PANEL FIX
+--------------------------------*/
+    #casePanel {
+      width: 100%;
+    }
+
+    @media (max-width: 768px) {
+      #casePanel {
+        width: 100% !important;
+      }
+    }
+
+    /* -------------------------------
+   FORM RESPONSIVENESS
+--------------------------------*/
+    @media (max-width: 640px) {
+      #hero-form {
+        flex-direction: column;
+        height: auto;
+        gap: 0.5rem;
+      }
+
+      #hero-form input,
+      #hero-form button {
+        width: 100%;
+        height: 3rem;
+      }
+    }
+
+    /* -------------------------------
+   FOOTER GRID FIX
+--------------------------------*/
+    @media (max-width: 768px) {
+      footer .grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    /* -------------------------------
+   IMPROVE TOUCH TARGETS
+--------------------------------*/
+    /* button,
+    a {
+      min-height: 44px;
+    } */
+
+    /* -------------------------------
+   FIX IMAGE OVERFLOW
+--------------------------------*/
+    /* img {
+      max-width: 100%;
+      height: auto;
+    } */
+
+    /* -------------------------------
+   PANEL CONTENT TEXT FIX
+--------------------------------*/
+    /* #panelContent {
+      font-size: 0.95rem;
+      line-height: 1.6;
+    } */
+
+    /* -------------------------------
+   MOBILE MENU SMOOTHER
+--------------------------------*/
+    /* #mobileMenu {
+      transition: max-height 0.4s ease;
+    } */
+  </style>
+
 </head>
 
-<body class="bg-white/80">
+<body class="bg-white">
   <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
-      <!-- Logo -->
-      <!-- <div class="text-2xl font-black tracking-tighter">
-                AD<span class="text-[#FF4801]">RYZE</span>
-            </div> -->
-      <!-- Logo -->
       <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
         AD<span class="text-[#FF4801]">RYZE</span>
       </a>
@@ -60,25 +192,25 @@
       <!-- Desktop Menu -->
       <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
 
-        <a href="#solutions" class="nav-link">Solutions</a>
-        <a href="#services" class="nav-link">Services</a>
-        <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
-        <a href="{% url 'pricing' %}" class="nav-link">Pricing</a>
+        <a href="/#solutions" class="nav-link">Solutions</a>
+        <a href="/services/" class="nav-link">Services</a>
+        <a href="/case_study/" class="nav-link">Case Studies</a>
+        <!-- <a href="/pricing/" class="nav-link">Pricing</a> -->
 
         <!-- Learn Dropdown -->
         <div class="relative">
           <button id="learnBtn" class="nav-link flex items-center gap-1">
             Learn
             <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-              <path d="M19 9l-7 7-7-7" />
+              <path d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
 
           <div id="learnMenu"
             class="absolute left-0 mt-3 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible transition-all duration-200">
-            <a href="{% url 'how_it_works' %}" class="dropdown-link">How It Works</a>
-            <a href="#" class="dropdown-link">Blog</a>
-            <a href="{% url 'about' %}" class="dropdown-link">About</a>
+            <a href="/how_it_works/" class="dropdown-link">How It Works</a>
+            <!--<a href="#" class="dropdown-link">Blog</a>-->
+            <a href="/about/" class="dropdown-link">About</a>
           </div>
         </div>
       </div>
@@ -93,7 +225,7 @@
       <!-- Mobile Hamburger -->
       <button id="menuBtn" class="md:hidden">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" />
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
         </svg>
       </button>
     </div>
@@ -103,10 +235,10 @@
       class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
 
       <div class="px-6 py-4 space-y-4 font-bold">
-        <a href="#solutions" class="block mobile-link">Solutions</a>
-        <a href="#services" class="block mobile-link">Services</a>
-        <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
-        <a href="{% url 'pricing' %}" class="block mobile-link">Pricing</a>
+        <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
+        <a href="/services/" class="block mobile-link">Services</a>
+        <a href="/case_study/" class="block mobile-link">Case Studies</a>
+        <!-- <a href="/pricing/" class="block mobile-link">Pricing</a> -->
 
         <!-- Mobile Dropdown -->
         <div>
@@ -115,9 +247,9 @@
             <span>+</span>
           </button>
           <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
-            <a href="{% url 'how_it_works' %}" class="block text-gray-600">How It Works</a>
-            <a href="#" class="block text-gray-600">Blog</a>
-            <a href="{% url 'about' %}" class="block text-gray-600">About</a>
+            <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
+            <!--<a href="#" class="block text-gray-600">Blog</a>-->
+            <a href="/about/" class="block text-gray-600">About</a>
           </div>
         </div>
 
@@ -191,399 +323,215 @@
       mobileLearnMenu.classList.toggle("hidden");
     });
   </script>
-
-
-  <div class="h-40 pt-12">
-    <h1 class="text-6xl font-bold text-black pt-12 px-6">Articles</h1>
+  <div class="pt-32 pb-16 px-6 max-w-7xl mx-auto">
+    <span class="text-[#FF4801] font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Knowledge Hub</span>
+    <h1 class="text-6xl md:text-8xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none">
+      Case <span class="text-zinc-300">Studies.</span>
+    </h1>
   </div>
 
   {% load static %}
 
-  <section class="max-w-7xl mx-auto px-6 py-4">
+  <section class="max-w-7xl mx-auto px-6 py-4 mb-32">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      <!-- LEFT BIG FEATURED CASE -->
-      <div onclick="openPanel('case1')"
-        class="lg:col-span-2 cursor-pointer bg-white border border-black p-10 relative group min-h-[380px] flex flex-col justify-between">
+      <a href="{% url 'ecommerce_case_study' %}"
+        class="lg:col-span-2 group relative overflow-hidden rounded-[2.5rem] bg-zinc-900 p-10 md:p-12 flex flex-col justify-between min-h-[500px] transition-all duration-500 hover:shadow-[0_30px_60px_-15px_rgba(255,72,1,0.3)]">
 
-        <!-- Top Content -->
+        <div
+          class="absolute -top-24 -right-24 w-80 h-80 bg-[#FF4801] opacity-10 blur-[100px] group-hover:opacity-20 transition-opacity">
+        </div>
+
         <div>
-          <span class="text-xs uppercase tracking-widest text-orange-600 font-bold">Featured Case Study</span>
-          <h2 class="text-5xl font-black leading-tight mt-4 group-hover:underline">
-            Scaling an E-Commerce Apparel Brand to +142% Revenue in 90 Days
+          <span
+            class="inline-block px-3 py-1 rounded-full bg-[#FF4801] text-white text-[10px] font-black uppercase tracking-widest mb-8">
+            Featured Performance
+          </span>
+          <h2 class="text-4xl md:text-6xl font-[1000] text-white tracking-tighter leading-[0.9] uppercase">
+            Scaling Apparel <br /> to <span class="text-[#FF4801]">+142%</span> Revenue.
           </h2>
-          <p class="mt-4 text-gray-600 max-w-xl">
-            Using Meta, Google Ads & conversion-focused strategy.
+          <p class="mt-6 text-zinc-400 text-lg max-w-xl leading-relaxed">
+            A deep dive into how we re-engineered the acquisition funnel for a stagnant E-commerce brand in 90 days.
           </p>
         </div>
 
-        <!-- Bottom Row -->
         <div class="flex items-center justify-between mt-10">
-          <!-- Small profile image -->
-          <img src="{% static 'images/influencer.jpg' %}"
-            class="w-12 h-12 object-cover border rounded-full border-black">
-          <span class="font-semibold text-sm underline">Read more →</span>
-
+          <div class="flex items-center gap-4">
+            <img src="{% static 'images/influencer.jpg' %}"
+              class="w-12 h-12 rounded-2xl object-cover border border-white/10 shadow-xl">
+            <div class="text-white">
+              <p class="text-xs font-black uppercase tracking-widest">Adryze Analytics</p>
+              <p class="text-[10px] text-zinc-500 font-bold uppercase">9 min read</p>
+            </div>
+          </div>
+          <span
+            class="bg-white text-black px-6 py-3 rounded-full font-black text-xs uppercase tracking-widest group-hover:bg-[#FF4801] group-hover:text-white transition-all">
+            Read Case Study →
+          </span>
         </div>
-      </div>
+      </a>
 
-      <!-- RIGHT STACKED 3 CASES -->
+      <div class="flex flex-col gap-6">
+
+        <a href="{% url 'beauty_brand_case_study' %}"
+          class="group p-8 rounded-[2.5rem] bg-zinc-50 border border-zinc-100 flex flex-col justify-between min-h-[240px] transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1">
+          <div>
+            <h3
+              class="text-2xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none mb-4 group-hover:text-[#FF4801] transition-colors">
+              Beauty Growth <br /> Acquisition.
+            </h3>
+            <p class="text-sm font-medium text-zinc-500 uppercase tracking-widest">Meta + Google Ads</p>
+          </div>
+          <div class="flex justify-between items-center mt-6">
+            <div class="flex -space-x-2">
+              <img src="{% static 'images/influencer.jpg' %}"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover">
+            </div>
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-zinc-900 transition-colors">Details
+              →</span>
+          </div>
+        </a>
+
+        <a href="{% url 'amazon_ppc_case_study' %}"
+          class="group p-8 rounded-[2.5rem] bg-zinc-50 border border-zinc-100 flex flex-col justify-between min-h-[240px] transition-all duration-500 hover:bg-white hover:shadow-2xl hover:shadow-black/5 hover:-translate-y-1">
+          <div>
+            <h3
+              class="text-2xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none mb-4 group-hover:text-[#FF4801] transition-colors">
+              Tripling ROAS <br /> on Amazon.
+            </h3>
+            <p class="text-sm font-medium text-zinc-500 uppercase tracking-widest">Marketplace Logic</p>
+          </div>
+          <div class="flex justify-between items-center mt-6">
+            <div class="flex -space-x-2">
+              <img src="{% static 'images/influencer.jpg' %}"
+                class="w-8 h-8 rounded-full border-2 border-white object-cover">
+            </div>
+            <span
+              class="text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 group-hover:text-zinc-900 transition-colors">Details
+              →</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+  <footer class="bg-black text-white py-12 px-6 md:px-16 font-sans">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
       <div class="space-y-6">
-
-        <!-- Case 2 -->
-        <div onclick="openPanel('case2')"
-          class="cursor-pointer bg-white border border-black p-6 relative group min-h-[170px] flex flex-col justify-between">
-
-          <div>
-            <h3 class="text-xl font-bold leading-tight group-hover:underline">
-              Beauty Brand Growth Through Paid Acquisition
-            </h3>
-            <p class="text-sm text-gray-600 mt-2">Meta + Google Ads</p>
-          </div>
-
-          <div class="flex justify-between items-center mt-6">
-            <img src="{% static 'images/influencer.jpg' %}"
-              class="w-9 h-9 rounded-full object-cover border border-black">
-            <span class="text-sm underline">Read more →</span>
-
+        <div class="flex items-start gap-3">
+          <div class="relative w-12 h-12 flex items-center justify-center">
+            <svg viewBox="0 0 100 100" class="absolute inset-0 fill-none stroke-red-600 stroke-2">
+              <polygon points="50 1, 93 25, 93 75, 50 99, 7 75, 7 25" />
+            </svg>
+            <div class="text-[8px] font-bold text-red-600 text-center leading-tight uppercase">
+              AD<br>RYZE
+            </div>
           </div>
         </div>
-
-        <!-- Case 3 -->
-        <div onclick="openPanel('case3')"
-          class="cursor-pointer bg-white border border-black p-6 relative group min-h-[170px] flex flex-col justify-between">
-
-          <div>
-            <h3 class="text-xl font-bold leading-tight group-hover:underline">
-              How We Fixed Amazon PPC and Tripled ROAS
-            </h3>
-            <p class="text-sm text-gray-600 mt-2">Amazon + Retargeting</p>
-          </div>
-
-          <div class="flex justify-between items-center mt-6">
-            <img src="{% static 'images/influencer.jpg' %}"
-              class="w-9 h-9 rounded-full object-cover border border-black">
-            <span class="text-sm underline">Read more →</span>
-          </div>
-        </div>
-
-        <!-- Case 4 -->
-        <div onclick="openPanel('case4')"
-          class="cursor-pointer bg-white border border-black p-6 relative group min-h-[170px] flex flex-col justify-between">
-
-          <div>
-            <h3 class="text-xl font-bold leading-tight group-hover:underline">
-              Launching a Luxury Skincare Brand with Paid Social
-            </h3>
-            <p class="text-sm text-gray-600 mt-2">Instagram + Meta</p>
-          </div>
-
-          <div class="flex justify-between items-center mt-6">
-            <img src="{% static 'images/influencer.jpg' %}"
-              class="w-9 h-9 rounded-full object-cover border border-black">
-            <span class="text-sm underline">Read more →</span>
-          </div>
-        </div>
-
+        <p class="leading-relaxed text-gray-300 text-sm max-w-sm">
+          Trusted global PPC partner for B2B SaaS and e-commerce brands, delivering consistent growth and
+          measurable results.
+        </p>
       </div>
-    </div>
-  </section>
 
-  <!-- BACKDROP -->
-  <div id="panelBackdrop"
-    class="fixed inset-0 bg-black/40 backdrop-blur-sm hidden opacity-0 transition-opacity duration-300 z-40"
-    onclick="closePanel()"></div>
-
-  <!-- SLIDE-IN PANEL -->
-  <div id="casePanel"
-    class="fixed top-0 right-0 w-full md:w-[600px] h-full bg-white shadow-2xl translate-x-full transition-transform duration-500 z-50 overflow-y-auto">
-    <div class="p-8 space-y-6">
-      <div class="flex justify-end">
-        <button onclick="closePanel()" class="text-gray-700 hover:text-black text-xl">&times;</button>
+      <div class="space-y-6 md:pl-10">
+        <h3 class="text-xl font-bold text-white">Quick Links</h3>
+        <ul class="space-y-3">
+          <li>
+            <a href="/" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+              <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🏠</span>
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="#skills" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+              <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">💻</span>
+              Services
+            </a>
+          </li>
+          <li>
+            <a href="/blogs" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+              <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">📖</span>
+              Blogs
+            </a>
+          </li>
+          <li>
+            <a href="/about" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+              <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">👤</span>
+              About Us
+            </a>
+          </li>
+          <li>
+            <a href="/contact" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+              <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🎧</span>
+              Contact Us
+            </a>
+          </li>
+        </ul>
       </div>
-      <div id="panelContent"></div>
-    </div>
-  </div>
 
-  <script>
-    // const caseData = {
-    //   case1: `<h2 class="text-3xl font-bold mb-2">E-Commerce Apparel Brand</h2> ...`,
-    //   case2: `<h2 class="text-3xl font-bold mb-2">Beauty & Skin Care</h2> ...`,
-    //   case3: `<h2 class="text-3xl font-bold mb-2">Amazon FBA Brand</h2> ...`,
-    //   case4: `<h2 class="text-3xl font-bold mb-2">Luxury Skincare Brand</h2> ...`,
-    //   case5: `<h2 class="text-3xl font-bold mb-2">Fitness Equipment Brand</h2> ...`,
-    //   case6: `<h2 class="text-3xl font-bold mb-2">Home Decor E-Commerce</h2> ...`
-    // };
-    const caseData = {
-      case1: `
-    <h2 class="text-3xl font-bold mb-2">E-Commerce Apparel Brand</h2>
-<p class="text-gray-700 mb-4">Meta + Google Ads | 90-Day Scale</p>
+      <div class="space-y-6">
+        <h3 class="text-xl font-bold text-white">PPC Growth Plan</h3>
+        <form id="hero-form" onsubmit="transferEmail(event)" class="flex flex-col gap-3">
+          <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
+            class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
+          <button type="submit"
+            class="bg-red-600 text-white px-6 py-2 w-max font-bold rounded-md hover:bg-red-700 transition-colors">
+            Let's Start
+          </button>
+        </form>
 
-<img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-
-<h3 class="text-xl font-semibold mb-2">The Challenge</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Ad spend was rising faster than revenue</li>
-  <li>Low return on ad spend (ROAS) and high cost per acquisition (CPA)</li>
-  <li>No cohesive multichannel strategy for customer acquisition</li>
-  <li>Needed a structured, multi-platform ad strategy to drive scalable, profitable revenue</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Our Solution</h3>
-<p class="text-gray-700 leading-relaxed mb-4">
-  Adryze implemented a 90-day multichannel paid acquisition plan, combining Meta and Google Ads with data-driven audience targeting, retargeting, and creative optimization.
-</p>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Optimized creatives, audience segments, and bid strategies</li>
-  <li>High-performing ads and landing pages built with proven conversion techniques</li>
-  <li>Campaigns became highly profitable and repeatable</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Key Results in 90 Days</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>• +142% Revenue Growth</li>
-  <li>• -37% Lower CPA</li>
-  <li>• 3.9x Blended ROAS</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Services That Made It Happen</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>
-    <strong>Meta & Google Ad Campaign Management</strong>
-    <ul class="list-disc list-inside ml-5">
-      <li>Strategy, setup, and multichannel optimization</li>
-      <li>Custom audience targeting & retargeting flows</li>
-      <li>A/B tested creatives and high-converting copy</li>
-    </ul>
-  </li>
-  <li>
-    <strong>TikTok Shop Ads</strong>
-    <ul class="list-disc list-inside ml-5">
-      <li>Engaging, trend-driven videos</li>
-      <li>Top-of-funnel & bottom-of-funnel lead generation</li>
-      <li>Campaigns optimized for sales and engagement</li>
-    </ul>
-  </li>
-  <li>
-    <strong>Amazon Ads</strong>
-    <ul class="list-disc list-inside ml-5">
-      <li>N/A for this brand (optional for multi-platform presence)</li>
-    </ul>
-  </li>
-  <li>
-    <strong>LinkedIn Ads</strong>
-    <ul class="list-disc list-inside ml-5">
-      <li>B2B campaigns if applicable for wholesale or partnerships</li>
-      <li>Ad creatives and landing page optimization</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Benefits Delivered</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>More revenue without overspending</li>
-  <li>Lower cost per acquisition (CPA)</li>
-  <li>Higher return on ad spend (ROAS)</li>
-  <li>End-to-end campaign management with transparent reporting</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">How It Works (3-Step Process)</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li><strong>Step 01 — Strategy & Audience Research:</strong> Identify your best customers, study competitors, and define measurable revenue goals.</li>
-  <li><strong>Step 02 — Campaign Setup & Creative Execution:</strong> Build high-performing ads and landing pages with proven conversion techniques.</li>
-  <li><strong>Step 03 — Monitor, Optimize & Scale:</strong> Continuously analyze, optimize, and scale campaigns for maximum ROI.</li>
-</ul>
-
-  `,
-
-      case2: `
-    <h2 class="text-3xl font-bold mb-2">E-Commerce Apparel Brand</h2>
-<p class="text-gray-700 mb-4">Meta + Google | 90-Day Scale</p>
-
-<img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-
-<p class="text-gray-700 leading-relaxed mb-4">
-  We helped scale profitable revenue using multichannel paid acquisition.
-</p>
-
-<h3 class="text-xl font-semibold mb-2">The Challenge</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Ad spend was rising faster than revenue</li>
-  <li>Low return on ad spend (ROAS) and high cost per acquisition (CPA)</li>
-  <li>No cohesive multichannel strategy for customer acquisition</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Our Solution</h3>
-<p class="text-gray-700 leading-relaxed mb-4">
-  Adryze implemented a 90-day multichannel paid acquisition plan, combining Meta and Google Ads with data-driven audience targeting, retargeting, and creative optimization:
-</p>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Meta and Google campaigns optimized for profitable scaling</li>
-  <li>Custom audience segmentation & retargeting flows</li>
-  <li>Continuous creative testing to maximize conversions</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Key Results in 90 Days</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>• +142% Revenue Growth</li>
-  <li>• -37% Lower CPA</li>
-  <li>• 3.9x Blended ROAS</li>
-</ul>
-
-<h3 class="text-xl font-semibold mb-2">Benefits Delivered</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>More revenue without overspending</li>
-  <li>Lower cost per acquisition (CPA)</li>
-  <li>Higher return on ad spend (ROAS)</li>
-  <li>End-to-end campaign management with transparent reporting</li>
-</ul>
-
-  `,
-
-      case3: `
-    <h2 class="text-3xl font-bold mb-2">Amazon Brand PPC + Retargeting Success</h2>
-    <p class="text-gray-700 mb-4">Amazon Ads + Retargeting</p>
-
-    <img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-
-    <p class="text-gray-700 leading-relaxed mb-4">
-An Amazon marketplace brand was struggling with inconsistent ad performance:
-    </p>
-     <ul class="space-y-2 text-gray-700 mb-6">
-      <li>• High ad spend but low sales</li>
-      <li>• Poor campaign structure and weak audience targeting</li>
-      <li>• Fragmented strategy across platforms</li>
-    </ul>
-     <p class="text-gray-700 leading-relaxed mb-4">
-Their Amazon PPC campaigns weren’t converting, and they lacked a cohesive full‑funnel retargeting plan to pull lost visitors back in.
-</p>
-    <p class="text-gray-700 leading-relaxed mb-4">
-        They needed a performance‑focused strategy, better retargeting, and end‑to‑end campaign management to scale profitably.
-</p>
- <h2 class="text-3xl font-bold mb-2">How Adryze Turned Things Around</h2>
-    <p class="text-gray-700 mb-4">Adryze implemented a full‑funnel paid media strategy, combining Amazon PPC with cross‑platform retargeting (Google + Meta + TikTok). We rebuilt their campaigns from scratch with tight audience segmentation, smart bidding, and conversion‑focused creatives.</p>
-   <p class="text-gray-700 leading-relaxed mb-4">
-In just 90 days:
-    </p>
-     <ul class="space-y-2 text-gray-700 mb-6">
-      <li>✔ ROAS improved by 3x</li>
-      <li>✔ Cost per sale dropped by 42%</li>
-      <li>✔ Retargeting drove back lost users and boosted repeat purchases</li>
-    </ul>
-    `,
-      case4: `
-<h2 class="text-3xl font-bold mb-2">Luxury Skincare Brand</h2>
-<p class="text-gray-700 mb-4">Instagram + Meta Ads | 60-Day Launch</p>
-<img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-<h3 class="text-xl font-semibold mb-2">The Challenge</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Low brand awareness at launch</li>
-  <li>High competition in skincare niche</li>
-</ul>
-<h3 class="text-xl font-semibold mb-2">Our Solution</h3>
-<p class="text-gray-700 leading-relaxed mb-4">
-We launched a 60-day paid media plan targeting high-intent beauty audiences with Instagram + Meta campaigns, using engaging video creatives.
-</p>
-<h3 class="text-xl font-semibold mb-2">Results</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>+120% increase in first-month sales</li>
-  <li>High engagement on social media</li>
-</ul>
-`,
-
-      case5: `
-<h2 class="text-3xl font-bold mb-2">Fitness Equipment Brand</h2>
-<p class="text-gray-700 mb-4">Meta + YouTube Ads | 120-Day Growth</p>
-<img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-<h3 class="text-xl font-semibold mb-2">The Challenge</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Declining online sales despite growing traffic</li>
-  <li>Low conversion rates on product pages</li>
-</ul>
-<h3 class="text-xl font-semibold mb-2">Our Solution</h3>
-<p class="text-gray-700 leading-relaxed mb-4">
-Implemented full-funnel campaigns with YouTube video ads + Meta retargeting to drive purchase intent and recover lost visitors.
-</p>
-<h3 class="text-xl font-semibold mb-2">Results</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>+85% increase in conversions</li>
-  <li>ROAS improved by 2.8x</li>
-</ul>
-`,
-
-      case6: `
-<h2 class="text-3xl font-bold mb-2">Home Decor E-Commerce</h2>
-<p class="text-gray-700 mb-4">Pinterest + Meta Ads | 90-Day Scale</p>
-<img src="{% static 'images/influencer.jpg' %}" class="rounded-xl border mb-6">
-<h3 class="text-xl font-semibold mb-2">The Challenge</h3>
-<ul class="space-y-2 text-gray-700 mb-4 list-disc list-inside">
-  <li>Seasonal sales were unpredictable</li>
-  <li>Lack of visual ad creatives to attract home decor buyers</li>
-</ul>
-<h3 class="text-xl font-semibold mb-2">Our Solution</h3>
-<p class="text-gray-700 leading-relaxed mb-4">
-We created Pinterest-focused campaigns combined with Meta Ads using lifestyle images, targeting high-intent audiences with retargeting flows.
-</p>
-<h3 class="text-xl font-semibold mb-2">Results</h3>
-<ul class="space-y-2 text-gray-700 mb-6 list-disc list-inside">
-  <li>+110% sales growth during 3 months</li>
-  <li>Improved average order value by 20%</li>
-</ul>
-`
-    }
-
-
-    function openPanel(id) {
-      document.getElementById("panelContent").innerHTML = caseData[id];
-      document.getElementById("panelBackdrop").classList.remove("hidden");
-      setTimeout(() => document.getElementById("panelBackdrop").classList.add("opacity-100"), 10);
-      document.getElementById("casePanel").classList.remove("translate-x-full");
-    }
-
-    function closePanel() {
-      document.getElementById("panelBackdrop").classList.remove("opacity-100");
-      document.getElementById("casePanel").classList.add("translate-x-full");
-      setTimeout(() => document.getElementById("panelBackdrop").classList.add("hidden"), 300);
-    }
-  </script>
-
-  <section class="py-24 bg-white relative overflow-hidden">
-    <div
-      class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px]">
-    </div>
-    <div class="absolute top-0 right-0 w-[600px] h-[600px] opacity-30" style="transform: rotate(63.2664deg);">
-      <div class="absolute top-20 right-20 w-32 h-32 bg-[#FF4801]/20 rounded-full blur-2xl"></div>
-      <div class="absolute bottom-40 left-40 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-    </div>
-    <div class="max-w-[1400px] mx-auto px-3 md:px-5 lg:px-6 relative z-10">
-      <div class="max-w-5xl mx-auto text-center space-y-10">
-        <div style="opacity: 1; transform: none;">
-          <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black mb-2">Ready to
-            <span class="text-[#FF4801]">Grow with </span>Ads?
-          </h2>
-        </div>
-        <div class="relative max-w-xl mx-auto" style="opacity: 1; transform: none;">
-          <form id="hero-form" onsubmit="transferEmail(event)"
-            class="flex items-center border-[0.5px] border-black rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-300 h-10 md:h-14 overflow-hidden pl-1 pr-1 py-1">
-            <input id="hero-email-input" type="email" placeholder="name@company.com" required
-              class="flex-1 bg-transparent border-none outline-none px-4 md:px-6 text-[0.9rem] md:text-lg text-black placeholder:text-zinc-500 min-w-0 h-full">
-            <button type="submit"
-              class="bg-orange-500 text-white px-6 md:px-8 h-full font-medium whitespace-nowrap hover:bg-orange-500 transition-colors flex items-center gap-2 rounded-md">
-              <span class="text-sm md:text-lg">Get started</span>
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                class="lucide lucide-chevron-right w-4 h-4" aria-hidden="true">
-                <path d="m9 18 6-6-6-6"></path>
+        <div class="pt-2">
+          <p class="text-lg font-medium mb-4">Follow Us On:</p>
+          <div class="flex gap-3">
+            <a href="#"
+              class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
               </svg>
-            </button>
-          </form>
-        </div>
-        <div class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-zinc-500 text-sm font-medium">
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                </path>
+              </svg>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
+                </path>
+              </svg>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
 
+    <div
+      class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide text-gray-400">
+      <p>© 2026 Adryze. All rights reserved.</p>
+      <div class="flex gap-6 uppercase">
+        <a href="#" class="hover:text-red-500 transition">Disclaimer</a>
+        <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
+        <a href="#" class="hover:text-red-500 transition">Terms & Conditions</a>
+      </div>
+    </div>
+  </footer>
   <script>
     function transferEmail(event) {
       event.preventDefault();
@@ -598,118 +546,6 @@ We created Pinterest-focused campaigns combined with Meta Ads using lifestyle im
       window.location.href = '/';  // Django home page URL
     }
   </script>
-  <footer
-    class="rounded-t-[32px] overflow-hidden text-white bg-gradient-to-tr from-[#FF4801]/90 to-[#FF4801]/80 py-16 px-8 md:px-16">
-
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-
-      <!-- BRAND + ABOUT -->
-      <div class="space-y-6">
-        <div class="text-4xl font-bold tracking-tight">
-          AD<span class="text-black">RYZE</span>
-        </div>
-        <p class="leading-relaxed font-sans text-white text-lg max-w-sm">
-          Custom software solutions with precision engineering and cutting-edge technology to make life
-          smarter, simpler, and more sustainable.
-        </p>
-
-        <!-- SOCIAL LINKS -->
-        <div class="flex gap-4 pt-2">
-          <a href="https://www.linkedin.com/company/ai-influx/"
-            class="hover:text-gray-200 transition text-sm font-medium">LinkedIn</a>
-          <a href="#" class="hover:text-gray-200 transition text-sm font-medium">GitHub</a>
-          <a href="#" class="hover:text-gray-200 transition text-sm font-medium">X (Twitter)</a>
-          <a href="https://www.instagram.com/influx_ai/"
-            class="hover:text-gray-200 transition text-sm font-medium">Instagram</a>
-        </div>
-      </div>
-
-      <!-- QUICK LINKS -->
-      <div class="space-y-6">
-        <h3 class="text-sm font-semibold uppercase tracking-wider text-gray-200">Navigation</h3>
-        <ul class="space-y-2">
-          <li><a href="{% url 'about' %}" class="text-white hover:text-gray-300 transition">About</a></li>
-          <li><a href="#skills" class="text-white hover:text-gray-300 transition">Services</a></li>
-          <li><a href="{% url 'case_study' %}" class="text-white hover:text-gray-300 transition">Case
-              Studies</a></li>
-          <li><a href="#" class="text-white hover:text-gray-300 transition">Privacy & Terms</a></li>
-        </ul>
-      </div>
-
-      <!-- CONTACT FORM -->
-      <div id="contact" class="bg-[#FF4801]/80 p-6 rounded-lg shadow-lg">
-        <h3 class="text-sm font-semibold uppercase tracking-wider mb-4 text-white">Contact Us</h3>
-        <form method="POST" action="{% url 'home' %}" class="space-y-4">
-          {% csrf_token %}
-          <input type="text" name="name" placeholder="Name" required
-            class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
-
-          <input type="email" name="email" id="contact-email" placeholder="Email" required
-            class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-black placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
-
-          <input type="text" name="company" placeholder="Company" required
-            class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
-
-          <input type="tel" name="phone" placeholder="Phone Number" required
-            class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition">
-
-          <textarea name="message" rows="3" placeholder="How can we help?"
-            class="w-full bg-white bg-opacity-10 backdrop-blur-sm rounded-lg px-4 py-3 text-sm text-white placeholder-gray-200 focus:ring-2 focus:ring-orange-400 outline-none transition"></textarea>
-
-          <button type="submit"
-            class="w-full py-3 bg-white bg-opacity-20 hover:bg-white hover:bg-opacity-30 text-white font-medium rounded-lg transition flex justify-center items-center gap-2">
-            Submit <span>→</span>
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <!-- FOOTER BOTTOM -->
-    <!-- <div class="pt-12 text-center text-xs text-gray-200 border-t border-white/20 mt-10">
-            © 2026 AD<span class="text-black">RYZE</span>. All rights reserved.
-        </div> -->
-  </footer>
-  <script>
-    function transferEmail(event) {
-      event.preventDefault();
-      const emailValue = document.getElementById('hero-email-input').value;
-      const contactSection = document.getElementById('contact');
-      const contactInput = document.getElementById('contact-email');
-
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-
-      setTimeout(() => {
-        contactInput.value = emailValue;
-        contactInput.style.borderColor = "#DC2626";
-        contactInput.style.backgroundColor = "#FEF2F2";
-        document.querySelector('input[name="name"]').focus();
-      }, 500);
-    }
-    document.addEventListener('DOMContentLoaded', () => {
-      const prefillEmail = localStorage.getItem('prefillEmail');
-      if (prefillEmail) {
-        const contactInput = document.getElementById('contact-email');
-        contactInput.value = prefillEmail;
-
-        // Highlight the field
-        // contactInput.style.borderColor = "#f0f4f5";
-        // contactInput.style.backgroundColor = "#f0f4f5";
-        contactInput.style.color = "#000000";
-
-
-        // Focus on the name input
-        const nameInput = document.querySelector('input[name="name"]');
-        if (nameInput) nameInput.focus();
-
-        // Scroll to form
-        document.getElementById('contact').scrollIntoView({ behavior: 'smooth', block: 'center' });
-
-        // Clear the localStorage so it doesn't persist
-        localStorage.removeItem('prefillEmail');
-      }
-    });
-  </script>
-
 </body>
 
 </html>
