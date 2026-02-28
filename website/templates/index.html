@@ -2381,48 +2381,266 @@
 <body>
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
             <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
-                AD<span class="text-[#FF4801]">RYZE</span>
+                AD<span class="text-[#EE3923]">RYZE</span>
             </a>
 
-
-            <!-- Desktop Menu -->
             <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
-
-                <a href="/#solutions" class="nav-link">Solutions</a>
-                <a href="/services/" class="nav-link">Services</a>
-                <a href="/case_study/" class="nav-link">Case Studies</a>
-                <!-- <a href="/pricing/" class="nav-link">Pricing</a> -->
-
-                <!-- Learn Dropdown -->
-                <div class="relative">
-                    <button id="learnBtn" class="nav-link flex items-center gap-1">
-                        Learn
-                        <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path d="M19 9l-7 7-7-7"></path>
+                <div class="relative group/nav">
+                    <button
+                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        <span class="relative">Services
+                            <span
+                                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
+                        </span>
+                        <svg class="w-4 h-4 transition-transform duration-200 group-hover/nav:rotate-180" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
                         </svg>
                     </button>
 
-                    <div id="learnMenu"
-                        class="absolute left-0 mt-3 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible transition-all duration-200">
-                        <a href="/how_it_works/" class="dropdown-link">How It Works</a>
-                        <!--<a href="#" class="dropdown-link">Blog</a>-->
-                        <a href="/about/" class="dropdown-link">About</a>
+                    <div
+                        class="absolute top-full left-0 w-[860px] max-w-[860px] transition-all duration-300 ease-out opacity-0 invisible -translate-y-1 scale-[0.98] pointer-events-none group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:scale-100 group-hover/nav:pointer-events-auto z-50">
+                        <div class="h-4"></div>
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+                            <div class="flex flex-col lg:flex-row">
+                                <div
+                                    class="lg:w-2/5 bg-gradient-to-br from-black via-zinc-900 to-black p-4 lg:p-5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#EE3923]/30 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#EE3923]/20 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute top-0 right-0 w-72 h-72 bg-[#EE3923]/20 rounded-full blur-[120px]">
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 left-0 w-64 h-64 bg-[#EE3923]/10 rounded-full blur-[100px]">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-b from-transparent via-[#EE3923]/5 to-transparent">
+                                    </div>
+
+                                    <div class="relative z-10 flex flex-col h-full justify-center">
+                                        <div
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EE3923]/20 border border-[#EE3923]/40 rounded-full text-orange-100 text-xs font-bold mb-4 backdrop-blur-sm self-start">
+                                            <span class="relative flex h-2 w-2">
+                                                <span
+                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE3923] opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-[#EE3923]"></span>
+                                            </span>
+                                            Limited Spots Available
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Ready to
+                                            grow<br>your business?</h3>
+                                        <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
+                                            session and see how we can 10X your results.</p>
+                                        <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
+                                            href="/get-started?cta=Get+Started+Free">Get Started Free
+                                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                        <p class="text-gray-400 text-xs mt-4">No credit card required • Free
+                                            consultation</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/ppc">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        PPC Management
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Turn
+                                                        ad spend into predictable revenue</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/seo">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        SEO Services
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        Dominate search rankings organically</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/web-development">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Web Development
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting websites that perform</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/web-development/landing-pages">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Landing Pages
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting pages that turn clicks into customers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/aeo">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Answer Engine Optimization
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Get
+                                                        featured in AI answers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/social-media">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Social Media Marketing
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Build
+                                                        engaged communities</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="mt-6 pt-6 border-t border-gray-200">
+                                        <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
+                                            href="/services">
+                                            View all services
+                                            <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <div class="relative group">
+                    <button class="nav-link flex items-center gap-1 py-4">
+                        Industries
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="/saas/" class="dropdown-link">SaaS</a>
+                        <a href="/b2b/" class="dropdown-link">B2B</a>
+                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                    </div>
+                </div>
+
+                <a href="/case_study/" class="nav-link">Case Studies</a>
+
+                <a href="/blog/" class="nav-link">Blog</a>
+
+                <a href="/about/" class="nav-link">About</a>
             </div>
 
-            <!-- CTA -->
             <div class="hidden md:block">
                 <a href="#contact"
-                    class="bg-black text-white px-5 py-2 rounded-lg font-bold hover:bg-gray-900 transition">
+                    class="bg-[#EE3923] text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition">
                     Get Access
                 </a>
             </div>
 
-            <!-- Mobile Hamburger -->
             <button id="menuBtn" class="md:hidden">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
@@ -2430,30 +2648,38 @@
             </button>
         </div>
 
-        <!-- Mobile Menu -->
         <div id="mobileMenu"
             class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
-
             <div class="px-6 py-4 space-y-4 font-bold">
                 <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
                 <a href="/services/" class="block mobile-link">Services</a>
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
-                <!-- <a href="/pricing/" class="block mobile-link">Pricing</a> -->
 
-                <!-- Mobile Dropdown -->
                 <div>
-                    <button id="mobileLearnBtn" class="flex justify-between w-full mobile-link">
-                        Learn
-                        <span>+</span>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
+                        class="flex justify-between w-full mobile-link">
+                        Industries <span>+</span>
+                    </button>
+                    <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/saas/" class="block text-gray-600">SaaS</a>
+                        <a href="/dtc/" class="block text-gray-600">DTC</a>
+                        <a href="/b2b/" class="block text-gray-600">B2B</a>
+                    </div>
+                </div>
+
+                <a href="/case_study/" class="block mobile-link">Case Studies</a>
+
+                <div>
+                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
+                        class="flex justify-between w-full mobile-link">
+                        Learn <span>+</span>
                     </button>
                     <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
                         <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
-                        <!--<a href="#" class="block text-gray-600">Blog</a>-->
                         <a href="/about/" class="block text-gray-600">About</a>
                     </div>
                 </div>
 
-                <a href="#contact" class="block bg-black text-white text-center py-2 rounded-lg">
+                <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
                     Get Access
                 </a>
             </div>
@@ -2501,12 +2727,18 @@
 
     <!-- JS -->
     <script>
+
         const menuBtn = document.getElementById("menuBtn");
         const mobileMenu = document.getElementById("mobileMenu");
 
         menuBtn.addEventListener("click", () => {
             mobileMenu.classList.toggle("max-h-[500px]");
         });
+        // Helper for mobile sub-menus
+        function toggleMobileMenu(id) {
+            const menu = document.getElementById(id);
+            menu.classList.toggle("hidden");
+        }
 
         const learnBtn = document.getElementById("learnBtn");
         const learnMenu = document.getElementById("learnMenu");
@@ -2646,7 +2878,7 @@
     <section class="pt-40 pb-20 px-6 text-center max-w-5xl mx-auto">
         <h1 class="text-6xl md:text-8xl font-black tracking-tight mb-8 leading-tight text-gray-900">
             GET MORE SALES <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4801] to-[#FF4801]">&amp; LEADS</span>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#EE3923] to-[#EE3923]">&amp; LEADS</span>
         </h1>
 
         <div class="max-w-lg mx-auto mt-8 hover:scale-[1.01] transition-transform duration-300">
@@ -2721,7 +2953,7 @@
                     <h2
                         class="text-5xl md:text-7xl font-[1000] tracking-tighter text-white leading-[0.85] uppercase italic">
                         Get More <span
-                            class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">Sales</span>
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-[#EE3923] to-[#EE3923]">Sales</span>
                         <br>
                         <span
                             class="not-italic text-zinc-500 group-hover:text-white transition-colors duration-700">&amp;
@@ -2735,7 +2967,7 @@
 
                     <div class="pt-4">
                         <a href="/services/"
-                            class="group/btn relative inline-flex items-center gap-4 bg-[#FF4801] text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl shadow-orange-500/20">
+                            class="group/btn relative inline-flex items-center gap-4 bg-[#EE3923] text-white px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-xs transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl shadow-orange-500/20">
                             Explore Systems
                             <svg class="w-5 h-5 group-hover/btn:translate-x-2 transition-transform duration-300"
                                 fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
@@ -2764,7 +2996,8 @@
                     <div
                         class="absolute bg-gradient-to-b from-zinc-800 to-zinc-950 p-8 rounded-[2rem] border border-white/10 shadow-2xl group-hover:-translate-y-4 transition-transform duration-1000">
                         <div class="flex flex-col items-center gap-1">
-                            <span class="text-orange-500 font-black text-4xl tracking-tighter animate-pulse">4.8x</span>
+                            <span
+                                class="text-[#EE3923] font-[#EE3923] text-4xl tracking-tighter animate-pulse">4.8x</span>
                             <span class="text-[10px] font-black text-zinc-500 uppercase tracking-widest">Target
                                 ROAS</span>
                         </div>
@@ -2950,7 +3183,7 @@
         <div class="max-w-[1400px] mx-auto px-3 md:px-5 lg:px-6">
             <div class="text-center mb-10">
                 <h2 class="text-4xl md:text-5xl lg:text-[3.5rem] font-bold tracking-tighter text-black mb-6">
-                    Customer <span class="text-[#FF4801]">Spotlight</span>
+                    Customer <span class="text-[#EE3923]">Spotlight</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="lucide lucide-heart w-8 h-8 md:w-10 md:h-10 text-[#FF4801] fill-[#FF4801] inline-block ml-2 align-middle"
@@ -3162,7 +3395,7 @@
     </section>
 
     <!--roller-->
-    <section class="w-full overflow-hidden bg-[#FF4801] border-t border-[#FF4801]/10 py-4">
+    <section class="w-full overflow-hidden bg-[#EE3923] border-t border-[#FF4801]/10 py-4">
         <div class="max-w-[1400px] mx-auto px-3 md:px-5 lg:px-6">
             <!-- Scrolling ticker container -->
             <div class="flex w-max animate-ticker-left">
@@ -3222,7 +3455,7 @@
                 <div class="lg:col-span-5 space-y-12">
                     <div class="inline-flex items-center p-1 bg-zinc-100 rounded-lg">
                         <span
-                            class="bg-[#FF4801] text-white px-4 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-md shadow-lg shadow-[#FF4801]/20">Solutions</span>
+                            class="bg-[#EE3923] text-white px-4 py-1.5 text-[10px] font-black uppercase tracking-widest rounded-md shadow-lg shadow-[#FF4801]/20">Solutions</span>
                         <span class="px-4 py-1.5 text-[10px] font-bold uppercase tracking-widest text-zinc-500">System
                             4.0</span>
                     </div>
@@ -3230,7 +3463,7 @@
                     <div class="space-y-6">
                         <h3
                             class="text-6xl md:text-7xl font-[1000] tracking-tighter text-zinc-900 leading-[0.85] uppercase">
-                            Multi-Channel <br> <span class="text-[#FF4801] italic">Dominance.</span>
+                            Multi-Channel <br> <span class="text-[#EE3923] italic">Dominance.</span>
                         </h3>
                         <p class="text-zinc-500 text-lg font-medium leading-relaxed max-w-md">
                             We don't just manage ads. We deploy <span
@@ -3294,8 +3527,8 @@
                                 <div class="flex items-center gap-2">
                                     <span class="relative flex h-2 w-2">
                                         <span
-                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4801] opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#FF4801]"></span>
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE3923] opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-[#EE3923]"></span>
                                     </span>
                                     <span class="text-[10px] font-black text-white uppercase tracking-widest">Analyst AI
                                         Terminal</span>
@@ -3309,7 +3542,7 @@
 
                             <div class="flex gap-4">
                                 <div
-                                    class="w-8 h-8 rounded-lg bg-[#FF4801] flex items-center justify-center shrink-0 shadow-lg shadow-[#FF4801]/40">
+                                    class="w-8 h-8 rounded-lg bg-[#EE3923] flex items-center justify-center shrink-0 shadow-lg shadow-[#FF4801]/40">
                                     <span class="text-white text-[10px] font-black italic">A.I</span>
                                 </div>
                                 <div class="space-y-4">
@@ -3338,7 +3571,7 @@
                                         <path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"></path>
                                     </svg>
                                 </div>
-                                <div class="bg-[#FF4801] p-5 rounded-2xl rounded-tr-none shadow-xl shadow-[#FF4801]/20">
+                                <div class="bg-[#EE3923] p-5 rounded-2xl rounded-tr-none shadow-xl shadow-[#EE3923]/20">
                                     <p class="text-white text-sm font-bold tracking-tight">Execute optimization path.
                                     </p>
                                 </div>
@@ -3362,7 +3595,7 @@
                                 class="flex-1 bg-black/50 border border-white/5 rounded-xl px-6 py-3 flex items-center justify-between group-hover:border-white/20 transition-all">
                                 <span class="text-zinc-600 text-xs font-medium uppercase tracking-widest">Path:
                                     /optimize_spend</span>
-                                <div class="w-1.5 h-4 bg-[#FF4801] animate-bounce"></div>
+                                <div class="w-1.5 h-4 bg-[#EE3923] animate-bounce"></div>
                             </div>
                         </div>
                     </div>
@@ -3384,7 +3617,7 @@
             <div class="max-w-5xl mx-auto text-center space-y-10">
                 <div style="opacity: 1; transform: none;">
                     <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black mb-2">Ready to
-                        <span class="text-[#FF4801]">Grow with </span>Ads?
+                        <span class="text-[#EE3923]">Grow with </span>Ads?
                     </h2>
                 </div>
                 <div class="relative max-w-xl mx-auto" style="opacity: 1; transform: none;">
@@ -3393,7 +3626,7 @@
                         <input id="hero-email-input" type="email" placeholder="name@company.com" required=""
                             class="flex-1 bg-transparent border-none outline-none px-4 md:px-6 text-[0.9rem] md:text-lg text-black placeholder:text-zinc-500 min-w-0 h-full">
                         <button type="submit"
-                            class="bg-orange-500 text-white px-6 md:px-8 h-full font-medium whitespace-nowrap hover:bg-orange-500 transition-colors flex items-center gap-2 rounded-md">
+                            class="bg-[#EE3923] text-white px-6 md:px-8 h-full font-medium whitespace-nowrap hover:bg-black transition-colors flex items-center gap-2 rounded-md">
                             <span class="text-sm md:text-lg">Get started</span>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -3447,7 +3680,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         How long before I see results?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         Most clients start seeing traction within 7–14 days, with strong results building over 30–90
@@ -3459,7 +3692,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         What platforms do you run?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         We manage Meta (Facebook &amp; Instagram), Google Ads, and TikTok Ads.
@@ -3470,7 +3703,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         Do I need a big budget?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         No. We scale based on your budget and focus on maximizing ROI, not spend.
@@ -3481,7 +3714,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         What reporting will I get?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         You receive clear reports covering ROAS, CPA, conversions, and growth insights.
@@ -3492,7 +3725,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         Can you guarantee results?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         We don’t promise fake numbers — we focus on proven strategies that consistently drive measurable
@@ -3504,7 +3737,7 @@
                     <button onclick="toggleFAQ(this)"
                         class="w-full flex justify-between items-center p-5 font-semibold text-left">
                         Who is this best for?
-                        <span class="text-[#FF4801] text-2xl">+</span>
+                        <span class="text-[#EE3923] text-2xl">+</span>
                     </button>
                     <div class="hidden px-5 pb-5 text-gray-600">
                         E-commerce brands and lead-based businesses looking to scale faster with paid ads.
@@ -3589,7 +3822,7 @@
                     <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
                         class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
                     <button type="submit"
-                        class="bg-red-600 text-white px-6 py-2 w-max font-bold rounded-md hover:bg-red-700 transition-colors">
+                        class="bg-[#EE3923] text-white px-6 py-2 w-max font-bold rounded-md hover:bg-[#EE3923] transition-colors">
                         Let's Start
                     </button>
                 </form>
@@ -3598,14 +3831,14 @@
                     <p class="text-lg font-medium mb-4">Follow Us On:</p>
                     <div class="flex gap-3">
                         <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                            class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="currentColor">
                                 <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
                             </svg>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                            class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="currentColor">
                                 <path
@@ -3614,7 +3847,7 @@
                             </svg>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                            class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="currentColor">
                                 <path
@@ -3623,7 +3856,7 @@
                             </svg>
                         </a>
                         <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                            class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">

@@ -41,69 +41,13 @@
             --tw-gradient-to-position: ;
             --tw-ordinal: ;
             --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia: ;
-            --tw-contain-size: ;
-            --tw-contain-layout: ;
-            --tw-contain-paint: ;
-            --tw-contain-style:
-        }
-
-        ::backdrop {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-gradient-from-position: ;
-            --tw-gradient-via-position: ;
-            --tw-gradient-to-position: ;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
+            <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center hover-icon"><div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center hover-icon"><div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center hover-icon"><div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center hover-icon"><div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center hover-icon"><a href="/services/ppc/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon"><a href="/services/seo/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon"><a href="/services/web-development/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon"><a href="/services/web-development/landing-pages/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon"><a href="/services/aeo/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon"><a href="/services/social-media/"
+            class="group rounded-2xl bg-white border border-zinc-200 p-6 hover:border-black hover:shadow-lg transition hover-card"><div class="w-12 h-12 rounded-xl bg-zinc-100 text-black flex items-center justify-center group-hover:bg-[#FF4801] group-hover:text-white transition hover-icon">--tw-ring-shadow: 0 0 #0000;
             --tw-shadow: 0 0 #0000;
             --tw-shadow-colored: 0 0 #0000;
             --tw-blur: ;
@@ -1610,6 +1554,23 @@
         .mobile-link {
             padding: 0.5rem 0;
         }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .reveal-on-load {
+            opacity: 0;
+            animation: fadeUp 0.8s ease-out forwards;
+        }
     </style>
 
     <!-- JS -->
@@ -1637,304 +1598,702 @@
         });
     </script>
 
-    <!-- Header Section -->
-    <section class="py-8 bg-[#FFF9F4]">
+    <!-- Hero (Services Top) -->
+    <section class="relative pt-32 pb-16 bg-black text-white overflow-hidden reveal-on-load">
+        <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#FF4801]/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-10 right-10 w-3 h-3 bg-white/40 rounded-full"></div>
+        <div class="absolute bottom-16 right-24 w-5 h-5 bg-white/20 rounded-full"></div>
+        <div class="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-black via-black to-transparent"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 text-xs font-semibold tracking-wide">
+                <span class="w-2 h-2 rounded-full bg-[#FF4801]"></span>
+                Full-Service Digital Marketing
+            </div>
+
+            <h1 class="mt-8 text-4xl md:text-6xl font-black tracking-tight">
+                Marketing services that drive <span class="text-[#FF4801]">results</span>
+            </h1>
+            <p class="mt-5 text-base md:text-lg text-zinc-300 max-w-3xl mx-auto">
+                From PPC to SEO, web development to social media, we deliver data-driven strategies that scale your
+                business and maximize ROI.
+            </p>
+
+            <div class="mt-8 flex flex-wrap justify-center gap-4">
+                <a href="/#contact"
+                    class="bg-[#FF4801] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#e23f00] transition">Get
+                    Free Consultation</a>
+                <a href="/case_study/"
+                    class="border border-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:border-white hover:bg-white hover:text-black transition">View
+                    Case Studies</a>
+            </div>
+
+            <div class="mt-12 grid grid-cols-2 lg:grid-cols-4 gap-4">
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-2xl md:text-3xl font-black">8+</p>
+                    <p class="text-xs uppercase tracking-[0.2em] text-zinc-300 mt-2">Core Services</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-2xl md:text-3xl font-black">400%</p>
+                    <p class="text-xs uppercase tracking-[0.2em] text-zinc-300 mt-2">Average ROI</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-2xl md:text-3xl font-black">$47M+</p>
+                    <p class="text-xs uppercase tracking-[0.2em] text-zinc-300 mt-2">Client Revenue</p>
+                </div>
+                <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                    <p class="text-2xl md:text-3xl font-black">98%</p>
+                    <p class="text-xs uppercase tracking-[0.2em] text-zinc-300 mt-2">Retention Rate</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Services Section -->
-
-    <section class="bg-white py-32 overflow-hidden">
+    <!-- Services Overview -->
+    <section class="py-20 bg-white reveal-on-load">
         <div class="max-w-7xl mx-auto px-6">
-
-            <div class="text-center mb-24">
-                <h2 class="text-[#FF4801] font-black uppercase tracking-[0.4em] text-[10px] mb-4 italic">— Comprehensive
-                    Acquisition</h2>
-                <h3 class="text-5xl md:text-7xl font-[1000] tracking-tighter uppercase text-zinc-900 leading-none">
-                    Our <span class="italic text-zinc-300">Verticals.</span>
-                </h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
-
+            <div class="text-center max-w-3xl mx-auto">
                 <div
-                    class="md:col-span-4 group relative bg-zinc-50 rounded-3xl p-10 overflow-hidden transition-all duration-700 hover:bg-zinc-900">
-                    <div class="relative z-10 flex flex-col h-full justify-between">
-                        <div>
-                            <div
-                                class="w-14 h-14 rounded-2xl bg-[#FF4801] flex items-center justify-center text-white mb-8 shadow-lg shadow-[#FF4801]/20">
-                                <svg class="w-8 h-8 fill-current" viewBox="0 0 48 48">
-                                    <path
-                                        d="M36.5 36.2C33.6 36.2 30.9 32.9 27.8 28.7C25.4 25.3 22.7 21.4 20.5 21.4C20.4 21.4 20.3 21.4 20.2 21.5C17.2 22.1 16.1 29.6 16.1 29.6C16.1 29.6 15.3 36.2 11.5 36.2C7.7 36.2 4.6 31.5 4.6 24.4C4.6 17.3 8.2 11.7 13.4 11.7C18.7 11.7 22.7 17.5 25.6 22C28.5 17.5 32.4 11.7 37.7 11.7C42.9 11.7 46.5 17.3 46.5 24.4C46.5 31.5 43.4 36.2 39.6 36.2C39.6 36.2 39.6 36.2 39.5 36.2C39.4 36.2 39.3 36.2 39.2 36.2C39 36.2 38.8 36.2 38.5 36.1C38 36.2 37.5 36.2 36.9 36.2Z">
-                                    </path>
-                                </svg>
-                            </div>
-                            <h4
-                                class="text-3xl font-black uppercase tracking-tighter text-zinc-900 group-hover:text-white transition-colors">
-                                Meta Ad <br>Management</h4>
-                            <p class="mt-4 text-zinc-500 max-w-sm group-hover:text-zinc-400">Full-funnel deployment
-                                across FB &amp; IG. We focus on creative testing and algorithmic scaling to hit
-                                aggressive ROAS targets.</p>
-                        </div>
-                        <div class="mt-12 flex gap-2">
-                            <span
-                                class="px-3 py-1 rounded-full border border-zinc-200 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:border-zinc-700">Scaling</span>
-                            <span
-                                class="px-3 py-1 rounded-full border border-zinc-200 text-[10px] font-bold uppercase tracking-widest text-zinc-400 group-hover:border-zinc-700">Creative
-                                Lab</span>
-                        </div>
-                    </div>
-                    <span
-                        class="absolute -bottom-10 -right-10 text-[15rem] font-black text-zinc-200/50 group-hover:text-white/5 select-none pointer-events-none transition-colors italic">META</span>
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF1E8] text-[#FF4801] text-xs font-semibold tracking-wide">
+                    <span class="w-2 h-2 rounded-full bg-[#FF4801]"></span>
+                    Full-Service Solutions
                 </div>
-
-                <div
-                    class="md:col-span-2 group bg-zinc-900 rounded-3xl p-10 flex flex-col justify-between transition-all duration-500 hover:scale-[0.98]">
-                    <div>
-                        <div
-                            class="w-12 h-12 rounded-xl bg-zinc-800 flex items-center justify-center text-[#FF4801] mb-8">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 448 512">
-                                <path
-                                    d="M100.28 448H7.4V148.9h92.88zm-46.44-339.8C24.2 108.2 0 83.9 0 54.6S24.2 1 53.84 1s53.88 24.3 53.88 53.6-24.2 53.6-53.88 53.6zM447.9 448h-92.68V302.4c0-34.7-.7-79.3-48.32-79.3-48.38 0-55.8 37.8-55.8 76.9V448h-92.64V148.9h88.96v40.8h1.3c12.4-23.6 42.68-48.3 87.84-48.3 94 0 111.32 61.8 111.32 142.3V448z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h4 class="text-2xl font-black uppercase tracking-tighter text-white">LinkedIn <br>B2B Growth
-                        </h4>
-                        <p class="mt-4 text-zinc-400 text-sm">Precision targeting for high-ticket acquisition. Ad
-                            creatives and landing page optimization designed for professional conversion.</p>
-                    </div>
-                    <div class="mt-8 pt-8 border-t border-zinc-800">
-                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-[#FF4801]">B2B Lead
-                            Velocity</span>
-                    </div>
-                </div>
-
-                <div
-                    class="md:col-span-3 group bg-white border border-zinc-100 rounded-3xl p-10 hover:border-zinc-900 transition-all duration-500 shadow-sm hover:shadow-2xl">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-zinc-50 flex items-center justify-center text-zinc-400 group-hover:bg-[#FF4801] group-hover:text-white transition-all mb-8">
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 48 48">
-                            <path
-                                d="M21.5 6.5c-1.8 0-3.2 1.5-3.2 3.3v28.4c0 1.8 1.4 3.3 3.2 3.3s3.2-1.5 3.2-3.3V9.8c0-1.8-1.4-3.3-3.2-3.3zM30.6 31.1c-1.1 0-2.1.6-2.7 1.6l-5.7 9.9c-.9 1.6-.3 3.7 1.4 4.6 1.6.9 3.7.3 4.6-1.4l5.7-9.9c.9-1.6.3-3.7-1.4-4.6-.5-.2-1-.2-1.9-.2z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h4 class="text-2xl font-black uppercase tracking-tighter text-zinc-900">Google <br>Search</h4>
-                    <p class="mt-4 text-zinc-500 text-sm">Strategy and setup for high-intent capture. More leads without
-                        rising costs through meticulous bid optimization.</p>
-                </div>
-
-                <!-- <div
-                    class="md:col-span-2 group bg-zinc-50 rounded-3xl p-10 hover:bg-white border border-transparent hover:border-zinc-200 transition-all duration-500 shadow-sm hover:shadow-2xl">
-                    <div
-                        class="w-12 h-12 rounded-xl bg-white border border-zinc-100 flex items-center justify-center text-zinc-400 group-hover:text-[#FF4801] transition-all mb-8">
-                        <svg class="w-6 h-6 fill-current" viewBox="0 0 512 512">
-                            <path
-                                d="M325.3 375.8c-65.5 48.5-160.2 59.4-236.7 22.4-8.2-3.9-16.3-8.6-24.1-13.7-3.2-2.1-.4-6.4 3.4-4.7 67.7 31.4 149.7 27 212.8-11.8 10.3-6.3 19.9-13.4 28.9-21.1 2.3-2.1 5.7 1.2 3.2 3.7zm79.2-23.1c-2.8-3.7-18.8-1.8-25.9-.8-2.1.3-2.4-1.6-.5-3 12-8.4 31.6-6 33.9-3.2 2.3 2.8-0.6 22.3-11.8 31.5-1.8 1.5-3.4.7-2.7-1.2 2.7-7.1 8.7-24.8 5.8-27.4zM155.7 159.8c0-22.3 15.2-38.5 40.2-38.5 27 0 44.5 14.7 44.5 50.8v98.1h-31.4v-92.7c0-15.5-7-24.2-20.8-24.2-12 0-19.3 7.9-19.3 22.8v94.1h-31.4V159.8zm239.5 74.3c0-52-31.5-79.7-70.6-79.7-39.1 0-70.6 27.7-70.6 79.7 0 52 31.5 79.7 70.6 79.7 39.1 0 70.6-27.7 70.6-79.7zm-31.4 0c0 39.7-17.9 55.9-39.2 55.9-21.2 0-39.2-16.2-39.2-55.9 0-39.7 17.9-55.9 39.2-55.9 21.3 0 39.2 16.3 39.2 55.9z">
-                            </path>
-                        </svg>
-                    </div>
-                    <h4 class="text-2xl font-black uppercase tracking-tighter text-zinc-900">Amazon <br>Domination</h4>
-                    <p class="mt-4 text-zinc-500 text-sm">Conversion-centric marketplace campaigns that prioritize ACOS
-                        reduction and sales velocity.</p>
-                </div> -->
-
-                <div
-                    class="md:col-span-3 group bg-zinc-900 rounded-3xl p-10 flex flex-col justify-between transition-all duration-500 hover:bg-[#FF4801]">
-                    <div>
-                        <div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center text-zinc-900 mb-8">
-                            <svg class="w-6 h-6 fill-current" viewBox="0 0 48 48">
-                                <path
-                                    d="M41.5,16.6c-3.4,0-6.6-1.1-9.2-3v16.7c0,7.7-6.3,14-14,14s-14-6.3-14-14s6.3-14,14-14c1.2,0,2.4,0.2,3.5,0.5v7.7c-1-0.8-2.3-1.2-3.5-1.2c-3.2,0-5.8,2.6-5.8,5.9s2.6,5.9,5.8,5.9c3.2,0,5.8-2.6,5.8-5.9V2.7h7.3c0.4,3.3,2.9,6.2,6.9,6.7V16.6z">
-                                </path>
-                            </svg>
-                        </div>
-                        <h4 class="text-2xl font-black uppercase tracking-tighter text-white">TikTok <br>Shop Ads</h4>
-                        <p class="mt-4 text-zinc-300 text-sm group-hover:text-white transition-colors">Native content
-                            strategies that turn quality traffic into viral revenue streams.</p>
-                    </div>
-                    <div class="mt-8 pt-8 border-t border-zinc-800 group-hover:border-white/20">
-                        <span class="text-[10px] font-black uppercase tracking-[0.2em] text-white">Native
-                            Commerce</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-    <section class="py-24 bg-white relative overflow-hidden">
-        <div
-            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full blur-[120px]">
-        </div>
-        <div class="absolute top-0 right-0 w-[600px] h-[600px] opacity-30" style="transform: rotate(63.2664deg);">
-            <div class="absolute top-20 right-20 w-32 h-32 bg-[#FF4801]/20 rounded-full blur-2xl"></div>
-            <div class="absolute bottom-40 left-40 w-40 h-40 bg-blue-500/10 rounded-full blur-2xl"></div>
-        </div>
-        <div class="max-w-[1400px] mx-auto px-3 md:px-5 lg:px-6 relative z-10">
-            <div class="max-w-5xl mx-auto text-center space-y-10">
-                <div style="opacity: 1; transform: none;">
-                    <h2 class="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter text-black mb-2">Ready to
-                        <span class="text-[#FF4801]">Grow with </span>Ads?
-                    </h2>
-                </div>
-                <div class="relative max-w-xl mx-auto" style="opacity: 1; transform: none;">
-                    <form id="hero-form" onsubmit="transferEmail(event)"
-                        class="flex items-center border-[0.5px] border-black rounded-lg bg-white shadow-sm hover:shadow-md transition-shadow duration-300 h-10 md:h-14 overflow-hidden pl-1 pr-1 py-1">
-                        <input id="hero-email-input" type="email" placeholder="name@company.com" required=""
-                            class="flex-1 bg-transparent border-none outline-none px-4 md:px-6 text-[0.9rem] md:text-lg text-black placeholder:text-zinc-500 min-w-0 h-full">
-                        <button type="submit"
-                            class="bg-orange-500 text-white px-6 md:px-8 h-full font-medium whitespace-nowrap hover:bg-orange-500 transition-colors flex items-center gap-2 rounded-md">
-                            <span class="text-sm md:text-lg">Get started</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="lucide lucide-chevron-right w-4 h-4" aria-hidden="true">
-                                <path d="m9 18 6-6-6-6"></path>
-                            </svg>
-                        </button>
-                    </form>
-                </div>
-                <div
-                    class="flex flex-wrap items-center justify-center gap-6 md:gap-12 text-zinc-500 text-sm font-medium">
-                </div>
-            </div>
-        </div>
-    </section>
-    <script>
-        function transferEmail(event) {
-            event.preventDefault();
-
-            // Get email
-            const emailValue = document.getElementById('hero-email-input').value;
-
-            // Store email in localStorage
-            localStorage.setItem('prefillEmail', emailValue);
-
-            // Redirect to home page
-            window.location.href = '/';  // Django home page URL
-        }
-    </script>
-
-    <footer class="bg-black text-white py-12 px-6 md:px-16 font-sans">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-
-            <div class="space-y-6">
-                <div class="flex items-start gap-3">
-                    <div class="relative w-12 h-12 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" class="absolute inset-0 fill-none stroke-red-600 stroke-2">
-                            <polygon points="50 1, 93 25, 93 75, 50 99, 7 75, 7 25" />
-                        </svg>
-                        <div class="text-[8px] font-bold text-red-600 text-center leading-tight uppercase">
-                            AD<br>RYZE
-                        </div>
-                    </div>
-                </div>
-                <p class="leading-relaxed text-gray-300 text-sm max-w-sm">
-                    Trusted global PPC partner for B2B SaaS and e-commerce brands, delivering consistent growth and
-                    measurable results.
+                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                    Everything you need to <span class="text-[#FF4801]">grow online</span>
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-zinc-600">
+                    We offer a comprehensive suite of digital marketing services tailored to your business goals and
+                    budget.
                 </p>
             </div>
 
-            <div class="space-y-6 md:pl-10">
-                <h3 class="text-xl font-bold text-white">Quick Links</h3>
-                <ul class="space-y-3">
-                    <li>
-                        <a href="/" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🏠</span>
-                            Home
-                        </a>
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">PPC Management</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Paid ads that actually pay off with clean structure and
+                        measurable results.</p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Google + Meta
+                            campaign builds</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Creative
+                            testing
+                            sprints</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> ROAS-focused
+                            optimization</li>
+                    </ul>
+                    <a href="/services/ppc/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">SEO</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Rank where your customers search with technical + content
+                        systems.</p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Technical SEO
+                            foundations</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Content
+                            strategy +
+                            briefs</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Keyword +
+                            intent
+                            mapping</li>
+                    </ul>
+                    <a href="/services/seo/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Web Development</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Fast, conversion-first websites with clean UX and strong
+                        performance.</p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Custom site
+                            builds</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Responsive +
+                            mobile-first</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Speed +
+                            performance tuning</li>
+                    </ul>
+                    <a href="/services/web-development/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Landing Pages</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Conversion-focused pages designed around one goal: leads.</p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> High-converting
+                            layouts</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> A/B testing
+                            support</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Analytics +
+                            tracking
+                            setup</li>
+                    </ul>
+                    <a href="/services/web-development/landing-pages/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Answer Engine Optimization</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Get featured in AI answers and capture new demand.</p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> AI SERP
+                            visibility</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Structured
+                            content
+                            strategy</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Entity + schema
+                            optimization</li>
+                    </ul>
+                    <a href="/services/aeo/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm hover:shadow-lg transition">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Social Media Marketing</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Build audience, trust, and demand with a full social stack.
+                    </p>
+                    <ul class="mt-5 space-y-2 text-sm text-zinc-600">
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Paid + organic
+                            strategy</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Content +
+                            community</li>
+                        <li class="flex items-center gap-2"><span class="text-[#FF4801]">&#10003;</span> Performance
+                            reporting</li>
+                    </ul>
+                    <a href="/services/social-media/"
+                        class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#FF4801]">
+                        Learn More
+                        <span>→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Process -->
+    <section class="py-20 bg-[#FFF7F1] reveal-on-load">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#FF7A1A] text-xs font-semibold tracking-wide border border-[#FF7A1A]/20">
+                    <span class="w-2 h-2 rounded-full bg-[#FF7A1A]"></span>
+                    Our Process
+                </div>
+                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                    How we <span class="text-[#FF7A1A]">work together</span>
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-zinc-600">
+                    A proven process designed to get you results fast with full transparency every step of the way.
+                </p>
+            </div>
+
+            <div class="mt-12 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-lg bg-[#FF7A1A] text-white flex items-center justify-center text-sm font-bold">01</span>
+                        <span
+                            class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF1E8] text-[#FF7A1A] text-xs font-semibold">Week
+                            1</span>
+                    </div>
+                    <h3 class="mt-4 text-base font-bold">Discovery &amp; Strategy</h3>
+                    <p class="mt-2 text-sm text-zinc-600">We analyze your business, competitors, and audience to craft
+                        a custom growth strategy.</p>
+                </div>
+
+                <div class="relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-lg bg-[#FF7A1A] text-white flex items-center justify-center text-sm font-bold">02</span>
+                        <span
+                            class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF1E8] text-[#FF7A1A] text-xs font-semibold">Week
+                            2-3</span>
+                    </div>
+                    <h3 class="mt-4 text-base font-bold">Setup &amp; Implementation</h3>
+                    <p class="mt-2 text-sm text-zinc-600">We build campaigns, set up tracking, and prepare all assets
+                        for launch.</p>
+                </div>
+
+                <div class="relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-lg bg-[#FF7A1A] text-white flex items-center justify-center text-sm font-bold">03</span>
+                        <span
+                            class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF1E8] text-[#FF7A1A] text-xs font-semibold">Week
+                            4+</span>
+                    </div>
+                    <h3 class="mt-4 text-base font-bold">Launch &amp; Optimization</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Campaigns go live. We monitor performance and optimize daily
+                        for maximum results.</p>
+                </div>
+
+                <div class="relative rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="w-10 h-10 rounded-lg bg-[#FF7A1A] text-white flex items-center justify-center text-sm font-bold">04</span>
+                        <span
+                            class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF1E8] text-[#FF7A1A] text-xs font-semibold">Ongoing</span>
+                    </div>
+                    <h3 class="mt-4 text-base font-bold">Reporting &amp; Scaling</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Monthly performance reviews, insights, and scaling
+                        recommendations to grow your ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-[#F9F7FF] reveal-on-load">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#FF4801] text-xs font-semibold tracking-wide border border-[#FF4801]/20">
+                    <span class="w-2 h-2 rounded-full bg-[#FF4801]"></span>
+                    Why Choose Us
+                </div>
+                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                    The <span class="text-[#FF4801]">Adryze</span> advantage
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-zinc-600">
+                    Work with a team obsessed with your success, not just collecting retainers.
+                </p>
+            </div>
+
+            <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M17 20h5v-2a4 4 0 00-5-4m-6 6H2v-2a4 4 0 014-4h5m0 6v-2a4 4 0 00-4-4m6-4a3 3 0 11-6 0 3 3 0 016 0zm8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Expert Team</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Senior-level strategists with 9+ years managing campaigns
+                        across major industries.</p>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M2.25 12c0-3.866 3.134-7 7-7h5.5c3.866 0 7 3.134 7 7s-3.134 7-7 7h-5.5c-3.866 0-7-3.134-7-7z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Full Transparency</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Real-time access to campaign data, reports, and performance
+                        metrics. No black boxes.</p>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12.75l2.25 2.25L15 9.75m-3 11.25a9 9 0 100-18 9 9 0 000 18z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Proven Results</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Track record of 400% average ROI with data-driven strategies
+                        that work.</p>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.75a6 6 0 00-12 0" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 12.75a3.75 3.75 0 100-7.5 3.75 3.75 0 000 7.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Dedicated Support</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Direct access to your account manager. No call centers or
+                        automated responses.</p>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Flexible Contracts</h3>
+                    <p class="mt-2 text-sm text-zinc-600">No long-term lock-ins. Cancel anytime with 30 days notice if
+                        it is not the right fit.</p>
+                </div>
+
+                <div class="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+                    <div class="w-12 h-12 rounded-xl bg-[#FF4801]/10 text-[#FF4801] flex items-center justify-center">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3 class="mt-5 text-xl font-bold">Fast Turnaround</h3>
+                    <p class="mt-2 text-sm text-zinc-600">Campaigns launch in 2-3 weeks with ongoing optimization for
+                        maximum impact.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industry Expertise -->
+    <section class="py-20 bg-[#FFF4EC] reveal-on-load">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#FF7A1A] text-xs font-semibold tracking-wide border border-[#FF7A1A]/20">
+                    <span class="w-2 h-2 rounded-full bg-[#FF7A1A]"></span>
+                    Industry Expertise
+                </div>
+                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                    We know <span class="text-[#FF7A1A]">your industry</span>
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-zinc-600">
+                    50+ industries served with tailored strategies that understand your unique challenges and
+                    opportunities.
+                </p>
+            </div>
+
+            <div class="mt-10 flex flex-wrap justify-center gap-3">
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Real
+                    Estate</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Healthcare</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Home
+                    Services</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Automotive</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Legal</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">E-commerce</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Finance</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">SaaS</span>
+                <span
+                    class="px-4 py-2 rounded-full bg-white border border-zinc-200 text-sm font-semibold text-zinc-800">Construction</span>
+            </div>
+
+            <div class="mt-8 text-center text-sm text-zinc-600">
+                Don't see your industry? We create custom strategies for businesses in any sector.
+            </div>
+
+            <div class="mt-6 flex justify-center">
+                <a href="/case_study/"
+                    class="bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition">View All
+                    Industries →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-20 bg-[#FFF7F1] reveal-on-load">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto">
+                <div
+                    class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-[#FF7A1A] text-xs font-semibold tracking-wide border border-[#FF7A1A]/20">
+                    <span class="w-2 h-2 rounded-full bg-[#FF7A1A]"></span>
+                    FAQ
+                </div>
+                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                    Got <span class="text-[#FF7A1A]">questions?</span>
+                </h2>
+                <p class="mt-4 text-base md:text-lg text-zinc-600">
+                    Find answers to common questions about our services, pricing, and process.
+                </p>
+            </div>
+
+            <div class="mt-10 space-y-4">
+                <details class="group rounded-2xl border border-[#FF7A1A]/30 bg-white p-5 shadow-sm" open>
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FF7A1A] text-xs font-bold text-white">01</span>
+                            <h3 class="text-sm md:text-base font-semibold text-black">What services do you offer?</h3>
+                        </div>
+                        <span
+                            class="flex h-8 w-8 items-center justify-center rounded-full border border-[#FF7A1A]/20 text-[#FF7A1A] transition group-open:rotate-180">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-zinc-600">
+                        We offer a full suite of digital marketing services including PPC (Google Ads, Microsoft Ads),
+                        SEO, social media marketing, content marketing, email marketing, conversion rate optimization,
+                        web design and development, and analytics reporting.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3D1] text-xs font-bold text-[#FF7A1A]">02</span>
+                            <h3 class="text-sm md:text-base font-semibold text-black">What is your minimum budget
+                                requirement?</h3>
+                        </div>
+                        <span
+                            class="flex h-8 w-8 items-center justify-center rounded-full border border-[#FF7A1A]/20 text-[#FF7A1A] transition group-open:rotate-180">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-zinc-600">
+                        We typically recommend a minimum monthly budget based on your goals and channel mix. During the
+                        discovery call, we will outline a plan that aligns with your growth targets.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3D1] text-xs font-bold text-[#FF7A1A]">03</span>
+                            <h3 class="text-sm md:text-base font-semibold text-black">Do you require long-term
+                                contracts?</h3>
+                        </div>
+                        <span
+                            class="flex h-8 w-8 items-center justify-center rounded-full border border-[#FF7A1A]/20 text-[#FF7A1A] transition group-open:rotate-180">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-zinc-600">
+                        No. We offer flexible agreements with 30-day notice. Our focus is on performance, not lock-ins.
+                    </p>
+                </details>
+
+                <details class="group rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
+                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4">
+                        <div class="flex items-center gap-4">
+                            <span
+                                class="flex h-8 w-8 items-center justify-center rounded-full bg-[#FFE3D1] text-xs font-bold text-[#FF7A1A]">04</span>
+                            <h3 class="text-sm md:text-base font-semibold text-black">How long until I see results?</h3>
+                        </div>
+                        <span
+                            class="flex h-8 w-8 items-center justify-center rounded-full border border-[#FF7A1A]/20 text-[#FF7A1A] transition group-open:rotate-180">
+                            <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-sm text-zinc-600">
+                        Timelines depend on channel and goals. PPC can show early traction in weeks, while SEO builds
+                        over several months. We set clear expectations up front.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Card -->
+    <section class="py-20 bg-white reveal-on-load">
+        <div class="max-w-5xl mx-auto px-6">
+            <div
+                class="rounded-3xl border border-white/10 bg-gradient-to-br from-[#0B0E1A] via-[#1B1A3B] to-[#3B2A77] p-10 text-center text-white shadow-2xl">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold text-white/80 border border-white/10">
+                    <span class="w-2 h-2 rounded-full bg-[#FF9B4A]"></span>
+                    Ready to Grow?
+                </div>
+                <h2 class="mt-6 text-3xl md:text-4xl font-black tracking-tight">
+                    Let's grow your business <span class="text-[#FFB07A]">together</span>
+                </h2>
+                <p class="mt-4 text-sm md:text-base text-white/70 max-w-2xl mx-auto">
+                    Get a free marketing audit and strategy session. See exactly how we can help you achieve your
+                    growth goals.
+                </p>
+
+                <div class="mt-8 flex flex-wrap justify-center gap-4">
+                    <a href="/#contact"
+                        class="bg-[#FF7A1A] text-white px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition">Get
+                        Free Audit →</a>
+                    <a href="/contact/"
+                        class="bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 transition">Contact
+                        Sales</a>
+                </div>
+
+                <div class="mt-8 border-t border-white/10 pt-6">
+                    <div class="flex flex-wrap justify-center gap-6 text-xs text-white/70">
+                        <span class="inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            Free Strategy Session
+                        </span>
+                        <span class="inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            No Long-Term Contracts
+                        </span>
+                        <span class="inline-flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                            90-Day Guarantee
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0B0B0F] text-white py-16 px-6 md:px-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
+            <div class="md:col-span-2 space-y-5">
+                <div class="text-2xl font-black tracking-tight">KG</div>
+                <p class="text-sm text-zinc-400 leading-relaxed max-w-sm">
+                    Premium digital marketing agency for ambitious businesses. We deliver data-driven growth
+                    strategies that generate measurable results.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-300">Google
+                        Partner</span>
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-zinc-300">Meta
+                        Partner</span>
+                </div>
+                <div class="flex gap-2">
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 6.5V18H12v-8.5H9.5zM10.75 6.25a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM18 12.25c0-2.2-1.2-3.25-2.8-3.25-1.3 0-1.9.7-2.2 1.2V9.5H10.5V18H13v-4.5c0-1.2.2-2.3 1.6-2.3s1.4 1.3 1.4 2.4V18H18v-5.75z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M13 3H9a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6V9a6 6 0 0 0-6-6zm-1 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.5-9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-white hover:bg-white/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold tracking-[0.25em] text-zinc-500">SERVICES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/services/ppc/" class="hover:text-white transition">PPC Management</a></li>
+                    <li><a href="/services/seo/" class="hover:text-white transition">SEO Services</a></li>
+                    <li><a href="/services/web-development/" class="hover:text-white transition">Web Development</a>
                     </li>
-                    <li>
-                        <a href="#skills"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">💻</span>
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/blogs"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">📖</span>
-                            Blogs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">👤</span>
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🎧</span>
-                            Contact Us
-                        </a>
+                    <li><a href="/services/web-development/landing-pages/" class="hover:text-white transition">Landing
+                            Pages</a></li>
+                    <li><a href="/services/aeo/" class="hover:text-white transition">Answer Engine Optimization</a></li>
+                    <li><a href="/services/social-media/" class="hover:text-white transition">Social Media Marketing</a>
                     </li>
                 </ul>
             </div>
 
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-white">PPC Growth Plan</h3>
-                <form id="hero-form" onsubmit="transferEmail(event)" class="flex flex-col gap-3">
-                    <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
-                        class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
-                    <button type="submit"
-                        class="bg-red-600 text-white px-6 py-2 w-max font-bold rounded-md hover:bg-red-700 transition-colors">
-                        Let's Start
-                    </button>
-                </form>
+            <div class="space-y-3">
+                <p class="text-xs font-semibold tracking-[0.25em] text-zinc-500">COMPANY</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/about/" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="/case_study/" class="hover:text-white transition">Case Studies</a></li>
+                    <li><a href="/about/" class="hover:text-white transition">Testimonials</a></li>
+                    <li><a href="/contact/" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
 
-                <div class="pt-2">
-                    <p class="text-lg font-medium mb-4">Follow Us On:</p>
-                    <div class="flex gap-3">
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+            <div class="space-y-3">
+                <p class="text-xs font-semibold tracking-[0.25em] text-zinc-500">INDUSTRIES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="#" class="hover:text-white transition">Real Estate</a></li>
+                    <li><a href="#" class="hover:text-white transition">Healthcare</a></li>
+                    <li><a href="#" class="hover:text-white transition">Home Services</a></li>
+                    <li><a href="#" class="hover:text-white transition">Automotive</a></li>
+                    <li><a href="#" class="hover:text-white transition">Legal</a></li>
+                    <li><a href="#" class="hover:text-white transition">E-commerce</a></li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold tracking-[0.25em] text-zinc-500">RESOURCES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/blogs" class="hover:text-white transition">Blog</a></li>
+                    <li><a href="#faq" class="hover:text-white transition">FAQ</a></li>
+                    <li><a href="/#contact" class="hover:text-white transition">Get Started</a></li>
+                </ul>
             </div>
         </div>
 
-        <div
-            class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide text-gray-400">
-            <p>© 2026 Adryze. All rights reserved.</p>
-            <div class="flex gap-6 uppercase">
-                <a href="#" class="hover:text-red-500 transition">Disclaimer</a>
-                <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-red-500 transition">Terms & Conditions</a>
+        <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-zinc-500">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>© 2026 KeyGrow LLC. All rights reserved.</p>
+                <p class="flex items-center gap-2">
+                    <span class="w-2 h-2 rounded-full bg-[#FF7A1A]"></span>
+                    Based in United States
+                </p>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
@@ -1952,12 +2311,8 @@
             window.location.href = '/';  // Django home page URL
         }
     </script>
-
-
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-
-
 
 </body>
 

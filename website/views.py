@@ -58,3 +58,36 @@ def amazon_ppc_case_study(request):
 
 def beauty_brand_case_study(request):
     return render(request, 'beauty_brand_case_study.html')
+
+def saas(request):
+    return render(request, 'saas.html')
+
+def b2b(request):
+    return render(request, 'b2b.html')
+
+def dtc(request):
+    return render(request, 'dtc.html')
+
+
+def service_ppc(request):
+    return render(request, 'services_ppc.html')
+
+
+def service_seo(request):
+    return render(request, 'services_seo.html')
+
+
+def service_web_development(request):
+    return render(request, 'services_web_development.html')
+
+
+def service_landing_pages(request):
+    return render(request, 'services_landing_pages.html')
+
+
+def service_aeo(request):
+    return render(request, 'services_aeo.html')
+
+
+def service_social_media(request):
+    return render(request, 'services_social_media.html')

@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaaS PPC Agency For Predictable Pipeline - ADRYZE</title>
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Open+Sans:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .font-montserrat {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+
+    <main id="main-content">
+        <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+            <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+                <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+                    AD<span class="text-[#EE3923]">RYZE</span>
+                </a>
+
+                <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
+                    <a href="/#solutions" class="nav-link">Solutions</a>
+                    <a href="/services/" class="nav-link">Services</a>
+
+                    <div class="relative group">
+                        <button class="nav-link flex items-center gap-1 py-4">
+                            Industries
+                            <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="/saas/" class="dropdown-link">SaaS</a>
+                            <a href="/b2b/" class="dropdown-link">B2B</a>
+                            <a href="/dtc/" class="dropdown-link">DTC</a>
+                        </div>
+                    </div>
+
+                    <a href="/case_study/" class="nav-link">Case Studies</a>
+
+                    <div class="relative group">
+                        <button class="nav-link flex items-center gap-1 py-4">
+                            Learn
+                            <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                                stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                                <path d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div
+                            class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <a href="/how_it_works/" class="dropdown-link">How It Works</a>
+                            <a href="/about/" class="dropdown-link">About</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hidden md:block">
+                    <a href="#contact"
+                        class="bg-[#EE3923] text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition">
+                        Get Access
+                    </a>
+                </div>
+
+                <button id="menuBtn" class="md:hidden">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="mobileMenu"
+                class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+                <div class="px-6 py-4 space-y-4 font-bold">
+                    <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
+                    <a href="/services/" class="block mobile-link">Services</a>
+
+                    <div>
+                        <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
+                            class="flex justify-between w-full mobile-link">
+                            Industries <span>+</span>
+                        </button>
+                        <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
+                            <a href="/saas/" class="block text-gray-600">SaaS</a>
+                            <a href="/dtc/" class="block text-gray-600">DTC</a>
+                            <a href="/b2b/" class="block text-gray-600">B2B</a>
+                        </div>
+                    </div>
+
+                    <a href="/case_study/" class="block mobile-link">Case Studies</a>
+
+                    <div>
+                        <button onclick="toggleMobileMenu('mobileLearnMenu')"
+                            class="flex justify-between w-full mobile-link">
+                            Learn <span>+</span>
+                        </button>
+                        <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
+                            <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
+                            <a href="/about/" class="block text-gray-600">About</a>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
+                        Get Access
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Styles -->
+        <style>
+            .nav-link {
+                position: relative;
+                padding: 0.5rem 1rem;
+                transition: all 0.3s;
+            }
+
+            .nav-link::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 2px;
+                width: 0;
+                background: #FF4801;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::before {
+                width: 2.5rem;
+            }
+
+            .dropdown-link {
+                display: block;
+                padding: 0.6rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .dropdown-link:hover {
+                background: #fff7ed;
+                color: #FF4801;
+            }
+
+            .mobile-link {
+                padding: 0.5rem 0;
+            }
+        </style>
+
+        <!-- JS -->
+        <script>
+
+            const menuBtn = document.getElementById("menuBtn");
+            const mobileMenu = document.getElementById("mobileMenu");
+
+            menuBtn.addEventListener("click", () => {
+                mobileMenu.classList.toggle("max-h-[500px]");
+            });
+            // Helper for mobile sub-menus
+            function toggleMobileMenu(id) {
+                const menu = document.getElementById(id);
+                menu.classList.toggle("hidden");
+            }
+
+            const learnBtn = document.getElementById("learnBtn");
+            const learnMenu = document.getElementById("learnMenu");
+
+            learnBtn.addEventListener("click", () => {
+                learnMenu.classList.toggle("opacity-0");
+                learnMenu.classList.toggle("invisible");
+            });
+
+            const mobileLearnBtn = document.getElementById("mobileLearnBtn");
+            const mobileLearnMenu = document.getElementById("mobileLearnMenu");
+
+            mobileLearnBtn.addEventListener("click", () => {
+                mobileLearnMenu.classList.toggle("hidden");
+            });
+        </script>
+        <section class="py-16 md:py-24 px-6 max-w-7xl mx-auto border-b border-gray-50">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-black tracking-tighter text-gray-900 leading-tight mb-6">
+                        SaaS PPC Agency Built For <span class="text-[#EE3923]">Predictable Pipeline</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg leading-relaxed">
+                        We help B2B SaaS teams turn paid traffic into qualified trials, demos, and revenue. No random
+                        “lead gen.” Just a clean system across Google, LinkedIn, and Meta.
+                    </p>
+                    <a href="https://www.adlabz.co/lp-ppc-growth-plan"
+                        class="inline-block bg-[#EE3923] text-white px-8 py-4 rounded font-bold text-lg hover:bg-red-700 transition duration-300 shadow-lg">
+                        Get Your Free PPC Growth Plan
+                    </a>
+                </div>
+                <div class="relative">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/29a1fd63a41c87ef18ea470df4ca2e15a64e8279-1.png"
+                        alt="SaaS Pipeline" class="rounded-xl shadow-2xl w-full">
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50 px-6">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+                <div>
+                    <span class="text-[#EE3923] uppercase tracking-widest text-sm font-bold">Specialist</span>
+                    <h2 class="text-3xl md:text-4xl font-black text-gray-900 mt-2">Why A SaaS PPC Agency Beats A
+                        Generalist</h2>
+                </div>
+                <div>
+                    <p class="text-gray-600 text-lg leading-relaxed pt-2">
+                        SaaS is messy on purpose. Trials, demos, multi-stakeholder buying, long cycles. If your paid
+                        media is only optimized for clicks or CPL, it will look “fine” while revenue stays stuck.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 px-6 max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white p-8 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <span class="text-[#EE3923] font-bold text-sm">One</span>
+                    <h3 class="text-2xl font-black mt-2 mb-4">Unit Economics First</h3>
+                    <h4 class="text-xl font-bold text-gray-700 mb-4">Scale Without Breaking CAC</h4>
+                    <p class="text-gray-500">We plan spend around your real constraints like payback, sales cycle, and
+                        close rates. That means fewer “big swings” and more predictable months.</p>
+                </div>
+                <div class="bg-white p-8 border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <span class="text-[#EE3923] font-bold text-sm">Two</span>
+                    <h3 class="text-2xl font-black mt-2 mb-4">Funnel Quality</h3>
+                    <h4 class="text-xl font-bold text-gray-700 mb-4">Stop Paying For Curious Clickers</h4>
+                    <p class="text-gray-500">We align ads, landing pages, and targeting to attract buyers with urgency.
+                        Then we optimize using down funnel signals like show rate, SQLs, and pipeline.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-white px-6">
+            <div class="max-w-7xl mx-auto text-center mb-12">
+                <span class="text-[#EE3923] uppercase tracking-widest text-sm font-bold">Process</span>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-2">Adryze SaaS PPC Playbook</h2>
+                <p class="text-gray-500 mt-4 max-w-2xl mx-auto">A structured process that turns “we should run ads” into
+                    a repeatable growth engine.</p>
+            </div>
+
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="text-center group">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/66e1f50b42afc1db7641963cf55d59795d72d159-e1766062504872.webp"
+                        class="rounded-lg mb-4 grayscale group-hover:grayscale-0 transition">
+                    <h5 class="text-[#EE3923] font-bold uppercase text-xs">One</h5>
+                    <h3 class="font-black text-gray-900 text-sm mt-1">Funnel And Offer Mapping</h3>
+                </div>
+                <div class="text-center group">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/ad06d76e425f505f519ce1b926a7e771e5aec8a1-e1766067613841.webp"
+                        class="rounded-lg mb-4 grayscale group-hover:grayscale-0 transition">
+                    <h5 class="text-[#EE3923] font-bold uppercase text-xs">Two</h5>
+                    <h3 class="font-black text-gray-900 text-sm mt-1">Targeting & Messaging</h3>
+                </div>
+                <div class="text-center group">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/936bbebb3f008e15e2c8311a6de9b19eaab1d475-e1766150275896.webp"
+                        class="rounded-lg mb-4 grayscale group-hover:grayscale-0 transition">
+                    <h5 class="text-[#EE3923] font-bold uppercase text-xs">Three</h5>
+                    <h3 class="font-black text-gray-900 text-sm mt-1">Landing Page Conversion</h3>
+                </div>
+                <div class="text-center group">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/ef79a99f85262f89282333aab483dbbf5935e6ad-e1766150365725.webp"
+                        class="rounded-lg mb-4 grayscale group-hover:grayscale-0 transition">
+                    <h5 class="text-[#EE3923] font-bold uppercase text-xs">Four</h5>
+                    <h3 class="font-black text-gray-900 text-sm mt-1">Channel Orchestration</h3>
+                </div>
+                <div class="text-center group">
+                    <img src="https://www.adlabz.co/wp-content/uploads/2025/12/c0935a03015129ce5e7b197b3b40705e38567579.webp"
+                        class="rounded-lg mb-4 grayscale group-hover:grayscale-0 transition">
+                    <h5 class="text-[#EE3923] font-bold uppercase text-xs">Five</h5>
+                    <h3 class="font-black text-gray-900 text-sm mt-1">Revenue Reporting</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-16 bg-gray-50 px-6">
+            <div class="max-w-7xl mx-auto text-center mb-12">
+                <span class="text-[#EE3923] uppercase tracking-widest text-sm font-bold">Industries</span>
+                <h2 class="text-3xl md:text-5xl font-black text-gray-900 mt-2">Industries We Help</h2>
+            </div>
+            <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition group">
+                    <div class="w-12 h-12 mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="https://www.adlabz.co/wp-content/uploads/2025/12/Icon.webp" alt="Icon">
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Revenue & Sales Tech</h4>
+                    <p class="text-gray-500 text-sm">CRMs, Sales Engagement And Forecasting Platforms That Need More
+                        Consistent, High Intent Demos From PPC.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition group">
+                    <div class="w-12 h-12 mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="https://www.adlabz.co/wp-content/uploads/2025/12/Icon-1.webp" alt="Icon">
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Finance & Billing</h4>
+                    <p class="text-gray-500 text-sm">Invoicing, Spend Management And Subscription Analytics Platforms
+                        Selling To Finance and RevOps.</p>
+                </div>
+                <div class="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition group">
+                    <div class="w-12 h-12 mb-6 group-hover:scale-110 transition duration-300">
+                        <img src="https://www.adlabz.co/wp-content/uploads/2025/12/cloud.png" alt="Icon" class="w-full">
+                    </div>
+                    <h4 class="text-xl font-bold mb-4">Developer Tools</h4>
+                    <p class="text-gray-500 text-sm">CI/CD, Feature Flag and Cloud Cost Tools Selling Into Engineering
+                        and DevOps Teams.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-900 px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl md:text-5xl font-black text-white leading-tight mb-6">Make Your PPC Pay Off</h2>
+                <p class="text-gray-400 text-lg mb-10 max-w-2xl mx-auto">Stop running channels in silos. We align
+                    Google, LinkedIn, and Meta to the same funnel so every click supports revenue.</p>
+                <a href="https://www.adlabz.co/lp-ppc-growth-plan"
+                    class="inline-block bg-[#EE3923] text-white px-10 py-5 rounded font-black text-xl hover:bg-white hover:text-[#EE3923] transition duration-300 shadow-2xl">
+                    Claim Your Free PPC Growth Plan
+                </a>
+            </div>
+        </section>
+        <footer class="bg-black text-white py-12 px-6 md:px-16 font-sans">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+                <div class="space-y-6">
+                    <div class="flex items-start gap-3">
+                        <div class="relative w-12 h-12 flex items-center justify-center">
+                            <svg viewBox="0 0 100 100" class="absolute inset-0 fill-none stroke-red-600 stroke-2">
+                                <polygon points="50 1, 93 25, 93 75, 50 99, 7 75, 7 25" />
+                            </svg>
+                            <div class="text-[8px] font-bold text-red-600 text-center leading-tight uppercase">
+                                AD<br>RYZE
+                            </div>
+                        </div>
+                    </div>
+                    <p class="leading-relaxed text-gray-300 text-sm max-w-sm">
+                        Trusted global PPC partner for B2B SaaS and e-commerce brands, delivering consistent growth and
+                        measurable results.
+                    </p>
+                </div>
+
+                <div class="space-y-6 md:pl-10">
+                    <h3 class="text-xl font-bold text-white">Quick Links</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <a href="/"
+                                class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+                                <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🏠</span>
+                                Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#skills"
+                                class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+                                <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">💻</span>
+                                Services
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/blogs"
+                                class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+                                <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">📖</span>
+                                Blogs
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/about"
+                                class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+                                <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">👤</span>
+                                About Us
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/contact"
+                                class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
+                                <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🎧</span>
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="space-y-6">
+                    <h3 class="text-xl font-bold text-white">PPC Growth Plan</h3>
+                    <form id="hero-form" onsubmit="transferEmail(event)" class="flex flex-col gap-3">
+                        <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
+                            class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
+                        <button type="submit"
+                            class="bg-[#EE3923] text-white px-6 py-2 w-max font-bold rounded-md hover:bg-[#EE3923] transition-colors">
+                            Let's Start
+                        </button>
+                    </form>
+
+                    <div class="pt-2">
+                        <p class="text-lg font-medium mb-4">Follow Us On:</p>
+                        <div class="flex gap-3">
+                            <a href="#"
+                                class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="currentColor">
+                                    <path
+                                        d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
+                                    </path>
+                                </svg>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-[#EE3923] rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide text-gray-400">
+                <p>© 2026 Adryze. All rights reserved.</p>
+                <div class="flex gap-6 uppercase">
+                    <a href="#" class="hover:text-red-500 transition">Disclaimer</a>
+                    <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-red-500 transition">Terms & Conditions</a>
+                </div>
+            </div>
+        </footer>
+        <script>
+            function transferEmail(event) {
+                event.preventDefault();
+
+                // Get email
+                const emailValue = document.getElementById('hero-email-input').value;
+
+                // Store email in localStorage
+                localStorage.setItem('prefillEmail', emailValue);
+
+                // Redirect to home page
+                window.location.href = '/';  // Django home page URL
+            }
+        </script>
+
+    </main>
+
+</body>
+
+</html>
