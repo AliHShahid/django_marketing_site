@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from website.views import home, how_it_works, about, case_study, pricing, services, ecommerce_case_study, amazon_ppc_case_study, beauty_brand_case_study, saas, b2b, dtc, service_ppc, service_seo, service_web_development, service_landing_pages, service_aeo, service_social_media
+from website.views import home, how_it_works, about, case_study, pricing, services, ecommerce_case_study, amazon_ppc_case_study, beauty_brand_case_study, saas, b2b, dtc, service_ppc, service_seo, service_web_development, service_landing_pages, service_aeo, service_social_media, contact
 # from website import views  
 
 urlpatterns = [
@@ -38,7 +38,8 @@ urlpatterns = [
     path('services/web-development/', service_web_development, name='service_web_development'),
     path('services/web-development/landing-pages/', service_landing_pages, name='service_landing_pages'),
     path('services/aeo/', service_aeo, name='service_aeo'),
-    path('services/social-media/', service_social_media, name='service_social_media')
+    path('services/social-media/', service_social_media, name='service_social_media'),
+    path('contact/', contact, name='contact')
     
 
 ]

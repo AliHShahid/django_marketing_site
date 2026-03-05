@@ -35,6 +35,22 @@ def home(request):
     return render(request, 'index.html')
 
 
+def contact(request):
+    if request.method == 'POST':
+        Lead.objects.create(
+            name=request.POST.get('name'),
+            email=request.POST.get('email'),
+            date=request.POST.get('date') or None,
+            package=request.POST.get('package'),
+            phone=request.POST.get('phone'),
+            message=request.POST.get('message', '')
+        )
+        messages.success(request, "Thanks! Your details were submitted successfully.")
+        return redirect('contact')
+
+    return render(request, 'contact.html')
+
+
 def how_it_works(request):
     return render(request, 'how_it_works.html')
 
