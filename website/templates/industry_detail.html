@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ industry_name }} | ADRYZE</title>
+</head>
+
+<body>
+    <main style="max-width: 900px; margin: 4rem auto; font-family: Arial, sans-serif; padding: 0 1rem;">
+        <h1>{{ industry_name }}</h1>
+        <p>This dedicated page is now connected from the Industries menu.</p>
+        <p><a href="{% url 'all_industries' %}">View All Industries</a></p>
+        <p><a href="{% url 'home' %}">Back to Home</a></p>
+    </main>
+</body>
+
+</html>

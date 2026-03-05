@@ -2381,7 +2381,7 @@
 <body>
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+            <a href="{% url 'home' %}" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
                 AD<span class="text-[#EE3923]">RYZE</span>
             </a>
 
@@ -2439,7 +2439,7 @@
                                         <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
                                             session and see how we can 10X your results.</p>
                                         <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
-                                            href="/get-started?cta=Get+Started+Free">Get Started Free
+                                            href="{% url 'get_started' %}?cta=Get+Started+Free">Get Started Free
                                             <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 stroke-width="2.5">
@@ -2455,7 +2455,7 @@
                                 <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/ppc">
+                                            href="{% url 'service_ppc' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2478,7 +2478,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/seo">
+                                            href="{% url 'service_seo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2501,7 +2501,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development">
+                                            href="{% url 'service_web_development' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2524,7 +2524,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development/landing-pages">
+                                            href="{% url 'service_landing_pages' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2547,7 +2547,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/aeo">
+                                            href="{% url 'service_aeo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2570,7 +2570,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/social-media">
+                                            href="{% url 'service_social_media' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -2595,7 +2595,7 @@
 
                                     <div class="mt-6 pt-6 border-t border-gray-200">
                                         <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
-                                            href="/services">
+                                            href="{% url 'services' %}">
                                             View all services
                                             <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -2611,27 +2611,223 @@
                     </div>
                 </div>
 
-                <div class="relative group">
+                <div id="industriesNavItem" class="relative group/industry">
                     <button class="nav-link flex items-center gap-1 py-4">
                         Industries
-                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover/industry:rotate-180" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div
-                        class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <a href="/saas/" class="dropdown-link">SaaS</a>
-                        <a href="/b2b/" class="dropdown-link">B2B</a>
-                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                    <div class="industries-hover-bridge" aria-hidden="true"></div>
+                    <div class="industries-mega z-50">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden">
+                            <div class="p-6 pb-4 border-b border-gray-200/80">
+                                <div class="flex items-start gap-4">
+                                    <span class="inline-block w-1 h-7 rounded-full bg-[#EE3923]"></span>
+                                    <div>
+                                        <h3 class="text-base font-bold tracking-tight text-gray-900">Industries We
+                                            Serve</h3>
+                                        <p class="text-gray-500 text-xs mt-1">Specialized strategies for <span
+                                                class="text-[#EE3923] font-semibold">8+ industries</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div class="grid grid-cols-4 gap-x-7 gap-y-6">
+                                    <div class="industry-card">
+                                        <a href="{% url 'real_estate' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 11 12 4l9 7" />
+                                                    <path d="M5 10v10h14V10" />
+                                                    <path d="M10 20v-6h4v6" />
+                                                </svg></span><span>Real
+                                                Estate</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'real-estate-agents' %}"
+                                                class="industry-link">Real Estate
+                                                Agents</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-investors' %}"
+                                                class="industry-link">Real Estate
+                                                Investors</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-brokers' %}"
+                                                class="industry-link">Real Estate
+                                                Brokers</a>
+                                            <a href="{% url 'industry_detail' 'property-management' %}"
+                                                class="industry-link">Property
+                                                Management</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'healthcare' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path
+                                                        d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.65-7 10-7 10z" />
+                                                </svg></span><span>Healthcare</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'dentists' %}"
+                                                class="industry-link">Dentists</a>
+                                            <a href="{% url 'industry_detail' 'chiropractors' %}"
+                                                class="industry-link">Chiropractors</a>
+                                            <a href="{% url 'industry_detail' 'med-spas' %}" class="industry-link">Med
+                                                Spas</a>
+                                            <a href="{% url 'industry_detail' 'plastic-surgeons' %}"
+                                                class="industry-link">Plastic Surgeons</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'home_services' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="3" />
+                                                    <path
+                                                        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 1 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.6z" />
+                                                </svg></span><span>Home
+                                                Services</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'hvac-companies' %}"
+                                                class="industry-link">HVAC Companies</a>
+                                            <a href="{% url 'industry_detail' 'plumbers' %}"
+                                                class="industry-link">Plumbers</a>
+                                            <a href="{% url 'industry_detail' 'electricians' %}"
+                                                class="industry-link">Electricians</a>
+                                            <a href="{% url 'industry_detail' 'roofing-companies' %}"
+                                                class="industry-link">Roofing
+                                                Companies</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'automotive' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 14h18" />
+                                                    <path d="M5 14 7 9h10l2 5" />
+                                                    <circle cx="7" cy="17" r="2" />
+                                                    <circle cx="17" cy="17" r="2" />
+                                                </svg></span><span>Automotive</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'car-detailers' %}"
+                                                class="industry-link">Car Detailers</a>
+                                            <a href="{% url 'industry_detail' 'auto-repair-shops' %}"
+                                                class="industry-link">Auto Repair Shops</a>
+                                            <a href="{% url 'industry_detail' 'car-dealerships' %}"
+                                                class="industry-link">Car Dealerships</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'legal' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M12 3v18" />
+                                                    <path d="M5 7h14" />
+                                                    <path d="M7 7v2a3 3 0 1 0 6 0V7" />
+                                                    <path d="M11 7v2a3 3 0 1 0 6 0V7" />
+                                                </svg></span><span>Legal</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'personal-injury-lawyers' %}"
+                                                class="industry-link">Personal Injury
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'family-law-attorneys' %}"
+                                                class="industry-link">Family Law Attorneys</a>
+                                            <a href="{% url 'industry_detail' 'criminal-defense-lawyers' %}"
+                                                class="industry-link">Criminal Defense
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'estate-planning-attorneys' %}"
+                                                class="industry-link">Estate Planning
+                                                Attorneys</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'ecommerce' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="9" cy="20" r="1.8" />
+                                                    <circle cx="17" cy="20" r="1.8" />
+                                                    <path
+                                                        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H7" />
+                                                </svg></span><span>E-commerce</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'fashion-apparel' %}"
+                                                class="industry-link">Fashion &amp;
+                                                Apparel</a>
+                                            <a href="{% url 'industry_detail' 'beauty-cosmetics' %}"
+                                                class="industry-link">Beauty &amp;
+                                                Cosmetics</a>
+                                            <a href="{% url 'industry_detail' 'health-supplements' %}"
+                                                class="industry-link">Health &amp;
+                                                Supplements</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'finance' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="8" />
+                                                    <path d="M12 8v8" />
+                                                    <path
+                                                        d="M9.5 10.5c0-1 1.1-1.8 2.5-1.8s2.5.8 2.5 1.8-1.1 1.8-2.5 1.8-2.5.8-2.5 1.8 1.1 1.8 2.5 1.8 2.5-.8 2.5-1.8" />
+                                                </svg></span><span>Finance</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'financial-advisors' %}"
+                                                class="industry-link">Financial Advisors</a>
+                                            <a href="{% url 'industry_detail' 'wealth-management' %}"
+                                                class="industry-link">Wealth Management</a>
+                                            <a href="{% url 'industry_detail' 'accounting-firms' %}"
+                                                class="industry-link">Accounting Firms</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'construction' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M4 20h16" />
+                                                    <path d="M6 20V8h12v12" />
+                                                    <path d="M9 8V5h6v3" />
+                                                    <path d="M9 12h2M13 12h2M9 15h2M13 15h2" />
+                                                </svg></span><span>Construction</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'home-remodelers' %}"
+                                                class="industry-link">Home Remodelers</a>
+                                            <a href="{% url 'industry_detail' 'custom-home-builders' %}"
+                                                class="industry-link">Custom Home
+                                                Builders</a>
+                                            <a href="{% url 'industry_detail' 'commercial-contractors' %}"
+                                                class="industry-link">Commercial
+                                                Contractors</a>
+                                            <a href="{% url 'industry_detail' 'pool-builders' %}"
+                                                class="industry-link">Pool Builders</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between px-6 py-4 border-t border-gray-200/80 bg-gray-50/70">
+                                <p class="text-xs text-gray-500">Don't see your industry? <span
+                                        class="font-semibold text-gray-900">We work with all business types</span></p>
+                                <a href="{% url 'all_industries' %}"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white text-xs font-semibold hover:bg-[#EE3923] transition-colors">View
+                                    All Industries <span>→</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="nav-link">Case Studies</a>
+                <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
 
-                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="{% url 'blog' %}" class="nav-link">Blog</a>
 
-                <a href="/about/" class="nav-link">About</a>
+                <a href="{% url 'about' %}" class="nav-link">About</a>
             </div>
 
             <div class="hidden md:block">
@@ -2641,7 +2837,8 @@
                 </a>
             </div>
 
-            <button id="menuBtn" class="md:hidden">
+            <button id="menuBtn" class="md:hidden p-2" aria-controls="mobileMenu" aria-expanded="false"
+                aria-label="Toggle navigation menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -2649,35 +2846,48 @@
         </div>
 
         <div id="mobileMenu"
-            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300"
+            aria-hidden="true">
             <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
-                <a href="/services/" class="block mobile-link">Services</a>
+                <div>
+                    <button onclick="toggleMobileMenu('mobileServicesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Services <span data-toggle-icon>+</span>
+                    </button>
+                    <div id="mobileServicesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'service_ppc' %}" class="block text-gray-600">PPC Management</a>
+                        <a href="{% url 'service_seo' %}" class="block text-gray-600">SEO Services</a>
+                        <a href="{% url 'service_web_development' %}" class="block text-gray-600">Web Development</a>
+                        <a href="{% url 'service_landing_pages' %}" class="block text-gray-600">Landing
+                            Pages</a>
+                        <a href="{% url 'service_aeo' %}" class="block text-gray-600">Answer Engine Optimization</a>
+                        <a href="{% url 'service_social_media' %}" class="block text-gray-600">Social Media
+                            Marketing</a>
+                        <a href="{% url 'services' %}" class="block text-gray-600">View all services</a>
+                    </div>
+                </div>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
-                        class="flex justify-between w-full mobile-link">
-                        Industries <span>+</span>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Industries <span data-toggle-icon>+</span>
                     </button>
                     <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/saas/" class="block text-gray-600">SaaS</a>
-                        <a href="/dtc/" class="block text-gray-600">DTC</a>
-                        <a href="/b2b/" class="block text-gray-600">B2B</a>
+                        <a href="{% url 'real_estate' %}" class="block text-gray-600">Real Estate</a>
+                        <a href="{% url 'healthcare' %}" class="block text-gray-600">Healthcare</a>
+                        <a href="{% url 'home_services' %}" class="block text-gray-600">Home Services</a>
+                        <a href="{% url 'automotive' %}" class="block text-gray-600">Automotive</a>
+                        <a href="{% url 'legal' %}" class="block text-gray-600">Legal</a>
+                        <a href="{% url 'ecommerce' %}" class="block text-gray-600">E-commerce</a>
+                        <a href="{% url 'finance' %}" class="block text-gray-600">Finance</a>
+                        <a href="{% url 'construction' %}" class="block text-gray-600">Construction</a>
+                        <a href="{% url 'all_industries' %}" class="block text-gray-600">View all industries</a>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
-
-                <div>
-                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
-                        class="flex justify-between w-full mobile-link">
-                        Learn <span>+</span>
-                    </button>
-                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
-                        <a href="/about/" class="block text-gray-600">About</a>
-                    </div>
-                </div>
+                <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
+                <a href="{% url 'blog' %}" class="block mobile-link">Blog</a>
+                <a href="{% url 'about' %}" class="block mobile-link">About</a>
 
                 <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
                     Get Started
@@ -2723,6 +2933,116 @@
         .mobile-link {
             padding: 0.5rem 0;
         }
+
+        .industry-card {
+            transition: transform 0.2s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-1px);
+        }
+
+        .industry-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.55rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .industry-icon {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 0.7rem;
+            background: #f3f4f6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            transition: all 0.2s ease;
+        }
+
+        .industry-svg {
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        .industry-card:hover .industry-icon {
+            background: #fff1ed;
+            color: #EE3923;
+        }
+
+        .industry-card:hover .industry-head {
+            color: #EE3923;
+        }
+
+        .industry-links {
+            margin-left: 0.9rem;
+            padding-left: 0.85rem;
+            border-left: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .industry-link {
+            color: #4b5563;
+            font-size: 0.7rem;
+            line-height: 1.35;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .industry-link:hover {
+            color: #EE3923;
+            transform: translateX(3px);
+        }
+
+        .industries-mega {
+            position: fixed;
+            top: 74px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            transform: translateX(-50%) translateY(6px) scale(0.985);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+        }
+
+        .industries-hover-bridge {
+            position: fixed;
+            top: 56px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            height: 28px;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .group\/industry:hover .industries-mega,
+        .group\/industry.industry-open .industries-mega,
+        .industries-mega:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0) scale(1);
+            transition-delay: 0s;
+        }
+
+        .group\/industry:hover .industries-hover-bridge,
+        .group\/industry.industry-open .industries-hover-bridge,
+        .industries-hover-bridge:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
     </style>
 
     <!-- JS -->
@@ -2731,29 +3051,81 @@
         const menuBtn = document.getElementById("menuBtn");
         const mobileMenu = document.getElementById("mobileMenu");
 
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("max-h-[500px]");
-        });
+        if (menuBtn && mobileMenu) {
+            const setMobileMenuState = (open) => {
+                mobileMenu.style.maxHeight = open
+                    ? `${Math.min(mobileMenu.scrollHeight, window.innerHeight - 88)}px`
+                    : "0px";
+                mobileMenu.classList.toggle("overflow-y-auto", open);
+                mobileMenu.classList.toggle("overflow-hidden", !open);
+                menuBtn.setAttribute("aria-expanded", String(open));
+                mobileMenu.setAttribute("aria-hidden", String(!open));
+                document.body.classList.toggle("overflow-hidden", open);
+            };
+
+            const closeMobileMenu = () => setMobileMenuState(false);
+
+            menuBtn.addEventListener("click", () => {
+                const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+                setMobileMenuState(!isOpen);
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
+                    return;
+                }
+
+                if (menuBtn.getAttribute("aria-expanded") === "true") {
+                    setMobileMenuState(true);
+                }
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeMobileMenu);
+            });
+        }
+
         // Helper for mobile sub-menus
-        function toggleMobileMenu(id) {
+        function toggleMobileMenu(id, trigger) {
             const menu = document.getElementById(id);
+            if (!menu) return;
+
             menu.classList.toggle("hidden");
+
+            if (trigger) {
+                const isExpanded = !menu.classList.contains("hidden");
+                trigger.setAttribute("aria-expanded", String(isExpanded));
+                const icon = trigger.querySelector("[data-toggle-icon]");
+                if (icon) {
+                    icon.textContent = isExpanded ? "−" : "+";
+                }
+            }
         }
 
         const learnBtn = document.getElementById("learnBtn");
         const learnMenu = document.getElementById("learnMenu");
 
-        learnBtn.addEventListener("click", () => {
-            learnMenu.classList.toggle("opacity-0");
-            learnMenu.classList.toggle("invisible");
-        });
+        if (learnBtn && learnMenu) {
+            learnBtn.addEventListener("click", () => {
+                learnMenu.classList.toggle("opacity-0");
+                learnMenu.classList.toggle("invisible");
+            });
+        }
 
-        const mobileLearnBtn = document.getElementById("mobileLearnBtn");
-        const mobileLearnMenu = document.getElementById("mobileLearnMenu");
-
-        mobileLearnBtn.addEventListener("click", () => {
-            mobileLearnMenu.classList.toggle("hidden");
-        });
+        const industriesNavItem = document.getElementById("industriesNavItem");
+        if (industriesNavItem) {
+            let industriesCloseTimer;
+            industriesNavItem.addEventListener("mouseenter", () => {
+                clearTimeout(industriesCloseTimer);
+                industriesNavItem.classList.add("industry-open");
+            });
+            industriesNavItem.addEventListener("mouseleave", () => {
+                industriesCloseTimer = setTimeout(() => {
+                    industriesNavItem.classList.remove("industry-open");
+                }, 220);
+            });
+        }
     </script>
 
 
@@ -2909,9 +3281,9 @@
                 <img src="/static/images/platforms/meta.png" alt="Meta Ads" class="w-full h-full object-contain">
             </div>
 
-            <div class="h-6 sm:h-8 md:h-10 w-14 sm:w-20 md:w-28 grayscale opacity-40">
+            <!-- <div class="h-6 sm:h-8 md:h-10 w-14 sm:w-20 md:w-28 grayscale opacity-40">
                 <img src="/static/images/platforms/amazon.png" alt="Amazon" class="w-full h-full object-contain">
-            </div>
+            </div> -->
 
             <div class="h-6 sm:h-8 md:h-10 w-14 sm:w-20 md:w-28 grayscale opacity-100 contrast-200 brightness-[0.8]">
                 <img src="/static/images/platforms/tiktok.png" alt="Tiktok" class="w-full h-full object-contain">

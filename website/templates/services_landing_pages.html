@@ -275,67 +275,355 @@
             font-size: 0.7rem;
             color: rgba(0, 0, 0, 0.5);
         }
+
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #FF4801;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 2.5rem;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: #fff7ed;
+            color: #FF4801;
+        }
+
+        .mobile-link {
+            padding: 0.5rem 0;
+        }
     </style>
 </head>
 
 <body class="bg-white">
     <div id="scroll-progress"></div>
-    <header class="border-b border-black/10 bg-white/95 backdrop-blur-md sticky top-0 z-50 transition-shadow"
-        id="site-header">
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-            <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-1">
-                <span class="text-[var(--orange)]">A</span>dryze
+    <nav id="site-header" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+                AD<span class="text-[#EE3923]">RYZE</span>
             </a>
-            <nav class="hidden items-center gap-7 text-sm font-medium md:flex">
-                <a href="/services"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Services
-                    <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+
+            <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
+                <div class="relative group/nav">
+                    <button
+                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        <span class="relative">Services
+                            <span
+                                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
+                        </span>
+                        <svg class="w-4 h-4 transition-transform duration-200 group-hover/nav:rotate-180" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="absolute top-full left-0 w-[860px] max-w-[860px] transition-all duration-300 ease-out opacity-0 invisible -translate-y-1 scale-[0.98] pointer-events-none group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:scale-100 group-hover/nav:pointer-events-auto z-50">
+                        <div class="h-4"></div>
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+                            <div class="flex flex-col lg:flex-row">
+                                <div
+                                    class="lg:w-2/5 bg-gradient-to-br from-black via-zinc-900 to-black p-4 lg:p-5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#EE3923]/30 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#EE3923]/20 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute top-0 right-0 w-72 h-72 bg-[#EE3923]/20 rounded-full blur-[120px]">
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 left-0 w-64 h-64 bg-[#EE3923]/10 rounded-full blur-[100px]">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-b from-transparent via-[#EE3923]/5 to-transparent">
+                                    </div>
+
+                                    <div class="relative z-10 flex flex-col h-full justify-center">
+                                        <div
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EE3923]/20 border border-[#EE3923]/40 rounded-full text-orange-100 text-xs font-bold mb-4 backdrop-blur-sm self-start">
+                                            <span class="relative flex h-2 w-2">
+                                                <span
+                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE3923] opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-[#EE3923]"></span>
+                                            </span>
+                                            Limited Spots Available
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Ready to
+                                            grow<br>your business?</h3>
+                                        <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
+                                            session and see how we can 10X your results.</p>
+                                        <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
+                                            href="/get-started?cta=Get+Started+Free">Get Started Free
+                                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                        <p class="text-gray-400 text-xs mt-4">No credit card required • Free
+                                            consultation</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/ppc">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        PPC Management
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Turn
+                                                        ad spend into predictable revenue</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/seo">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        SEO Services
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        Dominate search rankings organically</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/web-development">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Web Development
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting websites that perform</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/web-development/landing-pages">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Landing Pages
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting pages that turn clicks into customers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/aeo">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Answer Engine Optimization
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Get
+                                                        featured in AI answers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="/services/social-media">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Social Media Marketing
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Build
+                                                        engaged communities</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="mt-6 pt-6 border-t border-gray-200">
+                                        <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
+                                            href="/services">
+                                            View all services
+                                            <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative group">
+                    <button class="nav-link flex items-center gap-1 py-4">
+                        Industries
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div
+                        class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <a href="/saas/" class="dropdown-link">SaaS</a>
+                        <a href="/b2b/" class="dropdown-link">B2B</a>
+                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                    </div>
+                </div>
+
+                <a href="/case_study/" class="nav-link">Case Studies</a>
+
+                <a href="/blog/" class="nav-link">Blog</a>
+
+                <a href="/about/" class="nav-link">About</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#contact"
+                    class="bg-[#EE3923] text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition">
+                    Get Started
                 </a>
-                <a href="/case-study"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Case Studies
-                    <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+            </div>
+
+            <button id="menuBtn" class="md:hidden" aria-label="Toggle menu" aria-expanded="false">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobileMenu"
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+            <div class="px-6 py-4 space-y-4 font-bold">
+                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
+                <a href="/services/" class="block mobile-link">Services</a>
+
+                <div>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
+                        class="flex justify-between w-full mobile-link">
+                        Industries <span>+</span>
+                    </button>
+                    <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/saas/" class="block text-gray-600">SaaS</a>
+                        <a href="/dtc/" class="block text-gray-600">DTC</a>
+                        <a href="/b2b/" class="block text-gray-600">B2B</a>
+                    </div>
+                </div>
+
+                <a href="/case_study/" class="block mobile-link">Case Studies</a>
+
+                <div>
+                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
+                        class="flex justify-between w-full mobile-link">
+                        Learn <span>+</span>
+                    </button>
+                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
+                        <a href="/about/" class="block text-gray-600">About</a>
+                    </div>
+                </div>
+
+                <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
+                    Get Started
                 </a>
-                <a href="/pricing"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Pricing
-                    <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
-                </a>
-                <a href="/about" class="hover:text-[var(--orange)] transition-colors duration-150 relative group">About
-                    <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
-                </a>
-            </nav>
-            <div class="flex items-center gap-3">
-                <a href="/contact"
-                    class="btn-glow hidden md:inline-flex rounded-full bg-[var(--orange)] px-5 py-2 text-sm font-semibold text-white">Book
-                    a Call</a>
-                <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
-                    class="md:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-xl border border-black/10 items-center">
-                    <span
-                        class="menu-bar w-5 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
-                    <span class="menu-bar w-5 h-[2px] bg-black rounded-full transition-all duration-300"></span>
-                    <span
-                        class="menu-bar w-3 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
-                </button>
             </div>
         </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="md:hidden hidden border-t border-black/10 bg-white/98">
-            <nav class="flex flex-col px-6 py-5 gap-4 text-sm font-medium">
-                <a href="/services" class="py-1 hover:text-[var(--orange)] transition-colors">Services</a>
-                <a href="/case-study" class="py-1 hover:text-[var(--orange)] transition-colors">Case Studies</a>
-                <a href="/pricing" class="py-1 hover:text-[var(--orange)] transition-colors">Pricing</a>
-                <a href="/about" class="py-1 hover:text-[var(--orange)] transition-colors">About</a>
-                <a href="/contact"
-                    class="mt-1 rounded-full bg-[var(--orange)] px-5 py-2.5 text-sm font-semibold text-white text-center btn-glow">Book
-                    a Call</a>
-            </nav>
-        </div>
-    </header>
+    </nav>
 
-    <main>
+    <main class="pt-20">
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
@@ -638,7 +926,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Research &amp; Strategy</div>
+                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Research &amp; Strategy
+                                </div>
                                 <div class="text-xs text-black/60 mt-0.5">Understand your audience, value proposition,
                                     and conversion goals.</div>
                             </div>
@@ -695,7 +984,8 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. Testing &amp; Optimization</div>
+                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. Testing &amp; Optimization
+                                </div>
                                 <div class="text-xs text-black/60 mt-0.5">A/B test variations and refine based on real
                                     behavior data.</div>
                             </div>
@@ -794,7 +1084,8 @@
                             </span>
                             <div>
                                 <div class="text-sm font-semibold">Message Match</div>
-                                <div class="text-xs text-black/60">Align perfectly with your ad or campaign message.</div>
+                                <div class="text-xs text-black/60">Align perfectly with your ad or campaign message.
+                                </div>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
@@ -807,7 +1098,8 @@
                             </span>
                             <div>
                                 <div class="text-sm font-semibold">Higher Conversions</div>
-                                <div class="text-xs text-black/60">Optimized to maximize form submissions and sales.</div>
+                                <div class="text-xs text-black/60">Optimized to maximize form submissions and sales.
+                                </div>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
@@ -1247,169 +1539,109 @@
                         class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
-                            <path d="M20 7h-9" />
-                            <path d="M14 17H5" />
-                            <circle cx="17" cy="17" r="3" />
-                            <circle cx="7" cy="7" r="3" />
+                            <path d="M9 12l2 2 4-4" />
+                            <circle cx="12" cy="12" r="9" />
                         </svg>
                         Why Choose Us
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Build with <span
-                            class="text-[var(--orange)]">experts who care</span></h2>
-                    <p class="mt-3 max-w-3xl text-sm text-black/60 md:text-base">We combine technical excellence with
-                        business strategy to build websites that don't just look good — they deliver measurable
-                        results.</p>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span
+                            class="text-[var(--orange)]">landing page service?</span></h2>
+                    <p class="mt-3 max-w-3xl text-sm text-black/60 md:text-base">Partner with experts who understand
+                        the science of conversion and have the track record to prove it.</p>
                 </div>
 
-                <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">Modern Tech Stack</div>
-                            <div class="text-xs text-black/60">We use cutting-edge technologies like Next.js, React,
-                                and TypeScript for fast, scalable websites.</div>
+                <div class="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center">
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Conversion Expertise</div>
+                                <div class="text-xs text-black/60">Our designers specialize in conversion rate
+                                    optimization and know exactly what makes visitors take action.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <line x1="12" y1="20" x2="12" y2="10" />
-                                <line x1="18" y1="20" x2="18" y2="4" />
-                                <line x1="6" y1="20" x2="6" y2="14" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">Performance Obsessed</div>
-                            <div class="text-xs text-black/60">Sub-2-second load times guaranteed. We optimize every
-                                byte for lightning-fast user experience.</div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Psychology-Driven Design</div>
+                                <div class="text-xs text-black/60">We apply proven psychological principles like
+                                    urgency, scarcity, and social proof to maximize conversion.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <circle cx="11" cy="11" r="8" />
-                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">SEO Foundation</div>
-                            <div class="text-xs text-black/60">Built-in SEO best practices from day one. Clean code,
-                                proper meta tags, and schema markup.</div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Mobile-First Approach</div>
+                                <div class="text-xs text-black/60">Every page is designed for mobile first, then
+                                    enhanced for desktop to capture 70%+ of traffic.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <rect x="7" y="2" width="10" height="20" rx="2" />
-                                <line x1="11" y1="18" x2="13" y2="18" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">Mobile-First Approach</div>
-                            <div class="text-xs text-black/60">Designed from mobile first, then scaled up. Flawless
-                                experience on any device or screen size.</div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">A/B Testing Built-In</div>
+                                <div class="text-xs text-black/60">We continuously test variations to find what
+                                    resonates best with your specific audience.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <path d="M9 12h6" />
-                                <path d="M12 9v6" />
-                                <circle cx="12" cy="12" r="9" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">Conversion Optimization</div>
-                            <div class="text-xs text-black/60">Strategic design and UX that guides visitors to take
-                                action. Every element has a purpose.</div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Fast Load Times</div>
+                                <div class="text-xs text-black/60">Optimized code and assets ensure pages load in
+                                    under 2 seconds to prevent visitor drop-off.</div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                                <path d="m9 12 2 2 4-4" />
-                            </svg>
-                        </span>
-                        <div>
-                            <div class="text-sm font-semibold text-black">Enterprise Security</div>
-                            <div class="text-xs text-black/60">Bank-level security with SSL, DDoS protection, and
-                                secure authentication to protect your data.</div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Data-Backed Decisions</div>
+                                <div class="text-xs text-black/60">Every design choice is informed by conversion
+                                    research and real user behavior analytics.</div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="mt-10 rounded-2xl border border-[var(--orange)]/30 bg-[var(--orange-100)]/60 p-5">
-                    <div class="flex items-start gap-3">
-                        <span
-                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-5 w-5">
-                                <path d="M20 12a8 8 0 1 1-2.34-5.66" />
-                                <polyline points="20 4 20 10 14 10" />
-                            </svg>
-                        </span>
-                        <div class="flex-1">
-                            <div class="text-base font-semibold text-black">Ongoing Support</div>
-                            <div class="mt-1 text-sm text-black/65">We don't disappear after launch. Ongoing
-                                maintenance, updates, and support to keep you running.</div>
-                            <div class="mt-4 grid gap-3 sm:grid-cols-3">
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">Monthly</div>
-                                    <div class="text-[10px] text-black/55">Security updates</div>
-                                </div>
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">&lt;24hrs</div>
-                                    <div class="text-[10px] text-black/55">Response time</div>
-                                </div>
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">99.9%</div>
-                                    <div class="text-[10px] text-black/55">Uptime SLA</div>
-                                </div>
+                        <div class="flex items-start gap-3">
+                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <div>
+                                <div class="text-sm font-semibold text-black">Full Integration</div>
+                                <div class="text-xs text-black/60">Seamlessly connects with your CRM, email platform,
+                                    analytics, and advertising accounts.</div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">&lt;2s</div>
-                        <div class="text-xs text-black/55">Average load time</div>
-                    </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">100%</div>
-                        <div class="text-xs text-black/55">Mobile responsive</div>
-                    </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">A+</div>
-                        <div class="text-xs text-black/55">Security rating</div>
-                    </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">24/7</div>
-                        <div class="text-xs text-black/55">Uptime monitoring</div>
+                    <div class="rounded-3xl border border-[var(--orange)]/30 bg-[var(--orange-100)] p-4 shadow-sm">
+                        <div class="rounded-2xl border border-black/10 bg-black/90 p-3">
+                            <div class="grid grid-cols-3 gap-2">
+                                <div class="col-span-2 rounded-lg bg-white/10 p-3">
+                                    <div class="h-2 w-20 rounded-full bg-white/20"></div>
+                                    <div class="mt-3 h-20 rounded-md bg-white/5"></div>
+                                </div>
+                                <div class="rounded-lg bg-white/10 p-3">
+                                    <div class="h-2 w-10 rounded-full bg-white/20"></div>
+                                    <div class="mt-3 h-20 rounded-md bg-white/5"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-3 rounded-xl border border-black/10 bg-white p-3">
+                            <div class="flex items-center gap-3">
+                                <span
+                                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange)] text-white">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" class="h-4 w-4">
+                                        <line x1="12" y1="20" x2="12" y2="10" />
+                                        <line x1="18" y1="20" x2="18" y2="4" />
+                                        <line x1="6" y1="20" x2="6" y2="14" />
+                                    </svg>
+                                </span>
+                                <div>
+                                    <div class="text-xs font-semibold text-black">Track Real-Time Performance</div>
+                                    <div class="text-[11px] text-black/60">Monitor conversion and optimize
+                                        continuously</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1421,156 +1653,44 @@
                     class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.22),transparent_55%)]">
                 </div>
             </div>
-            <div class="relative mx-auto max-w-6xl px-6 py-20 text-white">
-                <div class="grid gap-6 lg:grid-cols-2">
-                    <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
-                        <div
-                            class="inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--orange)]">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-3.5 w-3.5">
-                                <path
-                                    d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3l-8.47-14.14a2 2 0 0 0-3.42 0z" />
-                                How long does it take to build a website?
-                            </svg>
-                            Don't Waste Another Day
-                        </div>
-                        <h3 class="mt-4 text-3xl font-bold leading-tight">Your slow, outdated website is <span
-                                class="text-[var(--orange)]">costing you customers</span></h3>
-                        <ul class="mt-5 space-y-2 text-sm text-white/75">
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Visitors abandon
-                                your site due to slow load times</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Losing mobile
-                                traffic with poor responsive design</li>
-                            How much does a professional website cost?
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Security
-                                vulnerabilities putting your business at risk</li>
-                        </ul>
-                        <div class="mt-6 rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-                            <div class="text-3xl font-extrabold text-[var(--orange)]">88%</div>
-                            <div class="text-xs text-white/60">of users won't return to a website after a bad
-                                experience</div>
-                        </div>
-                        Do you build websites on WordPress, Shopify, or custom?
-                        <div class="rounded-2xl border border-white/15 bg-white/5 p-7 backdrop-blur-xl">
-                            <div
-                                class="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="h-5 w-5">
-                                    <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-                                </svg>
-                                Will my website be mobile-friendly and responsive?
-                                class="text-[var(--orange)]">6–8 weeks</span></h3>
-                                <p class="mt-3 text-center text-sm text-white/70">Get a modern, high-performance website
-                                    that
-                                    loads fast, converts visitors, and ranks in search engines.</p>
-                                <div class="mt-5 space-y-2 text-sm text-white/80">
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Sub-2-second
-                                        load times</div>
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Mobile-first
-                                        responsive design</div>
-                                    Can you help with website content and copywriting?
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Enterprise-grade security</div>
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Conversion-focused UX</div>
-                                </div>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Do you handle website redesigns or only new builds?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">We do both. If your current site has
-                                        potential, we can
-                                        redesign and improve performance without rebuilding everything. If needed, we
-                                        also handle
-                                        full rebuilds from scratch.</p>
-                                </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Will my website be optimized for SEO from day one?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Yes. We include technical SEO fundamentals
-                                        such as clean
-                                        structure, metadata, schema basics, image optimization, internal linking, and
-                                        performance
-                                        best practices during development.</p>
-                                </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Do you provide ongoing maintenance and support?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Yes. We offer ongoing maintenance plans
-                                        covering updates,
-                                        backups, security monitoring, bug fixes, and performance tuning so your website
-                                        stays fast
-                                        and reliable after launch.</p>
-                                </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Can you integrate third-party tools and APIs?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Absolutely. We integrate CRMs, payment
-                                        gateways, booking
-                                        tools, analytics platforms, marketing automation software, and custom APIs based
-                                        on your
-                                        business workflow.</p>
-                                </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        How do you ensure website security?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">We implement SSL, secure authentication,
-                                        role-based
-                                        access, regular updates, secure coding practices, and hardening measures to
-                                        reduce
-                                        vulnerabilities and protect user data.</p>
-                                </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        What happens after the website goes live?
-                                        <span class="text-[var(--orange)]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">After launch, we monitor site health, fix
-                                        post-launch
-                                        issues, provide team handover/training, and track performance metrics so your
-                                        site keeps
-                                        improving over time.</p>
-                                </details>
-                                <a href="/contact"
-                                    class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--orange)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90">Get
-                                    Your Free Website Audit</a>
-                                <div class="mt-3 text-center text-[11px] text-white/45">No obligation. See exactly what
-                                    needs
-                                    fixing.</div>
-                            </div>
-                        </div>
+            <div class="relative mx-auto max-w-5xl px-6 py-16 text-center text-white">
+                <div
+                    class="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[var(--orange)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
+                        <path
+                            d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3l-8.47-14.14a2 2 0 0 0-3.42 0z" />
+                        <line x1="12" y1="9" x2="12" y2="13" />
+                        <line x1="12" y1="17" x2="12.01" y2="17" />
+                    </svg>
+                </div>
+                <h2 class="mt-5 text-3xl font-bold md:text-4xl">Poor landing pages cost you <span
+                        class="text-[var(--orange)]">60% of conversions!</span></h2>
+                <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">Without professional landing
+                    page design, most businesses lose more than half their potential customers to slow load times,
+                    poor mobile experience, and weak calls-to-action.</p>
 
-                        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/60">
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>Free
-                                consultation</span>
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>No
-                                credit card required</span>
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>6–8
-                                weeks delivery</span>
-                        </div>
+                <div class="mx-auto mt-7 grid max-w-3xl gap-3 sm:grid-cols-3">
+                    <div class="rounded-xl border border-white/15 bg-white/10 p-4">
+                        <div class="text-2xl font-bold text-[var(--orange)]">70%</div>
+                        <div class="text-xs text-white/60">Bounce on poor landing pages</div>
                     </div>
+                    <div class="rounded-xl border border-white/15 bg-white/10 p-4">
+                        <div class="text-2xl font-bold text-[var(--orange)]">55%</div>
+                        <div class="text-xs text-white/60">Leave if page loads over 3s</div>
+                    </div>
+                    <div class="rounded-xl border border-white/15 bg-white/10 p-4">
+                        <div class="text-2xl font-bold text-[var(--orange)]">40%</div>
+                        <div class="text-xs text-white/60">Lose trust with weak CTAs</div>
+                    </div>
+                </div>
+
+                <a href="/contact"
+                    class="mt-7 inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-semibold text-black hover:bg-white/90">Get
+                    A Free Landing Page Audit <span class="ml-2">→</span></a>
+                <div class="mt-3 text-[11px] text-white/50">No cost and no obligation. 15-minute audit reveals the
+                    biggest conversion blockers.</div>
+            </div>
         </section>
 
         <section id="process" class="bg-white">
@@ -1586,9 +1706,10 @@
                         Our Process
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">How we build <span
-                            class="text-[var(--orange)]">exceptional websites</span></h2>
+                            class="text-[var(--orange)]">high-converting landing pages</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
-                        Our proven 5-step process ensures quality delivery from discovery to launch and beyond.
+                        Our proven 5-step process ensures your landing pages are optimized for conversions from day one
+                        and continuously improve over time.
                     </p>
                 </div>
 
@@ -1605,27 +1726,28 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
-                                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                                <path d="M8 8h8v8H8z" />
+                                                <circle cx="11" cy="11" r="8" />
+                                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
                                             </svg>
                                         </span>
                                         <span class="font-semibold">STEP 01</span>
                                     </div>
                                     <span class="font-semibold text-[var(--orange)]">Week 1</span>
                                 </div>
-                                <h3 class="mt-1 text-sm font-semibold text-black">Discovery &amp; Planning</h3>
+                                <h3 class="mt-1 text-sm font-semibold text-black">Discovery &amp; Analysis</h3>
                                 <p class="mt-3 text-sm text-black/60">We start with deep discovery to understand your
-                                    business goals, target audience, and technical requirements. This phase includes
-                                    competitive analysis, user research, and strategic planning.</p>
+                                    target audience, offer, unique value proposition, and conversion goals. This
+                                    includes analyzing competitor landing pages and identifying what resonates with your
+                                    market.</p>
                                 <div class="mt-4 grid gap-2 text-xs text-black/60 sm:grid-cols-2">
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Project requirements
-                                        document</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Audience research &amp;
+                                        persona</div>
                                     <div class="rounded-full border border-black/10 px-3 py-1">Competitive analysis
                                         report</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Technical architecture
-                                        plan</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Project timeline &amp;
-                                        milestones</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Value proposition
+                                        framework</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Conversion goal
+                                        mapping</div>
                                 </div>
                             </div>
                         </div>
@@ -1643,28 +1765,27 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
-                                                <path d="M3 7h18" />
-                                                <path d="M3 12h18" />
-                                                <path d="M3 17h18" />
+                                                <path d="M12 20h9" />
+                                                <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z" />
                                             </svg>
                                         </span>
                                         <span class="font-semibold">STEP 02</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 2</span>
+                                    <span class="font-semibold text-[var(--orange)]">Week 1-2</span>
                                 </div>
-                                <h3 class="mt-1 text-sm font-semibold text-black">Design &amp; Prototyping</h3>
-                                <p class="mt-3 text-sm text-black/60">Our designers create wireframes and high-fidelity
-                                    mockups that align with your brand. We focus on user experience, conversion
-                                    optimization, and modern design trends.</p>
+                                <h3 class="mt-1 text-sm font-semibold text-black">Design &amp; Copywriting</h3>
+                                <p class="mt-3 text-sm text-black/60">Our team creates conversion-focused wireframes
+                                    and persuasive copy that speak directly to your audience's pain points. We apply
+                                    proven psychological principles and design patterns that drive action.</p>
                                 <div class="mt-4 grid gap-2 text-xs text-black/60 sm:grid-cols-2">
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Wireframes for all pages
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Custom wireframe design
                                     </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">High-fidelity design
-                                        mockups</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Interactive prototypes
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Conversion-focused copy
                                     </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Design system &amp; style
-                                        guide</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Visual design mockups
+                                    </div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Mobile &amp; desktop
+                                        layouts</div>
                                 </div>
                             </div>
                         </div>
@@ -1688,19 +1809,20 @@
                                         </span>
                                         <span class="font-semibold">STEP 03</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 3-4</span>
+                                    <span class="font-semibold text-[var(--orange)]">Week 2-3</span>
                                 </div>
-                                <h3 class="mt-1 text-sm font-semibold text-black">Development</h3>
-                                <p class="mt-3 text-sm text-black/60">Our developers bring your idea to life using
-                                    modern frameworks and best practices. Clean, maintainable code with performance
-                                    optimization, SEO structure, and security built-in from day one.</p>
+                                <h3 class="mt-1 text-sm font-semibold text-black">Development &amp; Integration</h3>
+                                <p class="mt-3 text-sm text-black/60">We build your landing page with clean,
+                                    optimized code that loads fast and looks perfect on all devices. Then we integrate
+                                    with your CRM, email platform, analytics, and advertising accounts.</p>
                                 <div class="mt-4 grid gap-2 text-xs text-black/60 sm:grid-cols-2">
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Frontend development
-                                    </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Backend &amp; database
-                                        setup</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">CMS integration</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Third-party integrations
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Responsive page
+                                        development</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">CRM &amp; email
+                                        integration</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Analytics &amp;
+                                        tracking setup</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Form automation setup
                                     </div>
                                 </div>
                             </div>
@@ -1719,27 +1841,32 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
-                                                <path d="M9 11l3 3L22 4" />
-                                                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+                                                <path d="M12 2v4" />
+                                                <path d="M12 18v4" />
+                                                <path d="m4.93 4.93 2.83 2.83" />
+                                                <path d="m16.24 16.24 2.83 2.83" />
+                                                <path d="M2 12h4" />
+                                                <path d="M18 12h4" />
+                                                <path d="m4.93 19.07 2.83-2.83" />
+                                                <path d="m16.24 7.76 2.83-2.83" />
                                             </svg>
                                         </span>
                                         <span class="font-semibold">STEP 04</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 4-6</span>
+                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
                                 </div>
-                                <h3 class="mt-1 text-sm font-semibold text-black">Testing &amp; QA</h3>
-                                <p class="mt-3 text-sm text-black/60">Rigorous quality assurance across all devices,
-                                    browsers, and use cases. We test performance, security, accessibility, and
-                                    functionality to ensure everything works perfectly.</p>
+                                <h3 class="mt-1 text-sm font-semibold text-black">Testing &amp; Optimization</h3>
+                                <p class="mt-3 text-sm text-black/60">Before going live, we run a thorough QA testing
+                                    across devices and browsers. Once live, we continuously A/B test headlines, CTAs,
+                                    images, and layouts to improve conversion rates.</p>
                                 <div class="mt-4 grid gap-2 text-xs text-black/60 sm:grid-cols-2">
                                     <div class="rounded-full border border-black/10 px-3 py-1">Cross-browser testing
                                     </div>
                                     <div class="rounded-full border border-black/10 px-3 py-1">Mobile responsiveness
-                                        testing</div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Performance optimization
-                                    </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Security checks &amp;
-                                        fixes</div>
+                                        check</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">A/B testing setup</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Conversion tracking
+                                        validation</div>
                                 </div>
                             </div>
                         </div>
@@ -1757,28 +1884,28 @@
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
-                                                <path d="M5 12h14" />
-                                                <path d="m12 5 7 7-7 7" />
+                                                <path d="M5 13c0 2.5 2.5 4.5 7 4.5S19 15.5 19 13" />
+                                                <path d="M12 2v7" />
+                                                <path d="m9 6 3-4 3 4" />
                                             </svg>
                                         </span>
                                         <span class="font-semibold">STEP 05</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 8+</span>
+                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
                                 </div>
-                                <h3 class="mt-1 text-sm font-semibold text-black">Launch &amp; Support</h3>
-                                <p class="mt-3 text-sm text-black/60">We handle deployment, DNS configuration, SSL
-                                    setup, and post-launch monitoring. After launch, we provide training and ongoing
-                                    support to keep your site running smoothly.</p>
+                                <h3 class="mt-1 text-sm font-semibold text-black">Launch &amp; Monitor</h3>
+                                <p class="mt-3 text-sm text-black/60">Your landing page goes live and we closely
+                                    monitor performance metrics. You receive detailed reports showing conversion rate,
+                                    form submissions, and areas for improvement as we iterate.</p>
                                 <div class="mt-4 grid gap-2 text-xs text-black/60 sm:grid-cols-2">
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Production deployment
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Live page deployment
                                     </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">DNS &amp; SSL
-                                        configuration
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Performance monitoring
                                     </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">Team training session
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Weekly analytics report
                                     </div>
-                                    <div class="rounded-full border border-black/10 px-3 py-1">30-day post-launch
-                                        support</div>
+                                    <div class="rounded-full border border-black/10 px-3 py-1">Ongoing optimization
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -1790,23 +1917,23 @@
                 <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div
                         class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">6-8 weeks</div>
-                        <div class="text-xs text-black/60">Average project time</div>
+                        <div class="text-sm font-semibold text-[var(--orange)]">10 days</div>
+                        <div class="text-xs text-black/60">Avg time to launch</div>
                     </div>
                     <div
                         class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">&lt;2s</div>
-                        <div class="text-xs text-black/60">Load time guaranteed</div>
+                        <div class="text-sm font-semibold text-[var(--orange)]">24 hours</div>
+                        <div class="text-xs text-black/60">Response time</div>
                     </div>
                     <div
                         class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">Weekly</div>
-                        <div class="text-xs text-black/60">Progress updates</div>
+                        <div class="text-sm font-semibold text-[var(--orange)]">Continuous</div>
+                        <div class="text-xs text-black/60">A/B testing</div>
                     </div>
                     <div
                         class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">30 days</div>
-                        <div class="text-xs text-black/60">Post-launch support</div>
+                        <div class="text-sm font-semibold text-[var(--orange)]">100%</div>
+                        <div class="text-xs text-black/60">Conversion focused</div>
                     </div>
                 </div>
             </div>
@@ -2110,39 +2237,52 @@
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
-                        Web Development Case Studies
+                        Landing Page Case Studies
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results from <span
-                            class="text-[var(--orange)]">modern websites</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results for <span
+                            class="text-[var(--orange)]">real businesses</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">
-                        See how we've helped businesses transform their online presence and drive measurable growth.
+                        See the measurable impact our landing page designs have delivered across various industries and
+                        business types.
                     </p>
                 </div>
 
-                <div class="mt-10 grid gap-6 lg:grid-cols-2">
+                <div class="mt-10 grid gap-6 lg:grid-cols-3">
                     <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
-                        <div class="text-xs text-white/60">Junk Removal &amp; Cleanout Services</div>
-                        <div class="mt-2 text-5xl font-semibold">+180%</div>
-                        <div class="text-xs text-white/60">Lead Form Submissions</div>
-                        <div class="mt-4 text-sm font-semibold">Website Redesign Transforms Lead Generation</div>
-                        <p class="mt-2 text-xs text-white/60">Missouri junk removal service gets modern website that
-                            converts visitors into customers.
-                        </p>
+                        <div class="text-xs text-white/60">Real Estate / Mortgage Pre-Qualification</div>
+                        <div class="mt-2 text-5xl font-semibold">+85%</div>
+                        <div class="text-xs text-white/60">Conversion Rate Increase</div>
+                        <div class="mt-4 text-sm font-semibold">High-Converting PPC Landing Page</div>
+                        <p class="mt-2 text-xs text-white/60">Custom landing page with multi-step form qualified
+                            buyer leads and lowered ad spend waste.</p>
                         <div class="mt-4 flex items-center justify-between text-xs text-white/50">
-                            <span>Easy Cleanouts LLC</span>
+                            <span>Quality Builders Realty</span>
                             <span
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
                     <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
-                        <div class="text-xs text-white/60">Junk Removal Services</div>
-                        <div class="mt-2 text-5xl font-semibold">6+</div>
-                        <div class="text-xs text-white/60">Service Pages Created</div>
-                        <div class="mt-4 text-sm font-semibold">Complete Website &amp; Brand Identity Creation</div>
-                        <p class="mt-2 text-xs text-white/60">From zero to professional online presence with modern
-                            design &amp; future-ready SEO structure.</p>
+                        <div class="text-xs text-white/60">Legal Services / Estate Planning</div>
+                        <div class="mt-2 text-5xl font-semibold">+70%</div>
+                        <div class="text-xs text-white/60">Conversion Rate Increase</div>
+                        <div class="mt-4 text-sm font-semibold">Conversion-Focused Legal Landing Page</div>
+                        <p class="mt-2 text-xs text-white/60">Estate planning law firm increased consultation
+                            bookings with focused PPC landing page.</p>
                         <div class="mt-4 flex items-center justify-between text-xs text-white/50">
-                            <span>MN Junk Removal</span>
+                            <span>Smith &amp; Kim Law</span>
+                            <span
+                                class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
+                        </div>
+                    </div>
+                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                        <div class="text-xs text-white/60">Security Services / K9 Security</div>
+                        <div class="mt-2 text-5xl font-semibold">+95%</div>
+                        <div class="text-xs text-white/60">Conversion Rate Increase</div>
+                        <div class="mt-4 text-sm font-semibold">K9 Security Services Landing Page</div>
+                        <p class="mt-2 text-xs text-white/60">Conversion-focused landing page transforms PPC clicks
+                            into booked security consultations.</p>
+                        <div class="mt-4 flex items-center justify-between text-xs text-white/50">
+                            <span>Guard Dog Security</span>
                             <span
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
@@ -2151,23 +2291,22 @@
 
                 <div class="mt-10 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 text-center">
                     <div class="text-lg font-semibold">Average Client Results</div>
-                    <div class="mt-1 text-xs text-white/60">Aggregate performance improvements across all web
-                        development clients
+                    <div class="mt-1 text-xs text-white/60">Aggregate performance improvements across all landing page
+                        clients
                     </div>
                     <div class="mt-6 grid gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="315"
-                                data-suffix="%">0%</div>
-                            <div class="text-xs text-white/60">Avg Conversion Increase</div>
+                            <div class="text-2xl font-semibold text-emerald-300">3.8x</div>
+                            <div class="text-xs text-white/60">Higher Conversion Rate</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300">&lt;2s</div>
-                            <div class="text-xs text-white/60">Average Load Time</div>
+                            <div class="text-2xl font-semibold text-emerald-300">−38%</div>
+                            <div class="text-xs text-white/60">Lower Cost Per Lead</div>
                         </div>
                         <div>
                             <div class="text-2xl font-semibold text-emerald-300 count-num" data-prefix="+"
                                 data-target="265" data-suffix="%">+0%</div>
-                            <div class="text-xs text-white/60">More Qualified Leads</div>
+                            <div class="text-xs text-white/60">More Conversions</div>
                         </div>
                         <div>
                             <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="99"
@@ -2199,11 +2338,11 @@
                         </svg>
                         Industry Expertise
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Web solutions built for <span
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Landing pages tailored to <span
                             class="text-[var(--orange)]">your industry</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
-                        Every industry has unique needs and challenges. Our specialized web development solutions are
-                        tailored to your specific market requirements.
+                        Every industry has unique conversion challenges. Our landing page designs are optimized for
+                        your specific market and audience.
                     </p>
                 </div>
 
@@ -2465,64 +2604,64 @@
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common web development <span
                             class="text-[var(--orange)]">questions answered</span></h2>
                     <p class="mx-auto mt-3 max-w-2xl text-sm text-black/60 md:text-base">
-                        Everything you need to know about our web development services.
+                        Everything you need to know about our landing page design services.
                     </p>
                 </div>
 
                 <div class="mt-10 space-y-3">
                     <details class="scroll-reveal rounded-2xl bg-white p-4" open>
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                            How long does it take to build a website?
+                            What is a landing page and how is it different from a homepage?
                             <span class="faq-icon text-[var(--orange)]">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Most websites take 6-8 weeks from discovery to launch.
-                            Simple brochure sites can be completed in 4-5 weeks, while complex e-commerce sites or web
-                            applications may take 10-12 weeks. Timeline depends on project scope, features needed,
-                            content readiness, and design revisions.
+                        <p class="mt-3 text-sm text-black/60">A landing page is a standalone web page designed
+                            specifically for a marketing campaign with one focused conversion goal. Unlike your
+                            homepage, which has multiple purposes and navigation options, a landing page is built to
+                            drive one specific action like form submission or product purchase. This focused approach
+                            typically results in 3–5x higher conversion rates.
                         </p>
                     </details>
                     <details class="scroll-reveal rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                            How much does a professional website cost?
+                            How much does a landing page design cost?
                             <span class="faq-icon text-[var(--orange)]">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Pricing depends on project scope, custom features,
-                            integrations, and content complexity. We provide a tailored quote after understanding your
-                            business requirements.</p>
+                        <p class="mt-3 text-sm text-black/60">Pricing depends on complexity, design requirements,
+                            copywriting needs, and integration scope. We provide a custom quote after reviewing your
+                            campaign goals and conversion objectives.</p>
                     </details>
                     <details class="scroll-reveal rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                            Do you build websites on WordPress, Shopify, or custom?
+                            How long does it take to design and launch a landing page?
                             <span class="faq-icon text-[var(--orange)]">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We build on WordPress, Shopify, Webflow, and
-                            fully custom stacks depending on your business goals, required features, and long-term
-                            scalability needs.</p>
+                        <p class="mt-3 text-sm text-black/60">Most landing pages are designed, developed, and launched
+                            within 7–14 days depending on complexity. Rush timelines are available for ad campaigns
+                            with tight launch windows.</p>
                     </details>
                     <details class="scroll-reveal rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                            Will my website be mobile-friendly and responsive?
+                            Do you write the copy or do I need to provide it?
                             <span class="faq-icon text-[var(--orange)]">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Absolutely. Every website we build follows a mobile-first
-                            approach and is tested across modern phones, tablets, and desktop devices for consistent
-                            performance.</p>
+                        <p class="mt-3 text-sm text-black/60">We can do both. If you already have copy, we optimize it
+                            for clarity and conversion. If not, our team can create persuasive, conversion-focused
+                            messaging from scratch.</p>
                     </details>
                     <details class="scroll-reveal rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                            Can you help with website content and copywriting?
+                            Will my landing page work on mobile devices?
                             <span class="faq-icon text-[var(--orange)]">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We can help with content strategy, page copy,
-                            conversion-focused messaging, and editing existing content to improve clarity and results.
-                        </p>
+                        <p class="mt-3 text-sm text-black/60">Yes. Every landing page we build follows a mobile-first
+                            approach and is tested across modern phones, tablets, and desktop devices.</p>
                     </details>
                 </div>
 
                 <div class="mt-8 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-6 text-center">
                     <div class="text-sm font-semibold">Still have questions?</div>
-                    <p class="mt-2 text-xs text-black/60">Let's discuss your project goals, timeline, and the best
-                        approach for your website.</p>
+                    <p class="mt-2 text-xs text-black/60">Let's review your offer, audience, and ad traffic goals to
+                        plan a high-converting landing page strategy.</p>
                     <a href="/contact"
                         class="btn-glow mt-4 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
@@ -2546,14 +2685,14 @@
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                         <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
                     </svg>
-                    Ready to Build Something Amazing?
+                    Ready to Boost Your Conversions?
                 </div>
-                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Transform your online presence with a<br
-                        class="hidden sm:block" /><span class="text-[var(--orange)]">high-performance website</span>
+                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Stop losing leads. <span
+                        class="text-[var(--orange)]">Start converting visitors.</span>
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
-                    Get a free consultation and project quote. We'll discuss your goals, timeline, and how we can
-                    build a website that drives real business results.
+                    Get a free landing page audit that reveals exactly what's hurting your conversions and how we can
+                    help you fix it.
                 </p>
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
@@ -2563,25 +2702,13 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4 text-white/80">
-                                <rect x="6" y="4" width="12" height="16" rx="2" />
-                                <path d="M9 8h6" />
+                                <line x1="12" y1="20" x2="12" y2="10" />
+                                <line x1="18" y1="20" x2="18" y2="4" />
+                                <line x1="6" y1="20" x2="6" y2="14" />
                             </svg>
                         </div>
-                        <div class="mt-3 text-sm font-semibold">Free Website Audit</div>
-                        <div class="mt-1 text-xs text-white/60">Detailed analysis of current site</div>
-                    </div>
-                    <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
-                        <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="h-4 w-4 text-white/80">
-                                <path d="M6 4h12v16H6z" />
-                                <path d="M9 9h6M9 13h6" />
-                            </svg>
-                        </div>
-                        <div class="mt-3 text-sm font-semibold">Custom Project Quote</div>
-                        <div class="mt-1 text-xs text-white/60">Transparent pricing breakdown</div>
+                        <div class="mt-3 text-sm font-semibold">Conversion Analysis</div>
+                        <div class="mt-1 text-xs text-white/60">Deep dive into conversion blocking issues</div>
                     </div>
                     <div
                         class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
@@ -2593,15 +2720,28 @@
                                 <path d="M12 3v18" />
                             </svg>
                         </div>
-                        <div class="mt-3 text-sm font-semibold">Strategy Recommendations</div>
-                        <div class="mt-1 text-xs text-white/60">Expert advice for your goals</div>
+                        <div class="mt-3 text-sm font-semibold">Industry Benchmarks</div>
+                        <div class="mt-1 text-xs text-white/60">See how you compare to competitors</div>
+                    </div>
+                    <div
+                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="h-4 w-4 text-white/80">
+                                <path d="M6 4h12v16H6z" />
+                                <path d="M9 8h6" />
+                            </svg>
+                        </div>
+                        <div class="mt-3 text-sm font-semibold">Action Plan</div>
+                        <div class="mt-1 text-xs text-white/60">Specific recommendations to improve conversions</div>
                     </div>
                 </div>
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
                     <a href="/contact"
                         class="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-semibold text-black hover:bg-white/90">Get
-                        Your Free Consultation <span class="ml-2">→</span></a>
+                        Your Free Landing Page Audit <span class="ml-2">→</span></a>
                     <a href="/case-study"
                         class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-2 text-sm font-semibold text-white hover:bg-white/10"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -2616,13 +2756,13 @@
                         obligation</div>
                     <div class="flex items-center gap-2"><span
                             class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>100%
-                        free consultation</div>
+                        free</div>
                     <div class="flex items-center gap-2"><span
                             class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Response
                         within 24 hours</div>
                     <div class="flex items-center gap-2"><span
                             class="h-1.5 w-1.5 rounded-full bg-emerald-400"></span>Certified
-                        web developers</div>
+                        conversion experts</div>
                 </div>
             </div>
         </section>
@@ -2673,6 +2813,11 @@
     </footer>
 
     <script>
+        function toggleMobileMenu(id) {
+            var menu = document.getElementById(id);
+            if (menu) menu.classList.toggle("hidden");
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
 
             /* ---- Scroll-reveal ---- */
@@ -2711,18 +2856,29 @@
             });
 
             /* ---- Mobile hamburger menu ---- */
-            var menuBtn = document.getElementById("menu-btn");
-            var mobileMenu = document.getElementById("mobile-menu");
+            var menuBtn = document.getElementById("menuBtn") || document.getElementById("menu-btn");
+            var mobileMenu = document.getElementById("mobileMenu") || document.getElementById("mobile-menu");
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener("click", function () {
-                    var isOpen = mobileMenu.classList.toggle("hidden");
-                    menuBtn.classList.toggle("open", !isOpen);
-                    menuBtn.setAttribute("aria-expanded", String(!isOpen));
+                    var usesMaxHeight = mobileMenu.classList.contains("max-h-0") || mobileMenu.classList.contains("max-h-[500px]");
+                    if (usesMaxHeight) {
+                        mobileMenu.classList.toggle("max-h-[500px]");
+                        var expanded = mobileMenu.classList.contains("max-h-[500px]");
+                        menuBtn.setAttribute("aria-expanded", String(expanded));
+                    } else {
+                        var isOpen = mobileMenu.classList.toggle("hidden");
+                        menuBtn.classList.toggle("open", !isOpen);
+                        menuBtn.setAttribute("aria-expanded", String(!isOpen));
+                    }
                 });
                 // close on outside click
                 document.addEventListener("click", function (e) {
                     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
-                        mobileMenu.classList.add("hidden");
+                        if (mobileMenu.classList.contains("max-h-[500px]")) {
+                            mobileMenu.classList.remove("max-h-[500px]");
+                        } else {
+                            mobileMenu.classList.add("hidden");
+                        }
                         menuBtn.classList.remove("open");
                         menuBtn.setAttribute("aria-expanded", "false");
                     }
