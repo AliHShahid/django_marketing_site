@@ -2,7 +2,6 @@
 <html lang="en" class="scroll-smooth">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services</title>
@@ -10,9 +9,45 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer=""></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <style id="adryze-global-theme">
+        :root {
+            --adryze-brand-primary: #EE3923;
+            --adryze-brand-accent: #FF4801;
+            --adryze-brand-dark: #0B0B0F;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #18181b;
+            background-color: #ffffff;
+        }
+
+        .text-orange-400,
+        .text-orange-500,
+        .text-orange-600 { color: #EE3923 !important; }
+
+        .text-orange-700,
+        .text-orange-800 { color: #b12a1b !important; }
+
+        .bg-orange-50 { background-color: #fff3ef !important; }
+        .bg-orange-100 { background-color: #ffe6df !important; }
+        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-500,
+        .bg-orange-600 { background-color: #EE3923 !important; }
+
+        .border-orange-100 { border-color: #ffd8cd !important; }
+        .border-orange-600 { border-color: #EE3923 !important; }
+
+        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
+        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
+        .hover\:text-orange-600:hover { color: #EE3923 !important; }
+        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+    </style>
 </head>
 
-<body class="bg-white text-gray-800 font-[Inter]">
+<body class="bg-white text-zinc-900">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="{% url 'home' %}" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
@@ -684,7 +719,7 @@
                 Full-Service Digital Marketing
             </div>
 
-            <h1 class="mt-8 text-4xl md:text-6xl font-black tracking-tight">
+            <h1 class="mt-8 text-6xl md:text-8xl font-black tracking-tight leading-tight">
                 Marketing services that drive<br><span class="text-[#EE3923]">results</span>
             </h1>
             <p class="mt-5 text-base md:text-lg text-zinc-300 max-w-3xl mx-auto">
@@ -723,7 +758,7 @@
     </section>
 
     <!-- Services Overview -->
-    <section class="py-20 bg-[#FFF9F4]">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -735,7 +770,7 @@
                     </svg>
                     Full-Service Solutions
                 </div>
-                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-black">
                     Everything you need to <span class="text-[#EE3923]">grow online</span>
                 </h2>
                 <p class="mt-4 text-base md:text-lg text-zinc-600">
@@ -767,7 +802,7 @@
                     <a href="/services/ppc/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -794,7 +829,7 @@
                     <a href="/services/seo/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -819,7 +854,7 @@
                     <a href="/services/web-development/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -844,7 +879,7 @@
                     <a href="/services/web-development/landing-pages/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -869,7 +904,7 @@
                     <a href="/services/aeo/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
 
@@ -894,7 +929,7 @@
                     <a href="/services/social-media/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>?</span>
+                        <span>&rarr;</span>
                     </a>
                 </div>
             </div>
@@ -913,7 +948,7 @@
                     </svg>
                     Our Process
                 </div>
-                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-black">
                     How we <span class="text-[#EE3923]">work together</span>
                 </h2>
                 <p class="mt-4 text-base md:text-lg text-zinc-600">
@@ -1015,7 +1050,7 @@
                     </svg>
                     Why Choose Us
                 </div>
-                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-black">
                     The <span class="text-[#EE3923]">Adryze</span> advantage
                 </h2>
                 <p class="mt-4 text-base md:text-lg text-zinc-600">
@@ -1120,7 +1155,7 @@
                     </svg>
                     Industry Expertise
                 </div>
-                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-black">
                     We know <span class="text-[#EE3923]">your industry</span>
                 </h2>
                 <p class="mt-4 text-base md:text-lg text-zinc-600">
@@ -1160,7 +1195,7 @@
                 <a href="/case_study/"
                     class="bg-black text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-900 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(0,0,0,0.35),0_0_0_1px_rgba(238,57,35,0.4)]">View
                     All
-                    Industries ?</a>
+                    Industries &rarr;</a>
             </div>
         </div>
     </section>
@@ -1174,7 +1209,7 @@
                     <span class="text-[#EE3923] text-sm font-bold leading-none">?</span>
                     FAQ
                 </div>
-                <h2 class="mt-6 text-3xl md:text-5xl font-black tracking-tight text-black">
+                <h2 class="mt-6 text-4xl md:text-5xl font-black tracking-tight text-black">
                     Got <span class="text-[#EE3923]">questions?</span>
                 </h2>
                 <p class="mt-4 text-base md:text-lg text-zinc-600">
@@ -1310,7 +1345,7 @@
     <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div
-                class="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-black via-[#090d16] to-[#2a170f] p-10 md:p-14 text-center text-white shadow-2xl min-h-[520px] flex flex-col justify-center">
+                class="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-black via-zinc-900 to-black p-10 md:p-14 text-center text-white shadow-2xl min-h-[520px] flex flex-col justify-center">
                 <div class="absolute -bottom-24 -left-24 w-80 h-80 rounded-full bg-[#EE3923]/20 blur-3xl"></div>
                 <div class="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#EE3923]/10 blur-3xl"></div>
 
@@ -1334,7 +1369,7 @@
                     <div class="mt-8 flex flex-wrap justify-center gap-4">
                         <a href="{% url 'contact' %}"
                             class="bg-[#EE3923] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-[#d7331e] hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(238,57,35,0.35)]">Get
-                            Free Audit ?</a>
+                            Free Audit &rarr;</a>
                         <a href="{% url 'contact' %}"
                             class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-white/20 hover:border-white after:content-['\2192'] after:w-0 after:opacity-0 after:overflow-hidden after:-translate-x-1 after:transition-all after:duration-300 hover:after:w-[0.9rem] hover:after:opacity-100 hover:after:translate-x-0">Contact
                             Sales</a>
