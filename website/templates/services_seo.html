@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,316 +10,83 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <style>
-        :root {
-            --orange: #EE3923;
-            --orange-100: #fff1ed;
-            --orange-200: #ffe4dc;
-            --ink: #121212;
-            --brand-2: #FF4801;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        body {
-            /* font-family: "Space Grotesk", sans-serif; */
-            color: var(--ink);
-        }
-
-        .hover-card {
-            background-color: rgba(255, 255, 255, 0.72) !important;
-            backdrop-filter: blur(12px);
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: var(--orange);
-            box-shadow: 0 18px 40px rgba(238, 57, 35, 0.14);
-        }
-
-        .hover-icon {
-            transition: transform 200ms ease;
-        }
-
-        .hover-card:hover .hover-icon {
-            transform: translateY(-6px);
-        }
-
-        .reveal {
-            animation: fadeUp 500ms ease both;
-        }
-
-        .hover-soft {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-soft:hover {
-            transform: translateY(-2px);
-            border-color: rgba(238, 57, 35, 0.5);
-            box-shadow: 0 14px 32px rgba(238, 57, 35, 0.2);
-        }
-
-        .btn-glow {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
-            background-image: linear-gradient(135deg, var(--brand-2), var(--orange));
-            border: 1px solid rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:active {
-            transform: translateY(0);
-            box-shadow: 0 10px 20px rgba(255, 72, 1, 0.25);
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            filter: blur(6px);
-            transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out),
-                filter 700ms var(--ease-out);
-            transition-delay: var(--delay, 0ms);
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.slide-left {
-            transform: translateX(-28px);
-        }
-
-        .scroll-reveal.slide-right {
-            transform: translateX(28px);
-        }
-
-        .scroll-reveal.in-view {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-            filter: blur(0);
-        }
-
-        #faq details>p {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-top: 0;
-            transition: max-height 900ms var(--ease-out), opacity 700ms ease, margin-top 700ms ease;
-        }
-
-        #faq details {
-            background-color: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(10px);
-            border: 1.5px solid transparent;
-            transition: border-color 350ms ease, box-shadow 350ms ease;
-        }
-
-        #faq details[open] {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.08);
-        }
-
-        #faq details[open]>p {
-            max-height: 360px;
-            opacity: 1;
-            margin-top: 0.75rem;
-        }
-
-        #faq summary span {
-            display: inline-block;
-            transition: transform 400ms var(--ease-out);
-        }
-
-        #faq details[open] summary span {
-            transform: rotate(45deg);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        [class*='hover:bg-[#ff8a3a]']:hover {
-            background-color: var(--brand-2) !important;
-        }
-
-        .bg-float {
-            animation: floatGlow 8s ease-in-out infinite;
-            filter: saturate(1.1);
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.9;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        floatGlow: {
+                            '0%, 100%': { transform: 'translateY(0)', opacity: '0.9' },
+                            '50%': { transform: 'translateY(-8px)', opacity: '1' }
+                        },
+                        fadeUp: {
+                            from: { opacity: '0', transform: 'translateY(10px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'float-glow': 'floatGlow 8s ease-in-out infinite',
+                        'fade-up': 'fadeUp 500ms ease both'
+                    }
+                }
             }
-
-            50% {
-                transform: translateY(-8px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .scroll-reveal,
-            .hover-card,
-            .hover-soft,
-            .btn-glow,
-            .bg-float {
-                animation: none;
-                transition: none;
-                transform: none;
-                filter: none;
-            }
-        }
-
-        /* Hamburger open state */
-        #menu-btn.open .menu-bar:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(3) {
-            width: 20px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Scroll-progress bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--brand-2), var(--orange));
-            z-index: 9999;
-            transition: width 100ms linear;
-        }
-
-        /* Stat count-up elements */
-        .count-num {
-            display: inline-block;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Sticky header shadow on scroll */
-        #site-header.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Icon wrapper in feature cards */
-        .icon-wrap {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(238, 57, 35, 0.2);
-            background-color: var(--orange-100);
-            color: var(--orange);
-            flex-shrink: 0;
-        }
-
-        /* Service tag chips */
-        .service-tag {
-            border-radius: 9999px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.15rem 0.65rem;
-            font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.5);
-        }
-    </style>
+        };
+    </script>
 </head>
 
-<body class="bg-white">
-    <div id="scroll-progress"></div>
-    <header class="border-b border-black/10 bg-white/95 backdrop-blur-md sticky top-0 z-50 transition-shadow"
+<body class="bg-white font-['Inter'] antialiased [text-rendering:optimizeLegibility] text-[#121212]">
+    <div id="scroll-progress"
+        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-gradient-to-r from-[#FF4801] to-[#EE3923] transition-[width] duration-100">
+    </div>
+    <header
+        class="sticky top-0 z-50 border-b border-black/10 bg-white/95 backdrop-blur-md transition-[box-shadow] duration-300"
         id="site-header">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-1">
-                <span class="text-[var(--orange)]">A</span>dryze
+                <span class="text-[#EE3923]">A</span>dryze
             </a>
             <nav class="hidden items-center gap-7 text-sm font-medium md:flex">
-                <a href="/services"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Services
+                <a href="/services" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Services
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/case-study"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Case Studies
+                <a href="/case-study" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Case
+                    Studies
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/pricing"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Pricing
+                <a href="/pricing" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Pricing
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/about" class="hover:text-[var(--orange)] transition-colors duration-150 relative group">About
+                <a href="/about" class="hover:text-[#EE3923] transition-colors duration-150 relative group">About
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
             </nav>
             <div class="flex items-center gap-3">
                 <a href="/contact"
-                    class="btn-glow hidden md:inline-flex rounded-full bg-[var(--orange)] px-5 py-2 text-sm font-semibold text-white">Book
+                    class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none hidden md:inline-flex rounded-full bg-[#EE3923] px-5 py-2 text-sm font-semibold text-white">Book
                     a Call</a>
                 <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
                     class="md:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-xl border border-black/10 items-center">
-                    <span
-                        class="menu-bar w-5 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
-                    <span class="menu-bar w-5 h-[2px] bg-black rounded-full transition-all duration-300"></span>
-                    <span
-                        class="menu-bar w-3 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
+                    <span id="menu-bar-1"
+                        class="w-5 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
+                    <span id="menu-bar-2" class="w-5 h-[2px] bg-black rounded-full transition-all duration-300"></span>
+                    <span id="menu-bar-3"
+                        class="w-3 h-[2px] bg-black rounded-full transition-all duration-300 origin-center"></span>
                 </button>
             </div>
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden border-t border-black/10 bg-white/98">
             <nav class="flex flex-col px-6 py-5 gap-4 text-sm font-medium">
-                <a href="/services" class="py-1 hover:text-[var(--orange)] transition-colors">Services</a>
-                <a href="/case-study" class="py-1 hover:text-[var(--orange)] transition-colors">Case Studies</a>
-                <a href="/pricing" class="py-1 hover:text-[var(--orange)] transition-colors">Pricing</a>
-                <a href="/about" class="py-1 hover:text-[var(--orange)] transition-colors">About</a>
+                <a href="/services" class="py-1 hover:text-[#EE3923] transition-colors">Services</a>
+                <a href="/case-study" class="py-1 hover:text-[#EE3923] transition-colors">Case Studies</a>
+                <a href="/pricing" class="py-1 hover:text-[#EE3923] transition-colors">Pricing</a>
+                <a href="/about" class="py-1 hover:text-[#EE3923] transition-colors">About</a>
                 <a href="/contact"
-                    class="mt-1 rounded-full bg-[var(--orange)] px-5 py-2.5 text-sm font-semibold text-white text-center btn-glow">Book
+                    class="mt-1 rounded-full bg-[#EE3923] px-5 py-2.5 text-sm font-semibold text-white text-center inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none">Book
                     a Call</a>
             </nav>
         </div>
@@ -332,17 +99,17 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 text-white md:grid-cols-2">
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
                         class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-xl px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white/70">
                         Professional SEO Services
                     </div>
                     <h1 class="text-4xl font-bold leading-tight md:text-5xl">Dominate Google<br
-                            class="hidden sm:block" />with <span class="text-[var(--orange)]">proven SEO</span>
+                            class="hidden sm:block" />with <span class="text-[#EE3923]">proven SEO</span>
                         strategies
                     </h1>
                     <p class="mt-4 text-base text-white/70 md:text-lg">
@@ -352,7 +119,7 @@
                     <div class="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -362,7 +129,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -372,7 +139,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -383,7 +150,7 @@
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
+                            class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Free SEO Audit →</a>
                         <a href="#process"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
@@ -391,9 +158,9 @@
                     </div>
                 </div>
 
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
-                        class="hover-soft rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
+                        class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#EE3923]/50 hover:shadow-[0_14px_32px_rgba(238,57,35,0.2)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
                         <div class="flex items-start justify-between">
                             <div class="text-sm font-semibold text-white/80">Our SEO Performance</div>
                             <div
@@ -465,11 +232,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Why SEO?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        The foundation of <span class="text-[var(--orange)]">sustainable growth</span>
+                        The foundation of <span class="text-[#EE3923]">sustainable growth</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         Search Engine Optimization builds long-term visibility and authority. Unlike paid advertising,
@@ -478,8 +245,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -492,8 +261,10 @@
                             PPC,
                             SEO continues working even when you stop investing.</p>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -507,8 +278,10 @@
                         <p class="mt-2 text-sm text-black/70">Attract users actively searching for your products or
                             services. Organic search delivers the highest quality leads.</p>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -519,8 +292,10 @@
                         <p class="mt-2 text-sm text-black/70">Establish your brand as an industry leader. High rankings
                             signal trust and authority to potential customers.</p>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -532,13 +307,15 @@
                         <p class="mt-2 text-sm text-black/70">SEO delivers the best ROI of any marketing channel. Your
                             investment pays dividends for years, not just months.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)] count-num" data-target="748"
+                            <span class="text-lg font-semibold text-[#EE3923] count-num" data-target="748"
                                 data-suffix="%">0%</span>
                             <span class="ml-2 text-black/60">average ROI</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -551,13 +328,15 @@
                             credibility.
                             Users trust organic results more than paid ads.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)] count-num" data-target="70"
+                            <span class="text-lg font-semibold text-[#EE3923] count-num" data-target="70"
                                 data-suffix="%">0%</span>
                             <span class="ml-2 text-black/60">prefer organic results</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -571,7 +350,7 @@
                         <p class="mt-2 text-sm text-black/70">SEO improvements stack over time. Each optimization
                             increases visibility and creates a flywheel effect.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">2-3x</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">2-3x</span>
                             <span class="ml-2 text-black/60">traffic in 12 months</span>
                         </div>
                     </div>
@@ -579,14 +358,14 @@
 
                 <div class="mt-12 flex justify-center">
                     <div
-                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[var(--orange-100)] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
+                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[#fff1ed] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
                         <div>
                             <div class="text-lg font-semibold">Ready to dominate Google search results?</div>
                             <div class="text-sm text-black/70">Get a free SEO audit and discover untapped opportunities.
                             </div>
                         </div>
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center gap-2 rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
+                            class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free Audit
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="h-4 w-4">
@@ -604,89 +383,94 @@
         <section class="bg-white">
             <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2">
                 <!-- Left: How SEO Works card -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] bg-[#fff1ed] p-6 md:p-8 border-[3px] border-[#EE3923]">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">How SEO Works</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Step 1 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">1</div>
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-sm font-bold text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
+                                1</div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Technical Audit</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 1. Technical Audit</div>
                                 <div class="text-xs text-black/60 mt-0.5">We analyze your website's technical health and
                                     identify optimization opportunities.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 2 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">2</div>
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-sm font-bold text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
+                                2</div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 2. Keyword Research</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 2. Keyword Research</div>
                                 <div class="text-xs text-black/60 mt-0.5">Identify high-value keywords your target
                                     customers are searching for.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 3 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">3</div>
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-sm font-bold text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
+                                3</div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 3. On-Page Optimization</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 3. On-Page Optimization</div>
                                 <div class="text-xs text-black/60 mt-0.5">Optimize content, meta tags, headers, and
                                     structure for maximum relevance.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 4 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">4</div>
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-sm font-bold text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
+                                4</div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. Link Building</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 4. Link Building</div>
                                 <div class="text-xs text-black/60 mt-0.5">Build high-quality backlinks to increase
                                     domain authority and rankings.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 5 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-sm font-bold text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">5</div>
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-sm font-bold text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
+                                5</div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 5. Monitor &amp; Improve</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 5. Monitor &amp; Improve</div>
                                 <div class="text-xs text-black/60 mt-0.5">Track rankings, analyze traffic, and
                                     continuously optimize for better results.</div>
                             </div>
                         </div>
                     </div>
                     <!-- Timeline -->
-                    <div class="mt-6 rounded-2xl border border-[var(--orange)]/50 bg-white p-5"
-                        style="box-shadow:0 2px 16px rgba(255,122,26,0.1)">
-                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--orange)]">
+                    <div
+                        class="mt-6 rounded-2xl border border-[#EE3923]/50 bg-white p-5 shadow-[0_2px_16px_rgba(255,122,26,0.1)]">
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[#EE3923]">
                             Typical Results Timeline</div>
                         <div class="mt-4 flex items-center gap-2">
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">30</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Days<br>Preparation</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">90</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Days<br>Ranking</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">6-12</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Months<br>Domination</div>
                             </div>
@@ -697,11 +481,11 @@
                 <!-- Right: Understanding SEO text -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         What is SEO?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-                        Understanding <span class="text-[var(--orange)]">Search Engine<br>Optimization</span>
+                        Understanding <span class="text-[#EE3923]">Search Engine<br>Optimization</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Search Engine Optimization (SEO) is the practice of optimizing your website to rank higher in
@@ -786,11 +570,11 @@
                 <!-- Left: text + CTA -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Common SEO Mistakes
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Avoid these critical <span class="text-[var(--orange)]">SEO mistakes</span>
+                        Avoid these critical <span class="text-[#EE3923]">SEO mistakes</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Research shows that over 90% of websites fail to rank on page 1 of Google search results. Most
@@ -810,122 +594,122 @@
                         ranking factors, ensuring your site follows best practices while avoiding penalties that could
                         tank your visibility overnight.
                     </p>
-                    <div class="mt-8 rounded-3xl border border-black/10 bg-[var(--orange-100)] p-6">
+                    <div class="mt-8 rounded-3xl border border-black/10 bg-[#fff1ed] p-6">
                         <div class="text-base font-semibold text-black">Don't let these mistakes kill your rankings
                         </div>
                         <div class="mt-1 text-sm text-black/70">Get a free SEO audit to uncover issues and discover
                             optimization opportunities.</div>
                         <a href="/contact"
-                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
+                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
                             Free SEO Audit</a>
                     </div>
                 </div>
 
                 <!-- Right: Top 5 SEO Mistakes bar chart -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] bg-[#fff1ed] p-6 md:p-8 border-[3px] border-[#EE3923]">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">Top 5 SEO Mistakes</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Mistake 1 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     1</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Keyword Stuffing</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">49%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">49%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Over-optimization triggers penalties
                                         and drops rankings by 49–75%.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 49%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[49%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 2 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     2</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Ignoring Mobile</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">48%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">48%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Mobile issues cost up to 60% of
                                         traffic.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 48%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[48%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 3 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     3</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Slow Page Speed</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">43%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">43%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Pages over 3 seconds lose 43% of
                                         mobile visitors.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 43%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[43%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 4 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     4</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Weak Backlink Profile</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">11%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">11%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Low-quality or no backlinks prevent
                                         top 10 rankings.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 11%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[11%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 5 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     5</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Thin Content</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">43%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">43%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Low-quality, thin content rarely ranks
                                         and gets ignored.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 43%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[43%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                     </div>
                     <!-- Search Visibility Loss stat -->
-                    <div class="mt-6 rounded-3xl border border-[var(--orange)]/30 bg-white p-5 text-center">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--orange)]">&#9650; Search
+                    <div class="mt-6 rounded-3xl border border-[#EE3923]/30 bg-white p-5 text-center">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#EE3923]">&#9650; Search
                             Visibility Loss</div>
-                        <div class="mt-1 text-4xl font-extrabold text-[var(--orange)]">Over 90%</div>
+                        <div class="mt-1 text-4xl font-extrabold text-[#EE3923]">Over 90%</div>
                         <div class="mt-1 text-xs text-black/50">of websites never reach page 1 without expert SEO</div>
                     </div>
                 </div>
@@ -933,15 +717,15 @@
         </section>
 
 
-        <section class="bg-[var(--orange-100)]">
+        <section class="bg-[#fff1ed]">
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         SEO Services
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Complete SEO <span class="text-[var(--orange)]">solutions</span>
+                        Complete SEO <span class="text-[#EE3923]">solutions</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         We handle every aspect of SEO to maximize your organic visibility, from technical foundation to
@@ -950,8 +734,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -964,18 +750,20 @@
                             crawl, index, and understand your site for maximum visibility.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Site speed
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Site speed
                                 optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Mobile
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Mobile
                                 responsiveness fixes</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Schema markup
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Schema markup
                                 implementation</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> XML sitemap
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> XML sitemap
                                 optimization</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -991,18 +779,20 @@
                             content placement, meta optimization, and internal linking.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Title tag and
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Title tag and
                                 meta optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Header
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Header
                                 structure optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Content
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Content
                                 optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Internal
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Internal
                                 linking strategy</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1015,18 +805,20 @@
                             and build domain authority through strategic outreach.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Manual
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Manual
                                 outreach campaigns</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Guest posting
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Guest posting
                                 opportunities</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Broken link
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Broken link
                                 building</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Competitor
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Competitor
                                 backlink analysis</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1039,18 +831,20 @@
                             topic planning, briefs, and optimization.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Keyword
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Keyword
                                 research and planning</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Content
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Content
                                 calendar creation</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> SEO content
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> SEO content
                                 writing</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Content gap
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Content gap
                                 analysis</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1063,18 +857,20 @@
                             locations that matter most.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Google
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Google
                                 Business Profile optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Local
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Local
                                 citation building</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Review
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Review
                                 management</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Local keyword
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Local keyword
                                 targeting</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1088,13 +884,13 @@
                             traffic and increase online sales.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we optimize:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Product page
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Product page
                                 optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Category
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Category
                                 structure optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Product
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Product
                                 schema markup</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Faceted
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Faceted
                                 navigation optimization</li>
                         </ul>
                     </div>
@@ -1169,7 +965,7 @@
                     <p class="mt-2 text-sm text-black/60">Our SEO experts will optimize every aspect of your online
                         presence to drive sustainable organic growth.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free SEO Audit</a>
                 </div>
             </div>
@@ -1182,13 +978,13 @@
                     <div
                         class="inline-flex items-center gap-1.5 rounded-full border border-black/10 bg-white px-4 py-1.5 text-xs font-semibold text-black/60 shadow-sm">
                         <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2.5"
-                            class="h-3 w-3 text-[var(--orange)]">
+                            class="h-3 w-3 text-[#EE3923]">
                             <polyline points="1.5,6 4.5,9.5 10.5,2.5" />
                         </svg>
                         Why Choose Us
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span
-                            class="text-[var(--orange)]">SEO services</span>?</h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span class="text-[#EE3923]">SEO
+                            services</span>?</h2>
                     <p class="mt-4 max-w-2xl text-sm text-black/60 md:text-base">
                         Partner with an SEO agency that combines technical expertise, proven strategies,<br
                             class="hidden md:block"> and transparent reporting to deliver sustainable rankings.
@@ -1202,7 +998,7 @@
                     <div class="space-y-4">
                         {% for item in why_items|default:'' %}{% endfor %}
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1213,7 +1009,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1224,7 +1020,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1235,7 +1031,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1246,7 +1042,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1257,7 +1053,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1268,7 +1064,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3 py-1">
-                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[var(--orange)]"
+                            <svg viewBox="0 0 16 16" fill="none" class="mt-0.5 h-4 w-4 shrink-0 text-[#EE3923]"
                                 stroke="currentColor" stroke-width="2.5">
                                 <polyline points="2,8 6,12.5 14,3.5" />
                             </svg>
@@ -1293,7 +1089,7 @@
                         </div>
                         <!-- Tab row -->
                         <div class="flex gap-3 border-b border-black/8 bg-white px-4 py-2 text-[11px] text-black/40">
-                            <span class="flex items-center gap-1"><span class="text-[var(--orange)]">●</span> Search
+                            <span class="flex items-center gap-1"><span class="text-[#EE3923]">●</span> Search
                                 type: Web</span>
                             <span>Date: Feb 28, 2025 ▾</span>
                             <span>+ New ▾</span>
@@ -1302,7 +1098,7 @@
                         <div class="grid grid-cols-4 border-b border-black/8 bg-white px-4 py-3 text-center">
                             <div class="border-r border-black/8 pr-3">
                                 <div class="text-[10px] text-black/40">Total clicks</div>
-                                <div class="text-base font-bold text-[var(--orange)] count-num" data-target="185"
+                                <div class="text-base font-bold text-[#EE3923] count-num" data-target="185"
                                     data-suffix="K">0K</div>
                             </div>
                             <div class="border-r border-black/8 px-3">
@@ -1319,10 +1115,10 @@
                             </div>
                         </div>
                         <!-- Sparkline chart -->
-                        <div class="relative bg-white px-4 py-3" style="height:96px;">
+                        <div class="relative h-24 bg-white px-4 py-3">
                             <svg viewBox="0 0 320 70" class="w-full h-full" preserveAspectRatio="none">
                                 <!-- Orange line (clicks) -->
-                                <polyline fill="none" stroke="var(--orange)" stroke-width="2"
+                                <polyline fill="none" stroke="#EE3923" stroke-width="2"
                                     points="0,60 40,50 80,42 120,35 160,28 200,20 240,14 280,10 320,6" />
                                 <!-- Fill under orange line -->
                                 <polygon fill="rgba(255,122,26,0.08)"
@@ -1334,7 +1130,7 @@
                             <!-- Legend -->
                             <div class="absolute bottom-2 right-4 flex items-center gap-3 text-[10px] text-black/40">
                                 <span class="flex items-center gap-1"><span
-                                        class="inline-block h-1.5 w-4 rounded-full bg-[var(--orange)]"></span>Clicks</span>
+                                        class="inline-block h-1.5 w-4 rounded-full bg-[#EE3923]"></span>Clicks</span>
                                 <span class="flex items-center gap-1"><span
                                         class="inline-block h-1.5 w-4 rounded-full bg-indigo-400"></span>Impressions</span>
                             </div>
@@ -1343,9 +1139,9 @@
                         <div class="border-t border-black/8 bg-gray-50 px-4 py-3">
                             <div class="flex items-center gap-3">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[var(--orange-100)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#fff1ed]">
                                     <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-                                        class="h-4 w-4 text-[var(--orange)]">
+                                        class="h-4 w-4 text-[#EE3923]">
                                         <polyline points="2,14 7,9 11,13 18,5" />
                                     </svg>
                                 </div>
@@ -1368,7 +1164,7 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:48px_48px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(245,158,11,0.18),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-20 text-center text-white">
@@ -1381,7 +1177,7 @@
                     </svg>
                 </div>
                 <h2 class="mt-6 text-3xl font-semibold md:text-4xl">You're missing out on <span
-                        class="text-[var(--orange)]">thousands</span> of potential customers!</h2>
+                        class="text-[#EE3923]">thousands</span> of potential customers!</h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
                     Without professional SEO, your competitors are capturing the organic traffic that should be yours.
                     Don't let poor rankings cost you customers every single day.
@@ -1389,17 +1185,17 @@
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                        <div class="text-xl font-semibold text-[var(--orange)] count-num" data-target="90"
-                            data-suffix="%">0%</div>
+                        <div class="text-xl font-semibold text-[#EE3923] count-num" data-target="90" data-suffix="%">0%
+                        </div>
                         <div class="text-xs text-white/60">Never see page 1</div>
                     </div>
                     <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                        <div class="text-xl font-semibold text-[var(--orange)] count-num" data-target="75"
-                            data-suffix="%">0%</div>
+                        <div class="text-xl font-semibold text-[#EE3923] count-num" data-target="75" data-suffix="%">0%
+                        </div>
                         <div class="text-xs text-white/60">Click top 3 results</div>
                     </div>
                     <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                        <div class="text-xl font-semibold text-[var(--orange)]">$0</div>
+                        <div class="text-xl font-semibold text-[#EE3923]">$0</div>
                         <div class="text-xs text-white/60">Cost per organic click</div>
                     </div>
                 </div>
@@ -1418,11 +1214,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Our Process
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">How we deliver <span
-                            class="text-[var(--orange)]">SEO results</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">How we deliver <span class="text-[#EE3923]">SEO
+                            results</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Our proven 5-step SEO process ensures sustainable rankings and organic traffic growth from day
                         one.
@@ -1433,15 +1229,16 @@
                     <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-black/10 lg:block"></div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">1</span>
+                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">1</span>
                                         <span class="font-semibold">SEO Audit &amp; Analysis</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 1</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 1</span>
                                 </div>
                                 <p class="mt-3 text-sm text-black/60">We run a comprehensive technical audit,
                                     competitive analysis, and keyword research to uncover opportunities and risks.</p>
@@ -1454,19 +1251,20 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">2</span>
+                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">2</span>
                                         <span class="font-semibold">Strategy Development</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 2</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 2</span>
                                 </div>
                                 <p class="mt-3 text-sm text-black/60">We build a custom SEO roadmap aligned with
                                     business goals, covering on-page, technical, and authority priorities.</p>
@@ -1479,19 +1277,20 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">3</span>
+                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">3</span>
                                         <span class="font-semibold">Technical Optimization</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 3-4</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 3-4</span>
                                 </div>
                                 <p class="mt-3 text-sm text-black/60">We fix site performance, crawlability, schema,
                                     and technical issues to unlock search visibility.</p>
@@ -1504,19 +1303,20 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">4</span>
+                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">4</span>
                                         <span class="font-semibold">Content &amp; On-Page SEO</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 4-6</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 4-6</span>
                                 </div>
                                 <p class="mt-3 text-sm text-black/60">We optimize existing pages and create new
                                     SEO-focused content to capture high-intent traffic.</p>
@@ -1530,19 +1330,20 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">5</span>
+                                            class="flex h-7 w-7 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">5</span>
                                         <span class="font-semibold">Link Building &amp; Authority</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
+                                    <span class="font-semibold text-[#EE3923]">Ongoing</span>
                                 </div>
                                 <p class="mt-3 text-sm text-black/60">We build trust signals, digital PR, and quality
                                     backlinks to raise domain authority.</p>
@@ -1555,29 +1356,29 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
                 </div>
 
                 <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">30 days</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">30 days</div>
                         <div class="text-xs text-black/60">Time to first improvements</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">90 days</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">90 days</div>
                         <div class="text-xs text-black/60">First-page traction</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">Monthly</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">Monthly</div>
                         <div class="text-xs text-black/60">Strategy reviews</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">100%</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">100%</div>
                         <div class="text-xs text-black/60">White-hat methods</div>
                     </div>
                 </div>
@@ -1598,20 +1399,20 @@
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-6">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <rect x="3" y="3" width="18" height="18" rx="2" />
                             <path d="M3 9h18M9 21V9" />
                         </svg>
                         <span class="text-xs text-white/70">Google Search Console</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <line x1="18" y1="20" x2="18" y2="10" />
                             <line x1="12" y1="20" x2="12" y2="4" />
                             <line x1="6" y1="20" x2="6" y2="14" />
@@ -1619,40 +1420,40 @@
                         <span class="text-xs text-white/70">Google Analytics</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="11" cy="11" r="8" />
                             <line x1="21" y1="21" x2="16.65" y2="16.65" />
                         </svg>
                         <span class="text-xs text-white/70">Ahrefs</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                             <polyline points="16 7 22 7 22 13" />
                         </svg>
                         <span class="text-xs text-white/70">SEMrush</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path
                                 d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
                         </svg>
                         <span class="text-xs text-white/70">Screaming Frog</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
@@ -1666,11 +1467,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Ranking Growth
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Dominate Google <span
-                            class="text-[var(--orange)]">search results</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Dominate Google <span class="text-[#EE3923]">search
+                            results</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Achieve first-page rankings and outrank your competition with our proven SEO strategies and
                         continuous optimization.
@@ -1679,10 +1480,11 @@
 
                 <div class="mt-12 grid items-center gap-10 lg:grid-cols-2">
                     <div class="space-y-4">
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">1</span>
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">1</span>
                                 <div>
                                     <div class="font-semibold">Top 3 Rankings</div>
                                     <div class="text-sm text-black/60">Capture the prime spots where 75% of all clicks
@@ -1690,10 +1492,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">2</span>
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">2</span>
                                 <div>
                                     <div class="font-semibold">Domain Authority Growth</div>
                                     <div class="text-sm text-black/60">Build trust signals through quality content and
@@ -1701,10 +1504,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">3</span>
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">3</span>
                                 <div>
                                     <div class="font-semibold">Featured Snippets</div>
                                     <div class="text-sm text-black/60">Secure position zero with optimized content and
@@ -1712,10 +1516,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">4</span>
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">4</span>
                                 <div>
                                     <div class="font-semibold">Long-Tail Dominance</div>
                                     <div class="text-sm text-black/60">Capture high-converting keywords your competitors
@@ -1723,10 +1528,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">5</span>
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">5</span>
                                 <div>
                                     <div class="font-semibold">Local SEO Excellence</div>
                                     <div class="text-sm text-black/60">Dominate local search results and Google Maps to
@@ -1736,7 +1542,8 @@
                         </div>
                     </div>
 
-                    <div class="scroll-reveal slide-right">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7">
                         <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
                             <div class="rounded-2xl border border-black/10 bg-white p-4">
                                 <div class="flex items-center gap-2 text-xs text-black/50">
@@ -1755,19 +1562,19 @@
                                     <div class="mt-2 text-xs text-blue-500">www.adryze.com</div>
                                 </div>
                                 <div class="mt-4 space-y-2">
-                                    <div class="h-2 w-3/4 rounded-full bg-[var(--orange-100)]"></div>
-                                    <div class="h-2 w-2/3 rounded-full bg-[var(--orange-100)]"></div>
-                                    <div class="h-2 w-1/2 rounded-full bg-[var(--orange-100)]"></div>
+                                    <div class="h-2 w-3/4 rounded-full bg-[#fff1ed]"></div>
+                                    <div class="h-2 w-2/3 rounded-full bg-[#fff1ed]"></div>
+                                    <div class="h-2 w-1/2 rounded-full bg-[#fff1ed]"></div>
                                 </div>
                                 <div class="mt-4 grid gap-2 text-xs text-black/50 sm:grid-cols-2">
                                     <div class="rounded-lg border border-black/10 p-2">High-intent keywords</div>
                                     <div class="rounded-lg border border-black/10 p-2">Conversion-focused content</div>
                                 </div>
                             </div>
-                            <div class="mt-4 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4">
+                            <div class="mt-4 rounded-2xl border border-black/10 bg-[#fff1ed] p-4">
                                 <div class="text-sm font-semibold">Search visibility score</div>
                                 <div class="mt-2 h-2 w-full rounded-full bg-white">
-                                    <div class="h-2 w-4/5 rounded-full bg-[var(--orange)]"></div>
+                                    <div class="h-2 w-4/5 rounded-full bg-[#EE3923]"></div>
                                 </div>
                                 <div class="mt-2 text-xs text-black/60">+62% growth in 90 days</div>
                             </div>
@@ -1780,10 +1587,10 @@
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-white">
@@ -1793,7 +1600,7 @@
                         SEO Case Studies
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results from <span
-                            class="text-[var(--orange)]">organic growth</span></h2>
+                            class="text-[#EE3923]">organic growth</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">
                         See the measurable impact our SEO strategies have delivered for businesses across various
                         industries.
@@ -1801,7 +1608,8 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Cell Phone Repair</div>
                         <div class="mt-2 text-3xl font-semibold">115+</div>
                         <div class="text-xs text-white/60">Monthly Phone Calls</div>
@@ -1814,7 +1622,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Real Estate (Home Buyers)</div>
                         <div class="mt-2 text-3xl font-semibold">90+</div>
                         <div class="text-xs text-white/60">Monthly Phone Calls</div>
@@ -1827,7 +1636,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Healthcare (Sexologist)</div>
                         <div class="mt-2 text-3xl font-semibold">1,519%</div>
                         <div class="text-xs text-white/60">Organic Traffic Growth</div>
@@ -1871,7 +1681,7 @@
 
             <div class="mb-12 text-center">
                 <a href="/case-study"
-                    class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                    class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
         </section>
@@ -1880,11 +1690,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Industry Expertise
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">SEO strategies built for <span
-                            class="text-[var(--orange)]">your industry</span></h2>
+                            class="text-[#EE3923]">your industry</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Every industry has unique search behavior and competition. Our specialized SEO strategies are
                         designed for your specific market needs.
@@ -1892,14 +1702,15 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Real Estate</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +320%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -1922,23 +1733,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Local schema</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Neighborhood pages</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Local schema</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Neighborhood pages</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Healthcare</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +285%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -1960,24 +1772,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Expert content</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Local SEO
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Expert content</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Local SEO
                                     optimization</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Home Services</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +410%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2000,23 +1813,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Service pages</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Citation building</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Service pages</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Citation building</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Legal</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +265%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2040,24 +1854,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Practice area content</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Authority link
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Practice area content</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Authority link
                                     building</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">E-commerce</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +380%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2081,23 +1896,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Schema markup</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Category architecture</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Schema markup</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Category architecture</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">SaaS</div>
                                 <div class="text-xs text-black/50">Avg. Traffic: +295%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2118,12 +1934,12 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Comparison pages</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Thought leadership</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Comparison pages</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Thought leadership</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
                 </div>
@@ -2132,7 +1948,7 @@
                     verticals.</div>
                 <div class="mt-4 text-center">
                     <a href="/services"
-                        class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                        class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
             </div>
@@ -2142,7 +1958,7 @@
             <div class="mx-auto max-w-4xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Frequently Asked Questions
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common SEO questions answered</h2>
@@ -2152,112 +1968,149 @@
                 </div>
 
                 <div class="mt-10 space-y-3">
-                    <details class="scroll-reveal rounded-2xl bg-white p-4" open>
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]"
+                        open>
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             What is SEO and how does it work?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">SEO (Search Engine Optimization) is the practice of
                             optimizing your website to rank higher in search engines. It works by improving technical
                             performance, creating high-quality content, and building authority through backlinks.
                         </p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How long does it take to see results from SEO?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Most clients see early improvements within 30-60 days,
                             while significant rankings and traffic gains typically take 3-6 months.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             What is the difference between SEO and PPC?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">SEO builds long-term organic visibility, while PPC
                             delivers immediate traffic through paid ads. We often combine both for maximum growth.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How much does SEO cost?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Pricing depends on scope, competition, and goals. We build
                             custom plans after a free audit and strategy call.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Do you guarantee first-page rankings?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">No agency can guarantee rankings, but we follow proven
                             strategies that consistently drive measurable growth.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             What is technical SEO and why does it matter?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Technical SEO improves crawlability, site speed, and
                             structure so search engines can index and rank your pages properly.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How do you measure SEO success?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">We track keyword rankings, organic traffic, conversions,
                             and revenue impact, along with technical health and visibility scores.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             What is the difference between on-page and off-page SEO?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">On-page SEO optimizes your site content and structure.
                             Off-page SEO builds authority through backlinks, PR, and citations.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Will SEO work for my industry?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Yes. We tailor strategies to your market, competition,
                             and search behavior to maximize results.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Do you use white-hat or black-hat SEO techniques?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">We only use white-hat, Google-approved techniques that
                             protect your brand and deliver sustainable growth.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Can you fix a Google penalty?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Yes. We audit backlinks, content, and technical issues,
                             then create a recovery plan to regain rankings safely.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none group rounded-2xl border-[1.5px] border-transparent bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How often will I receive reports and updates?
-                            <span class="text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block text-[#EE3923] transition-transform duration-300 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">You will receive monthly reports with actionable insights,
                             plus ongoing communication as progress unfolds.</p>
                     </details>
                 </div>
 
-                <div class="mt-8 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-6 text-center">
+                <div class="mt-8 rounded-2xl border border-black/10 bg-[#fff1ed] p-6 text-center">
                     <div class="text-sm font-semibold">Still have questions?</div>
                     <p class="mt-2 text-xs text-black/60">Discuss ranking strategies and learn how we can help you
                         dominate search results in your market.</p>
                     <a href="/contact"
-                        class="btn-glow mt-4 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
+                        class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
             </div>
@@ -2269,7 +2122,7 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-center text-white">
@@ -2278,7 +2131,7 @@
                     Ready to Dominate Google?
                 </div>
                 <h2 class="mt-4 text-3xl font-bold md:text-4xl">Stop losing traffic to competitors.<br
-                        class="hidden sm:block" /><span class="text-[var(--orange)]">Start ranking on page one.</span>
+                        class="hidden sm:block" /><span class="text-[#EE3923]">Start ranking on page one.</span>
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
                     Get a free, comprehensive SEO audit that reveals exactly where you are losing rankings and how we
@@ -2287,17 +2140,17 @@
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="text-sm font-semibold">Technical SEO Audit</div>
                         <div class="mt-1 text-xs text-white/60">Complete analysis of technical issues</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="text-sm font-semibold">Keyword Opportunities</div>
                         <div class="mt-1 text-xs text-white/60">Find untapped ranking opportunities</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="text-sm font-semibold">Custom Roadmap</div>
                         <div class="mt-1 text-xs text-white/60">Actionable steps to improve rankings</div>
                     </div>
@@ -2339,25 +2192,25 @@
             <div>
                 <div class="text-sm font-semibold">Services</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/services_seo" class="hover:text-[var(--orange)]">SEO</a></li>
-                    <li><a href="/services_ppc" class="hover:text-[var(--orange)]">PPC</a></li>
-                    <li><a href="/services_web_development" class="hover:text-[var(--orange)]">Web Development</a></li>
+                    <li><a href="/services_seo" class="hover:text-[#EE3923]">SEO</a></li>
+                    <li><a href="/services_ppc" class="hover:text-[#EE3923]">PPC</a></li>
+                    <li><a href="/services_web_development" class="hover:text-[#EE3923]">Web Development</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Company</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/about" class="hover:text-[var(--orange)]">About</a></li>
-                    <li><a href="/pricing" class="hover:text-[var(--orange)]">Pricing</a></li>
-                    <li><a href="/contact" class="hover:text-[var(--orange)]">Contact</a></li>
+                    <li><a href="/about" class="hover:text-[#EE3923]">About</a></li>
+                    <li><a href="/pricing" class="hover:text-[#EE3923]">Pricing</a></li>
+                    <li><a href="/contact" class="hover:text-[#EE3923]">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Resources</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/case-study" class="hover:text-[var(--orange)]">Case Studies</a></li>
-                    <li><a href="#faq" class="hover:text-[var(--orange)]">FAQ</a></li>
-                    <li><a href="/" class="hover:text-[var(--orange)]">Home</a></li>
+                    <li><a href="/case-study" class="hover:text-[#EE3923]">Case Studies</a></li>
+                    <li><a href="#faq" class="hover:text-[#EE3923]">FAQ</a></li>
+                    <li><a href="/" class="hover:text-[#EE3923]">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -2366,8 +2219,8 @@
                 class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-black/60 md:flex-row">
                 <div>Copyright 2024 Adryze. All rights reserved.</div>
                 <div class="flex gap-4">
-                    <a href="/privacy" class="hover:text-[var(--orange)]">Privacy</a>
-                    <a href="/terms" class="hover:text-[var(--orange)]">Terms</a>
+                    <a href="/privacy" class="hover:text-[#EE3923]">Privacy</a>
+                    <a href="/terms" class="hover:text-[#EE3923]">Terms</a>
                 </div>
             </div>
         </div>
@@ -2376,17 +2229,19 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            /* ---- Scroll-reveal ---- */
+            /* ---- Scroll reveal ---- */
             var elements = document.querySelectorAll(".scroll-reveal");
             var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
             if (reduceMotion) {
-                elements.forEach(function (el) { el.classList.add("in-view"); });
+                elements.forEach(function (el) {
+                    el.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0");
+                });
             } else if (elements.length) {
                 var revealObserver = new IntersectionObserver(function (entries, obs) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add("in-view");
+                            entry.target.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0");
                             obs.unobserve(entry.target);
                         }
                     });
@@ -2414,17 +2269,32 @@
             /* ---- Mobile hamburger menu ---- */
             var menuBtn = document.getElementById("menu-btn");
             var mobileMenu = document.getElementById("mobile-menu");
+            var menuBar1 = document.getElementById("menu-bar-1");
+            var menuBar2 = document.getElementById("menu-bar-2");
+            var menuBar3 = document.getElementById("menu-bar-3");
+
+            function setMenuBars(open) {
+                if (!menuBar1 || !menuBar2 || !menuBar3) return;
+                menuBar1.classList.toggle("translate-y-[7px]", open);
+                menuBar1.classList.toggle("rotate-45", open);
+                menuBar2.classList.toggle("opacity-0", open);
+                menuBar2.classList.toggle("scale-x-0", open);
+                menuBar3.classList.toggle("w-5", open);
+                menuBar3.classList.toggle("-translate-y-[7px]", open);
+                menuBar3.classList.toggle("-rotate-45", open);
+            }
+
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener("click", function () {
                     var isOpen = mobileMenu.classList.toggle("hidden");
-                    menuBtn.classList.toggle("open", !isOpen);
+                    setMenuBars(!isOpen);
                     menuBtn.setAttribute("aria-expanded", String(!isOpen));
                 });
                 // close on outside click
                 document.addEventListener("click", function (e) {
                     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                         mobileMenu.classList.add("hidden");
-                        menuBtn.classList.remove("open");
+                        setMenuBars(false);
                         menuBtn.setAttribute("aria-expanded", "false");
                     }
                 });
@@ -2434,7 +2304,7 @@
             var header = document.getElementById("site-header");
             if (header) {
                 window.addEventListener("scroll", function () {
-                    header.classList.toggle("scrolled", window.scrollY > 20);
+                    header.classList.toggle("shadow-[0_2px_20px_rgba(0,0,0,0.08)]", window.scrollY > 20);
                 }, { passive: true });
             }
 

@@ -186,11 +186,25 @@ SUB_INDUSTRY_PAGES = {
     'pool-builders': 'Pool Builders',
 }
 
+SUB_INDUSTRY_TEMPLATES = {
+    'dentists': 'dentists.html',
+    'chiropractors': 'chiropractors.html',
+    'med-spas': 'med_spas.html',
+    'plastic-surgeons': 'plastic_surgeons.html',
+}
+
 
 def industry_detail(request, slug):
     industry_name = SUB_INDUSTRY_PAGES.get(slug)
     if not industry_name:
         raise Http404('Industry page not found')
+
+    dedicated_template = SUB_INDUSTRY_TEMPLATES.get(slug)
+    if dedicated_template:
+        return render(request, dedicated_template, {
+            'industry_name': industry_name,
+            'slug': slug,
+        })
 
     return render(request, 'industry_detail.html', {
         'industry_name': industry_name,

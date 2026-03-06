@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,306 +10,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <style>
-        :root {
-            --orange: #EE3923;
-            --orange-100: #fff1ed;
-            --orange-200: #ffe4dc;
-            --ink: #121212;
-            --brand-2: #FF4801;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        body {
-            /* font-family: "Space Grotesk", sans-serif; */
-            color: var(--ink);
-        }
-
-        .hover-card {
-            background-color: rgba(255, 255, 255, 0.72) !important;
-            backdrop-filter: blur(12px);
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: var(--orange);
-            box-shadow: 0 18px 40px rgba(238, 57, 35, 0.14);
-        }
-
-        .hover-icon {
-            transition: transform 200ms ease;
-        }
-
-        .hover-card:hover .hover-icon {
-            transform: translateY(-6px);
-        }
-
-        .reveal {
-            animation: fadeUp 500ms ease both;
-        }
-
-        .hover-soft {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-soft:hover {
-            transform: translateY(-2px);
-            border-color: rgba(238, 57, 35, 0.5);
-            box-shadow: 0 14px 32px rgba(238, 57, 35, 0.2);
-        }
-
-        .btn-glow {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
-            background-image: linear-gradient(135deg, var(--brand-2), var(--orange));
-            border: 1px solid rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:active {
-            transform: translateY(0);
-            box-shadow: 0 10px 20px rgba(255, 72, 1, 0.25);
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            filter: blur(6px);
-            transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out),
-                filter 700ms var(--ease-out);
-            transition-delay: var(--delay, 0ms);
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.slide-left {
-            transform: translateX(-28px);
-        }
-
-        .scroll-reveal.slide-right {
-            transform: translateX(28px);
-        }
-
-        .scroll-reveal.in-view {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-            filter: blur(0);
-        }
-
-        #faq details>p {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-top: 0;
-            transition: max-height 900ms var(--ease-out), opacity 700ms ease, margin-top 700ms ease;
-        }
-
-        #faq details {
-            background-color: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(10px);
-            border: 1.5px solid transparent;
-            transition: border-color 350ms ease, box-shadow 350ms ease;
-        }
-
-        #faq details[open] {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.08);
-        }
-
-        #faq details[open]>p {
-            max-height: 360px;
-            opacity: 1;
-            margin-top: 0.75rem;
-        }
-
-        #faq summary {
-            list-style: none;
-        }
-
-        #faq summary::-webkit-details-marker {
-            display: none;
-        }
-
-        #faq summary .faq-icon {
-            display: inline-block;
-            line-height: 1;
-            transition: transform 400ms var(--ease-out);
-        }
-
-        #faq details[open] summary .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        [class*='hover:bg-[#ff8a3a]']:hover {
-            background-color: var(--brand-2) !important;
-        }
-
-        .bg-float {
-            animation: floatGlow 8s ease-in-out infinite;
-            filter: saturate(1.1);
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.9;
-            }
-
-            50% {
-                transform: translateY(-8px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .scroll-reveal,
-            .hover-card,
-            .hover-soft,
-            .btn-glow,
-            .bg-float {
-                animation: none;
-                transition: none;
-                transform: none;
-                filter: none;
-            }
-        }
-
-        /* Hamburger open state */
-        #menu-btn.open .menu-bar:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(3) {
-            width: 20px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Scroll-progress bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--brand-2), var(--orange));
-            z-index: 9999;
-            transition: width 100ms linear;
-        }
-
-        /* Stat count-up elements */
-        .count-num {
-            display: inline-block;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Sticky header shadow on scroll */
-        #site-header.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Icon wrapper in feature cards */
-        .icon-wrap {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(238, 57, 35, 0.2);
-            background-color: var(--orange-100);
-            color: var(--orange);
-            flex-shrink: 0;
-        }
-
-        /* Service tag chips */
-        .service-tag {
-            border-radius: 9999px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.15rem 0.65rem;
-            font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.5);
-        }
-    </style>
 </head>
 
-<body class="bg-white">
-    <div id="scroll-progress"></div>
+<body class="bg-white font-[Inter] text-[#121212] antialiased [text-rendering:optimizeLegibility]">
+    <div id="scroll-progress"
+        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-[linear-gradient(90deg,#FF4801,#EE3923)] transition-[width] duration-100 ease-linear">
+    </div>
     <header class="border-b border-black/10 bg-white/95 backdrop-blur-md sticky top-0 z-50 transition-shadow"
         id="site-header">
         <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
             <a href="/" class="text-xl font-bold tracking-tight flex items-center gap-1">
-                <span class="text-[var(--orange)]">A</span>dryze
+                <span class="text-[#EE3923]">A</span>dryze
             </a>
             <nav class="hidden items-center gap-7 text-sm font-medium md:flex">
-                <a href="/services"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Services
+                <a href="/services" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Services
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/case-study"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Case Studies
+                <a href="/case-study" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Case
+                    Studies
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/pricing"
-                    class="hover:text-[var(--orange)] transition-colors duration-150 relative group">Pricing
+                <a href="/pricing" class="hover:text-[#EE3923] transition-colors duration-150 relative group">Pricing
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
-                <a href="/about" class="hover:text-[var(--orange)] transition-colors duration-150 relative group">About
+                <a href="/about" class="hover:text-[#EE3923] transition-colors duration-150 relative group">About
                     <span
-                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--orange)] transition-all duration-200 group-hover:w-full rounded-full"></span>
+                        class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover:w-full rounded-full"></span>
                 </a>
             </nav>
             <div class="flex items-center gap-3">
                 <a href="/contact"
-                    class="btn-glow hidden md:inline-flex rounded-full bg-[var(--orange)] px-5 py-2 text-sm font-semibold text-white">Book
+                    class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] hidden md:inline-flex rounded-full bg-[#EE3923] px-5 py-2 text-sm font-semibold text-white">Book
                     a Call</a>
                 <button id="menu-btn" aria-label="Toggle menu" aria-expanded="false"
                     class="md:hidden flex flex-col justify-center gap-[5px] w-9 h-9 rounded-xl border border-black/10 items-center">
@@ -324,12 +60,12 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden hidden border-t border-black/10 bg-white/98">
             <nav class="flex flex-col px-6 py-5 gap-4 text-sm font-medium">
-                <a href="/services" class="py-1 hover:text-[var(--orange)] transition-colors">Services</a>
-                <a href="/case-study" class="py-1 hover:text-[var(--orange)] transition-colors">Case Studies</a>
-                <a href="/pricing" class="py-1 hover:text-[var(--orange)] transition-colors">Pricing</a>
-                <a href="/about" class="py-1 hover:text-[var(--orange)] transition-colors">About</a>
+                <a href="/services" class="py-1 hover:text-[#EE3923] transition-colors">Services</a>
+                <a href="/case-study" class="py-1 hover:text-[#EE3923] transition-colors">Case Studies</a>
+                <a href="/pricing" class="py-1 hover:text-[#EE3923] transition-colors">Pricing</a>
+                <a href="/about" class="py-1 hover:text-[#EE3923] transition-colors">About</a>
                 <a href="/contact"
-                    class="mt-1 rounded-full bg-[var(--orange)] px-5 py-2.5 text-sm font-semibold text-white text-center btn-glow">Book
+                    class="mt-1 rounded-full bg-[#EE3923] px-5 py-2.5 text-center text-sm font-semibold text-white transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)]">Book
                     a Call</a>
             </nav>
         </div>
@@ -342,17 +78,17 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 motion-safe:animate-pulse bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 text-white md:grid-cols-2">
-                <div class="reveal">
+                <div class="opacity-100">
                     <div
                         class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-xl px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white/70">
                         Custom Web Development
                     </div>
                     <h1 class="text-4xl font-bold leading-tight md:text-5xl">Build websites that <br
-                            class="hidden sm:block" /> <br> <span class="text-[var(--orange)]">convert & perform</span>
+                            class="hidden sm:block" /> <br> <span class="text-[#EE3923]">convert & perform</span>
                     </h1>
                     <p class="mt-4 text-base text-white/70 md:text-lg">
                         Custom web development that combines stunning design, lightning-fast performance, and
@@ -361,7 +97,7 @@
                     <div class="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -371,7 +107,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -381,7 +117,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -392,7 +128,7 @@
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Start Your Project →</a>
                         <a href="#process"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
@@ -400,9 +136,9 @@
                     </div>
                 </div>
 
-                <div class="reveal">
+                <div class="opacity-100">
                     <div
-                        class="hover-soft rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
+                        class="rounded-3xl border border-white/10 bg-white/10 p-6 shadow-lg backdrop-blur-xl transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[rgba(238,57,35,0.5)] hover:shadow-[0_14px_32px_rgba(238,57,35,0.2)]">
                         <div class="flex items-start justify-between">
                             <div class="text-sm font-semibold text-white/80">Our Development Stats</div>
                             <div
@@ -425,11 +161,13 @@
 
                         <div class="mt-5 grid gap-3 sm:grid-cols-2">
                             <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                                <div class="text-xl font-semibold count-num" data-target="200" data-suffix="+">0+</div>
+                                <div class="text-xl font-semibold count-num tabular-nums inline-block" data-target="200"
+                                    data-suffix="+">0+</div>
                                 <div class="text-xs text-white/60">Websites Delivered</div>
                             </div>
                             <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                                <div class="text-xl font-semibold count-num" data-target="98" data-suffix="%">0%</div>
+                                <div class="text-xl font-semibold count-num tabular-nums inline-block" data-target="98"
+                                    data-suffix="%">0%</div>
                                 <div class="text-xs text-white/60">Client Satisfaction </div>
                             </div>
                             <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
@@ -437,7 +175,8 @@
                                 <div class="text-xs text-white/60">Avg. Load Time</div>
                             </div>
                             <div class="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4">
-                                <div class="text-xl font-semibold count-num" data-target="100" data-suffix="+">0+</div>
+                                <div class="text-xl font-semibold count-num tabular-nums inline-block" data-target="100"
+                                    data-suffix="+">0+</div>
                                 <div class="text-xs text-white/60">PageSpeed Score</div>
                             </div>
                         </div>
@@ -473,11 +212,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Why Web Development?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Build a website that <span class="text-[var(--orange)]">converts and performs</span>
+                        Build a website that <span class="text-[#EE3923]">converts and performs</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         Modern web development goes beyond aesthetics. We build fast, secure, and conversion-optimized
@@ -486,8 +225,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -498,12 +239,14 @@
                         <p class="mt-2 text-sm text-black/70">Lightning-fast load times under 2 seconds. Optimized
                             code, lazy loading, and CDN integration ensure speed that keeps visitors engaged.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">&lt;2s</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">&lt;2s</span>
                             <span class="ml-2 text-black/60">page load time</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -516,12 +259,14 @@
                         <p class="mt-2 text-sm text-black/70">Strategic design elements and CTAs placed for maximum
                             conversions. Every component is crafted to guide visitors toward action.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">3.5x</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">3.5x</span>
                             <span class="ml-2 text-black/60">higher conversion rates</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -533,12 +278,14 @@
                         <p class="mt-2 text-sm text-black/70">Clean semantic code, optimized meta tags, and proper
                             schema markup. Your site is search engine friendly from day one.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">100%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">100%</span>
                             <span class="ml-2 text-black/60">SEO optimized</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -552,12 +299,14 @@
                         <p class="mt-2 text-sm text-black/70">Built to grow with your business. Modular code structure
                             and cloud infrastructure allow easy expansion and feature additions.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">10x</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">10x</span>
                             <span class="ml-2 text-black/60">scalability factor</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -569,12 +318,14 @@
                         <p class="mt-2 text-sm text-black/70">Responsive on every device. 60%+ of traffic is mobile,
                             so we design for mobile first and scale up to desktop seamlessly.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">100%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">100%</span>
                             <span class="ml-2 text-black/60">mobile responsive</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -586,7 +337,7 @@
                         <p class="mt-2 text-sm text-black/70">Enterprise-grade security with SSL, DDoS protection,
                             and secure authentication. We protect your data and your customers.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">A+</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">A+</span>
                             <span class="ml-2 text-black/60">security rating</span>
                         </div>
                     </div>
@@ -594,7 +345,7 @@
 
                 <div class="mt-12 flex justify-center">
                     <div
-                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[var(--orange-100)] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
+                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[#fff1ed] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
                         <div>
                             <div class="text-lg font-semibold">Ready to build a high-performance website?</div>
                             <div class="text-sm text-black/70">Get a free consultation and project quote tailored to
@@ -602,7 +353,7 @@
                             </div>
                         </div>
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center gap-2 rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free Consultation
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="h-4 w-4">
@@ -620,14 +371,14 @@
         <section class="bg-white">
             <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2">
                 <!-- Left: How Web Development Works card -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] border-[3px] border-[#EE3923] bg-[#fff1ed] p-6 md:p-8">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">How Web Development Works</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Step 1 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -636,17 +387,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Design</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 1. Design</div>
                                 <div class="text-xs text-black/60 mt-0.5">User-first wireframes and mockups that align
                                     with your brand and user experience goals.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 2 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -655,17 +406,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 2. Development</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 2. Development</div>
                                 <div class="text-xs text-black/60 mt-0.5">Clean codebase build using modern frameworks
                                     and best practices.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 3 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -674,17 +425,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 3. Testing</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 3. Testing</div>
                                 <div class="text-xs text-black/60 mt-0.5">Rigorous QA testing across devices, browsers,
                                     and performance benchmarks.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 4 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -693,17 +444,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. Launch</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 4. Launch</div>
                                 <div class="text-xs text-black/60 mt-0.5">Deploy to production with proper DNS setup,
                                     SSL certificates, and monitoring.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 5 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div
+                            class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4 shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div
+                                class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -712,32 +463,32 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 5. Maintain</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 5. Maintain</div>
                                 <div class="text-xs text-black/60 mt-0.5">Ongoing updates, security patches,
                                     performance optimizations, and support.</div>
                             </div>
                         </div>
                     </div>
                     <!-- Timeline -->
-                    <div class="mt-6 rounded-2xl border border-[var(--orange)]/50 bg-white p-5"
-                        style="box-shadow:0 2px 16px rgba(255,122,26,0.1)">
-                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--orange)]">
+                    <div
+                        class="mt-6 rounded-2xl border border-[#EE3923]/50 bg-white p-5 shadow-[0_2px_16px_rgba(255,122,26,0.1)]">
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[#EE3923]">
                             Typical Project Timeline</div>
                         <div class="mt-4 flex items-center gap-2">
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">2-4</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Weeks<br>Design</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">4-8</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Weeks<br>Build</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div
+                                class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">Live</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Launch<br>Ready</div>
                             </div>
@@ -748,11 +499,11 @@
                 <!-- Right: Understanding Web Development text -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         What is Web Development?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-                        Understanding <span class="text-[var(--orange)]">Modern Web<br>Development</span>
+                        Understanding <span class="text-[#EE3923]">Modern Web<br>Development</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Web Development is the process of building and maintaining websites and web applications. It
@@ -839,7 +590,7 @@
                 <!-- Left: text + CTA -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path
@@ -850,7 +601,7 @@
                         Common Web Dev Mistakes
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Avoid these critical <span class="text-[var(--orange)]">website mistakes</span>
+                        Avoid these critical <span class="text-[#EE3923]">website mistakes</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Research shows that 88% of users won't return to a website after a bad experience. Most
@@ -868,123 +619,123 @@
                         best practices, and modern architecture. Expert developers build sites that load in under 2
                         seconds, work flawlessly on any device, and follow SEO best practices from day one.
                     </p>
-                    <div class="mt-8 rounded-3xl border border-black/10 bg-[var(--orange-100)] p-6">
+                    <div class="mt-8 rounded-3xl border border-black/10 bg-[#fff1ed] p-6">
                         <div class="text-base font-semibold text-black">Don't let these mistakes kill your conversions
                         </div>
                         <div class="mt-1 text-sm text-black/70">Get a free website audit and discover hidden issues in
                             your current site.</div>
                         <a href="/contact"
-                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
+                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
                             Free Website Audit</a>
                     </div>
                 </div>
 
                 <!-- Right: Top 5 Website Mistakes bar chart -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] border-[3px] border-[#EE3923] bg-[#fff1ed] p-6 md:p-8">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">Top 5 Website Mistakes</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Mistake 1 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     1</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Slow Loading Times</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">43%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">43%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Pages over 3 seconds lose 43% of
                                         mobile visitors and hurt rankings.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 43%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[43%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 2 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     2</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Poor Mobile Experience</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">40%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">40%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Non-responsive design drives off users
                                         and gets penalized by Google.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 40%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[40%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 3 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     3</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">No SEO Optimization</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">90%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">90%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Sites without proper SEO structure
                                         rank
                                         poorly and miss 90% of organic traffic.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 90%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[90%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 4 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     4</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Security Vulnerabilities</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">30%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">30%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Unsecure sites get hacked, lose
                                         customer trust, and face Google penalties.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 30%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[30%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 5 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     5</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Outdated Tech Stack</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">70%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">70%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Legacy code is slow, hard to
                                         maintain, and fails to support business growth.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 70%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[70%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                     </div>
                     <!-- Website Abandonment stat -->
-                    <div class="mt-6 rounded-3xl border border-[var(--orange)]/30 bg-white p-5 text-center">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--orange)]">⚠ Website
+                    <div class="mt-6 rounded-3xl border border-[#EE3923]/30 bg-white p-5 text-center">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#EE3923]">⚠ Website
                             Abandonment Rate</div>
-                        <div class="mt-1 text-4xl font-extrabold text-[var(--orange)]">88%</div>
+                        <div class="mt-1 text-4xl font-extrabold text-[#EE3923]">88%</div>
                         <div class="mt-1 text-xs text-black/50">of users won't return after a bad website experience
                         </div>
                     </div>
@@ -993,15 +744,15 @@
         </section>
 
 
-        <section class="bg-[var(--orange-100)]">
+        <section class="bg-[#fff1ed]">
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Web Development Services
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Complete web development <span class="text-[var(--orange)]">solutions</span>
+                        Complete web development <span class="text-[#EE3923]">solutions</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         From simple landing pages to complex web applications, we build modern websites and web
@@ -1010,8 +761,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1025,18 +778,20 @@
                             your brand, optimized for conversions, and designed to scale.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Custom
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Custom
                                 design and branding</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Responsive
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Responsive
                                 across all devices</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 SEO-optimized architecture</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Content
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Content
                                 management system</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1050,18 +805,20 @@
                             experiences. Built for Shopify, WooCommerce, or custom platforms.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Shopping
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Shopping
                                 cart integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Payment
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Payment
                                 gateway setup</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Inventory
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Inventory
                                 management</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Order
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Order
                                 tracking systems</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1074,18 +831,20 @@
                             portals, SaaS platforms, and internal tools.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Custom
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Custom
                                 business logic</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> User
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> User
                                 authentication</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Database
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Database
                                 architecture</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> API
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> API
                                 development</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1100,18 +859,20 @@
                             WordPress, headless CMS, or custom content platforms.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Easy
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Easy
                                 content editing</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Multi-user
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Multi-user
                                 permissions</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 SEO-friendly structure</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Custom post
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Custom post
                                 types</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1125,18 +886,20 @@
                             payment processors, marketing tools, and custom APIs.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> REST API
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> REST API
                                 integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Third-party
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Third-party
                                 services</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Webhook
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Webhook
                                 configuration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Data
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Data
                                 synchronization</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)]">
+                        <div
+                            class="mb-6 inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[rgba(238,57,35,0.2)] bg-[#fff1ed] text-[#EE3923] transition-transform duration-200 group-hover:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1148,13 +911,13 @@
                             CDN setup, and performance tuning for better user experience.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Page speed
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Page speed
                                 optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Image
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Image
                                 compression</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Code
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Code
                                 minification</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Caching
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Caching
                                 strategies</li>
                         </ul>
                     </div>
@@ -1232,7 +995,7 @@
                     <p class="mt-2 text-sm text-black/60">Our web development experts will bring your vision to life
                         with modern, high-performance solutions.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free Consultation</a>
                 </div>
             </div>
@@ -1242,7 +1005,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M20 7h-9" />
@@ -1252,8 +1015,8 @@
                         </svg>
                         Why Choose Us
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Build with <span
-                            class="text-[var(--orange)]">experts who care</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Build with <span class="text-[#EE3923]">experts who
+                            care</span></h2>
                     <p class="mt-3 max-w-3xl text-sm text-black/60 md:text-base">We combine technical excellence with
                         business strategy to build websites that don't just look good — they deliver measurable
                         results.</p>
@@ -1262,7 +1025,7 @@
                 <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1277,7 +1040,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1294,7 +1057,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1310,7 +1073,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1326,7 +1089,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1343,7 +1106,7 @@
                     </div>
                     <div class="flex items-start gap-3">
                         <span
-                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[var(--orange-100)] text-[var(--orange)]">
+                            class="mt-0.5 inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#fff1ed] text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-4 w-4">
@@ -1359,10 +1122,10 @@
                     </div>
                 </div>
 
-                <div class="mt-10 rounded-2xl border border-[var(--orange)]/30 bg-[var(--orange-100)]/60 p-5">
+                <div class="mt-10 rounded-2xl border border-[#EE3923]/30 bg-[#fff1ed]/60 p-5">
                     <div class="flex items-start gap-3">
                         <span
-                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                            class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-5 w-5">
@@ -1375,16 +1138,16 @@
                             <div class="mt-1 text-sm text-black/65">We don't disappear after launch. Ongoing
                                 maintenance, updates, and support to keep you running.</div>
                             <div class="mt-4 grid gap-3 sm:grid-cols-3">
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">Monthly</div>
+                                <div class="rounded-lg border border-[#EE3923]/30 bg-white p-3">
+                                    <div class="text-sm font-semibold text-[#EE3923]">Monthly</div>
                                     <div class="text-[10px] text-black/55">Security updates</div>
                                 </div>
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">&lt;24hrs</div>
+                                <div class="rounded-lg border border-[#EE3923]/30 bg-white p-3">
+                                    <div class="text-sm font-semibold text-[#EE3923]">&lt;24hrs</div>
                                     <div class="text-[10px] text-black/55">Response time</div>
                                 </div>
-                                <div class="rounded-lg border border-[var(--orange)]/30 bg-white p-3">
-                                    <div class="text-sm font-semibold text-[var(--orange)]">99.9%</div>
+                                <div class="rounded-lg border border-[#EE3923]/30 bg-white p-3">
+                                    <div class="text-sm font-semibold text-[#EE3923]">99.9%</div>
                                     <div class="text-[10px] text-black/55">Uptime SLA</div>
                                 </div>
                             </div>
@@ -1393,20 +1156,20 @@
                 </div>
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">&lt;2s</div>
+                    <div class="rounded-xl bg-[#fff1ed]/40 p-4 text-center">
+                        <div class="text-xl font-semibold text-[#EE3923]">&lt;2s</div>
                         <div class="text-xs text-black/55">Average load time</div>
                     </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">100%</div>
+                    <div class="rounded-xl bg-[#fff1ed]/40 p-4 text-center">
+                        <div class="text-xl font-semibold text-[#EE3923]">100%</div>
                         <div class="text-xs text-black/55">Mobile responsive</div>
                     </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">A+</div>
+                    <div class="rounded-xl bg-[#fff1ed]/40 p-4 text-center">
+                        <div class="text-xl font-semibold text-[#EE3923]">A+</div>
                         <div class="text-xs text-black/55">Security rating</div>
                     </div>
-                    <div class="rounded-xl bg-[var(--orange-100)]/40 p-4 text-center">
-                        <div class="text-xl font-semibold text-[var(--orange)]">24/7</div>
+                    <div class="rounded-xl bg-[#fff1ed]/40 p-4 text-center">
+                        <div class="text-xl font-semibold text-[#EE3923]">24/7</div>
                         <div class="text-xs text-black/55">Uptime monitoring</div>
                     </div>
                 </div>
@@ -1423,7 +1186,7 @@
                 <div class="grid gap-6 lg:grid-cols-2">
                     <div class="rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
                         <div
-                            class="inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange)]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[var(--orange)]">
+                            class="inline-flex items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#EE3923]/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wider text-[#EE3923]">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-3.5 w-3.5">
@@ -1434,7 +1197,7 @@
                             Don't Waste Another Day
                         </div>
                         <h3 class="mt-4 text-3xl font-bold leading-tight">Your slow, outdated website is <span
-                                class="text-[var(--orange)]">costing you customers</span></h3>
+                                class="text-[#EE3923]">costing you customers</span></h3>
                         <ul class="mt-5 space-y-2 text-sm text-white/75">
                             <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Visitors abandon
                                 your site due to slow load times</li>
@@ -1445,21 +1208,21 @@
                                 vulnerabilities putting your business at risk</li>
                         </ul>
                         <div class="mt-6 rounded-lg border border-white/10 bg-white/5 px-4 py-3">
-                            <div class="text-3xl font-extrabold text-[var(--orange)]">88%</div>
+                            <div class="text-3xl font-extrabold text-[#EE3923]">88%</div>
                             <div class="text-xs text-white/60">of users won't return to a website after a bad
                                 experience</div>
                         </div>
                         Do you build websites on WordPress, Shopify, or custom?
                         <div class="rounded-2xl border border-white/15 bg-white/5 p-7 backdrop-blur-xl">
                             <div
-                                class="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                class="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
                                     <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
                                 </svg>
                                 Will my website be mobile-friendly and responsive?
-                                class="text-[var(--orange)]">6–8 weeks</span></h3>
+                                class="text-[#EE3923]">6–8 weeks</span></h3>
                                 <p class="mt-3 text-center text-sm text-white/70">Get a modern, high-performance website
                                     that
                                     loads fast, converts visitors, and ranks in search engines.</p>
@@ -1476,11 +1239,12 @@
                                     <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
                                         Conversion-focused UX</div>
                                 </div>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         Do you handle website redesigns or only new builds?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">We do both. If your current site has
                                         potential, we can
@@ -1488,11 +1252,12 @@
                                         also handle
                                         full rebuilds from scratch.</p>
                                 </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         Will my website be optimized for SEO from day one?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">Yes. We include technical SEO fundamentals
                                         such as clean
@@ -1500,11 +1265,12 @@
                                         performance
                                         best practices during development.</p>
                                 </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         Do you provide ongoing maintenance and support?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">Yes. We offer ongoing maintenance plans
                                         covering updates,
@@ -1512,11 +1278,12 @@
                                         stays fast
                                         and reliable after launch.</p>
                                 </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         Can you integrate third-party tools and APIs?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">Absolutely. We integrate CRMs, payment
                                         gateways, booking
@@ -1524,11 +1291,12 @@
                                         on your
                                         business workflow.</p>
                                 </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         How do you ensure website security?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">We implement SSL, secure authentication,
                                         role-based
@@ -1536,11 +1304,12 @@
                                         reduce
                                         vulnerabilities and protect user data.</p>
                                 </details>
-                                <details class="scroll-reveal rounded-2xl bg-white p-4">
+                                <details
+                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
                                     <summary
                                         class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                                         What happens after the website goes live?
-                                        <span class="text-[var(--orange)]">+</span>
+                                        <span class="text-[#EE3923]">+</span>
                                     </summary>
                                     <p class="mt-3 text-sm text-black/60">After launch, we monitor site health, fix
                                         post-launch
@@ -1549,7 +1318,7 @@
                                         improving over time.</p>
                                 </details>
                                 <a href="/contact"
-                                    class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[var(--orange)] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90">Get
+                                    class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#EE3923] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90">Get
                                     Your Free Website Audit</a>
                                 <div class="mt-3 text-center text-[11px] text-white/45">No obligation. See exactly what
                                     needs
@@ -1575,7 +1344,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M12 8v4l3 3" />
@@ -1584,7 +1353,7 @@
                         Our Process
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">How we build <span
-                            class="text-[var(--orange)]">exceptional websites</span></h2>
+                            class="text-[#EE3923]">exceptional websites</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Our proven 5-step process ensures quality delivery from discovery to launch and beyond.
                     </p>
@@ -1594,12 +1363,13 @@
                     <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-black/10 lg:block"></div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1609,7 +1379,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 01</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 1</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 1</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Discovery &amp; Planning</h3>
                                 <p class="mt-3 text-sm text-black/60">We start with deep discovery to understand your
@@ -1628,16 +1398,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1648,7 +1419,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 02</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 2</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 2</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Design &amp; Prototyping</h3>
                                 <p class="mt-3 text-sm text-black/60">Our designers create wireframes and high-fidelity
@@ -1667,16 +1438,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1686,7 +1458,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 03</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 3-4</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 3-4</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Development</h3>
                                 <p class="mt-3 text-sm text-black/60">Our developers bring your idea to life using
@@ -1704,16 +1476,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1723,7 +1496,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 04</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 4-6</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 4-6</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Testing &amp; QA</h3>
                                 <p class="mt-3 text-sm text-black/60">Rigorous quality assurance across all devices,
@@ -1742,16 +1515,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1761,7 +1535,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 05</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 8+</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 8+</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Launch &amp; Support</h3>
                                 <p class="mt-3 text-sm text-black/60">We handle deployment, DNS configuration, SSL
@@ -1781,29 +1555,29 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
                 </div>
 
                 <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">6-8 weeks</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">6-8 weeks</div>
                         <div class="text-xs text-black/60">Average project time</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">&lt;2s</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">&lt;2s</div>
                         <div class="text-xs text-black/60">Load time guaranteed</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">Weekly</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">Weekly</div>
                         <div class="text-xs text-black/60">Progress updates</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">30 days</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">30 days</div>
                         <div class="text-xs text-black/60">Post-launch support</div>
                     </div>
                 </div>
@@ -1822,7 +1596,7 @@
                     Expert Development Stack
                 </div>
                 <h3 class="mt-4 text-2xl font-semibold">Our favorite web development <span
-                        class="text-[var(--orange)]">platforms &amp; tools</span></h3>
+                        class="text-[#EE3923]">platforms &amp; tools</span></h3>
                 <p class="mx-auto mt-3 max-w-3xl text-sm text-white/60">
                     We leverage industry-leading platforms and design tools to build websites that perform, convert,
                     and scale with your business.
@@ -1830,10 +1604,10 @@
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="12" cy="12" r="9" />
                             <path d="M8 7c1.3-1 2.6-1 4 0 1.4-1 2.7-1 4 0" />
                             <path d="M9 10.5c1-.7 2-.7 3 0" />
@@ -1842,40 +1616,40 @@
                         <span class="text-xs text-white/70">WordPress</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M6 7h12l-1 11H7L6 7z" />
                             <path d="M9 7a3 3 0 1 1 6 0" />
                         </svg>
                         <span class="text-xs text-white/70">Shopify</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="m12 3 8 8-8 8-8-8 8-8z" />
                             <circle cx="12" cy="11" r="2" />
                         </svg>
                         <span class="text-xs text-white/70">Tag Manager</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M4 7h4l4 7h-4z" />
                             <path d="M12 7h4l4 7h-4z" />
                         </svg>
                         <span class="text-xs text-white/70">Webflow</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="9" cy="5" r="2" />
                             <circle cx="15" cy="5" r="2" />
                             <circle cx="9" cy="12" r="2" />
@@ -1892,7 +1666,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <line x1="12" y1="20" x2="12" y2="10" />
@@ -1902,7 +1676,7 @@
                         Performance Excellence
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Achieve perfect <span
-                            class="text-[var(--orange)]">performance scores</span></h2>
+                            class="text-[#EE3923]">performance scores</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         We build websites that score 90+ on all performance metrics, ensuring fast load times, great
                         SEO, and exceptional user experiences.
@@ -1911,10 +1685,11 @@
 
                 <div class="mt-12 grid items-center gap-10 lg:grid-cols-2">
                     <div class="space-y-4">
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1928,10 +1703,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1946,10 +1722,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1964,10 +1741,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1982,10 +1760,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2001,13 +1780,14 @@
                         </div>
                     </div>
 
-                    <div class="scroll-reveal slide-right">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 translate-x-7">
                         <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
                             <div class="rounded-2xl border border-black/10 bg-white p-4">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[var(--orange-100)] text-[var(--orange)]">
+                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#fff1ed] text-[#EE3923]">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-3.5 w-3.5">
@@ -2028,37 +1808,36 @@
                                 <div class="mt-4 space-y-3 text-sm">
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
-                                            <span>Performance</span><span
-                                                class="font-semibold text-[var(--orange)]">98</span>
+                                            <span>Performance</span><span class="font-semibold text-[#EE3923]">98</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:98%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[98%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
-                                            <span>SEO</span><span class="font-semibold text-[var(--orange)]">100</span>
+                                            <span>SEO</span><span class="font-semibold text-[#EE3923]">100</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:100%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-full rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Accessibility</span><span
-                                                class="font-semibold text-[var(--orange)]">95</span>
+                                                class="font-semibold text-[#EE3923]">95</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:95%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[95%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Best Practices</span><span
-                                                class="font-semibold text-[var(--orange)]">100</span>
+                                                class="font-semibold text-[#EE3923]">100</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:100%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-full rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -2079,7 +1858,7 @@
                                         <div class="text-black/50">Uptime</div>
                                     </div>
                                     <div class="rounded-lg border border-orange-200 bg-orange-50 p-2">
-                                        <div class="font-semibold text-[var(--orange)]">A+</div>
+                                        <div class="font-semibold text-[#EE3923]">A+</div>
                                         <div class="text-black/50">Security</div>
                                     </div>
                                 </div>
@@ -2093,10 +1872,10 @@
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
+                    class="absolute inset-0 motion-safe:animate-pulse bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
+                    class="absolute inset-0 motion-safe:animate-pulse bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-white">
@@ -2111,14 +1890,15 @@
                         Web Development Case Studies
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results from <span
-                            class="text-[var(--orange)]">modern websites</span></h2>
+                            class="text-[#EE3923]">modern websites</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">
                         See how we've helped businesses transform their online presence and drive measurable growth.
                     </p>
                 </div>
 
                 <div class="mt-10 grid gap-6 lg:grid-cols-2">
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Junk Removal &amp; Cleanout Services</div>
                         <div class="mt-2 text-5xl font-semibold">+180%</div>
                         <div class="text-xs text-white/60">Lead Form Submissions</div>
@@ -2132,7 +1912,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Junk Removal Services</div>
                         <div class="mt-2 text-5xl font-semibold">6+</div>
                         <div class="text-xs text-white/60">Service Pages Created</div>
@@ -2154,8 +1935,8 @@
                     </div>
                     <div class="mt-6 grid gap-6 text-center sm:grid-cols-2 lg:grid-cols-4">
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="315"
-                                data-suffix="%">0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num tabular-nums inline-block"
+                                data-target="315" data-suffix="%">0%</div>
                             <div class="text-xs text-white/60">Avg Conversion Increase</div>
                         </div>
                         <div>
@@ -2163,13 +1944,13 @@
                             <div class="text-xs text-white/60">Average Load Time</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-prefix="+"
-                                data-target="265" data-suffix="%">+0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num tabular-nums inline-block"
+                                data-prefix="+" data-target="265" data-suffix="%">+0%</div>
                             <div class="text-xs text-white/60">More Qualified Leads</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="99"
-                                data-suffix="%">0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num tabular-nums inline-block"
+                                data-target="99" data-suffix="%">0%</div>
                             <div class="text-xs text-white/60">Client Satisfaction</div>
                         </div>
                     </div>
@@ -2178,7 +1959,7 @@
 
             <div class="mb-12 text-center">
                 <a href="/case-study"
-                    class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                    class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
         </section>
@@ -2187,7 +1968,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M20 7h-9" />
@@ -2198,7 +1979,7 @@
                         Industry Expertise
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Web solutions built for <span
-                            class="text-[var(--orange)]">your industry</span></h2>
+                            class="text-[#EE3923]">your industry</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Every industry has unique needs and challenges. Our specialized web development solutions are
                         tailored to your specific market requirements.
@@ -2206,14 +1987,15 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">E-commerce</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +285%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2237,23 +2019,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Custom storefront</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">ERP shipping support</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Custom storefront</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">ERP shipping support</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">SaaS</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +240%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2274,24 +2057,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Custom dashboard
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Custom dashboard
                                     architecture</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Automated billing</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Automated billing</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Legal</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +330%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2313,24 +2097,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Client testimonials</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Trust-centered UX
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Client testimonials</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Trust-centered UX
                                     flow</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Healthcare</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +195%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2351,24 +2136,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Encrypted data</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Secure patient
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Encrypted data</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Secure patient
                                     forms</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Real Estate</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +225%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2389,23 +2175,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">IDX integration</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">3D/VR walkthroughs</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">IDX integration</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">3D/VR walkthroughs</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Home Services</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +310%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2427,12 +2214,12 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Online booking</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Calls-to-action</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Online booking</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Calls-to-action</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
                 </div>
@@ -2441,7 +2228,7 @@
                     verticals.</div>
                 <div class="mt-4 text-center">
                     <a href="/services"
-                        class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
             </div>
@@ -2451,7 +2238,7 @@
             <div class="mx-auto max-w-4xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M9.09 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" />
@@ -2461,68 +2248,94 @@
                         Frequently Asked Questions
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common web development <span
-                            class="text-[var(--orange)]">questions answered</span></h2>
+                            class="text-[#EE3923]">questions answered</span></h2>
                     <p class="mx-auto mt-3 max-w-2xl text-sm text-black/60 md:text-base">
                         Everything you need to know about our web development services.
                     </p>
                 </div>
 
                 <div class="mt-10 space-y-3">
-                    <details class="scroll-reveal rounded-2xl bg-white p-4" open>
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]"
+                        open>
+                        <summary
+                            class="flex list-none cursor-pointer items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How long does it take to build a website?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="faq-icon inline-block leading-none text-[#EE3923] transition-transform duration-300 group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Most websites take 6-8 weeks from discovery to launch.
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden opacity-0 text-sm text-black/60 transition-all duration-500 group-open:mt-3 group-open:max-h-96 group-open:opacity-100">
+                            Most websites take 6-8 weeks from discovery to launch.
                             Simple brochure sites can be completed in 4-5 weeks, while complex e-commerce sites or web
                             applications may take 10-12 weeks. Timeline depends on project scope, features needed,
                             content readiness, and design revisions.
                         </p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex list-none cursor-pointer items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             How much does a professional website cost?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="faq-icon inline-block leading-none text-[#EE3923] transition-transform duration-300 group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Pricing depends on project scope, custom features,
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden opacity-0 text-sm text-black/60 transition-all duration-500 group-open:mt-3 group-open:max-h-96 group-open:opacity-100">
+                            Pricing depends on project scope, custom features,
                             integrations, and content complexity. We provide a tailored quote after understanding your
                             business requirements.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex list-none cursor-pointer items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Do you build websites on WordPress, Shopify, or custom?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="faq-icon inline-block leading-none text-[#EE3923] transition-transform duration-300 group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We build on WordPress, Shopify, Webflow, and
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden opacity-0 text-sm text-black/60 transition-all duration-500 group-open:mt-3 group-open:max-h-96 group-open:opacity-100">
+                            Yes. We build on WordPress, Shopify, Webflow, and
                             fully custom stacks depending on your business goals, required features, and long-term
                             scalability needs.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex list-none cursor-pointer items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Will my website be mobile-friendly and responsive?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="faq-icon inline-block leading-none text-[#EE3923] transition-transform duration-300 group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Absolutely. Every website we build follows a mobile-first
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden opacity-0 text-sm text-black/60 transition-all duration-500 group-open:mt-3 group-open:max-h-96 group-open:opacity-100">
+                            Absolutely. Every website we build follows a mobile-first
                             approach and is tested across modern phones, tablets, and desktop devices for consistent
                             performance.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-black/10 bg-white/75 p-4 backdrop-blur-[10px] transition-[border-color,box-shadow] duration-300 open:border-[#EE3923] open:shadow-[0_0_0_3px_rgba(255,122,26,0.08)]">
+                        <summary
+                            class="flex list-none cursor-pointer items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden">
                             Can you help with website content and copywriting?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="faq-icon inline-block leading-none text-[#EE3923] transition-transform duration-300 group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We can help with content strategy, page copy,
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden opacity-0 text-sm text-black/60 transition-all duration-500 group-open:mt-3 group-open:max-h-96 group-open:opacity-100">
+                            Yes. We can help with content strategy, page copy,
                             conversion-focused messaging, and editing existing content to improve clarity and results.
                         </p>
                     </details>
                 </div>
 
-                <div class="mt-8 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-6 text-center">
+                <div class="mt-8 rounded-2xl border border-black/10 bg-[#fff1ed] p-6 text-center">
                     <div class="text-sm font-semibold">Still have questions?</div>
                     <p class="mt-2 text-xs text-black/60">Let's discuss your project goals, timeline, and the best
                         approach for your website.</p>
                     <a href="/contact"
-                        class="btn-glow mt-4 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#FF4801,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
             </div>
@@ -2534,7 +2347,7 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 motion-safe:animate-pulse bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-center text-white">
@@ -2547,7 +2360,7 @@
                     Ready to Build Something Amazing?
                 </div>
                 <h2 class="mt-4 text-3xl font-bold md:text-5xl">Transform your online presence with a<br
-                        class="hidden sm:block" /><span class="text-[var(--orange)]">high-performance website</span>
+                        class="hidden sm:block" /><span class="text-[#EE3923]">high-performance website</span>
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
                     Get a free consultation and project quote. We'll discuss your goals, timeline, and how we can
@@ -2556,7 +2369,7 @@
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2569,7 +2382,7 @@
                         <div class="mt-1 text-xs text-white/60">Detailed analysis of current site</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2582,7 +2395,7 @@
                         <div class="mt-1 text-xs text-white/60">Transparent pricing breakdown</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2636,25 +2449,25 @@
             <div>
                 <div class="text-sm font-semibold">Services</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/services_seo" class="hover:text-[var(--orange)]">SEO</a></li>
-                    <li><a href="/services_ppc" class="hover:text-[var(--orange)]">PPC</a></li>
-                    <li><a href="/services_web_development" class="hover:text-[var(--orange)]">Web Development</a></li>
+                    <li><a href="/services_seo" class="hover:text-[#EE3923]">SEO</a></li>
+                    <li><a href="/services_ppc" class="hover:text-[#EE3923]">PPC</a></li>
+                    <li><a href="/services_web_development" class="hover:text-[#EE3923]">Web Development</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Company</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/about" class="hover:text-[var(--orange)]">About</a></li>
-                    <li><a href="/pricing" class="hover:text-[var(--orange)]">Pricing</a></li>
-                    <li><a href="/contact" class="hover:text-[var(--orange)]">Contact</a></li>
+                    <li><a href="/about" class="hover:text-[#EE3923]">About</a></li>
+                    <li><a href="/pricing" class="hover:text-[#EE3923]">Pricing</a></li>
+                    <li><a href="/contact" class="hover:text-[#EE3923]">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Resources</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/case-study" class="hover:text-[var(--orange)]">Case Studies</a></li>
-                    <li><a href="#faq" class="hover:text-[var(--orange)]">FAQ</a></li>
-                    <li><a href="/" class="hover:text-[var(--orange)]">Home</a></li>
+                    <li><a href="/case-study" class="hover:text-[#EE3923]">Case Studies</a></li>
+                    <li><a href="#faq" class="hover:text-[#EE3923]">FAQ</a></li>
+                    <li><a href="/" class="hover:text-[#EE3923]">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -2663,8 +2476,8 @@
                 class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-black/60 md:flex-row">
                 <div>Copyright 2024 Adryze. All rights reserved.</div>
                 <div class="flex gap-4">
-                    <a href="/privacy" class="hover:text-[var(--orange)]">Privacy</a>
-                    <a href="/terms" class="hover:text-[var(--orange)]">Terms</a>
+                    <a href="/privacy" class="hover:text-[#EE3923]">Privacy</a>
+                    <a href="/terms" class="hover:text-[#EE3923]">Terms</a>
                 </div>
             </div>
         </div>
@@ -2714,14 +2527,28 @@
             if (menuBtn && mobileMenu) {
                 menuBtn.addEventListener("click", function () {
                     var isOpen = mobileMenu.classList.toggle("hidden");
-                    menuBtn.classList.toggle("open", !isOpen);
+                    var bars = menuBtn.querySelectorAll(".menu-bar");
+                    if (bars.length === 3) {
+                        bars[0].classList.toggle("translate-y-[7px]", !isOpen);
+                        bars[0].classList.toggle("rotate-45", !isOpen);
+                        bars[1].classList.toggle("opacity-0", !isOpen);
+                        bars[1].classList.toggle("scale-x-0", !isOpen);
+                        bars[2].classList.toggle("w-5", !isOpen);
+                        bars[2].classList.toggle("translate-y-[-7px]", !isOpen);
+                        bars[2].classList.toggle("-rotate-45", !isOpen);
+                    }
                     menuBtn.setAttribute("aria-expanded", String(!isOpen));
                 });
                 // close on outside click
                 document.addEventListener("click", function (e) {
                     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                         mobileMenu.classList.add("hidden");
-                        menuBtn.classList.remove("open");
+                        var bars = menuBtn.querySelectorAll(".menu-bar");
+                        if (bars.length === 3) {
+                            bars[0].classList.remove("translate-y-[7px]", "rotate-45");
+                            bars[1].classList.remove("opacity-0", "scale-x-0");
+                            bars[2].classList.remove("w-5", "translate-y-[-7px]", "-rotate-45");
+                        }
                         menuBtn.setAttribute("aria-expanded", "false");
                     }
                 });
@@ -2731,7 +2558,7 @@
             var header = document.getElementById("site-header");
             if (header) {
                 window.addEventListener("scroll", function () {
-                    header.classList.toggle("scrolled", window.scrollY > 20);
+                    header.classList.toggle("shadow-[0_2px_20px_rgba(0,0,0,0.08)]", window.scrollY > 20);
                 }, { passive: true });
             }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -11,312 +11,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <style>
-        :root {
-            --orange: #EE3923;
-            --orange-100: #fff1ed;
-            --orange-200: #ffe4dc;
-            --ink: #121212;
-            --brand-2: #FF4801;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        body {
-            /* font-family: "Space Grotesk", sans-serif; */
-            color: var(--ink);
-        }
-
-        .hover-card {
-            background-color: rgba(255, 255, 255, 0.72) !important;
-            backdrop-filter: blur(12px);
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: var(--orange);
-            box-shadow: 0 18px 40px rgba(238, 57, 35, 0.14);
-        }
-
-        .hover-icon {
-            transition: transform 200ms ease;
-        }
-
-        .hover-card:hover .hover-icon {
-            transform: translateY(-6px);
-        }
-
-        .reveal {
-            animation: fadeUp 500ms ease both;
-        }
-
-        .hover-soft {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-soft:hover {
-            transform: translateY(-2px);
-            border-color: rgba(238, 57, 35, 0.5);
-            box-shadow: 0 14px 32px rgba(238, 57, 35, 0.2);
-        }
-
-        .btn-glow {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
-            background-image: linear-gradient(135deg, var(--brand-2), var(--orange));
-            border: 1px solid rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:active {
-            transform: translateY(0);
-            box-shadow: 0 10px 20px rgba(255, 72, 1, 0.25);
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            filter: blur(6px);
-            transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out),
-                filter 700ms var(--ease-out);
-            transition-delay: var(--delay, 0ms);
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.slide-left {
-            transform: translateX(-28px);
-        }
-
-        .scroll-reveal.slide-right {
-            transform: translateX(28px);
-        }
-
-        .scroll-reveal.in-view {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-            filter: blur(0);
-        }
-
-        #faq details>p {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-top: 0;
-            transition: max-height 900ms var(--ease-out), opacity 700ms ease, margin-top 700ms ease;
-        }
-
-        #faq details {
-            background-color: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(10px);
-            border: 1.5px solid transparent;
-            transition: border-color 350ms ease, box-shadow 350ms ease;
-        }
-
-        #faq details[open] {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.08);
-        }
-
-        #faq details[open]>p {
-            max-height: 360px;
-            opacity: 1;
-            margin-top: 0.75rem;
-        }
-
-        #faq summary {
-            list-style: none;
-        }
-
-        #faq summary::-webkit-details-marker {
-            display: none;
-        }
-
-        #faq summary .faq-icon {
-            display: inline-block;
-            line-height: 1;
-            transition: transform 400ms var(--ease-out);
-        }
-
-        #faq details[open] summary .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        [class*='hover:bg-[#ff8a3a]']:hover {
-            background-color: var(--brand-2) !important;
-        }
-
-        .bg-float {
-            animation: floatGlow 8s ease-in-out infinite;
-            filter: saturate(1.1);
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.9;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        floatGlow: {
+                            '0%, 100%': { transform: 'translateY(0)', opacity: '0.9' },
+                            '50%': { transform: 'translateY(-8px)', opacity: '1' }
+                        },
+                        fadeUp: {
+                            from: { opacity: '0', transform: 'translateY(10px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'float-glow': 'floatGlow 8s ease-in-out infinite',
+                        'fade-up': 'fadeUp 500ms ease both'
+                    }
+                }
             }
-
-            50% {
-                transform: translateY(-8px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .scroll-reveal,
-            .hover-card,
-            .hover-soft,
-            .btn-glow,
-            .bg-float {
-                animation: none;
-                transition: none;
-                transform: none;
-                filter: none;
-            }
-        }
-
-        /* Hamburger open state */
-        #menu-btn.open .menu-bar:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(3) {
-            width: 20px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Scroll-progress bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--brand-2), var(--orange));
-            z-index: 9999;
-            transition: width 100ms linear;
-        }
-
-        /* Stat count-up elements */
-        .count-num {
-            display: inline-block;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Sticky header shadow on scroll */
-        #site-header.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Icon wrapper in feature cards */
-        .icon-wrap {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(238, 57, 35, 0.2);
-            background-color: var(--orange-100);
-            color: var(--orange);
-            flex-shrink: 0;
-        }
-
-        /* Service tag chips */
-        .service-tag {
-            border-radius: 9999px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.15rem 0.65rem;
-            font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 0;
-            background: #FF4801;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 2.5rem;
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-link:hover {
-            background: #fff7ed;
-            color: #FF4801;
-        }
-
-        .mobile-link {
-            padding: 0.5rem 0;
-        }
-    </style>
+        };
+    </script>
 </head>
 
-<body class="bg-white">
-    <div id="scroll-progress"></div>
-    <nav id="site-header" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+<body class="bg-white font-['Inter'] antialiased [text-rendering:optimizeLegibility] text-[#121212]">
+    <div id="scroll-progress"
+        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-gradient-to-r from-[#FF4801] to-[#EE3923] transition-[width] duration-100">
+    </div>
+    <nav id="site-header"
+        class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-[box-shadow] duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
                 AD<span class="text-[#EE3923]">RYZE</span>
@@ -325,7 +49,7 @@
             <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
                 <div class="relative group/nav">
                     <button
-                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        class="relative px-4 py-2 transition-all duration-300 before:content-[''] before:absolute before:top-0 before:left-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 hover:before:w-10 flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
                         <span class="relative">Services
                             <span
                                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
@@ -549,7 +273,8 @@
                 </div>
 
                 <div class="relative group">
-                    <button class="nav-link flex items-center gap-1 py-4">
+                    <button
+                        class="relative px-4 py-2 transition-all duration-300 before:content-[''] before:absolute before:top-0 before:left-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 hover:before:w-10 flex items-center gap-1 py-4">
                         Industries
                         <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -558,17 +283,24 @@
                     </button>
                     <div
                         class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <a href="/saas/" class="dropdown-link">SaaS</a>
-                        <a href="/b2b/" class="dropdown-link">B2B</a>
-                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                        <a href="/saas/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">SaaS</a>
+                        <a href="/b2b/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">B2B</a>
+                        <a href="/dtc/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">DTC</a>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="nav-link">Case Studies</a>
+                <a href="/case_study/"
+                    class="relative px-4 py-2 transition-all duration-300 before:content-[''] before:absolute before:top-0 before:left-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 hover:before:w-10">Case
+                    Studies</a>
 
-                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="/blog/"
+                    class="relative px-4 py-2 transition-all duration-300 before:content-[''] before:absolute before:top-0 before:left-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 hover:before:w-10">Blog</a>
 
-                <a href="/about/" class="nav-link">About</a>
+                <a href="/about/"
+                    class="relative px-4 py-2 transition-all duration-300 before:content-[''] before:absolute before:top-0 before:left-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 hover:before:w-10">About</a>
             </div>
 
             <div class="hidden md:block">
@@ -588,12 +320,11 @@
         <div id="mobileMenu"
             class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
             <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
-                <a href="/services/" class="block mobile-link">Services</a>
+                <a href="/case_study/#solutions" class="block py-2">Solutions</a>
+                <a href="/services/" class="block py-2">Services</a>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
-                        class="flex justify-between w-full mobile-link">
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')" class="flex justify-between w-full py-2">
                         Industries <span>+</span>
                     </button>
                     <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
@@ -603,11 +334,10 @@
                     </div>
                 </div>
 
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
+                <a href="/case_study/" class="block py-2">Case Studies</a>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
-                        class="flex justify-between w-full mobile-link">
+                    <button onclick="toggleMobileMenu('mobileLearnMenu')" class="flex justify-between w-full py-2">
                         Learn <span>+</span>
                     </button>
                     <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
@@ -630,17 +360,17 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 text-white md:grid-cols-2">
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
                         class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-xl px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white/70">
                         High-Converting Landing Pages
                     </div>
                     <h1 class="text-4xl font-bold leading-tight md:text-5xl">Landing pages that <br
-                            class="hidden sm:block" /> <span class="text-[var(--orange)]">turn clicks into
+                            class="hidden sm:block" /> <span class="text-[#EE3923]">turn clicks into
                             customers</span>
                     </h1>
                     <p class="mt-4 text-base text-white/70 md:text-lg">
@@ -650,7 +380,7 @@
                     <div class="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -660,7 +390,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -670,7 +400,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -681,7 +411,7 @@
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
+                            class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Free Landing Page Audit →</a>
                         <a href="#process"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
@@ -689,9 +419,9 @@
                     </div>
                 </div>
 
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
-                        class="hover-soft rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
+                        class="transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#EE3923]/50 hover:shadow-[0_14px_32px_rgba(238,57,35,0.2)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
                         <div class="flex items-start justify-between">
                             <div class="text-sm font-semibold text-white/80">Our Landing Page Performance</div>
                             <div
@@ -763,11 +493,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Why Landing Pages?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        The fastest path to <span class="text-[var(--orange)]">higher conversions</span>
+                        The fastest path to <span class="text-[#EE3923]">higher conversions</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         Landing pages are purpose-built to convert visitors into customers. Unlike your homepage, every
@@ -776,8 +506,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -788,12 +520,14 @@
                         <p class="mt-2 text-sm text-black/70">Every element is designed to guide visitors toward a
                             single conversion goal, eliminating distractions and maximizing results.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">3-5x</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">3-5x</span>
                             <span class="ml-2 text-black/60">higher conversion rate</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -806,12 +540,14 @@
                         <p class="mt-2 text-sm text-black/70">Optimized for mobile devices where most of your traffic
                             comes from, ensuring perfect experience on any screen size.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">70%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">70%</span>
                             <span class="ml-2 text-black/60">mobile traffic</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -823,12 +559,14 @@
                         <p class="mt-2 text-sm text-black/70">Optimized code and assets ensure lightning-fast load
                             times. Every second counts when converting visitors.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">&lt;2s</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">&lt;2s</span>
                             <span class="ml-2 text-black/60">avg load time</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -842,12 +580,14 @@
                         <p class="mt-2 text-sm text-black/70">Built-in infrastructure for split testing headlines,
                             CTAs, and layouts to continuously improve conversion rates.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">+40%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">+40%</span>
                             <span class="ml-2 text-black/60">avg improvement</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -859,12 +599,14 @@
                         <p class="mt-2 text-sm text-black/70">Leverage proven psychological principles like urgency,
                             social proof, and scarcity to motivate action.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">85%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">85%</span>
                             <span class="ml-2 text-black/60">influence on decision</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -876,7 +618,7 @@
                         <p class="mt-2 text-sm text-black/70">Every design decision is supported by conversion rate
                             research and industry best practices from thousands of tests.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">1000+</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">1000+</span>
                             <span class="ml-2 text-black/60">tested patterns</span>
                         </div>
                     </div>
@@ -884,7 +626,7 @@
 
                 <div class="mt-12 flex justify-center">
                     <div
-                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[var(--orange-100)] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
+                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[#fff1ed] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
                         <div>
                             <div class="text-lg font-semibold">Ready to see these benefits in action?</div>
                             <div class="text-sm text-black/70">Get a free landing page audit and discover your
@@ -892,7 +634,7 @@
                             </div>
                         </div>
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center gap-2 rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
+                            class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free Audit
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="h-4 w-4">
@@ -910,14 +652,14 @@
         <section class="bg-white">
             <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2">
                 <!-- Left: How Landing Pages Work card -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] border-[3px] border-[#EE3923] bg-[#fff1ed] p-6 md:p-8">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">How Landing Pages Work</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Step 1 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -926,18 +668,18 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Research &amp; Strategy
+                                <div class="text-sm font-bold text-[#EE3923]">Step 1. Research &amp; Strategy
                                 </div>
                                 <div class="text-xs text-black/60 mt-0.5">Understand your audience, value proposition,
                                     and conversion goals.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 2 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -946,17 +688,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 2. Design &amp; Wireframe</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 2. Design &amp; Wireframe</div>
                                 <div class="text-xs text-black/60 mt-0.5">Create conversion-focused layouts with clear
                                     visual hierarchy.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 3 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -965,17 +707,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 3. Development</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 3. Development</div>
                                 <div class="text-xs text-black/60 mt-0.5">Build responsive, fast-loading pages
                                     optimized for all devices.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 4 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -984,18 +726,18 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. Testing &amp; Optimization
+                                <div class="text-sm font-bold text-[#EE3923]">Step 4. Testing &amp; Optimization
                                 </div>
                                 <div class="text-xs text-black/60 mt-0.5">A/B test variations and refine based on real
                                     behavior data.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 5 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -1004,32 +746,32 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 5. Launch &amp; Monitor</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 5. Launch &amp; Monitor</div>
                                 <div class="text-xs text-black/60 mt-0.5">Deploy live and continuously track
                                     performance metrics.</div>
                             </div>
                         </div>
                     </div>
                     <!-- Timeline -->
-                    <div class="mt-6 rounded-2xl border border-[var(--orange)]/50 bg-white p-5"
-                        style="box-shadow:0 2px 16px rgba(255,122,26,0.1)">
-                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--orange)]">
+                    <div class="mt-6 rounded-2xl border border-[#EE3923]/50 bg-white p-5"
+                        class="shadow-[0_2px_16px_rgba(255,122,26,0.1)]">
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[#EE3923]">
                             Typical Performance Lift</div>
                         <div class="mt-4 flex items-center gap-2">
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">2%</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Homepage<br>CVR</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">8%</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Landing Page<br>CVR</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">4x</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Better<br>Results</div>
                             </div>
@@ -1040,11 +782,11 @@
                 <!-- Right: Understanding Landing Pages text -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         What are Landing Pages?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-                        Understanding <span class="text-[var(--orange)]">High-Converting<br>Landing Pages</span>
+                        Understanding <span class="text-[#EE3923]">High-Converting<br>Landing Pages</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Landing pages are standalone web pages created specifically for marketing campaigns. Unlike your
@@ -1126,7 +868,7 @@
                 <!-- Left: text + CTA -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path
@@ -1137,7 +879,7 @@
                         Common Landing Page Mistakes
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Avoid these costly <span class="text-[var(--orange)]">landing page mistakes</span>
+                        Avoid these costly <span class="text-[#EE3923]">landing page mistakes</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Research shows that poor landing page design kills conversions before visitors even reach your
@@ -1154,122 +896,122 @@
                         strategic layout, and continuous testing. Expert designers know how to craft compelling
                         headlines, place trust signals effectively, and optimize forms to maximize submissions.
                     </p>
-                    <div class="mt-8 rounded-3xl border border-black/10 bg-[var(--orange-100)] p-6">
+                    <div class="mt-8 rounded-3xl border border-black/10 bg-[#fff1ed] p-6">
                         <div class="text-base font-semibold text-black">Don't let these mistakes cost you conversions
                         </div>
                         <div class="mt-1 text-sm text-black/70">Get a free landing page audit to identify
                             opportunities and fix conversion killers.</div>
                         <a href="/contact"
-                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
+                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
                             Free Audit</a>
                     </div>
                 </div>
 
                 <!-- Right: Top 5 Landing Page Mistakes bar chart -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] border-[3px] border-[#EE3923] bg-[#fff1ed] p-6 md:p-8">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">Top 5 Landing Page Mistakes</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Mistake 1 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     1</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Generic Messaging</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">40%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">40%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Copy that does not match ad promise
                                         lowers click-to-lead continuity.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 40%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[40%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 2 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     2</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Slow Load Times</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">35%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">35%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Pages loading over 3 seconds lose
                                         half of mobile visitors.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 35%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[35%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 3 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     3</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Poor Mobile Experience</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">48%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">48%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Non-responsive design kills
                                         conversions on 70% of traffic.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 48%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[48%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 4 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     4</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Weak CTAs</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">38%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">38%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Unclear or hidden calls-to-action
                                         fail to drive form submissions.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 38%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[38%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                         <!-- Mistake 5 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     5</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">No Social Proof</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">30%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">30%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Missing testimonials and trust
                                         signals hurt credibility.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 30%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 w-[30%] rounded-full bg-[#EE3923]"></div>
                             </div>
                         </div>
                     </div>
                     <!-- Website Abandonment stat -->
-                    <div class="mt-6 rounded-3xl border border-[var(--orange)]/30 bg-white p-5 text-center">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--orange)]">⚠
+                    <div class="mt-6 rounded-3xl border border-[#EE3923]/30 bg-white p-5 text-center">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#EE3923]">⚠
                             Conversion Impact</div>
-                        <div class="mt-1 text-4xl font-extrabold text-[var(--orange)]">Up to 70%</div>
+                        <div class="mt-1 text-4xl font-extrabold text-[#EE3923]">Up to 70%</div>
                         <div class="mt-1 text-xs text-black/50">of potential customers can be lost from poor
                             landing-page design</div>
                     </div>
@@ -1278,15 +1020,15 @@
         </section>
 
 
-        <section class="bg-[var(--orange-100)]">
+        <section class="bg-[#fff1ed]">
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Landing Page Types
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Complete landing page <span class="text-[var(--orange)]">design services</span>
+                        Complete landing page <span class="text-[#EE3923]">design services</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         We design and optimize every type of landing page to maximize your conversions and ROI across
@@ -1295,8 +1037,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1310,18 +1054,20 @@
                             submissions while filtering out low-quality prospects.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Multi-step form optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Lead
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Lead
                                 magnet integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> CRM &amp;
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> CRM &amp;
                                 analytics</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Thank-you
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Thank-you
                                 page sequencing</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1335,18 +1081,20 @@
                             launches with countdown timers and early-bird offers.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Countdown
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Countdown
                                 timer integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Pre-launch email capture</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Feature
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Feature
                                 highlight sections</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Early
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Early
                                 access incentives</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1359,18 +1107,20 @@
                             agenda flow, and easy registration forms.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Event
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Event
                                 calendar integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Speaker &amp;
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Speaker &amp;
                                 agenda display</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Ticket
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Ticket
                                 tier options</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Confirmation automation</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1385,18 +1135,20 @@
                             persuade visitors to buy with compelling copy.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Benefit-driven copywriting</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> FAQ &amp;
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> FAQ &amp;
                                 objection handling</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Money-back
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Money-back
                                 guarantee blocks</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Payment
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Payment
                                 plan options</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1410,18 +1162,20 @@
                             time-based incentives and reminder sequences.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Webinar
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Webinar
                                 timer display</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Timezone
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Timezone
                                 normalization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Auto-reminder
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Auto-reminder
                                 emails</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Replay page
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Replay page
                                 templates</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group rounded-3xl border border-black/10 bg-white/70 p-6 shadow-sm backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] motion-reduce:transform-none motion-reduce:transition-none rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover:-translate-y-1.5 motion-reduce:transform-none">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1433,13 +1187,13 @@
                             screenshots, and direct download links.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> App store
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> App store
                                 button integration</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Feature
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Feature
                                 screenshots gallery</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Video demo embedding</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> App preview
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> App preview
                                 animations</li>
                         </ul>
                     </div>
@@ -1450,7 +1204,7 @@
                     <p class="mt-2 text-sm text-black/60">Our landing page experts will design conversion-optimized
                         pages that turn your traffic into leads and sales.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free Landing Page Audit</a>
                 </div>
             </div>
@@ -1526,7 +1280,7 @@
                     <p class="mt-2 text-sm text-black/60">Our web development experts will bring your vision to life
                         with modern, high-performance solutions.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free Consultation</a>
                 </div>
             </div>
@@ -1536,7 +1290,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M9 12l2 2 4-4" />
@@ -1544,8 +1298,8 @@
                         </svg>
                         Why Choose Us
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span
-                            class="text-[var(--orange)]">landing page service?</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span class="text-[#EE3923]">landing
+                            page service?</span></h2>
                     <p class="mt-3 max-w-3xl text-sm text-black/60 md:text-base">Partner with experts who understand
                         the science of conversion and have the track record to prove it.</p>
                 </div>
@@ -1553,7 +1307,7 @@
                 <div class="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center">
                     <div class="space-y-4">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Conversion Expertise</div>
                                 <div class="text-xs text-black/60">Our designers specialize in conversion rate
@@ -1561,7 +1315,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Psychology-Driven Design</div>
                                 <div class="text-xs text-black/60">We apply proven psychological principles like
@@ -1569,7 +1323,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Mobile-First Approach</div>
                                 <div class="text-xs text-black/60">Every page is designed for mobile first, then
@@ -1577,7 +1331,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">A/B Testing Built-In</div>
                                 <div class="text-xs text-black/60">We continuously test variations to find what
@@ -1585,7 +1339,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Fast Load Times</div>
                                 <div class="text-xs text-black/60">Optimized code and assets ensure pages load in
@@ -1593,7 +1347,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Data-Backed Decisions</div>
                                 <div class="text-xs text-black/60">Every design choice is informed by conversion
@@ -1601,7 +1355,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Full Integration</div>
                                 <div class="text-xs text-black/60">Seamlessly connects with your CRM, email platform,
@@ -1610,7 +1364,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-3xl border border-[var(--orange)]/30 bg-[var(--orange-100)] p-4 shadow-sm">
+                    <div class="rounded-3xl border border-[#EE3923]/30 bg-[#fff1ed] p-4 shadow-sm">
                         <div class="rounded-2xl border border-black/10 bg-black/90 p-3">
                             <div class="grid grid-cols-3 gap-2">
                                 <div class="col-span-2 rounded-lg bg-white/10 p-3">
@@ -1626,7 +1380,7 @@
                         <div class="mt-3 rounded-xl border border-black/10 bg-white p-3">
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange)] text-white">
+                                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#EE3923] text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1655,7 +1409,7 @@
             </div>
             <div class="relative mx-auto max-w-5xl px-6 py-16 text-center text-white">
                 <div
-                    class="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[var(--orange)]">
+                    class="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[#EE3923]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
                         <path
@@ -1665,22 +1419,22 @@
                     </svg>
                 </div>
                 <h2 class="mt-5 text-3xl font-bold md:text-4xl">Poor landing pages cost you <span
-                        class="text-[var(--orange)]">60% of conversions!</span></h2>
+                        class="text-[#EE3923]">60% of conversions!</span></h2>
                 <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">Without professional landing
                     page design, most businesses lose more than half their potential customers to slow load times,
                     poor mobile experience, and weak calls-to-action.</p>
 
                 <div class="mx-auto mt-7 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">70%</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">70%</div>
                         <div class="text-xs text-white/60">Bounce on poor landing pages</div>
                     </div>
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">55%</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">55%</div>
                         <div class="text-xs text-white/60">Leave if page loads over 3s</div>
                     </div>
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">40%</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">40%</div>
                         <div class="text-xs text-white/60">Lose trust with weak CTAs</div>
                     </div>
                 </div>
@@ -1697,7 +1451,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M12 8v4l3 3" />
@@ -1706,7 +1460,7 @@
                         Our Process
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">How we build <span
-                            class="text-[var(--orange)]">high-converting landing pages</span></h2>
+                            class="text-[#EE3923]">high-converting landing pages</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Our proven 5-step process ensures your landing pages are optimized for conversions from day one
                         and continuously improve over time.
@@ -1717,12 +1471,13 @@
                     <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-black/10 lg:block"></div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1732,7 +1487,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 01</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 1</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 1</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Discovery &amp; Analysis</h3>
                                 <p class="mt-3 text-sm text-black/60">We start with deep discovery to understand your
@@ -1752,16 +1507,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1771,7 +1527,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 02</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 1-2</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 1-2</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Design &amp; Copywriting</h3>
                                 <p class="mt-3 text-sm text-black/60">Our team creates conversion-focused wireframes
@@ -1790,16 +1546,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1809,7 +1566,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 03</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 2-3</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 2-3</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Development &amp; Integration</h3>
                                 <p class="mt-3 text-sm text-black/60">We build your landing page with clean,
@@ -1828,16 +1585,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1853,7 +1611,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 04</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
+                                    <span class="font-semibold text-[#EE3923]">Ongoing</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Testing &amp; Optimization</h3>
                                 <p class="mt-3 text-sm text-black/60">Before going live, we run a thorough QA testing
@@ -1871,16 +1629,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1891,7 +1650,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 05</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
+                                    <span class="font-semibold text-[#EE3923]">Ongoing</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Launch &amp; Monitor</h3>
                                 <p class="mt-3 text-sm text-black/60">Your landing page goes live and we closely
@@ -1910,29 +1669,29 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
                 </div>
 
                 <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">10 days</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">10 days</div>
                         <div class="text-xs text-black/60">Avg time to launch</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">24 hours</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">24 hours</div>
                         <div class="text-xs text-black/60">Response time</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">Continuous</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">Continuous</div>
                         <div class="text-xs text-black/60">A/B testing</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">100%</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">100%</div>
                         <div class="text-xs text-black/60">Conversion focused</div>
                     </div>
                 </div>
@@ -1951,7 +1710,7 @@
                     Expert Development Stack
                 </div>
                 <h3 class="mt-4 text-2xl font-semibold">Our favorite web development <span
-                        class="text-[var(--orange)]">platforms &amp; tools</span></h3>
+                        class="text-[#EE3923]">platforms &amp; tools</span></h3>
                 <p class="mx-auto mt-3 max-w-3xl text-sm text-white/60">
                     We leverage industry-leading platforms and design tools to build websites that perform, convert,
                     and scale with your business.
@@ -1959,10 +1718,10 @@
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="12" cy="12" r="9" />
                             <path d="M8 7c1.3-1 2.6-1 4 0 1.4-1 2.7-1 4 0" />
                             <path d="M9 10.5c1-.7 2-.7 3 0" />
@@ -1971,40 +1730,40 @@
                         <span class="text-xs text-white/70">WordPress</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M6 7h12l-1 11H7L6 7z" />
                             <path d="M9 7a3 3 0 1 1 6 0" />
                         </svg>
                         <span class="text-xs text-white/70">Shopify</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="m12 3 8 8-8 8-8-8 8-8z" />
                             <circle cx="12" cy="11" r="2" />
                         </svg>
                         <span class="text-xs text-white/70">Tag Manager</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M4 7h4l4 7h-4z" />
                             <path d="M12 7h4l4 7h-4z" />
                         </svg>
                         <span class="text-xs text-white/70">Webflow</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="9" cy="5" r="2" />
                             <circle cx="15" cy="5" r="2" />
                             <circle cx="9" cy="12" r="2" />
@@ -2021,7 +1780,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <line x1="12" y1="20" x2="12" y2="10" />
@@ -2031,7 +1790,7 @@
                         Performance Excellence
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Achieve perfect <span
-                            class="text-[var(--orange)]">performance scores</span></h2>
+                            class="text-[#EE3923]">performance scores</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         We build websites that score 90+ on all performance metrics, ensuring fast load times, great
                         SEO, and exceptional user experiences.
@@ -2040,10 +1799,11 @@
 
                 <div class="mt-12 grid items-center gap-10 lg:grid-cols-2">
                     <div class="space-y-4">
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2057,10 +1817,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2075,10 +1836,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2093,10 +1855,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2111,10 +1874,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2130,13 +1894,14 @@
                         </div>
                     </div>
 
-                    <div class="scroll-reveal slide-right">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7">
                         <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
                             <div class="rounded-2xl border border-black/10 bg-white p-4">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[var(--orange-100)] text-[var(--orange)]">
+                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#fff1ed] text-[#EE3923]">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-3.5 w-3.5">
@@ -2157,37 +1922,36 @@
                                 <div class="mt-4 space-y-3 text-sm">
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
-                                            <span>Performance</span><span
-                                                class="font-semibold text-[var(--orange)]">98</span>
+                                            <span>Performance</span><span class="font-semibold text-[#EE3923]">98</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:98%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[98%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
-                                            <span>SEO</span><span class="font-semibold text-[var(--orange)]">100</span>
+                                            <span>SEO</span><span class="font-semibold text-[#EE3923]">100</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:100%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-full rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Accessibility</span><span
-                                                class="font-semibold text-[var(--orange)]">95</span>
+                                                class="font-semibold text-[#EE3923]">95</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:95%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[95%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Best Practices</span><span
-                                                class="font-semibold text-[var(--orange)]">100</span>
+                                                class="font-semibold text-[#EE3923]">100</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:100%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-full rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -2208,7 +1972,7 @@
                                         <div class="text-black/50">Uptime</div>
                                     </div>
                                     <div class="rounded-lg border border-orange-200 bg-orange-50 p-2">
-                                        <div class="font-semibold text-[var(--orange)]">A+</div>
+                                        <div class="font-semibold text-[#EE3923]">A+</div>
                                         <div class="text-black/50">Security</div>
                                     </div>
                                 </div>
@@ -2222,10 +1986,10 @@
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-white">
@@ -2239,8 +2003,8 @@
                         </svg>
                         Landing Page Case Studies
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results for <span
-                            class="text-[var(--orange)]">real businesses</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results for <span class="text-[#EE3923]">real
+                            businesses</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">
                         See the measurable impact our landing page designs have delivered across various industries and
                         business types.
@@ -2248,7 +2012,8 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Real Estate / Mortgage Pre-Qualification</div>
                         <div class="mt-2 text-5xl font-semibold">+85%</div>
                         <div class="text-xs text-white/60">Conversion Rate Increase</div>
@@ -2261,7 +2026,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Legal Services / Estate Planning</div>
                         <div class="mt-2 text-5xl font-semibold">+70%</div>
                         <div class="text-xs text-white/60">Conversion Rate Increase</div>
@@ -2274,7 +2040,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Security Services / K9 Security</div>
                         <div class="mt-2 text-5xl font-semibold">+95%</div>
                         <div class="text-xs text-white/60">Conversion Rate Increase</div>
@@ -2304,13 +2071,13 @@
                             <div class="text-xs text-white/60">Lower Cost Per Lead</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-prefix="+"
-                                data-target="265" data-suffix="%">+0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num inline-block tabular-nums"
+                                data-prefix="+" data-target="265" data-suffix="%">+0%</div>
                             <div class="text-xs text-white/60">More Conversions</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="99"
-                                data-suffix="%">0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num inline-block tabular-nums"
+                                data-target="99" data-suffix="%">0%</div>
                             <div class="text-xs text-white/60">Client Satisfaction</div>
                         </div>
                     </div>
@@ -2319,7 +2086,7 @@
 
             <div class="mb-12 text-center">
                 <a href="/case-study"
-                    class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                    class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
         </section>
@@ -2328,7 +2095,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M20 7h-9" />
@@ -2339,7 +2106,7 @@
                         Industry Expertise
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Landing pages tailored to <span
-                            class="text-[var(--orange)]">your industry</span></h2>
+                            class="text-[#EE3923]">your industry</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Every industry has unique conversion challenges. Our landing page designs are optimized for
                         your specific market and audience.
@@ -2347,14 +2114,15 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">E-commerce</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +285%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2378,23 +2146,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Custom storefront</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">ERP shipping support</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Custom storefront</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">ERP shipping support</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">SaaS</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +240%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2415,24 +2184,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Custom dashboard
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Custom dashboard
                                     architecture</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Automated billing</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Automated billing</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Legal</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +330%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2454,24 +2224,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Client testimonials</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Trust-centered UX
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Client testimonials</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Trust-centered UX
                                     flow</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Healthcare</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +195%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2492,24 +2263,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Encrypted data</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Secure patient
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Encrypted data</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Secure patient
                                     forms</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Real Estate</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +225%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2530,23 +2302,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">IDX integration</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">3D/VR walkthroughs</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">IDX integration</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">3D/VR walkthroughs</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Home Services</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +310%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2568,12 +2341,12 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Online booking</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Calls-to-action</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Online booking</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Calls-to-action</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
                 </div>
@@ -2582,7 +2355,7 @@
                     verticals.</div>
                 <div class="mt-4 text-center">
                     <a href="/services"
-                        class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                        class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
             </div>
@@ -2592,7 +2365,7 @@
             <div class="mx-auto max-w-4xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M9.09 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" />
@@ -2602,17 +2375,20 @@
                         Frequently Asked Questions
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common web development <span
-                            class="text-[var(--orange)]">questions answered</span></h2>
+                            class="text-[#EE3923]">questions answered</span></h2>
                     <p class="mx-auto mt-3 max-w-2xl text-sm text-black/60 md:text-base">
                         Everything you need to know about our landing page design services.
                     </p>
                 </div>
 
                 <div class="mt-10 space-y-3">
-                    <details class="scroll-reveal rounded-2xl bg-white p-4" open>
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4"
+                        open>
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                             What is a landing page and how is it different from a homepage?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none transition-transform duration-300 group-open:rotate-45 text-[#EE3923]">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">A landing page is a standalone web page designed
                             specifically for a marketing campaign with one focused conversion goal. Unlike your
@@ -2621,49 +2397,57 @@
                             typically results in 3–5x higher conversion rates.
                         </p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                             How much does a landing page design cost?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none transition-transform duration-300 group-open:rotate-45 text-[#EE3923]">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Pricing depends on complexity, design requirements,
                             copywriting needs, and integration scope. We provide a custom quote after reviewing your
                             campaign goals and conversion objectives.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                             How long does it take to design and launch a landing page?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none transition-transform duration-300 group-open:rotate-45 text-[#EE3923]">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Most landing pages are designed, developed, and launched
                             within 7–14 days depending on complexity. Rush timelines are available for ad campaigns
                             with tight launch windows.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                             Do you write the copy or do I need to provide it?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none transition-transform duration-300 group-open:rotate-45 text-[#EE3923]">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">We can do both. If you already have copy, we optimize it
                             for clarity and conversion. If not, our team can create persuasive, conversion-focused
                             messaging from scratch.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
                         <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
                             Will my landing page work on mobile devices?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none transition-transform duration-300 group-open:rotate-45 text-[#EE3923]">+</span>
                         </summary>
                         <p class="mt-3 text-sm text-black/60">Yes. Every landing page we build follows a mobile-first
                             approach and is tested across modern phones, tablets, and desktop devices.</p>
                     </details>
                 </div>
 
-                <div class="mt-8 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-6 text-center">
+                <div class="mt-8 rounded-2xl border border-black/10 bg-[#fff1ed] p-6 text-center">
                     <div class="text-sm font-semibold">Still have questions?</div>
                     <p class="mt-2 text-xs text-black/60">Let's review your offer, audience, and ad traffic goals to
                         plan a high-converting landing page strategy.</p>
                     <a href="/contact"
-                        class="btn-glow mt-4 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
+                        class="inline-flex bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 transition-[transform,box-shadow] duration-[220ms] [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] motion-reduce:transform-none motion-reduce:transition-none mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
             </div>
@@ -2675,7 +2459,7 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-center text-white">
@@ -2687,17 +2471,18 @@
                     </svg>
                     Ready to Boost Your Conversions?
                 </div>
-                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Stop losing leads. <span
-                        class="text-[var(--orange)]">Start converting visitors.</span>
+                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Stop losing leads. <span class="text-[#EE3923]">Start
+                        converting visitors.</span>
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
-                    Get a free landing page audit that reveals exactly what's hurting your conversions and how we can
+                    Get a free landing page audit that reveals exactly what's
+                    hurting your conversions and how we can
                     help you fix it.
                 </p>
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2711,7 +2496,7 @@
                         <div class="mt-1 text-xs text-white/60">Deep dive into conversion blocking issues</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2724,7 +2509,7 @@
                         <div class="mt-1 text-xs text-white/60">See how you compare to competitors</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 [transition-timing-function:cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2778,25 +2563,25 @@
             <div>
                 <div class="text-sm font-semibold">Services</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/services_seo" class="hover:text-[var(--orange)]">SEO</a></li>
-                    <li><a href="/services_ppc" class="hover:text-[var(--orange)]">PPC</a></li>
-                    <li><a href="/services_web_development" class="hover:text-[var(--orange)]">Web Development</a></li>
+                    <li><a href="/services_seo" class="hover:text-[#EE3923]">SEO</a></li>
+                    <li><a href="/services_ppc" class="hover:text-[#EE3923]">PPC</a></li>
+                    <li><a href="/services_web_development" class="hover:text-[#EE3923]">Web Development</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Company</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/about" class="hover:text-[var(--orange)]">About</a></li>
-                    <li><a href="/pricing" class="hover:text-[var(--orange)]">Pricing</a></li>
-                    <li><a href="/contact" class="hover:text-[var(--orange)]">Contact</a></li>
+                    <li><a href="/about" class="hover:text-[#EE3923]">About</a></li>
+                    <li><a href="/pricing" class="hover:text-[#EE3923]">Pricing</a></li>
+                    <li><a href="/contact" class="hover:text-[#EE3923]">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Resources</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/case-study" class="hover:text-[var(--orange)]">Case Studies</a></li>
-                    <li><a href="#faq" class="hover:text-[var(--orange)]">FAQ</a></li>
-                    <li><a href="/" class="hover:text-[var(--orange)]">Home</a></li>
+                    <li><a href="/case-study" class="hover:text-[#EE3923]">Case Studies</a></li>
+                    <li><a href="#faq" class="hover:text-[#EE3923]">FAQ</a></li>
+                    <li><a href="/" class="hover:text-[#EE3923]">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -2805,8 +2590,8 @@
                 class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-black/60 md:flex-row">
                 <div>Copyright 2024 Adryze. All rights reserved.</div>
                 <div class="flex gap-4">
-                    <a href="/privacy" class="hover:text-[var(--orange)]">Privacy</a>
-                    <a href="/terms" class="hover:text-[var(--orange)]">Terms</a>
+                    <a href="/privacy" class="hover:text-[#EE3923]">Privacy</a>
+                    <a href="/terms" class="hover:text-[#EE3923]">Terms</a>
                 </div>
             </div>
         </div>
@@ -2820,17 +2605,19 @@
 
         document.addEventListener("DOMContentLoaded", function () {
 
-            /* ---- Scroll-reveal ---- */
+            /* ---- Scroll reveal ---- */
             var elements = document.querySelectorAll(".scroll-reveal");
             var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
             if (reduceMotion) {
-                elements.forEach(function (el) { el.classList.add("in-view"); });
+                elements.forEach(function (el) {
+                    el.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0");
+                });
             } else if (elements.length) {
                 var revealObserver = new IntersectionObserver(function (entries, obs) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add("in-view");
+                            entry.target.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0");
                             obs.unobserve(entry.target);
                         }
                     });
@@ -2855,7 +2642,7 @@
                 });
             });
 
-            /* ---- Mobile hamburger menu ---- */
+            /* ---- Mobile menu ---- */
             var menuBtn = document.getElementById("menuBtn") || document.getElementById("menu-btn");
             var mobileMenu = document.getElementById("mobileMenu") || document.getElementById("mobile-menu");
             if (menuBtn && mobileMenu) {
@@ -2867,11 +2654,10 @@
                         menuBtn.setAttribute("aria-expanded", String(expanded));
                     } else {
                         var isOpen = mobileMenu.classList.toggle("hidden");
-                        menuBtn.classList.toggle("open", !isOpen);
                         menuBtn.setAttribute("aria-expanded", String(!isOpen));
                     }
                 });
-                // close on outside click
+
                 document.addEventListener("click", function (e) {
                     if (!menuBtn.contains(e.target) && !mobileMenu.contains(e.target)) {
                         if (mobileMenu.classList.contains("max-h-[500px]")) {
@@ -2879,7 +2665,6 @@
                         } else {
                             mobileMenu.classList.add("hidden");
                         }
-                        menuBtn.classList.remove("open");
                         menuBtn.setAttribute("aria-expanded", "false");
                     }
                 });
@@ -2889,7 +2674,7 @@
             var header = document.getElementById("site-header");
             if (header) {
                 window.addEventListener("scroll", function () {
-                    header.classList.toggle("scrolled", window.scrollY > 20);
+                    header.classList.toggle("shadow-[0_2px_20px_rgba(0,0,0,0.08)]", window.scrollY > 20);
                 }, { passive: true });
             }
 
@@ -2915,7 +2700,6 @@
                 function step(now) {
                     var elapsed = now - start;
                     var progress = Math.min(elapsed / duration, 1);
-                    // ease-out quad
                     var eased = 1 - (1 - progress) * (1 - progress);
                     var current = Math.floor(eased * target);
                     el.textContent = prefix + current + suffix;

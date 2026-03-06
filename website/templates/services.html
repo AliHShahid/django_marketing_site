@@ -1,5 +1,5 @@
-﻿{% load static %}
-<html lang="en">
+{% load static %}
+<html lang="en" class="scroll-smooth">
 
 <head>
 
@@ -10,1416 +10,19 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer=""></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-
-    <style>
-        *,
-        ::before,
-        ::after {
-            --tw-border-spacing-x: 0;
-            --tw-border-spacing-y: 0;
-            --tw-translate-x: 0;
-            --tw-translate-y: 0;
-            --tw-rotate: 0;
-            --tw-skew-x: 0;
-            --tw-skew-y: 0;
-            --tw-scale-x: 1;
-            --tw-scale-y: 1;
-            --tw-pan-x: ;
-            --tw-pan-y: ;
-            --tw-pinch-zoom: ;
-            --tw-scroll-snap-strictness: proximity;
-            --tw-gradient-from-position: ;
-            --tw-gradient-via-position: ;
-            --tw-gradient-to-position: ;
-            --tw-ordinal: ;
-            --tw-slashed-zero: ;
-            --tw-numeric-figure: ;
-            --tw-numeric-spacing: ;
-            --tw-numeric-fraction: ;
-            --tw-ring-inset: ;
-            --tw-ring-offset-width: 0px;
-            --tw-ring-offset-color: #fff;
-            --tw-ring-color: rgb(59 130 246 / 0.5);
-            --tw-ring-offset-shadow: 0 0 #0000;
-            --tw-ring-shadow: 0 0 #0000;
-            --tw-shadow: 0 0 #0000;
-            --tw-shadow-colored: 0 0 #0000;
-            --tw-blur: ;
-            --tw-brightness: ;
-            --tw-contrast: ;
-            --tw-grayscale: ;
-            --tw-hue-rotate: ;
-            --tw-invert: ;
-            --tw-saturate: ;
-            --tw-sepia: ;
-            --tw-drop-shadow: ;
-            --tw-backdrop-blur: ;
-            --tw-backdrop-brightness: ;
-            --tw-backdrop-contrast: ;
-            --tw-backdrop-grayscale: ;
-            --tw-backdrop-hue-rotate: ;
-            --tw-backdrop-invert: ;
-            --tw-backdrop-opacity: ;
-            --tw-backdrop-saturate: ;
-            --tw-backdrop-sepia: ;
-            --tw-contain-size: ;
-            --tw-contain-layout: ;
-            --tw-contain-paint: ;
-            --tw-contain-style:
-        }
-
-        /* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */
-        *,
-        ::after,
-        ::before {
-            box-sizing: border-box;
-            border-width: 0;
-            border-style: solid;
-            border-color: #e5e7eb
-        }
-
-        ::after,
-        ::before {
-            --tw-content: ''
-        }
-
-        :host,
-        html {
-            line-height: 1.5;
-            -webkit-text-size-adjust: 100%;
-            -moz-tab-size: 4;
-            tab-size: 4;
-            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            font-feature-settings: normal;
-            font-variation-settings: normal;
-            -webkit-tap-highlight-color: transparent
-        }
-
-        body {
-            margin: 0;
-            line-height: inherit
-        }
-
-        hr {
-            height: 0;
-            color: inherit;
-            border-top-width: 1px
-        }
-
-        abbr:where([title]) {
-            -webkit-text-decoration: underline dotted;
-            text-decoration: underline dotted
-        }
-
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            font-size: inherit;
-            font-weight: inherit
-        }
-
-        a {
-            color: inherit;
-            text-decoration: inherit
-        }
-
-        b,
-        strong {
-            font-weight: bolder
-        }
-
-        code,
-        kbd,
-        pre,
-        samp {
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-            font-feature-settings: normal;
-            font-variation-settings: normal;
-            font-size: 1em
-        }
-
-        small {
-            font-size: 80%
-        }
-
-        sub,
-        sup {
-            font-size: 75%;
-            line-height: 0;
-            position: relative;
-            vertical-align: baseline
-        }
-
-        sub {
-            bottom: -.25em
-        }
-
-        sup {
-            top: -.5em
-        }
-
-        table {
-            text-indent: 0;
-            border-color: inherit;
-            border-collapse: collapse
-        }
-
-        button,
-        input,
-        optgroup,
-        select,
-        textarea {
-            font-family: inherit;
-            font-feature-settings: inherit;
-            font-variation-settings: inherit;
-            font-size: 100%;
-            font-weight: inherit;
-            line-height: inherit;
-            letter-spacing: inherit;
-            color: inherit;
-            margin: 0;
-            padding: 0
-        }
-
-        button,
-        select {
-            text-transform: none
-        }
-
-        button,
-        input:where([type=button]),
-        input:where([type=reset]),
-        input:where([type=submit]) {
-            -webkit-appearance: button;
-            background-color: transparent;
-            background-image: none
-        }
-
-        :-moz-focusring {
-            outline: auto
-        }
-
-        :-moz-ui-invalid {
-            box-shadow: none
-        }
-
-        progress {
-            vertical-align: baseline
-        }
-
-        ::-webkit-inner-spin-button,
-        ::-webkit-outer-spin-button {
-            height: auto
-        }
-
-        [type=search] {
-            -webkit-appearance: textfield;
-            outline-offset: -2px
-        }
-
-        ::-webkit-search-decoration {
-            -webkit-appearance: none
-        }
-
-        ::-webkit-file-upload-button {
-            -webkit-appearance: button;
-            font: inherit
-        }
-
-        summary {
-            display: list-item
-        }
-
-        blockquote,
-        dd,
-        dl,
-        figure,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        hr,
-        p,
-        pre {
-            margin: 0
-        }
-
-        fieldset {
-            margin: 0;
-            padding: 0
-        }
-
-        legend {
-            padding: 0
-        }
-
-        menu,
-        ol,
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0
-        }
-
-        dialog {
-            padding: 0
-        }
-
-        textarea {
-            resize: vertical
-        }
-
-        input::placeholder,
-        textarea::placeholder {
-            opacity: 1;
-            color: #9ca3af
-        }
-
-        [role=button],
-        button {
-            cursor: pointer
-        }
-
-        :disabled {
-            cursor: default
-        }
-
-        audio,
-        canvas,
-        embed,
-        iframe,
-        img,
-        object,
-        svg,
-        video {
-            display: block;
-            vertical-align: middle
-        }
-
-        img,
-        video {
-            max-width: 100%;
-            height: auto
-        }
-
-        [hidden]:where(:not([hidden=until-found])) {
-            display: none
-        }
-
-        .pointer-events-none {
-            pointer-events: none
-        }
-
-        .invisible {
-            visibility: hidden
-        }
-
-        .fixed {
-            position: fixed
-        }
-
-        .absolute {
-            position: absolute
-        }
-
-        .relative {
-            position: relative
-        }
-
-        .left-0 {
-            left: 0px
-        }
-
-        .-bottom-10 {
-            bottom: -2.5rem
-        }
-
-        .-right-10 {
-            right: -2.5rem
-        }
-
-        .bottom-40 {
-            bottom: 10rem
-        }
-
-        .left-1\/2 {
-            left: 50%
-        }
-
-        .left-40 {
-            left: 10rem
-        }
-
-        .right-0 {
-            right: 0px
-        }
-
-        .right-20 {
-            right: 5rem
-        }
-
-        .top-0 {
-            top: 0px
-        }
-
-        .top-1\/2 {
-            top: 50%
-        }
-
-        .top-20 {
-            top: 5rem
-        }
-
-        .z-50 {
-            z-index: 50
-        }
-
-        .z-10 {
-            z-index: 10
-        }
-
-        .mx-auto {
-            margin-left: auto;
-            margin-right: auto
-        }
-
-        .mt-0\.5 {
-            margin-top: 0.125rem
-        }
-
-        .mt-2 {
-            margin-top: 0.5rem
-        }
-
-        .mt-3 {
-            margin-top: 0.75rem
-        }
-
-        .mb-2 {
-            margin-bottom: 0.5rem
-        }
-
-        .mb-24 {
-            margin-bottom: 6rem
-        }
-
-        .mb-4 {
-            margin-bottom: 1rem
-        }
-
-        .mb-8 {
-            margin-bottom: 2rem
-        }
-
-        .mt-12 {
-            margin-top: 3rem
-        }
-
-        .mt-4 {
-            margin-top: 1rem
-        }
-
-        .mt-8 {
-            margin-top: 2rem
-        }
-
-        .mb-1 {
-            margin-bottom: 0.25rem
-        }
-
-        .block {
-            display: block
-        }
-
-        .flex {
-            display: flex
-        }
-
-        .grid {
-            display: grid
-        }
-
-        .hidden {
-            display: none
-        }
-
-        .h-20 {
-            height: 5rem
-        }
-
-        .h-4 {
-            height: 1rem
-        }
-
-        .h-8 {
-            height: 2rem
-        }
-
-        .h-10 {
-            height: 2.5rem
-        }
-
-        .h-12 {
-            height: 3rem
-        }
-
-        .h-14 {
-            height: 3.5rem
-        }
-
-        .h-32 {
-            height: 8rem
-        }
-
-        .h-40 {
-            height: 10rem
-        }
-
-        .h-6 {
-            height: 1.5rem
-        }
-
-        .h-\[600px\] {
-            height: 600px
-        }
-
-        .h-\[800px\] {
-            height: 800px
-        }
-
-        .h-full {
-            height: 100%
-        }
-
-        .max-h-0 {
-            max-height: 0px
-        }
-
-        .w-4 {
-            width: 1rem
-        }
-
-        .w-48 {
-            width: 12rem
-        }
-
-        .w-8 {
-            width: 2rem
-        }
-
-        .w-full {
-            width: 100%
-        }
-
-        .w-12 {
-            width: 3rem
-        }
-
-        .w-14 {
-            width: 3.5rem
-        }
-
-        .w-32 {
-            width: 8rem
-        }
-
-        .w-40 {
-            width: 10rem
-        }
-
-        .w-6 {
-            width: 1.5rem
-        }
-
-        .w-\[600px\] {
-            width: 600px
-        }
-
-        .w-\[800px\] {
-            width: 800px
-        }
-
-        .min-w-0 {
-            min-width: 0px
-        }
-
-        .max-w-7xl {
-            max-width: 80rem
-        }
-
-        .max-w-5xl {
-            max-width: 64rem
-        }
-
-        .max-w-\[1400px\] {
-            max-width: 1400px
-        }
-
-        .max-w-sm {
-            max-width: 24rem
-        }
-
-        .max-w-xl {
-            max-width: 36rem
-        }
-
-        .flex-1 {
-            flex: 1 1 0%
-        }
-
-        .-translate-x-1\/2 {
-            --tw-translate-x: -50%;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-        }
-
-        .-translate-y-1\/2 {
-            --tw-translate-y: -50%;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-        }
-
-        .select-none {
-            -webkit-user-select: none;
-            user-select: none
-        }
-
-        .grid-cols-1 {
-            grid-template-columns: repeat(1, minmax(0, 1fr))
-        }
-
-        .flex-col {
-            flex-direction: column
-        }
-
-        .flex-wrap {
-            flex-wrap: wrap
-        }
-
-        .items-center {
-            align-items: center
-        }
-
-        .justify-center {
-            justify-content: center
-        }
-
-        .justify-between {
-            justify-content: space-between
-        }
-
-        .gap-1 {
-            gap: 0.25rem
-        }
-
-        .gap-2 {
-            gap: 0.5rem
-        }
-
-        .gap-4 {
-            gap: 1rem
-        }
-
-        .gap-6 {
-            gap: 1.5rem
-        }
-
-        .gap-12 {
-            gap: 3rem
-        }
-
-        .space-x-6> :not([hidden])~ :not([hidden]) {
-            --tw-space-x-reverse: 0;
-            margin-right: calc(1.5rem * var(--tw-space-x-reverse));
-            margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)))
-        }
-
-        .space-y-2> :not([hidden])~ :not([hidden]) {
-            --tw-space-y-reverse: 0;
-            margin-top: calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));
-            margin-bottom: calc(0.5rem * var(--tw-space-y-reverse))
-        }
-
-        .space-y-4> :not([hidden])~ :not([hidden]) {
-            --tw-space-y-reverse: 0;
-            margin-top: calc(1rem * calc(1 - var(--tw-space-y-reverse)));
-            margin-bottom: calc(1rem * var(--tw-space-y-reverse))
-        }
-
-        .space-y-10> :not([hidden])~ :not([hidden]) {
-            --tw-space-y-reverse: 0;
-            margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
-            margin-bottom: calc(2.5rem * var(--tw-space-y-reverse))
-        }
-
-        .space-y-6> :not([hidden])~ :not([hidden]) {
-            --tw-space-y-reverse: 0;
-            margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
-            margin-bottom: calc(1.5rem * var(--tw-space-y-reverse))
-        }
-
-        .overflow-hidden {
-            overflow: hidden
-        }
-
-        .whitespace-nowrap {
-            white-space: nowrap
-        }
-
-        .rounded-lg {
-            border-radius: 0.5rem
-        }
-
-        .rounded-2xl {
-            border-radius: 1rem
-        }
-
-        .rounded-3xl {
-            border-radius: 1.5rem
-        }
-
-        .rounded-full {
-            border-radius: 9999px
-        }
-
-        .rounded-md {
-            border-radius: 0.375rem
-        }
-
-        .rounded-xl {
-            border-radius: 0.75rem
-        }
-
-        .rounded-t-\[32px\] {
-            border-top-left-radius: 32px;
-            border-top-right-radius: 32px
-        }
-
-        .border {
-            border-width: 1px
-        }
-
-        .border-\[0\.5px\] {
-            border-width: 0.5px
-        }
-
-        .border-b {
-            border-bottom-width: 1px
-        }
-
-        .border-t {
-            border-top-width: 1px
-        }
-
-        .border-none {
-            border-style: none
-        }
-
-        .border-gray-100 {
-            --tw-border-opacity: 1;
-            border-color: rgb(243 244 246 / var(--tw-border-opacity, 1))
-        }
-
-        .border-black {
-            --tw-border-opacity: 1;
-            border-color: rgb(0 0 0 / var(--tw-border-opacity, 1))
-        }
-
-        .border-transparent {
-            border-color: transparent
-        }
-
-        .border-zinc-100 {
-            --tw-border-opacity: 1;
-            border-color: rgb(244 244 245 / var(--tw-border-opacity, 1))
-        }
-
-        .border-zinc-200 {
-            --tw-border-opacity: 1;
-            border-color: rgb(228 228 231 / var(--tw-border-opacity, 1))
-        }
-
-        .border-zinc-800 {
-            --tw-border-opacity: 1;
-            border-color: rgb(39 39 42 / var(--tw-border-opacity, 1))
-        }
-
-        .bg-black {
-            --tw-bg-opacity: 1;
-            background-color: rgb(0 0 0 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-white {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-white\/80 {
-            background-color: rgb(255 255 255 / 0.8)
-        }
-
-        .bg-\[\#EE3923\] {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 72 1 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-\[\#EE3923\]\/20 {
-            background-color: rgb(255 72 1 / 0.2)
-        }
-
-        .bg-\[\#FFF9F4\] {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 249 244 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-blue-500\/10 {
-            background-color: rgb(59 130 246 / 0.1)
-        }
-
-        .bg-orange-500 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-transparent {
-            background-color: transparent
-        }
-
-        .bg-zinc-50 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(250 250 250 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-zinc-800 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(39 39 42 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-zinc-900 {
-            --tw-bg-opacity: 1;
-            background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1))
-        }
-
-        .bg-\[\#EE3923\]\/80 {
-            background-color: rgb(255 72 1 / 0.8)
-        }
-
-        .bg-opacity-10 {
-            --tw-bg-opacity: 0.1
-        }
-
-        .bg-opacity-20 {
-            --tw-bg-opacity: 0.2
-        }
-
-        .bg-gradient-to-tr {
-            background-image: linear-gradient(to top right, var(--tw-gradient-stops))
-        }
-
-        .from-\[\#EE3923\]\/90 {
-            --tw-gradient-from: rgb(255 72 1 / 0.9) var(--tw-gradient-from-position);
-            --tw-gradient-to: rgb(255 72 1 / 0) var(--tw-gradient-to-position);
-            --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to)
-        }
-
-        .to-\[\#EE3923\]\/80 {
-            --tw-gradient-to: rgb(255 72 1 / 0.8) var(--tw-gradient-to-position)
-        }
-
-        .fill-current {
-            fill: currentColor
-        }
-
-        .p-10 {
-            padding: 2.5rem
-        }
-
-        .p-6 {
-            padding: 1.5rem
-        }
-
-        .px-5 {
-            padding-left: 1.25rem;
-            padding-right: 1.25rem
-        }
-
-        .px-6 {
-            padding-left: 1.5rem;
-            padding-right: 1.5rem
-        }
-
-        .py-2 {
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem
-        }
-
-        .py-4 {
-            padding-top: 1rem;
-            padding-bottom: 1rem
-        }
-
-        .px-3 {
-            padding-left: 0.75rem;
-            padding-right: 0.75rem
-        }
-
-        .px-4 {
-            padding-left: 1rem;
-            padding-right: 1rem
-        }
-
-        .py-1 {
-            padding-top: 0.25rem;
-            padding-bottom: 0.25rem
-        }
-
-        .py-24 {
-            padding-top: 6rem;
-            padding-bottom: 6rem
-        }
-
-        .py-32 {
-            padding-top: 8rem;
-            padding-bottom: 8rem
-        }
-
-        .py-8 {
-            padding-top: 2rem;
-            padding-bottom: 2rem
-        }
-
-        .px-8 {
-            padding-left: 2rem;
-            padding-right: 2rem
-        }
-
-        .py-16 {
-            padding-top: 4rem;
-            padding-bottom: 4rem
-        }
-
-        .py-3 {
-            padding-top: 0.75rem;
-            padding-bottom: 0.75rem
-        }
-
-        .pl-4 {
-            padding-left: 1rem
-        }
-
-        .pl-1 {
-            padding-left: 0.25rem
-        }
-
-        .pr-1 {
-            padding-right: 0.25rem
-        }
-
-        .pt-8 {
-            padding-top: 2rem
-        }
-
-        .pt-2 {
-            padding-top: 0.5rem
-        }
-
-        .text-center {
-            text-align: center
-        }
-
-        .font-sans {
-            font-family: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-        }
-
-        .text-2xl {
-            font-size: 1.5rem;
-            line-height: 2rem
-        }
-
-        .text-3xl {
-            font-size: 1.875rem;
-            line-height: 2.25rem
-        }
-
-        .text-4xl {
-            font-size: 2.25rem;
-            line-height: 2.5rem
-        }
-
-        .text-5xl {
-            font-size: 3rem;
-            line-height: 1
-        }
-
-        .text-\[0\.9rem\] {
-            font-size: 0.9rem
-        }
-
-        .text-\[10px\] {
-            font-size: 10px
-        }
-
-        .text-\[15rem\] {
-            font-size: 15rem
-        }
-
-        .text-sm {
-            font-size: 0.875rem;
-            line-height: 1.25rem
-        }
-
-        .text-lg {
-            font-size: 1.125rem;
-            line-height: 1.75rem
-        }
-
-        .font-black {
-            font-weight: 900
-        }
-
-        .font-bold {
-            font-weight: 700
-        }
-
-        .font-\[1000\] {
-            font-weight: 1000
-        }
-
-        .font-medium {
-            font-weight: 500
-        }
-
-        .font-semibold {
-            font-weight: 600
-        }
-
-        .uppercase {
-            text-transform: uppercase
-        }
-
-        .italic {
-            font-style: italic
-        }
-
-        .leading-none {
-            line-height: 1
-        }
-
-        .leading-relaxed {
-            line-height: 1.625
-        }
-
-        .tracking-tighter {
-            letter-spacing: -0.05em
-        }
-
-        .tracking-\[0\.2em\] {
-            letter-spacing: 0.2em
-        }
-
-        .tracking-\[0\.4em\] {
-            letter-spacing: 0.4em
-        }
-
-        .tracking-widest {
-            letter-spacing: 0.1em
-        }
-
-        .tracking-tight {
-            letter-spacing: -0.025em
-        }
-
-        .tracking-wider {
-            letter-spacing: 0.05em
-        }
-
-        .text-\[\#EE3923\] {
-            --tw-text-opacity: 1;
-            color: rgb(255 72 1 / var(--tw-text-opacity, 1))
-        }
-
-        .text-gray-600 {
-            --tw-text-opacity: 1;
-            color: rgb(75 85 99 / var(--tw-text-opacity, 1))
-        }
-
-        .text-gray-800 {
-            --tw-text-opacity: 1;
-            color: rgb(31 41 55 / var(--tw-text-opacity, 1))
-        }
-
-        .text-white {
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
-        }
-
-        .text-black {
-            --tw-text-opacity: 1;
-            color: rgb(0 0 0 / var(--tw-text-opacity, 1))
-        }
-
-        .text-zinc-200\/50 {
-            color: rgb(228 228 231 / 0.5)
-        }
-
-        .text-zinc-300 {
-            --tw-text-opacity: 1;
-            color: rgb(212 212 216 / var(--tw-text-opacity, 1))
-        }
-
-        .text-zinc-400 {
-            --tw-text-opacity: 1;
-            color: rgb(161 161 170 / var(--tw-text-opacity, 1))
-        }
-
-        .text-zinc-500 {
-            --tw-text-opacity: 1;
-            color: rgb(113 113 122 / var(--tw-text-opacity, 1))
-        }
-
-        .text-zinc-900 {
-            --tw-text-opacity: 1;
-            color: rgb(24 24 27 / var(--tw-text-opacity, 1))
-        }
-
-        .text-gray-200 {
-            --tw-text-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-text-opacity, 1))
-        }
-
-        .placeholder-gray-200::placeholder {
-            --tw-placeholder-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-placeholder-opacity, 1))
-        }
-
-        .opacity-0 {
-            opacity: 0
-        }
-
-        .opacity-30 {
-            opacity: 0.3
-        }
-
-        .shadow-lg {
-            --tw-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-            --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .shadow-sm {
-            --tw-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --tw-shadow-colored: 0 1px 2px 0 var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .shadow-\[\#EE3923\]\/20 {
-            --tw-shadow-color: rgb(255 72 1 / 0.2);
-            --tw-shadow: var(--tw-shadow-colored)
-        }
-
-        .outline-none {
-            outline: 2px solid transparent;
-            outline-offset: 2px
-        }
-
-        .blur-2xl {
-            --tw-blur: blur(40px);
-            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
-        }
-
-        .blur-\[120px\] {
-            --tw-blur: blur(120px);
-            filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow)
-        }
-
-        .backdrop-blur-md {
-            --tw-backdrop-blur: blur(12px);
-            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
-        }
-
-        .backdrop-blur-sm {
-            --tw-backdrop-blur: blur(4px);
-            -webkit-backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);
-            backdrop-filter: var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)
-        }
-
-        .transition {
-            transition-property: color, background-color, border-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-text-decoration-color, -webkit-backdrop-filter;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .transition-all {
-            transition-property: all;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .transition-colors {
-            transition-property: color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .transition-shadow {
-            transition-property: box-shadow;
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-            transition-duration: 150ms
-        }
-
-        .duration-200 {
-            transition-duration: 200ms
-        }
-
-        .duration-300 {
-            transition-duration: 300ms
-        }
-
-        .duration-500 {
-            transition-duration: 500ms
-        }
-
-        .duration-700 {
-            transition-duration: 700ms
-        }
-
-        .placeholder\:text-zinc-500::placeholder {
-            --tw-text-opacity: 1;
-            color: rgb(113 113 122 / var(--tw-text-opacity, 1))
-        }
-
-        .hover\:scale-\[0\.98\]:hover {
-            --tw-scale-x: 0.98;
-            --tw-scale-y: 0.98;
-            transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
-        }
-
-        .hover\:border-zinc-200:hover {
-            --tw-border-opacity: 1;
-            border-color: rgb(228 228 231 / var(--tw-border-opacity, 1))
-        }
-
-        .hover\:border-zinc-900:hover {
-            --tw-border-opacity: 1;
-            border-color: rgb(24 24 27 / var(--tw-border-opacity, 1))
-        }
-
-        .hover\:bg-gray-900:hover {
-            --tw-bg-opacity: 1;
-            background-color: rgb(17 24 39 / var(--tw-bg-opacity, 1))
-        }
-
-        .hover\:bg-\[\#EE3923\]:hover {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 72 1 / var(--tw-bg-opacity, 1))
-        }
-
-        .hover\:bg-orange-500:hover {
-            --tw-bg-opacity: 1;
-            background-color: rgb(249 115 22 / var(--tw-bg-opacity, 1))
-        }
-
-        .hover\:bg-white:hover {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1))
-        }
-
-        .hover\:bg-zinc-900:hover {
-            --tw-bg-opacity: 1;
-            background-color: rgb(24 24 27 / var(--tw-bg-opacity, 1))
-        }
-
-        .hover\:bg-opacity-30:hover {
-            --tw-bg-opacity: 0.3
-        }
-
-        .hover\:text-gray-200:hover {
-            --tw-text-opacity: 1;
-            color: rgb(229 231 235 / var(--tw-text-opacity, 1))
-        }
-
-        .hover\:text-gray-300:hover {
-            --tw-text-opacity: 1;
-            color: rgb(209 213 219 / var(--tw-text-opacity, 1))
-        }
-
-        .hover\:opacity-90:hover {
-            opacity: 0.9
-        }
-
-        .hover\:shadow-2xl:hover {
-            --tw-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-            --tw-shadow-colored: 0 25px 50px -12px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .hover\:shadow-md:hover {
-            --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)
-        }
-
-        .focus\:ring-2:focus {
-            --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-            --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-            box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000)
-        }
-
-        .focus\:ring-orange-400:focus {
-            --tw-ring-opacity: 1;
-            --tw-ring-color: rgb(251 146 60 / var(--tw-ring-opacity, 1))
-        }
-
-        .group:hover .group-hover\:border-white\/20 {
-            border-color: rgb(255 255 255 / 0.2)
-        }
-
-        .group:hover .group-hover\:border-zinc-700 {
-            --tw-border-opacity: 1;
-            border-color: rgb(63 63 70 / var(--tw-border-opacity, 1))
-        }
-
-        .group:hover .group-hover\:bg-\[\#EE3923\] {
-            --tw-bg-opacity: 1;
-            background-color: rgb(255 72 1 / var(--tw-bg-opacity, 1))
-        }
-
-        .group:hover .group-hover\:text-\[\#EE3923\] {
-            --tw-text-opacity: 1;
-            color: rgb(255 72 1 / var(--tw-text-opacity, 1))
-        }
-
-        .group:hover .group-hover\:text-white {
-            --tw-text-opacity: 1;
-            color: rgb(255 255 255 / var(--tw-text-opacity, 1))
-        }
-
-        .group:hover .group-hover\:text-white\/5 {
-            color: rgb(255 255 255 / 0.05)
-        }
-
-        .group:hover .group-hover\:text-zinc-400 {
-            --tw-text-opacity: 1;
-            color: rgb(161 161 170 / var(--tw-text-opacity, 1))
-        }
-
-        @media (min-width: 768px) {
-            .md\:col-span-2 {
-                grid-column: span 2 / span 2
-            }
-
-            .md\:col-span-4 {
-                grid-column: span 4 / span 4
-            }
-
-            .md\:block {
-                display: block
-            }
-
-            .md\:flex {
-                display: flex
-            }
-
-            .md\:hidden {
-                display: none
-            }
-
-            .md\:h-14 {
-                height: 3.5rem
-            }
-
-            .md\:grid-cols-6 {
-                grid-template-columns: repeat(6, minmax(0, 1fr))
-            }
-
-            .md\:grid-cols-3 {
-                grid-template-columns: repeat(3, minmax(0, 1fr))
-            }
-
-            .md\:gap-12 {
-                gap: 3rem
-            }
-
-            .md\:px-5 {
-                padding-left: 1.25rem;
-                padding-right: 1.25rem
-            }
-
-            .md\:px-6 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem
-            }
-
-            .md\:px-8 {
-                padding-left: 2rem;
-                padding-right: 2rem
-            }
-
-            .md\:px-16 {
-                padding-left: 4rem;
-                padding-right: 4rem
-            }
-
-            .md\:text-6xl {
-                font-size: 3.75rem;
-                line-height: 1
-            }
-
-            .md\:text-7xl {
-                font-size: 4.5rem;
-                line-height: 1
-            }
-
-            .md\:text-lg {
-                font-size: 1.125rem;
-                line-height: 1.75rem
-            }
-        }
-
-        @media (min-width: 1024px) {
-            .lg\:px-6 {
-                padding-left: 1.5rem;
-                padding-right: 1.5rem
-            }
-
-            .lg\:text-7xl {
-                font-size: 4.5rem;
-                line-height: 1
-            }
-        }
-    </style>
-    <style>
-    </style>
 </head>
 
-<body class="bg-white text-gray-800">
+<body class="bg-white text-gray-800 font-[Inter]">
     <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+            <a href="{% url 'home' %}" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
                 AD<span class="text-[#EE3923]">RYZE</span>
             </a>
 
             <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
                 <div class="relative group/nav">
                     <button
-                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        class="relative px-4 py-2 flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200 before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-0 before:bg-[#FF4801] before:transition-all before:duration-300 hover:before:w-10">
                         <span class="relative">Services
                             <span
                                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
@@ -1470,7 +73,7 @@
                                         <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
                                             session and see how we can 10X your results.</p>
                                         <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
-                                            href="/get-started?cta=Get+Started+Free">Get Started Free
+                                            href="{% url 'get_started' %}?cta=Get+Started+Free">Get Started Free
                                             <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 stroke-width="2.5">
@@ -1478,7 +81,7 @@
                                                     d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                                             </svg>
                                         </a>
-                                        <p class="text-gray-400 text-xs mt-4">No credit card required • Free
+                                        <p class="text-gray-400 text-xs mt-4">No credit card required &bull; Free
                                             consultation</p>
                                     </div>
                                 </div>
@@ -1486,7 +89,7 @@
                                 <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/ppc">
+                                            href="{% url 'service_ppc' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1509,7 +112,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/seo">
+                                            href="{% url 'service_seo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1532,7 +135,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development">
+                                            href="{% url 'service_web_development' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1555,7 +158,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development/landing-pages">
+                                            href="{% url 'service_landing_pages' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1578,7 +181,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/aeo">
+                                            href="{% url 'service_aeo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1601,7 +204,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/social-media">
+                                            href="{% url 'service_social_media' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -1626,7 +229,7 @@
 
                                     <div class="mt-6 pt-6 border-t border-gray-200">
                                         <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
-                                            href="/services">
+                                            href="{% url 'services' %}">
                                             View all services
                                             <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -1642,27 +245,276 @@
                     </div>
                 </div>
 
-                <div class="relative group">
-                    <button class="nav-link flex items-center gap-1 py-4">
+                <div id="industriesNavItem" class="relative group/industry">
+                    <button
+                        class="relative px-4 py-2 flex items-center gap-1 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200 before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-0 before:bg-[#FF4801] before:transition-all before:duration-300 hover:before:w-10">
                         Industries
-                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover/industry:rotate-180" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
+                    <div class="fixed top-14 left-1/2 h-7 w-[min(calc(100vw-90px),1180px)] -translate-x-1/2 opacity-0 invisible pointer-events-none group-hover/industry:opacity-100 group-hover/industry:visible group-hover/industry:pointer-events-auto group-[.industry-open]/industry:opacity-100 group-[.industry-open]/industry:visible group-[.industry-open]/industry:pointer-events-auto"
+                        aria-hidden="true"></div>
                     <div
-                        class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <a href="/saas/" class="dropdown-link">SaaS</a>
-                        <a href="/b2b/" class="dropdown-link">B2B</a>
-                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                        class="fixed top-[74px] left-1/2 z-50 w-[min(calc(100vw-90px),1180px)] -translate-x-1/2 translate-y-[6px] scale-[0.985] opacity-0 invisible pointer-events-none transition-all duration-200 group-hover/industry:opacity-100 group-hover/industry:visible group-hover/industry:pointer-events-auto group-hover/industry:translate-y-0 group-hover/industry:scale-100 group-[.industry-open]/industry:opacity-100 group-[.industry-open]/industry:visible group-[.industry-open]/industry:pointer-events-auto group-[.industry-open]/industry:translate-y-0 group-[.industry-open]/industry:scale-100 hover:opacity-100 hover:visible hover:pointer-events-auto hover:translate-y-0 hover:scale-100">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden">
+                            <div class="p-6 pb-4 border-b border-gray-200/80">
+                                <div class="flex items-start gap-4">
+                                    <span class="inline-block w-1 h-7 rounded-full bg-[#EE3923]"></span>
+                                    <div>
+                                        <h3 class="text-base font-bold tracking-tight text-gray-900">Industries We
+                                            Serve</h3>
+                                        <p class="text-gray-500 text-xs mt-1">Specialized strategies for <span
+                                                class="text-[#EE3923] font-semibold">8+ industries</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div class="grid grid-cols-4 gap-x-7 gap-y-6">
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'real_estate' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 11 12 4l9 7" />
+                                                    <path d="M5 10v10h14V10" />
+                                                    <path d="M10 20v-6h4v6" />
+                                                </svg></span><span>Real
+                                                Estate</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'real-estate-agents' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Real
+                                                Estate
+                                                Agents</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-investors' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Real
+                                                Estate
+                                                Investors</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-brokers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Real
+                                                Estate
+                                                Brokers</a>
+                                            <a href="{% url 'industry_detail' 'property-management' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Property
+                                                Management</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'healthcare' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <path
+                                                        d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.65-7 10-7 10z" />
+                                                </svg></span><span>Healthcare</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'dentists' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Dentists</a>
+                                            <a href="{% url 'industry_detail' 'chiropractors' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Chiropractors</a>
+                                            <a href="{% url 'industry_detail' 'med-spas' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Med
+                                                Spas</a>
+                                            <a href="{% url 'industry_detail' 'plastic-surgeons' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Plastic
+                                                Surgeons</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'home_services' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="3" />
+                                                    <path
+                                                        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 1 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.6z" />
+                                                </svg></span><span>Home
+                                                Services</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'hvac-companies' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">HVAC
+                                                Companies</a>
+                                            <a href="{% url 'industry_detail' 'plumbers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Plumbers</a>
+                                            <a href="{% url 'industry_detail' 'electricians' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Electricians</a>
+                                            <a href="{% url 'industry_detail' 'roofing-companies' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Roofing
+                                                Companies</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'automotive' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 14h18" />
+                                                    <path d="M5 14 7 9h10l2 5" />
+                                                    <circle cx="7" cy="17" r="2" />
+                                                    <circle cx="17" cy="17" r="2" />
+                                                </svg></span><span>Automotive</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'car-detailers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Car
+                                                Detailers</a>
+                                            <a href="{% url 'industry_detail' 'auto-repair-shops' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Auto
+                                                Repair Shops</a>
+                                            <a href="{% url 'industry_detail' 'car-dealerships' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Car
+                                                Dealerships</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'legal' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M12 3v18" />
+                                                    <path d="M5 7h14" />
+                                                    <path d="M7 7v2a3 3 0 1 0 6 0V7" />
+                                                    <path d="M11 7v2a3 3 0 1 0 6 0V7" />
+                                                </svg></span><span>Legal</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'personal-injury-lawyers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Personal
+                                                Injury
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'family-law-attorneys' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Family
+                                                Law Attorneys</a>
+                                            <a href="{% url 'industry_detail' 'criminal-defense-lawyers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Criminal
+                                                Defense
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'estate-planning-attorneys' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Estate
+                                                Planning
+                                                Attorneys</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'ecommerce' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="9" cy="20" r="1.8" />
+                                                    <circle cx="17" cy="20" r="1.8" />
+                                                    <path
+                                                        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H7" />
+                                                </svg></span><span>E-commerce</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'fashion-apparel' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Fashion
+                                                &amp;
+                                                Apparel</a>
+                                            <a href="{% url 'industry_detail' 'beauty-cosmetics' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Beauty
+                                                &amp;
+                                                Cosmetics</a>
+                                            <a href="{% url 'industry_detail' 'health-supplements' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Health
+                                                &amp;
+                                                Supplements</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'finance' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="8" />
+                                                    <path d="M12 8v8" />
+                                                    <path
+                                                        d="M9.5 10.5c0-1 1.1-1.8 2.5-1.8s2.5.8 2.5 1.8-1.1 1.8-2.5 1.8-2.5.8-2.5 1.8 1.1 1.8 2.5 1.8 2.5-.8 2.5-1.8" />
+                                                </svg></span><span>Finance</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'financial-advisors' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Financial
+                                                Advisors</a>
+                                            <a href="{% url 'industry_detail' 'wealth-management' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Wealth
+                                                Management</a>
+                                            <a href="{% url 'industry_detail' 'accounting-firms' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Accounting
+                                                Firms</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="group transition-transform duration-200 hover:-translate-y-px">
+                                        <a href="{% url 'construction' %}"
+                                            class="flex items-center gap-3 text-[0.76rem] font-bold text-gray-900 mb-[0.55rem] no-underline transition-colors group-hover:text-[#EE3923]"><span
+                                                class="inline-flex w-[2.2rem] h-[2.2rem] items-center justify-center rounded-[0.7rem] bg-gray-100 text-[0.9rem] text-gray-500 transition-all group-hover:bg-[#fff1ed] group-hover:text-[#EE3923]"><svg
+                                                    class="w-[1.05rem] h-[1.05rem]" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M4 20h16" />
+                                                    <path d="M6 20V8h12v12" />
+                                                    <path d="M9 8V5h6v3" />
+                                                    <path d="M9 12h2M13 12h2M9 15h2M13 15h2" />
+                                                </svg></span><span>Construction</span></a>
+                                        <div
+                                            class="ml-[0.9rem] pl-[0.85rem] border-l border-gray-200 flex flex-col gap-[0.3rem]">
+                                            <a href="{% url 'industry_detail' 'home-remodelers' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Home
+                                                Remodelers</a>
+                                            <a href="{% url 'industry_detail' 'custom-home-builders' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Custom
+                                                Home
+                                                Builders</a>
+                                            <a href="{% url 'industry_detail' 'commercial-contractors' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Commercial
+                                                Contractors</a>
+                                            <a href="{% url 'industry_detail' 'pool-builders' %}"
+                                                class="text-gray-600 text-[0.7rem] leading-[1.35] transition-all duration-200 hover:text-[#EE3923] hover:translate-x-[3px]">Pool
+                                                Builders</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between px-6 py-4 border-t border-gray-200/80 bg-gray-50/70">
+                                <p class="text-xs text-gray-500">Don't see your industry? <span
+                                        class="font-semibold text-gray-900">We work with all business types</span></p>
+                                <a href="{% url 'all_industries' %}"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white text-xs font-semibold hover:bg-[#EE3923] transition-colors">View
+                                    All Industries <span>&rarr;</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="nav-link">Case Studies</a>
+                <a href="{% url 'case_study' %}"
+                    class="relative px-4 py-2 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200 before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-0 before:bg-[#FF4801] before:transition-all before:duration-300 hover:before:w-10">Case
+                    Studies</a>
 
-                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="{% url 'blog' %}"
+                    class="relative px-4 py-2 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200 before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-0 before:bg-[#FF4801] before:transition-all before:duration-300 hover:before:w-10">Blog</a>
 
-                <a href="/about/" class="nav-link">About</a>
+                <a href="{% url 'about' %}"
+                    class="relative px-4 py-2 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200 before:content-[''] before:absolute before:top-0 before:left-0 before:h-0.5 before:w-0 before:bg-[#FF4801] before:transition-all before:duration-300 hover:before:w-10">About</a>
             </div>
 
             <div class="hidden md:block">
@@ -1672,7 +524,8 @@
                 </a>
             </div>
 
-            <button id="menuBtn" class="md:hidden">
+            <button id="menuBtn" class="md:hidden p-2" aria-controls="mobileMenu" aria-expanded="false"
+                aria-label="Toggle navigation menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -1680,448 +533,138 @@
         </div>
 
         <div id="mobileMenu"
-            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300"
+            aria-hidden="true">
             <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
-                <a href="/services/" class="block mobile-link">Services</a>
+                <div>
+                    <button onclick="toggleMobileMenu('mobileServicesMenu', this)"
+                        class="flex justify-between w-full py-2" aria-expanded="false">
+                        Services <span data-toggle-icon>+</span>
+                    </button>
+                    <div id="mobileServicesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'service_ppc' %}" class="block text-gray-600">PPC Management</a>
+                        <a href="{% url 'service_seo' %}" class="block text-gray-600">SEO Services</a>
+                        <a href="{% url 'service_web_development' %}" class="block text-gray-600">Web Development</a>
+                        <a href="{% url 'service_landing_pages' %}" class="block text-gray-600">Landing
+                            Pages</a>
+                        <a href="{% url 'service_aeo' %}" class="block text-gray-600">Answer Engine Optimization</a>
+                        <a href="{% url 'service_social_media' %}" class="block text-gray-600">Social Media
+                            Marketing</a>
+                        <a href="{% url 'services' %}" class="block text-gray-600">View all services</a>
+                    </div>
+                </div>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
-                        class="flex justify-between w-full mobile-link">
-                        Industries <span>+</span>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu', this)"
+                        class="flex justify-between w-full py-2" aria-expanded="false">
+                        Industries <span data-toggle-icon>+</span>
                     </button>
                     <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/saas/" class="block text-gray-600">SaaS</a>
-                        <a href="/dtc/" class="block text-gray-600">DTC</a>
-                        <a href="/b2b/" class="block text-gray-600">B2B</a>
+                        <a href="{% url 'real_estate' %}" class="block text-gray-600">Real Estate</a>
+                        <a href="{% url 'healthcare' %}" class="block text-gray-600">Healthcare</a>
+                        <a href="{% url 'home_services' %}" class="block text-gray-600">Home Services</a>
+                        <a href="{% url 'automotive' %}" class="block text-gray-600">Automotive</a>
+                        <a href="{% url 'legal' %}" class="block text-gray-600">Legal</a>
+                        <a href="{% url 'ecommerce' %}" class="block text-gray-600">E-commerce</a>
+                        <a href="{% url 'finance' %}" class="block text-gray-600">Finance</a>
+                        <a href="{% url 'construction' %}" class="block text-gray-600">Construction</a>
+                        <a href="{% url 'all_industries' %}" class="block text-gray-600">View all industries</a>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
-
-                <div>
-                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
-                        class="flex justify-between w-full mobile-link">
-                        Learn <span>+</span>
-                    </button>
-                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
-                        <a href="/about/" class="block text-gray-600">About</a>
-                    </div>
-                </div>
+                <a href="{% url 'case_study' %}" class="block py-2">Case Studies</a>
+                <a href="{% url 'blog' %}" class="block py-2">Blog</a>
+                <a href="{% url 'about' %}" class="block py-2">About</a>
 
                 <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
                     Get Started
                 </a>
             </div>
         </div>
-    </nav>
-
-    <!-- Styles -->
-    <style>
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 0;
-            background: #FF4801;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 2.5rem;
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-link:hover {
-            background: #fff7ed;
-            color: #FF4801;
-        }
-
-        .mobile-link {
-            padding: 0.5rem 0;
-        }
-
-        /* ── Section backgrounds are always static ── */
-        .reveal-on-load {
-            opacity: 1;
-            animation: none;
-        }
-
-        /* ── Per-element slide-up reveal (added by JS) ── */
-        .reveal-el {
-            opacity: 0;
-            transform: translateY(32px);
-            transition: opacity 0.72s cubic-bezier(.22, 1, .36, 1),
-                transform 0.72s cubic-bezier(.22, 1, .36, 1);
-        }
-
-        .reveal-el.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* ── Badge pill pop-in ── */
-        .reveal-badge {
-            opacity: 0;
-            transform: scale(0.82);
-            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(.34, 1.56, .64, 1);
-        }
-
-        .reveal-badge.visible {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        /* ── Stagger delays ── */
-        .reveal-el[data-d="1"] {
-            transition-delay: 0.08s;
-        }
-
-        .reveal-el[data-d="2"] {
-            transition-delay: 0.16s;
-        }
-
-        .reveal-el[data-d="3"] {
-            transition-delay: 0.24s;
-        }
-
-        .reveal-el[data-d="4"] {
-            transition-delay: 0.32s;
-        }
-
-        .reveal-el[data-d="5"] {
-            transition-delay: 0.40s;
-        }
-
-        .reveal-el[data-d="6"] {
-            transition-delay: 0.48s;
-        }
-
-        .reveal-el[data-d="7"] {
-            transition-delay: 0.56s;
-        }
-
-        .reveal-badge[data-d="0"] {
-            transition-delay: 0s;
-        }
-
-        .reveal-badge[data-d="1"] {
-            transition-delay: 0.06s;
-        }
-
-        /* ── Service / process / why-us card hover ── */
-        .service-card {
-            transition: transform 0.32s ease,
-                border-color 0.32s ease,
-                box-shadow 0.32s ease;
-            will-change: transform;
-        }
-
-        .service-card:hover {
-            transform: translateY(-9px);
-            border-color: #EE3923 !important;
-            box-shadow: 0 22px 44px rgba(238, 57, 35, 0.15);
-        }
-
-        /* ── Process cards: fixed size, only border color on hover ── */
-        .process-card {
-            min-height: 260px;
-        }
-
-        .process-card.service-card:hover {
-            transform: none;
-            box-shadow: none;
-            border-color: #EE3923 !important;
-            border-width: 2px;
-        }
-
-        .process-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #EE3923;
-            background: #ffffff;
-            border: 1px solid rgba(148, 163, 184, 0.6);
-            box-shadow: none;
-            transition: background 0.25s ease, color 0.25s ease,
-                box-shadow 0.25s ease, border-color 0.25s ease;
-        }
-
-        .process-badge--active {
-            background: #EE3923;
-            color: #ffffff;
-            border-color: #EE3923;
-            box-shadow: 0 16px 30px rgba(238, 57, 35, 0.4);
-        }
-
-        .process-card.service-card:hover .process-badge {
-            background: #EE3923;
-            color: #ffffff;
-            border-color: #EE3923;
-            box-shadow: 0 16px 30px rgba(238, 57, 35, 0.4);
-        }
-
-        /* ── FAQ: smooth product-style accordion ── */
-        .faq-item {
-            border-radius: 1rem;
-            border: 2px solid #e4e4e7;
-            background: #ffffff;
-            padding: 1.25rem;
-            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-        }
-
-        .faq-item:hover {
-            border-color: rgba(238, 57, 35, 0.4);
-            box-shadow: 0 10px 25px rgba(238, 57, 35, 0.12);
-        }
-
-        .faq-item[open] {
-            border-color: #EE3923;
-            box-shadow: 0 14px 30px rgba(238, 57, 35, 0.16);
-        }
-
-        .faq-item summary {
-            list-style: none;
-        }
-
-        .faq-item summary::-webkit-details-marker {
-            display: none;
-        }
-
-        .faq-number {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 0.625rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #EE3923;
-            background: #FFF0EE;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .faq-item[open] .faq-number {
-            background: #EE3923;
-            color: #ffffff;
-        }
-
-        .faq-toggle {
-            width: 2rem;
-            height: 2rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: #FFF0EE;
-            color: #EE3923;
-            transition: background-color 0.3s ease;
-        }
-
-        .faq-toggle-icon {
-            transition: transform 0.38s cubic-bezier(.22, 1, .36, 1);
-        }
-
-        .faq-item[open] .faq-toggle-icon {
-            transform: rotate(180deg);
-        }
-
-        .faq-answer-grid {
-            margin-top: 0.25rem;
-        }
-
-        .faq-answer-inner {
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transition: max-height 0.42s cubic-bezier(.22, 1, .36, 1), opacity 0.28s ease;
-        }
-
-        .faq-item[open] .faq-answer-inner {
-            opacity: 1;
-        }
-
-        /* ── Industry pill hover ── */
-        .industry-pill {
-            transition: background 0.25s ease, color 0.25s ease,
-                border-color 0.25s ease, transform 0.25s ease;
-        }
-
-        .industry-pill:hover {
-            background: #FFF0EE;
-            border-color: #EE3923;
-            color: #EE3923;
-            transform: translateY(-2px);
-        }
-
-        /* ── Why Choose Us cards: square with orange border glow on hover ── */
-        .why-card {
-            position: relative;
-            border-radius: 1.25rem;
-            border: 2px solid #e5e7eb;
-            background: #ffffff;
-            padding: 1.75rem;
-            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
-            min-height: 180px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            transition: border-color 0.28s ease,
-                box-shadow 0.28s ease,
-                transform 0.28s ease,
-                background 0.28s ease;
-            overflow: hidden;
-        }
-
-        .why-card::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, rgba(238, 57, 35, 0), #EE3923, rgba(238, 57, 35, 0));
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.28s ease;
-        }
-
-        .why-card:hover {
-            border-color: #EE3923;
-            box-shadow: 0 22px 44px rgba(238, 57, 35, 0.18);
-            transform: translateY(-6px);
-            background: #FFFBF9;
-        }
-
-        .why-card:hover::after {
-            transform: scaleX(1);
-        }
-
-        /* ── Glow-up button hover (for "View All Industries") ── */
-        .glow-btn {
-            position: relative;
-            transition: transform 0.25s ease, box-shadow 0.25s ease,
-                background-color 0.25s ease;
-            box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-        }
-
-        .glow-btn:hover {
-            transform: translateY(-4px);
-            background-color: #111827;
-            /* slightly lighter than pure black */
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35),
-                0 0 0 1px rgba(238, 57, 35, 0.4);
-        }
-
-        .hero-primary-btn {
-            transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
-        }
-
-        .hero-primary-btn:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 30px rgba(238, 57, 35, 0.35);
-        }
-
-        .hero-outline-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.25s ease, border-color 0.25s ease;
-        }
-
-        .hero-outline-btn::after {
-            content: "\2192";
-            width: 0;
-            opacity: 0;
-            overflow: hidden;
-            transform: translateX(-4px);
-            transition: width 0.25s ease, opacity 0.25s ease, transform 0.25s ease;
-        }
-
-        .hero-outline-btn:hover::after {
-            width: 0.9rem;
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        .hero-badge-glow {
-            border-color: rgba(238, 57, 35, 0.5);
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 0 0 1px rgba(238, 57, 35, 0.2), 0 0 24px rgba(238, 57, 35, 0.28);
-        }
-
-        .footer-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-            font-size: 0.8125rem;
-            color: #a1a1aa;
-            transition: color 0.24s ease;
-        }
-
-        .footer-link::before {
-            content: "›";
-            color: #EE3923;
-            opacity: 0;
-            transform: translateX(-4px);
-            transition: opacity 0.24s ease, transform 0.24s ease;
-        }
-
-        .footer-link:hover {
-            color: #EE3923;
-        }
-
-        .footer-link:hover::before {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    </style>
-
-    <!-- JS -->
+    </nav><!-- JS -->
     <script>
-        function toggleMobileMenu(id) {
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if (menuBtn && mobileMenu) {
+            const setMobileMenuState = (open) => {
+                mobileMenu.style.maxHeight = open
+                    ? `${Math.min(mobileMenu.scrollHeight, window.innerHeight - 88)}px`
+                    : "0px";
+                mobileMenu.classList.toggle("overflow-y-auto", open);
+                mobileMenu.classList.toggle("overflow-hidden", !open);
+                menuBtn.setAttribute("aria-expanded", String(open));
+                mobileMenu.setAttribute("aria-hidden", String(!open));
+                document.body.classList.toggle("overflow-hidden", open);
+            };
+
+            const closeMobileMenu = () => setMobileMenuState(false);
+
+            menuBtn.addEventListener("click", () => {
+                const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+                setMobileMenuState(!isOpen);
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
+                    return;
+                }
+
+                if (menuBtn.getAttribute("aria-expanded") === "true") {
+                    setMobileMenuState(true);
+                }
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeMobileMenu);
+            });
+        }
+
+        // Helper for mobile sub-menus
+        function toggleMobileMenu(id, trigger) {
             const menu = document.getElementById(id);
-            if (menu) {
-                menu.classList.toggle("hidden");
+            if (!menu) return;
+
+            menu.classList.toggle("hidden");
+
+            if (trigger) {
+                const isExpanded = !menu.classList.contains("hidden");
+                trigger.setAttribute("aria-expanded", String(isExpanded));
+                const icon = trigger.querySelector("[data-toggle-icon]");
+                if (icon) {
+                    icon.textContent = isExpanded ? "-" : "+";
+                }
             }
         }
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const menuBtn = document.getElementById("menuBtn");
-            const mobileMenu = document.getElementById("mobileMenu");
+        const learnBtn = document.getElementById("learnBtn");
+        const learnMenu = document.getElementById("learnMenu");
 
-            if (menuBtn && mobileMenu) {
-                menuBtn.addEventListener("click", function () {
-                    mobileMenu.classList.toggle("max-h-[500px]");
-                });
-            }
-        });
+        if (learnBtn && learnMenu) {
+            learnBtn.addEventListener("click", () => {
+                learnMenu.classList.toggle("opacity-0");
+                learnMenu.classList.toggle("invisible");
+            });
+        }
+
+        const industriesNavItem = document.getElementById("industriesNavItem");
+        if (industriesNavItem) {
+            let industriesCloseTimer;
+            industriesNavItem.addEventListener("mouseenter", () => {
+                clearTimeout(industriesCloseTimer);
+                industriesNavItem.classList.add("industry-open");
+            });
+            industriesNavItem.addEventListener("mouseleave", () => {
+                industriesCloseTimer = setTimeout(() => {
+                    industriesNavItem.classList.remove("industry-open");
+                }, 220);
+            });
+        }
     </script>
 
     <!-- Hero (Services Top) -->
-    <section class="relative pt-32 pb-16 bg-black text-white overflow-hidden reveal-on-load">
+    <section class="relative pt-32 pb-16 bg-black text-white overflow-hidden">
         <div class="absolute -top-24 -left-24 w-72 h-72 bg-[#EE3923]/20 rounded-full blur-3xl"></div>
         <div class="absolute top-10 right-10 w-3 h-3 bg-white/40 rounded-full"></div>
         <div class="absolute bottom-16 right-24 w-5 h-5 bg-white/20 rounded-full"></div>
@@ -2133,7 +676,7 @@
 
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <div
-                class="hero-badge-glow inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/15 bg-white/5 text-xs font-semibold tracking-wide">
+                class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EE3923]/50 bg-white/5 text-xs font-semibold tracking-wide shadow-[0_0_0_1px_rgba(238,57,35,0.2),0_0_24px_rgba(238,57,35,0.28)]">
                 <svg class="w-3.5 h-3.5 text-[#EE3923]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                     stroke-width="2.5" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M13 2L4 14h7l-1 8 9-12h-7l1-8z" />
@@ -2151,10 +694,10 @@
 
             <div class="mt-8 flex flex-wrap justify-center gap-4">
                 <a href="{% url 'contact' %}"
-                    class="hero-primary-btn bg-[#EE3923] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d7331e]">Get
+                    class="bg-[#EE3923] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-[#d7331e] hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(238,57,35,0.35)]">Get
                     Free Consultation</a>
                 <a href="/case_study/"
-                    class="hero-outline-btn border border-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:border-white">View
+                    class="inline-flex items-center gap-2 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:border-white after:content-['\2192'] after:w-0 after:opacity-0 after:overflow-hidden after:-translate-x-1 after:transition-all after:duration-300 hover:after:w-[0.9rem] hover:after:opacity-100 hover:after:translate-x-0">View
                     Case Studies</a>
             </div>
 
@@ -2180,7 +723,7 @@
     </section>
 
     <!-- Services Overview -->
-    <section class="py-20 bg-[#FFF9F4] reveal-on-load">
+    <section class="py-20 bg-[#FFF9F4]">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -2224,7 +767,7 @@
                     <a href="/services/ppc/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
 
@@ -2251,7 +794,7 @@
                     <a href="/services/seo/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
 
@@ -2276,7 +819,7 @@
                     <a href="/services/web-development/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
 
@@ -2301,7 +844,7 @@
                     <a href="/services/web-development/landing-pages/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
 
@@ -2326,7 +869,7 @@
                     <a href="/services/aeo/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
 
@@ -2351,7 +894,7 @@
                     <a href="/services/social-media/"
                         class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923]">
                         Learn More
-                        <span>→</span>
+                        <span>?</span>
                     </a>
                 </div>
             </div>
@@ -2359,7 +902,7 @@
     </section>
 
     <!-- Services Process -->
-    <section class="py-20 bg-gray-50 reveal-on-load">
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -2387,9 +930,10 @@
 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
                     <div
-                        class="process-card service-card relative rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between">
+                        class="process-card relative min-h-[260px] rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between transition-[border-color,box-shadow,transform,border-width] duration-300 ease-out hover:border-[#EE3923] hover:border-2 hover:shadow-none hover:[&_.process-badge]:bg-[#EE3923] hover:[&_.process-badge]:text-white hover:[&_.process-badge]:border-[#EE3923] hover:[&_.process-badge]:shadow-[0_16px_30px_rgba(238,57,35,0.4)]">
                         <div class="flex items-center gap-3">
-                            <span class="process-badge">01</span>
+                            <span
+                                class="process-badge inline-flex items-center justify-center w-12 h-12 rounded-2xl text-xs font-bold text-[#EE3923] bg-white border border-slate-400/60 transition-[background,color,box-shadow,border-color] duration-300">01</span>
                             <span
                                 class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF0EE] text-[#EE3923] text-xs font-semibold">Week
                                 1</span>
@@ -2402,9 +946,10 @@
                     </div>
 
                     <div
-                        class="process-card service-card relative rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between">
+                        class="process-card relative min-h-[260px] rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between transition-[border-color,box-shadow,transform,border-width] duration-300 ease-out hover:border-[#EE3923] hover:border-2 hover:shadow-none hover:[&_.process-badge]:bg-[#EE3923] hover:[&_.process-badge]:text-white hover:[&_.process-badge]:border-[#EE3923] hover:[&_.process-badge]:shadow-[0_16px_30px_rgba(238,57,35,0.4)]">
                         <div class="flex items-center gap-3">
-                            <span class="process-badge process-badge--active">02</span>
+                            <span
+                                class="process-badge inline-flex items-center justify-center w-12 h-12 rounded-2xl text-xs font-bold border transition-[background,color,box-shadow,border-color] duration-300 bg-[#EE3923] text-white border-[#EE3923] shadow-[0_16px_30px_rgba(238,57,35,0.4)]">02</span>
                             <span
                                 class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF0EE] text-[#EE3923] text-xs font-semibold">Week
                                 2-3</span>
@@ -2417,9 +962,10 @@
                     </div>
 
                     <div
-                        class="process-card service-card relative rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between">
+                        class="process-card relative min-h-[260px] rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between transition-[border-color,box-shadow,transform,border-width] duration-300 ease-out hover:border-[#EE3923] hover:border-2 hover:shadow-none hover:[&_.process-badge]:bg-[#EE3923] hover:[&_.process-badge]:text-white hover:[&_.process-badge]:border-[#EE3923] hover:[&_.process-badge]:shadow-[0_16px_30px_rgba(238,57,35,0.4)]">
                         <div class="flex items-center gap-3">
-                            <span class="process-badge">03</span>
+                            <span
+                                class="process-badge inline-flex items-center justify-center w-12 h-12 rounded-2xl text-xs font-bold text-[#EE3923] bg-white border border-slate-400/60 transition-[background,color,box-shadow,border-color] duration-300">03</span>
                             <span
                                 class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF0EE] text-[#EE3923] text-xs font-semibold">Week
                                 4+</span>
@@ -2432,9 +978,10 @@
                     </div>
 
                     <div
-                        class="process-card service-card relative rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between">
+                        class="process-card relative min-h-[260px] rounded-2xl border border-zinc-200 bg-white/80 backdrop-blur-sm p-6 shadow-sm flex flex-col justify-between transition-[border-color,box-shadow,transform,border-width] duration-300 ease-out hover:border-[#EE3923] hover:border-2 hover:shadow-none hover:[&_.process-badge]:bg-[#EE3923] hover:[&_.process-badge]:text-white hover:[&_.process-badge]:border-[#EE3923] hover:[&_.process-badge]:shadow-[0_16px_30px_rgba(238,57,35,0.4)]">
                         <div class="flex items-center gap-3">
-                            <span class="process-badge">04</span>
+                            <span
+                                class="process-badge inline-flex items-center justify-center w-12 h-12 rounded-2xl text-xs font-bold text-[#EE3923] bg-white border border-slate-400/60 transition-[background,color,box-shadow,border-color] duration-300">04</span>
                             <span
                                 class="inline-flex px-2.5 py-1 rounded-full bg-[#FFF0EE] text-[#EE3923] text-xs font-semibold">Ongoing</span>
                         </div>
@@ -2450,7 +997,7 @@
     </section>
 
     <!-- Why Choose Us -->
-    <section class="py-20 bg-white reveal-on-load">
+    <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -2477,7 +1024,8 @@
             </div>
 
             <div class="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto items-stretch">
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -2489,7 +1037,8 @@
                         across major industries.</p>
                 </div>
 
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -2502,7 +1051,8 @@
                         metrics. No black boxes.</p>
                 </div>
 
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round"
@@ -2514,7 +1064,8 @@
                         that work.</p>
                 </div>
 
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.75a6 6 0 00-12 0" />
@@ -2527,7 +1078,8 @@
                         automated responses.</p>
                 </div>
 
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5" />
@@ -2540,7 +1092,8 @@
                         it is not the right fit.</p>
                 </div>
 
-                <div class="why-card">
+                <div
+                    class="relative rounded-[1.25rem] border-2 border-zinc-200 bg-white p-7 shadow-[0_4px_14px_rgba(15,23,42,0.04)] min-h-[180px] h-full flex flex-col justify-start overflow-hidden transition-[border-color,box-shadow,transform,background] duration-300 ease-out hover:border-[#EE3923] hover:shadow-[0_22px_44px_rgba(238,57,35,0.18)] hover:-translate-y-1.5 hover:bg-[#FFFBF9] after:content-[''] after:absolute after:left-0 after:bottom-0 after:w-full after:h-[3px] after:bg-[linear-gradient(90deg,rgba(238,57,35,0),#EE3923,rgba(238,57,35,0))] after:scale-x-0 after:origin-center after:transition-transform after:duration-300 hover:after:scale-x-100">
                     <div class="w-12 h-12 rounded-xl bg-[#EE3923]/10 text-[#EE3923] flex items-center justify-center">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -2555,7 +1108,7 @@
     </section>
 
     <!-- Industry Expertise -->
-    <section class="py-20 bg-gray-50 reveal-on-load">
+    <section class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -2605,15 +1158,15 @@
 
             <div class="mt-6 flex justify-center">
                 <a href="/case_study/"
-                    class="glow-btn bg-black text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-900 transition">View
+                    class="bg-black text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-gray-900 hover:-translate-y-1 hover:shadow-[0_18px_35px_rgba(0,0,0,0.35),0_0_0_1px_rgba(238,57,35,0.4)]">View
                     All
-                    Industries →</a>
+                    Industries ?</a>
             </div>
         </div>
     </section>
 
     <!-- FAQ -->
-    <section id="faq" class="py-20 bg-gray-50 reveal-on-load">
+    <section id="faq" class="py-20 bg-gray-50">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center max-w-3xl mx-auto">
                 <div
@@ -2630,21 +1183,27 @@
             </div>
 
             <div class="mt-10 space-y-4">
-                <details class="faq-item" open>
-                    <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <details
+                    class="faq-item group rounded-2xl border-2 border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#EE3923]/40 hover:shadow-[0_10px_25px_rgba(238,57,35,0.12)] [&[open]]:border-[#EE3923] [&[open]]:shadow-[0_14px_30px_rgba(238,57,35,0.16)]"
+                    open>
+                    <summary
+                        class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
                         <div class="flex items-center gap-4">
-                            <span class="faq-number">01</span>
+                            <span
+                                class="inline-flex w-8 h-8 items-center justify-center rounded-[0.625rem] text-xs font-bold text-[#EE3923] bg-[#FFF0EE] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">01</span>
                             <h3 class="text-sm md:text-base font-semibold text-black">What services do you offer?</h3>
                         </div>
-                        <span class="faq-toggle">
-                            <svg class="h-4 w-4 faq-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
+                        <span
+                            class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-[#FFF0EE] text-[#EE3923] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">
+                            <svg class="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-open:rotate-180"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </span>
                     </summary>
-                    <div class="faq-answer-grid">
-                        <div class="faq-answer-inner">
+                    <div class="mt-1">
+                        <div
+                            class="faq-answer-inner overflow-hidden max-h-0 opacity-0 transition-[max-height,opacity] duration-[420ms] ease-[cubic-bezier(.22,1,.36,1)]">
                             <p class="mt-4 text-sm text-zinc-600">
                                 We offer a full suite of digital marketing services including PPC (Google Ads, Microsoft
                                 Ads),
@@ -2656,22 +1215,27 @@
                     </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <details
+                    class="faq-item group rounded-2xl border-2 border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#EE3923]/40 hover:shadow-[0_10px_25px_rgba(238,57,35,0.12)] [&[open]]:border-[#EE3923] [&[open]]:shadow-[0_14px_30px_rgba(238,57,35,0.16)]">
+                    <summary
+                        class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
                         <div class="flex items-center gap-4">
-                            <span class="faq-number">02</span>
+                            <span
+                                class="inline-flex w-8 h-8 items-center justify-center rounded-[0.625rem] text-xs font-bold text-[#EE3923] bg-[#FFF0EE] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">02</span>
                             <h3 class="text-sm md:text-base font-semibold text-black">What is your minimum budget
                                 requirement?</h3>
                         </div>
-                        <span class="faq-toggle">
-                            <svg class="h-4 w-4 faq-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
+                        <span
+                            class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-[#FFF0EE] text-[#EE3923] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">
+                            <svg class="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-open:rotate-180"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </span>
                     </summary>
-                    <div class="faq-answer-grid">
-                        <div class="faq-answer-inner">
+                    <div class="mt-1">
+                        <div
+                            class="faq-answer-inner overflow-hidden max-h-0 opacity-0 transition-[max-height,opacity] duration-[420ms] ease-[cubic-bezier(.22,1,.36,1)]">
                             <p class="mt-4 text-sm text-zinc-600">
                                 We typically recommend a minimum monthly budget based on your goals and channel mix.
                                 During the
@@ -2681,22 +1245,27 @@
                     </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <details
+                    class="faq-item group rounded-2xl border-2 border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#EE3923]/40 hover:shadow-[0_10px_25px_rgba(238,57,35,0.12)] [&[open]]:border-[#EE3923] [&[open]]:shadow-[0_14px_30px_rgba(238,57,35,0.16)]">
+                    <summary
+                        class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
                         <div class="flex items-center gap-4">
-                            <span class="faq-number">03</span>
+                            <span
+                                class="inline-flex w-8 h-8 items-center justify-center rounded-[0.625rem] text-xs font-bold text-[#EE3923] bg-[#FFF0EE] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">03</span>
                             <h3 class="text-sm md:text-base font-semibold text-black">Do you require long-term
                                 contracts?</h3>
                         </div>
-                        <span class="faq-toggle">
-                            <svg class="h-4 w-4 faq-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
+                        <span
+                            class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-[#FFF0EE] text-[#EE3923] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">
+                            <svg class="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-open:rotate-180"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </span>
                     </summary>
-                    <div class="faq-answer-grid">
-                        <div class="faq-answer-inner">
+                    <div class="mt-1">
+                        <div
+                            class="faq-answer-inner overflow-hidden max-h-0 opacity-0 transition-[max-height,opacity] duration-[420ms] ease-[cubic-bezier(.22,1,.36,1)]">
                             <p class="mt-4 text-sm text-zinc-600">
                                 No. We offer flexible agreements with 30-day notice. Our focus is on performance, not
                                 lock-ins.
@@ -2705,21 +1274,26 @@
                     </div>
                 </details>
 
-                <details class="faq-item">
-                    <summary class="flex cursor-pointer items-center justify-between gap-4">
+                <details
+                    class="faq-item group rounded-2xl border-2 border-zinc-200 bg-white p-5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-[border-color,box-shadow,background-color] duration-300 hover:border-[#EE3923]/40 hover:shadow-[0_10px_25px_rgba(238,57,35,0.12)] [&[open]]:border-[#EE3923] [&[open]]:shadow-[0_14px_30px_rgba(238,57,35,0.16)]">
+                    <summary
+                        class="flex cursor-pointer list-none items-center justify-between gap-4 [&::-webkit-details-marker]:hidden">
                         <div class="flex items-center gap-4">
-                            <span class="faq-number">04</span>
+                            <span
+                                class="inline-flex w-8 h-8 items-center justify-center rounded-[0.625rem] text-xs font-bold text-[#EE3923] bg-[#FFF0EE] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">04</span>
                             <h3 class="text-sm md:text-base font-semibold text-black">How long until I see results?</h3>
                         </div>
-                        <span class="faq-toggle">
-                            <svg class="h-4 w-4 faq-toggle-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                stroke-width="2">
+                        <span
+                            class="inline-flex w-8 h-8 items-center justify-center rounded-full bg-[#FFF0EE] text-[#EE3923] transition-colors duration-300 group-open:bg-[#EE3923] group-open:text-white">
+                            <svg class="h-4 w-4 transition-transform duration-300 ease-[cubic-bezier(.22,1,.36,1)] group-open:rotate-180"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                             </svg>
                         </span>
                     </summary>
-                    <div class="faq-answer-grid">
-                        <div class="faq-answer-inner">
+                    <div class="mt-1">
+                        <div
+                            class="faq-answer-inner overflow-hidden max-h-0 opacity-0 transition-[max-height,opacity] duration-[420ms] ease-[cubic-bezier(.22,1,.36,1)]">
                             <p class="mt-4 text-sm text-zinc-600">
                                 Timelines depend on channel and goals. PPC can show early traction in weeks, while SEO
                                 builds
@@ -2733,7 +1307,7 @@
     </section>
 
     <!-- CTA Card -->
-    <section class="py-20 bg-white reveal-on-load">
+    <section class="py-20 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div
                 class="relative overflow-hidden rounded-[32px] border border-white/10 bg-gradient-to-br from-black via-[#090d16] to-[#2a170f] p-10 md:p-14 text-center text-white shadow-2xl min-h-[520px] flex flex-col justify-center">
@@ -2759,10 +1333,10 @@
 
                     <div class="mt-8 flex flex-wrap justify-center gap-4">
                         <a href="{% url 'contact' %}"
-                            class="hero-primary-btn bg-[#EE3923] text-white px-6 py-3 rounded-lg font-semibold hover:bg-[#d7331e] transition">Get
-                            Free Audit →</a>
+                            class="bg-[#EE3923] text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-[#d7331e] hover:-translate-y-1 hover:shadow-[0_16px_30px_rgba(238,57,35,0.35)]">Get
+                            Free Audit ?</a>
                         <a href="{% url 'contact' %}"
-                            class="hero-outline-btn bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold hover:bg-white/20 hover:border-white transition">Contact
+                            class="inline-flex items-center gap-2 bg-white/10 border border-white/20 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:bg-white/20 hover:border-white after:content-['\2192'] after:w-0 after:opacity-0 after:overflow-hidden after:-translate-x-1 after:transition-all after:duration-300 hover:after:w-[0.9rem] hover:after:opacity-100 hover:after:translate-x-0">Contact
                             Sales</a>
                     </div>
 
@@ -2856,14 +1430,25 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">SERVICES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/services/ppc/" class="footer-link">PPC Management</a></li>
-                    <li><a href="/services/seo/" class="footer-link">SEO Services</a></li>
-                    <li><a href="/services/web-development/" class="footer-link">Web Development</a>
+                    <li><a href="/services/ppc/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">PPC
+                            Management</a></li>
+                    <li><a href="/services/seo/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">SEO
+                            Services</a></li>
+                    <li><a href="/services/web-development/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Web
+                            Development</a>
                     </li>
-                    <li><a href="/services/web-development/landing-pages/" class="footer-link">Landing
+                    <li><a href="/services/web-development/landing-pages/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Landing
                             Pages</a></li>
-                    <li><a href="/services/aeo/" class="footer-link">Answer Engine Optimization</a></li>
-                    <li><a href="/services/social-media/" class="footer-link">Social Media Marketing</a>
+                    <li><a href="/services/aeo/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Answer
+                            Engine Optimization</a></li>
+                    <li><a href="/services/social-media/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Social
+                            Media Marketing</a>
                     </li>
                 </ul>
             </div>
@@ -2871,31 +1456,57 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">COMPANY</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/about/" class="footer-link">About Us</a></li>
-                    <li><a href="/case_study/" class="footer-link">Case Studies</a></li>
-                    <li><a href="/about/" class="footer-link">Testimonials</a></li>
-                    <li><a href="{% url 'contact' %}" class="footer-link">Contact</a></li>
+                    <li><a href="/about/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">About
+                            Us</a></li>
+                    <li><a href="/case_study/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Case
+                            Studies</a></li>
+                    <li><a href="/about/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Testimonials</a>
+                    </li>
+                    <li><a href="{% url 'contact' %}"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Contact</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">INDUSTRIES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="#" class="footer-link">Real Estate</a></li>
-                    <li><a href="#" class="footer-link">Healthcare</a></li>
-                    <li><a href="#" class="footer-link">Home Services</a></li>
-                    <li><a href="#" class="footer-link">Automotive</a></li>
-                    <li><a href="#" class="footer-link">Legal</a></li>
-                    <li><a href="#" class="footer-link">E-commerce</a></li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Real
+                            Estate</a></li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Healthcare</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Home
+                            Services</a></li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Automotive</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Legal</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">E-commerce</a>
+                    </li>
                 </ul>
             </div>
 
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">RESOURCES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/blogs" class="footer-link">Blog</a></li>
-                    <li><a href="#faq" class="footer-link">FAQ</a></li>
-                    <li><a href="{% url 'contact' %}" class="footer-link">Get Started</a></li>
+                    <li><a href="/blogs"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Blog</a>
+                    </li>
+                    <li><a href="#faq"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">FAQ</a>
+                    </li>
+                    <li><a href="{% url 'contact' %}"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Get
+                            Started</a></li>
                 </ul>
             </div>
         </div>
@@ -2903,7 +1514,7 @@
         <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-zinc-500">
             <div class="flex flex-col md:flex-row justify-between items-center gap-4">
                 <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                    <p>© 2026 Adryze LLC. All rights reserved.</p>
+                    <p>&copy; 2026 Adryze LLC. All rights reserved.</p>
                     <p class="flex items-center gap-1.5">
                         <svg class="w-3.5 h-3.5 text-[#EE3923]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                             stroke-width="2" aria-hidden="true">
@@ -2923,11 +1534,49 @@
     </footer>
     <script>
         (function () {
-            /* ─── helpers ─── */
-            function tag(el, cls, delay) {
+            /* --- helpers --- */
+            function tag(el, kind, delay) {
                 if (!el) return;
-                el.classList.add(cls);
-                if (delay !== undefined) el.setAttribute('data-d', String(delay));
+                el.setAttribute('data-reveal', '1');
+
+                if (kind === 'badge') {
+                    el.classList.add(
+                        'opacity-0',
+                        'scale-[0.82]',
+                        'transition-all',
+                        'duration-500',
+                        'ease-[cubic-bezier(.34,1.56,.64,1)]'
+                    );
+                } else {
+                    el.classList.add(
+                        'opacity-0',
+                        'translate-y-8',
+                        'transition-all',
+                        'duration-700',
+                        'ease-[cubic-bezier(.22,1,.36,1)]'
+                    );
+                }
+
+                if (delay !== undefined) {
+                    var transitionDelay = kind === 'badge'
+                        ? (delay === 1 ? 60 : 0)
+                        : Math.min(delay, 7) * 80;
+                    el.style.transitionDelay = transitionDelay + 'ms';
+                }
+            }
+
+            function showReveal(el) {
+                if (!el) return;
+                el.classList.remove('opacity-0', 'translate-y-8', 'scale-[0.82]');
+                el.classList.add('opacity-100');
+
+                if (!el.classList.contains('translate-y-0')) {
+                    el.classList.add('translate-y-0');
+                }
+
+                if (!el.classList.contains('scale-100')) {
+                    el.classList.add('scale-100');
+                }
             }
 
             function initFaqAccordion() {
@@ -3030,52 +1679,70 @@
                 });
             }
 
-            /* ─── setup one section ─── */
+            /* --- setup one section --- */
             function prepSection(section) {
                 var wrap = section.querySelector('.max-w-7xl') || section;
 
                 // badge pill
                 var badge = wrap.querySelector(
                     '.inline-flex.items-center.gap-2.px-4.py-2.rounded-full');
-                tag(badge, 'reveal-badge', 0);
+                tag(badge, 'badge', 0);
 
                 // main heading
                 var head = wrap.querySelector('h1, h2');
-                tag(head, 'reveal-el', 1);
+                tag(head, 'element', 1);
 
                 // sub paragraph
                 var para = wrap.querySelector('.text-center p, .text-center p.mt-4, .text-center p.mt-5');
-                tag(para, 'reveal-el', 2);
+                tag(para, 'element', 2);
 
                 // button row
                 var btns = wrap.querySelector('.flex.flex-wrap.justify-center.gap-4');
-                tag(btns, 'reveal-el', 3);
+                tag(btns, 'element', 3);
 
-                // grid cards / steps — staggered
+                // grid cards / steps - staggered
                 var grids = wrap.querySelectorAll('.grid');
                 grids.forEach(function (grid) {
                     var kids = grid.children;
                     for (var i = 0; i < kids.length; i++) {
-                        tag(kids[i], 'reveal-el', i + 1);
-                        kids[i].classList.add('service-card');
+                        tag(kids[i], 'element', i + 1);
+
+                        if (!kids[i].classList.contains('process-card')) {
+                            kids[i].classList.add(
+                                'transition-[transform,border-color,box-shadow]',
+                                'duration-300',
+                                'ease-out',
+                                'will-change-transform',
+                                'hover:-translate-y-[9px]',
+                                'hover:border-[#EE3923]',
+                                'hover:shadow-[0_22px_44px_rgba(238,57,35,0.15)]'
+                            );
+                        }
                     }
                 });
 
                 // industry pills
                 wrap.querySelectorAll('.flex.flex-wrap.justify-center.gap-3 > span').forEach(function (p) {
-                    p.classList.add('industry-pill');
+                    p.classList.add(
+                        'transition-all',
+                        'duration-300',
+                        'hover:bg-[#FFF0EE]',
+                        'hover:border-[#EE3923]',
+                        'hover:text-[#EE3923]',
+                        'hover:-translate-y-0.5'
+                    );
                 });
             }
 
-            /* ─── collect all sections ─── */
-            var sections = document.querySelectorAll('.reveal-on-load');
+            /* --- collect all sections --- */
+            var sections = document.querySelectorAll('body > section');
 
-            /* ─── IntersectionObserver for scroll sections ─── */
+            /* --- IntersectionObserver for scroll sections --- */
             var io = new IntersectionObserver(function (entries) {
                 entries.forEach(function (entry) {
                     if (entry.isIntersecting) {
-                        entry.target.querySelectorAll('.reveal-el, .reveal-badge')
-                            .forEach(function (el) { el.classList.add('visible'); });
+                        entry.target.querySelectorAll('[data-reveal="1"]')
+                            .forEach(function (el) { showReveal(el); });
                         io.unobserve(entry.target);
                     }
                 });
@@ -3086,8 +1753,8 @@
                 if (idx === 0) {
                     /* Hero fires on DOMContentLoaded with a tiny delay */
                     setTimeout(function () {
-                        sec.querySelectorAll('.reveal-el, .reveal-badge')
-                            .forEach(function (el) { el.classList.add('visible'); });
+                        sec.querySelectorAll('[data-reveal="1"]')
+                            .forEach(function (el) { showReveal(el); });
                     }, 120);
                 } else {
                     io.observe(sec);

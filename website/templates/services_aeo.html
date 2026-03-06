@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,313 +10,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-
-        body {
-            font-family: 'Inter', sans-serif;
-            -webkit-font-smoothing: antialiased;
-            text-rendering: optimizeLegibility;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
-    <style>
-        :root {
-            --orange: #EE3923;
-            --orange-100: #fff1ed;
-            --orange-200: #ffe4dc;
-            --ink: #121212;
-            --brand-2: #FF4801;
-            --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-        }
-
-        body {
-            /* font-family: "Space Grotesk", sans-serif; */
-            color: var(--ink);
-        }
-
-        .hover-card {
-            background-color: rgba(255, 255, 255, 0.72) !important;
-            backdrop-filter: blur(12px);
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-card:hover {
-            transform: translateY(-4px) scale(1.01);
-            border-color: var(--orange);
-            box-shadow: 0 18px 40px rgba(238, 57, 35, 0.14);
-        }
-
-        .hover-icon {
-            transition: transform 200ms ease;
-        }
-
-        .hover-card:hover .hover-icon {
-            transform: translateY(-6px);
-        }
-
-        .reveal {
-            animation: fadeUp 500ms ease both;
-        }
-
-        .hover-soft {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out),
-                border-color 220ms var(--ease-out);
-        }
-
-        .hover-soft:hover {
-            transform: translateY(-2px);
-            border-color: rgba(238, 57, 35, 0.5);
-            box-shadow: 0 14px 32px rgba(238, 57, 35, 0.2);
-        }
-
-        .btn-glow {
-            transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out);
-            background-image: linear-gradient(135deg, var(--brand-2), var(--orange));
-            border: 1px solid rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 14px 30px rgba(255, 72, 1, 0.35);
-        }
-
-        .btn-glow:active {
-            transform: translateY(0);
-            box-shadow: 0 10px 20px rgba(255, 72, 1, 0.25);
-        }
-
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(16px);
-            filter: blur(6px);
-            transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out),
-                filter 700ms var(--ease-out);
-            transition-delay: var(--delay, 0ms);
-            will-change: opacity, transform;
-        }
-
-        .scroll-reveal.slide-left {
-            transform: translateX(-28px);
-        }
-
-        .scroll-reveal.slide-right {
-            transform: translateX(28px);
-        }
-
-        .scroll-reveal.in-view {
-            opacity: 1;
-            transform: translateX(0) translateY(0);
-            filter: blur(0);
-        }
-
-        #faq details>p {
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            margin-top: 0;
-            transition: max-height 900ms var(--ease-out), opacity 700ms ease, margin-top 700ms ease;
-        }
-
-        #faq details {
-            background-color: rgba(255, 255, 255, 0.75) !important;
-            backdrop-filter: blur(10px);
-            border: 1.5px solid transparent;
-            transition: border-color 350ms ease, box-shadow 350ms ease;
-        }
-
-        #faq details[open] {
-            border-color: var(--orange);
-            box-shadow: 0 0 0 3px rgba(255, 122, 26, 0.08);
-        }
-
-        #faq details[open]>p {
-            max-height: 360px;
-            opacity: 1;
-            margin-top: 0.75rem;
-        }
-
-        #faq summary {
-            list-style: none;
-        }
-
-        #faq summary::-webkit-details-marker {
-            display: none;
-        }
-
-        #faq summary .faq-icon {
-            display: inline-block;
-            line-height: 1;
-            transition: transform 400ms var(--ease-out);
-        }
-
-        #faq details[open] summary .faq-icon {
-            transform: rotate(45deg);
-        }
-
-        a:focus-visible,
-        button:focus-visible,
-        summary:focus-visible {
-            outline: 2px solid var(--orange);
-            outline-offset: 3px;
-        }
-
-        [class*='hover:bg-[#ff8a3a]']:hover {
-            background-color: var(--brand-2) !important;
-        }
-
-        .bg-float {
-            animation: floatGlow 8s ease-in-out infinite;
-            filter: saturate(1.1);
-        }
-
-        @keyframes floatGlow {
-
-            0%,
-            100% {
-                transform: translateY(0);
-                opacity: 0.9;
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    keyframes: {
+                        floatGlow: {
+                            '0%, 100%': { transform: 'translateY(0)', opacity: '0.9' },
+                            '50%': { transform: 'translateY(-8px)', opacity: '1' }
+                        },
+                        fadeUp: {
+                            from: { opacity: '0', transform: 'translateY(10px)' },
+                            to: { opacity: '1', transform: 'translateY(0)' }
+                        }
+                    },
+                    animation: {
+                        'float-glow': 'floatGlow 8s ease-in-out infinite',
+                        'fade-up': 'fadeUp 500ms ease both'
+                    }
+                }
             }
-
-            50% {
-                transform: translateY(-8px);
-                opacity: 1;
-            }
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            .scroll-reveal,
-            .hover-card,
-            .hover-soft,
-            .btn-glow,
-            .bg-float {
-                animation: none;
-                transition: none;
-                transform: none;
-                filter: none;
-            }
-        }
-
-        /* Hamburger open state */
-        #menu-btn.open .menu-bar:nth-child(1) {
-            transform: translateY(7px) rotate(45deg);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(2) {
-            opacity: 0;
-            transform: scaleX(0);
-        }
-
-        #menu-btn.open .menu-bar:nth-child(3) {
-            width: 20px;
-            transform: translateY(-7px) rotate(-45deg);
-        }
-
-        /* Scroll-progress bar */
-        #scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--brand-2), var(--orange));
-            z-index: 9999;
-            transition: width 100ms linear;
-        }
-
-        /* Stat count-up elements */
-        .count-num {
-            display: inline-block;
-            font-variant-numeric: tabular-nums;
-        }
-
-        /* Sticky header shadow on scroll */
-        #site-header.scrolled {
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
-        }
-
-        /* Icon wrapper in feature cards */
-        .icon-wrap {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 1rem;
-            border: 1px solid rgba(238, 57, 35, 0.2);
-            background-color: var(--orange-100);
-            color: var(--orange);
-            flex-shrink: 0;
-        }
-
-        /* Service tag chips */
-        .service-tag {
-            border-radius: 9999px;
-            border: 1px solid rgba(0, 0, 0, 0.1);
-            padding: 0.15rem 0.65rem;
-            font-size: 0.7rem;
-            color: rgba(0, 0, 0, 0.5);
-        }
-
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 0;
-            background: #FF4801;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 2.5rem;
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-link:hover {
-            background: #fff7ed;
-            color: #FF4801;
-        }
-
-        .mobile-link {
-            padding: 0.5rem 0;
-        }
-    </style>
+        };
+    </script>
 </head>
 
-<body class="bg-white">
-    <div id="scroll-progress"></div>
-    <nav id="site-header" class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+<body class="bg-white font-['Inter'] antialiased [text-rendering:optimizeLegibility] text-[#121212]">
+    <div id="scroll-progress"
+        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-gradient-to-r from-[#FF4801] to-[#EE3923] transition-[width] duration-100">
+    </div>
+    <nav id="site-header"
+        class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-[box-shadow] duration-300">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
                 AD<span class="text-[#EE3923]">RYZE</span>
@@ -325,7 +50,7 @@
             <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
                 <div class="relative group/nav">
                     <button
-                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        class="relative flex items-center gap-1.5 px-4 py-2 font-semibold text-gray-900 transition-all duration-200 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:text-[#EE3923] hover:before:w-10">
                         <span class="relative">Services
                             <span
                                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
@@ -549,7 +274,8 @@
                 </div>
 
                 <div class="relative group">
-                    <button class="nav-link flex items-center gap-1 py-4">
+                    <button
+                        class="relative flex items-center gap-1 px-4 py-4 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">
                         Industries
                         <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -558,17 +284,24 @@
                     </button>
                     <div
                         class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <a href="/saas/" class="dropdown-link">SaaS</a>
-                        <a href="/b2b/" class="dropdown-link">B2B</a>
-                        <a href="/dtc/" class="dropdown-link">DTC</a>
+                        <a href="/saas/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">SaaS</a>
+                        <a href="/b2b/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">B2B</a>
+                        <a href="/dtc/"
+                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">DTC</a>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="nav-link">Case Studies</a>
+                <a href="/case_study/"
+                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">Case
+                    Studies</a>
 
-                <a href="/blog/" class="nav-link">Blog</a>
+                <a href="/blog/"
+                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">Blog</a>
 
-                <a href="/about/" class="nav-link">About</a>
+                <a href="/about/"
+                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">About</a>
             </div>
 
             <div class="hidden md:block">
@@ -588,12 +321,11 @@
         <div id="mobileMenu"
             class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
             <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
-                <a href="/services/" class="block mobile-link">Services</a>
+                <a href="/case_study/#solutions" class="block py-2">Solutions</a>
+                <a href="/services/" class="block py-2">Services</a>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')"
-                        class="flex justify-between w-full mobile-link">
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')" class="flex justify-between w-full py-2">
                         Industries <span>+</span>
                     </button>
                     <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
@@ -603,11 +335,10 @@
                     </div>
                 </div>
 
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
+                <a href="/case_study/" class="block py-2">Case Studies</a>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileLearnMenu')"
-                        class="flex justify-between w-full mobile-link">
+                    <button onclick="toggleMobileMenu('mobileLearnMenu')" class="flex justify-between w-full py-2">
                         Learn <span>+</span>
                     </button>
                     <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
@@ -630,17 +361,17 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top_left,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto grid max-w-6xl items-center gap-10 px-6 py-16 text-white md:grid-cols-2">
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
                         class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 backdrop-blur-xl px-4 py-1 text-xs font-semibold uppercase tracking-wider text-white/70">
                         Answer Engine Optimization
                     </div>
                     <h1 class="text-4xl font-bold leading-tight md:text-5xl">Dominate AI search with <br
-                            class="hidden sm:block" /> <span class="text-[var(--orange)]">AEO strategies</span>
+                            class="hidden sm:block" /> <span class="text-[#EE3923]">AEO strategies</span>
                     </h1>
                     <p class="mt-4 text-base text-white/70 md:text-lg">
                         Get featured in ChatGPT, Perplexity, Google AI Overviews, and other AI answer engines. Capture
@@ -649,7 +380,7 @@
                     <div class="mt-6 flex flex-wrap gap-4 text-sm text-white/70">
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -659,7 +390,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -669,7 +400,7 @@
                         </div>
                         <div class="inline-flex items-center gap-2">
                             <span class="inline-flex h-5 w-5 items-center justify-center rounded-full bg-white/10">
-                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[var(--orange)]">
+                                <svg viewBox="0 0 20 20" fill="currentColor" class="h-3 w-3 text-[#EE3923]">
                                     <path fill-rule="evenodd"
                                         d="M16.704 5.296a1 1 0 010 1.414l-7.25 7.25a1 1 0 01-1.414 0l-3.25-3.25a1 1 0 111.414-1.414l2.543 2.543 6.543-6.543a1 1 0 011.414 0z"
                                         clip-rule="evenodd" />
@@ -680,7 +411,7 @@
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Free AEO Audit →</a>
                         <a href="#process"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
@@ -688,9 +419,9 @@
                     </div>
                 </div>
 
-                <div class="reveal">
+                <div class="animate-fade-up motion-reduce:animate-none">
                     <div
-                        class="hover-soft rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
+                        class="transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-0.5 hover:border-[#EE3923]/50 hover:shadow-[0_14px_32px_rgba(238,57,35,0.2)] rounded-3xl border border-white/10 bg-white/10 backdrop-blur-xl p-6 shadow-lg">
                         <div class="flex items-start justify-between">
                             <div class="text-sm font-semibold text-white/80">Our AEO Performance</div>
                             <div
@@ -757,11 +488,11 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Why AEO Matters
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Why <span class="text-[var(--orange)]">AEO matters</span> for your business
+                        Why <span class="text-[#EE3923]">AEO matters</span> for your business
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         AI is changing how people find information. AEO ensures your business is discovered, cited,
@@ -770,8 +501,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -782,12 +515,14 @@
                         <p class="mt-2 text-sm text-black/70">Get featured in ChatGPT, Perplexity, Google AI
                             Overviews, and other AI answer engines where users are searching.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">60%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">60%</span>
                             <span class="ml-2 text-black/60">of searches are answer-led</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -800,12 +535,14 @@
                         <p class="mt-2 text-sm text-black/70">Stay ahead as AI answer engines reshape search.
                             Position your brand for the next generation of discovery.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">Next</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">Next</span>
                             <span class="ml-2 text-black/60">5 years</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -817,12 +554,14 @@
                         <p class="mt-2 text-sm text-black/70">Establish your brand as the authoritative source that
                             AI models cite and recommend to users.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">10x</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">10x</span>
                             <span class="ml-2 text-black/60">trust factor</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -836,12 +575,14 @@
                         <p class="mt-2 text-sm text-black/70">Capture visibility in AI-generated answers even when
                             users don't click through to websites.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">Brand</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">Brand</span>
                             <span class="ml-2 text-black/60">awareness</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -853,12 +594,14 @@
                         <p class="mt-2 text-sm text-black/70">When AI cites your business, it signals trust and
                             expertise to potential customers researching solutions.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">+85%</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">+85%</span>
                             <span class="ml-2 text-black/60">credibility lift</span>
                         </div>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -870,7 +613,7 @@
                         <p class="mt-2 text-sm text-black/70">Most competitors haven't optimized for AI search yet.
                             Gain first-mover advantage in this emerging channel.</p>
                         <div class="mt-6 border-t border-black/10 pt-4 text-sm">
-                            <span class="text-lg font-semibold text-[var(--orange)]">Early</span>
+                            <span class="text-lg font-semibold text-[#EE3923]">Early</span>
                             <span class="ml-2 text-black/60">adopter win</span>
                         </div>
                     </div>
@@ -878,7 +621,7 @@
 
                 <div class="mt-12 flex justify-center">
                     <div
-                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[var(--orange-100)] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
+                        class="w-full flex flex-col items-start gap-4 rounded-3xl border border-black/10 bg-gradient-to-r from-[#fff1ed] to-orange-50 p-6 md:flex-row md:items-center md:justify-between md:gap-8">
                         <div>
                             <div class="text-lg font-semibold">Ready to improve your AI visibility?</div>
                             <div class="text-sm text-black/70">Get a free AEO audit and discover where your brand can
@@ -886,7 +629,7 @@
                             </div>
                         </div>
                         <a href="/contact"
-                            class="btn-glow inline-flex items-center justify-center gap-2 rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free AEO Audit
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="h-4 w-4">
@@ -904,14 +647,14 @@
         <section class="bg-white">
             <div class="mx-auto grid max-w-6xl gap-10 px-6 py-16 lg:grid-cols-2">
                 <!-- Left: How AEO Works card -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] bg-[#fff1ed] p-6 md:p-8" class="border-[3px] border-[#EE3923]">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">How AEO Works</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Step 1 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -920,18 +663,18 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 1. Users Ask AI
+                                <div class="text-sm font-bold text-[#EE3923]">Step 1. Users Ask AI
                                 </div>
                                 <div class="text-xs text-black/60 mt-0.5">Someone asks ChatGPT, Perplexity, or
                                     Google AI a question about your industry.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 2 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -940,17 +683,17 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 2. AI Searches Sources</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 2. AI Searches Sources</div>
                                 <div class="text-xs text-black/60 mt-0.5">The AI model scans your website, data, and
                                     citations to find trustworthy answers.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 3 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -959,18 +702,18 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 3. Your Content Gets Cited
+                                <div class="text-sm font-bold text-[#EE3923]">Step 3. Your Content Gets Cited
                                 </div>
                                 <div class="text-xs text-black/60 mt-0.5">If your content is clear, entities-rich,
                                     and structured, AI includes your brand in answers.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 4 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -979,18 +722,18 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 4. AI Recommends You
+                                <div class="text-sm font-bold text-[#EE3923]">Step 4. AI Recommends You
                                 </div>
                                 <div class="text-xs text-black/60 mt-0.5">Results mention your business more often in
                                     attribution and credibility.</div>
                             </div>
                         </div>
-                        <div class="flex justify-center text-[var(--orange)] text-xl font-black leading-none">↓</div>
+                        <div class="flex justify-center text-[#EE3923] text-xl font-black leading-none">↓</div>
                         <!-- Step 5 -->
-                        <div class="flex items-start gap-4 rounded-2xl border border-[var(--orange)]/20 bg-white p-4"
-                            style="box-shadow:0 1px 8px rgba(255,122,26,0.07)">
-                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--orange)] text-white"
-                                style="box-shadow:0 0 10px rgba(255,122,26,0.5)">
+                        <div class="flex items-start gap-4 rounded-2xl border border-[#EE3923]/20 bg-white p-4"
+                            class="shadow-[0_1px_8px_rgba(255,122,26,0.07)]">
+                            <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#EE3923] text-white"
+                                class="shadow-[0_0_10px_rgba(255,122,26,0.5)]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -999,32 +742,32 @@
                                 </svg>
                             </div>
                             <div>
-                                <div class="text-sm font-bold text-[var(--orange)]">Step 5. Users Take Action</div>
+                                <div class="text-sm font-bold text-[#EE3923]">Step 5. Users Take Action</div>
                                 <div class="text-xs text-black/60 mt-0.5">Users trust AI recommendations and contact
                                     you directly.</div>
                             </div>
                         </div>
                     </div>
                     <!-- Timeline -->
-                    <div class="mt-6 rounded-2xl border border-[var(--orange)]/50 bg-white p-5"
-                        style="box-shadow:0 2px 16px rgba(255,122,26,0.1)">
-                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[var(--orange)]">
+                    <div class="mt-6 rounded-2xl border border-[#EE3923]/50 bg-white p-5"
+                        class="shadow-[0_2px_16px_rgba(255,122,26,0.1)]">
+                        <div class="text-center text-xs font-bold uppercase tracking-widest text-[#EE3923]">
                             Average Impact</div>
                         <div class="mt-4 flex items-center gap-2">
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">0</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Without AEO</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">300+</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">AI Citations</div>
                             </div>
-                            <div class="text-[var(--orange)] text-xl font-black shrink-0">→</div>
-                            <div class="flex-1 rounded-2xl bg-[var(--orange)] p-3 text-center"
-                                style="box-shadow:0 0 14px rgba(255,122,26,0.5)">
+                            <div class="text-[#EE3923] text-xl font-black shrink-0">→</div>
+                            <div class="flex-1 rounded-2xl bg-[#EE3923] p-3 text-center"
+                                class="shadow-[0_0_14px_rgba(255,122,26,0.5)]">
                                 <div class="text-2xl font-extrabold text-white">40%</div>
                                 <div class="text-[10px] font-semibold text-white/80 mt-0.5">Visibility Lift</div>
                             </div>
@@ -1035,11 +778,11 @@
                 <!-- Right: Understanding AEO text -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         What is AEO?
                     </div>
                     <h2 class="mt-4 text-3xl font-bold leading-tight md:text-4xl">
-                        Understanding <span class="text-[var(--orange)]">Answer Engine<br>Optimization</span>
+                        Understanding <span class="text-[#EE3923]">Answer Engine<br>Optimization</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Answer Engine Optimization (AEO) is the practice of optimizing your content so online response
@@ -1119,7 +862,7 @@
                 <!-- Left: text + CTA -->
                 <div class="flex flex-col justify-center">
                     <div
-                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--orange)]/30 bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path
@@ -1130,7 +873,7 @@
                         Without AEO
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Don't miss the <span class="text-[var(--orange)]">AI search revolution</span>
+                        Don't miss the <span class="text-[#EE3923]">AI search revolution</span>
                     </h2>
                     <p class="mt-4 text-sm text-black/70 md:text-base">
                         Research shows over 60% of searches now involve AI assistance. Businesses without AEO remain
@@ -1145,122 +888,122 @@
                         engines. Our strategies position you as the authoritative source across ChatGPT, Perplexity,
                         Google AI, and emerging platforms.
                     </p>
-                    <div class="mt-8 rounded-3xl border border-black/10 bg-[var(--orange-100)] p-6">
+                    <div class="mt-8 rounded-3xl border border-black/10 bg-[#fff1ed] p-6">
                         <div class="text-base font-semibold text-black">Don't let competitors dominate AI search
                         </div>
                         <div class="mt-1 text-sm text-black/70">Get a free AEO audit to see how AI currently views
                             your business.</div>
                         <a href="/contact"
-                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
+                            class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
                             Free AEO Audit →</a>
                     </div>
                 </div>
 
                 <!-- Right: Risks Without AEO bar chart -->
-                <div class="rounded-[32px] bg-[var(--orange-100)] p-6 md:p-8" style="border: 3px solid var(--orange);">
+                <div class="rounded-[32px] bg-[#fff1ed] p-6 md:p-8" class="border-[3px] border-[#EE3923]">
                     <h3 class="text-center text-lg font-bold text-black tracking-tight">Risks Without AEO</h3>
                     <div class="mt-6 space-y-3">
                         <!-- Mistake 1 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     1</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Zero AI Visibility</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">100%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">100%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">If AI doesn't see your authority,
                                         you're invisible in recommendations.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 100%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 rounded-full bg-[#EE3923]" class="w-full"></div>
                             </div>
                         </div>
                         <!-- Mistake 2 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     2</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Competitor Citations</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">Lead loss</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">Lead loss</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">AI recommends competitors while you
                                         remain invisible.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 70%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 rounded-full bg-[#EE3923]" class="w-[70%]"></div>
                             </div>
                         </div>
                         <!-- Mistake 3 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     3</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Missed Discovery</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">40%</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">40%</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Thousands of qualified leads never
                                         find your business.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 40%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 rounded-full bg-[#EE3923]" class="w-[40%]"></div>
                             </div>
                         </div>
                         <!-- Mistake 4 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     4</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Future Obsolescence</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">Long term</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">Long term</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">AI-first rankings grow while
                                         traditional SEO loses dominance.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 60%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 rounded-full bg-[#EE3923]" class="w-[60%]"></div>
                             </div>
                         </div>
                         <!-- Mistake 5 -->
                         <div class="rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-center gap-3 mb-2">
                                 <div
-                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[var(--orange)]/40 bg-[var(--orange-100)] text-xs font-bold text-[var(--orange)]">
+                                    class="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-[#EE3923]/40 bg-[#fff1ed] text-xs font-bold text-[#EE3923]">
                                     5</div>
                                 <div class="flex-1">
                                     <div class="flex items-center justify-between">
                                         <span class="text-sm font-semibold text-black">Click-Only Strategy</span>
-                                        <span class="text-xs font-bold text-[var(--orange)]">Permanent</span>
+                                        <span class="text-xs font-bold text-[#EE3923]">Permanent</span>
                                     </div>
                                     <div class="text-[11px] text-black/50 mt-0.5">Relying only on traffic while AI
                                         behavior shifts to direct answers.</div>
                                 </div>
                             </div>
-                            <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                <div class="h-2 rounded-full bg-[var(--orange)]" style="width: 80%"></div>
+                            <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                <div class="h-2 rounded-full bg-[#EE3923]" class="w-[80%]"></div>
                             </div>
                         </div>
                     </div>
                     <!-- AI Search Reality stat -->
-                    <div class="mt-6 rounded-3xl border border-[var(--orange)]/30 bg-white p-5 text-center">
-                        <div class="text-[10px] font-bold uppercase tracking-widest text-[var(--orange)]">⚠
+                    <div class="mt-6 rounded-3xl border border-[#EE3923]/30 bg-white p-5 text-center">
+                        <div class="text-[10px] font-bold uppercase tracking-widest text-[#EE3923]">⚠
                             Market Reality</div>
-                        <div class="mt-1 text-4xl font-extrabold text-[var(--orange)]">60%+</div>
+                        <div class="mt-1 text-4xl font-extrabold text-[#EE3923]">60%+</div>
                         <div class="mt-1 text-xs text-black/50">of searches now use AI and are growing fast</div>
                     </div>
                 </div>
@@ -1268,15 +1011,15 @@
         </section>
 
 
-        <section class="bg-[var(--orange-100)]">
+        <section class="bg-[#fff1ed]">
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         Our AEO Services
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">
-                        Comprehensive AEO <span class="text-[var(--orange)]">solutions</span>
+                        Comprehensive AEO <span class="text-[#EE3923]">solutions</span>
                     </h2>
                     <p class="mt-4 max-w-3xl text-base text-black/70 md:text-lg">
                         Full-spectrum AEO services to ensure your business is discovered, cited, and recommended by AI
@@ -1285,8 +1028,10 @@
                 </div>
 
                 <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1300,19 +1045,21 @@
                             specifically for AI comprehension and citation.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Entity-focused content</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Clear
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Clear
                                 answer formatting</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Authoritative voice optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Citation-worthy
                                 structure</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1326,18 +1073,20 @@
                             knowledge graphs that AI models reference.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Countdown
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Countdown
                                 mapping</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Knowledge panel optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Feature
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Feature
                                 association</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Early
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Early
                                 Authority signals</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1350,18 +1099,20 @@
                             systems can easily parse and understand.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Event
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Event
                                 Schema.org markup</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> JSON-LD
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> JSON-LD
                                 implementation</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> FAQ schema
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> FAQ schema
                                 deployment</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Organization schema</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1376,18 +1127,20 @@
                             models trust and reference.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 High-authority backlinks</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Industry
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Industry
                                 publication features</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Expert
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Expert
                                 bylines</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Citation
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Citation
                                 network building</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1401,18 +1154,20 @@
                             questions and answers for AI training.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Webinar
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Webinar
                                 FAQ page optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Question-focused content</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Direct answer formatting</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Conversational responses</li>
                         </ul>
                     </div>
-                    <div class="hover-card rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
-                        <div class="icon-wrap mb-6 hover-icon">
+                    <div
+                        class="group/hc bg-white/70 backdrop-blur-[12px] transition-[transform,box-shadow,border-color] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-1 hover:scale-[1.01] hover:border-[#EE3923] hover:shadow-[0_18px_40px_rgba(238,57,35,0.14)] rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
+                        <div
+                            class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl border border-[#EE3923]/20 bg-[#fff1ed] text-[#EE3923] mb-6 transition-transform duration-200 group-hover/hc:-translate-y-1.5">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                                 class="h-6 w-6">
@@ -1424,13 +1179,13 @@
                             conversational search patterns.</p>
                         <div class="mt-6 text-xs font-semibold uppercase text-black/50">What we deliver:</div>
                         <ul class="mt-3 space-y-2 text-sm text-black/70">
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> App store
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> App store
                                 Natural language optimization</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span>
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span>
                                 Long-tail conversational keywords</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Local
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Local
                                 voice search intent</li>
-                            <li class="flex items-start gap-2"><span class="text-[var(--orange)]">✓</span> Featured
+                            <li class="flex items-start gap-2"><span class="text-[#EE3923]">✓</span> Featured
                                 snippet targeting</li>
                         </ul>
                     </div>
@@ -1441,7 +1196,7 @@
                     <p class="mt-2 text-sm text-black/60">Our AEO specialists will optimize your digital footprint so
                         AI engines cite and recommend your business consistently.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free AEO Audit</a>
                 </div>
             </div>
@@ -1517,7 +1272,7 @@
                     <p class="mt-2 text-sm text-black/60">Our team turns insights into action so your brand remains
                         consistently visible across AI answer engines.</p>
                     <a href="/contact"
-                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white">Get
+                        class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free Consultation</a>
                 </div>
             </div>
@@ -1527,7 +1282,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="flex flex-col items-center text-center">
                     <div
-                        class="inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M9 12l2 2 4-4" />
@@ -1535,8 +1290,8 @@
                         </svg>
                         Why Choose Us
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span
-                            class="text-[var(--orange)]">AEO services?</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Why choose our <span class="text-[#EE3923]">AEO
+                            services?</span></h2>
                     <p class="mt-3 max-w-3xl text-sm text-black/60 md:text-base">Partner with AEO specialists who
                         pioneered AI answer engine optimization and deliver measurable results.</p>
                 </div>
@@ -1544,7 +1299,7 @@
                 <div class="mt-10 grid gap-8 lg:grid-cols-2 lg:items-center">
                     <div class="space-y-4">
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">AI-First Expertise</div>
                                 <div class="text-xs text-black/60">Our team specializes exclusively in AEO across AI
@@ -1552,7 +1307,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Multi-Platform Coverage</div>
                                 <div class="text-xs text-black/60">We optimize for ChatGPT, Perplexity, Google AI,
@@ -1560,7 +1315,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Transparent Tracking</div>
                                 <div class="text-xs text-black/60">Track citations, response quality, and visibility
@@ -1568,7 +1323,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Proven Results</div>
                                 <div class="text-xs text-black/60">Our clients average 300+ AI citations and 40%
@@ -1576,7 +1331,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Future-Proof Strategy</div>
                                 <div class="text-xs text-black/60">We stay ahead of AI algorithm changes and new
@@ -1584,7 +1339,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">White-Hat Only</div>
                                 <div class="text-xs text-black/60">All strategies comply with AI platform guidelines—
@@ -1592,7 +1347,7 @@
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
-                            <span class="mt-1 text-[var(--orange)]">✓</span>
+                            <span class="mt-1 text-[#EE3923]">✓</span>
                             <div>
                                 <div class="text-sm font-semibold text-black">Dedicated Support</div>
                                 <div class="text-xs text-black/60">Work with AEO specialists who understand your
@@ -1601,7 +1356,7 @@
                         </div>
                     </div>
 
-                    <div class="rounded-3xl border border-[var(--orange)]/30 bg-[var(--orange-100)] p-4 shadow-sm">
+                    <div class="rounded-3xl border border-[#EE3923]/30 bg-[#fff1ed] p-4 shadow-sm">
                         <div class="rounded-2xl border border-black/10 bg-black/90 p-3">
                             <div class="grid grid-cols-3 gap-2">
                                 <div class="col-span-2 rounded-lg bg-white/10 p-3">
@@ -1617,7 +1372,7 @@
                         <div class="mt-3 rounded-xl border border-black/10 bg-white p-3">
                             <div class="flex items-center gap-3">
                                 <span
-                                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange)] text-white">
+                                    class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#EE3923] text-white">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -1646,7 +1401,7 @@
             </div>
             <div class="relative mx-auto max-w-5xl px-6 py-16 text-center text-white">
                 <div
-                    class="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[var(--orange)]">
+                    class="mx-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-white/10 text-[#EE3923]">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5">
                         <path
@@ -1662,15 +1417,15 @@
 
                 <div class="mx-auto mt-7 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">60%</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">60%</div>
                         <div class="text-xs text-white/60">AI-powered searches</div>
                     </div>
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">0</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">0</div>
                         <div class="text-xs text-white/60">Without AEO citations</div>
                     </div>
                     <div class="rounded-xl border border-white/15 bg-white/10 p-4">
-                        <div class="text-2xl font-bold text-[var(--orange)]">300+</div>
+                        <div class="text-2xl font-bold text-[#EE3923]">300+</div>
                         <div class="text-xs text-white/60">Competitive citations</div>
                     </div>
                 </div>
@@ -1678,7 +1433,8 @@
                 <a href="/contact"
                     class="mt-7 inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-semibold text-black hover:bg-white/90">Get
                     A Free AEO Audit <span class="ml-2">→</span></a>
-                <div class="mt-3 text-[11px] text-white/50">No cost and no obligation. 15-minute audit reveals the
+                <div class="mt-3 text-[11px] text-white/50">No cost and no obligation. 15-minute audit animate-fade-up
+                    motion-reduce:animate-nones the
                     biggest AI visibility blockers.</div>
             </div>
         </section>
@@ -1687,7 +1443,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M12 8v4l3 3" />
@@ -1695,7 +1451,7 @@
                         </svg>
                         Our AEO Process
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Our proven <span class="text-[var(--orange)]">AEO
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Our proven <span class="text-[#EE3923]">AEO
                             process</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         A systematic approach to optimizing your business for AI answer engines, from initial audit to
@@ -1707,12 +1463,13 @@
                     <div class="absolute left-1/2 top-0 hidden h-full w-px -translate-x-1/2 bg-black/10 lg:block"></div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1722,7 +1479,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 01</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 1-2</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 1-2</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Discovery &amp; Analysis</h3>
                                 <p class="mt-3 text-sm text-black/60">We analyze how AI systems currently see your
@@ -1740,16 +1497,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1759,7 +1517,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 02</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 2-4</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 2-4</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Entity &amp; Knowledge Mapping</h3>
                                 <p class="mt-3 text-sm text-black/60">We establish and optimize your entity presence
@@ -1778,16 +1536,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1797,7 +1556,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 03</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Week 4-6</span>
+                                    <span class="font-semibold text-[#EE3923]">Week 4-6</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Content Optimization</h3>
                                 <p class="mt-3 text-sm text-black/60">We rewrite and optimize content specifically for
@@ -1816,16 +1575,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-right lg:ml-auto lg:w-1/2 lg:pl-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7 lg:ml-auto lg:w-1/2 lg:pl-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1841,7 +1601,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 04</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
+                                    <span class="font-semibold text-[#EE3923]">Ongoing</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Citation &amp; Authority Building</h3>
                                 <p class="mt-3 text-sm text-black/60">We build high-authority citations and mentions
@@ -1860,16 +1620,17 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
 
                     <div class="relative flex flex-col gap-6 lg:flex-row lg:items-center">
-                        <div class="scroll-reveal slide-left lg:w-1/2 lg:pr-10">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none -translate-x-7 lg:w-1/2 lg:pr-10">
                             <div class="rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--orange)] text-white">
+                                            class="flex h-7 w-7 items-center justify-center rounded-lg bg-[#EE3923] text-white">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-4 w-4">
@@ -1880,7 +1641,7 @@
                                         </span>
                                         <span class="font-semibold">STEP 05</span>
                                     </div>
-                                    <span class="font-semibold text-[var(--orange)]">Ongoing</span>
+                                    <span class="font-semibold text-[#EE3923]">Ongoing</span>
                                 </div>
                                 <h3 class="mt-1 text-sm font-semibold text-black">Monitor &amp; Refine</h3>
                                 <p class="mt-3 text-sm text-black/60">We continuously test AI responses, track
@@ -1899,29 +1660,29 @@
                             </div>
                         </div>
                         <span
-                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[var(--orange)] lg:block"></span>
+                            class="absolute left-1/2 top-8 hidden h-3 w-3 -translate-x-1/2 rounded-full bg-[#EE3923] lg:block"></span>
                     </div>
                 </div>
 
                 <div class="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">8 weeks</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">8 weeks</div>
                         <div class="text-xs text-black/60">Initial visibility gains</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">24 hours</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">24 hours</div>
                         <div class="text-xs text-black/60">Reporting response time</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">Continuous</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">Continuous</div>
                         <div class="text-xs text-black/60">AI response monitoring</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-black/10 bg-[var(--orange-100)] p-4 text-center">
-                        <div class="text-sm font-semibold text-[var(--orange)]">100%</div>
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-[#fff1ed] p-4 text-center">
+                        <div class="text-sm font-semibold text-[#EE3923]">100%</div>
                         <div class="text-xs text-black/60">AI-focused optimization</div>
                     </div>
                 </div>
@@ -1940,17 +1701,17 @@
                     Multi-Platform Optimization
                 </div>
                 <h3 class="mt-4 text-2xl font-semibold">Optimized for all AI <span
-                        class="text-[var(--orange)]">platforms</span></h3>
+                        class="text-[#EE3923]">platforms</span></h3>
                 <p class="mx-auto mt-3 max-w-3xl text-sm text-white/60">
                     We optimize your presence across every major AI answer engine to maximize discovery and citations.
                 </p>
 
                 <div class="mt-8 grid gap-3 sm:grid-cols-3 lg:grid-cols-5">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="12" cy="12" r="9" />
                             <path d="M8 7c1.3-1 2.6-1 4 0 1.4-1 2.7-1 4 0" />
                             <path d="M9 10.5c1-.7 2-.7 3 0" />
@@ -1959,40 +1720,40 @@
                         <span class="text-xs text-white/70">ChatGPT</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M6 7h12l-1 11H7L6 7z" />
                             <path d="M9 7a3 3 0 1 1 6 0" />
                         </svg>
                         <span class="text-xs text-white/70">Perplexity</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="m12 3 8 8-8 8-8-8 8-8z" />
                             <circle cx="12" cy="11" r="2" />
                         </svg>
                         <span class="text-xs text-white/70">Claude</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <path d="M4 7h4l4 7h-4z" />
                             <path d="M12 7h4l4 7h-4z" />
                         </svg>
                         <span class="text-xs text-white/70">Gemini</span>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 flex flex-col items-center gap-2 text-center">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                            class="h-6 w-6 text-[var(--orange)] shrink-0">
+                            class="h-6 w-6 text-[#EE3923] shrink-0">
                             <circle cx="9" cy="5" r="2" />
                             <circle cx="15" cy="5" r="2" />
                             <circle cx="9" cy="12" r="2" />
@@ -2009,7 +1770,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <line x1="12" y1="20" x2="12" y2="10" />
@@ -2018,8 +1779,8 @@
                         </svg>
                         Performance Excellence
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Dominate AI <span
-                            class="text-[var(--orange)]">answer engines</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Dominate AI <span class="text-[#EE3923]">answer
+                            engines</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Position your business as the authoritative source that AI platforms cite and recommend to
                         millions of users.
@@ -2028,10 +1789,11 @@
 
                 <div class="mt-12 grid items-center gap-10 lg:grid-cols-2">
                     <div class="space-y-4">
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2045,10 +1807,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2063,10 +1826,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2081,10 +1845,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2099,10 +1864,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-4">
+                        <div
+                            class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-4">
                             <div class="flex items-start gap-3">
                                 <span
-                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                    class="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" class="h-4 w-4">
@@ -2118,13 +1884,14 @@
                         </div>
                     </div>
 
-                    <div class="scroll-reveal slide-right">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none translate-x-7">
                         <div class="rounded-3xl border border-black/10 bg-white p-6 shadow-sm">
                             <div class="rounded-2xl border border-black/10 bg-white p-4">
                                 <div class="flex items-center justify-between text-xs text-black/50">
                                     <div class="inline-flex items-center gap-2">
                                         <span
-                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[var(--orange-100)] text-[var(--orange)]">
+                                            class="inline-flex h-6 w-6 items-center justify-center rounded-md bg-[#fff1ed] text-[#EE3923]">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                                 stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" class="h-3.5 w-3.5">
@@ -2146,37 +1913,37 @@
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Citation strength</span><span
-                                                class="font-semibold text-[var(--orange)]">96</span>
+                                                class="font-semibold text-[#EE3923]">96</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:96%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[96%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Answer relevance</span><span
-                                                class="font-semibold text-[var(--orange)]">92</span>
+                                                class="font-semibold text-[#EE3923]">92</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:92%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[92%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Authority confidence</span><span
-                                                class="font-semibold text-[var(--orange)]">94</span>
+                                                class="font-semibold text-[#EE3923]">94</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:94%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[94%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                     <div>
                                         <div class="mb-1 flex items-center justify-between text-xs text-black/60">
                                             <span>Competitor gap capture</span><span
-                                                class="font-semibold text-[var(--orange)]">89</span>
+                                                class="font-semibold text-[#EE3923]">89</span>
                                         </div>
-                                        <div class="h-2 w-full rounded-full bg-[var(--orange-100)]">
-                                            <div class="h-2 rounded-full bg-emerald-500" style="width:89%"></div>
+                                        <div class="h-2 w-full rounded-full bg-[#fff1ed]">
+                                            <div class="h-2 w-[89%] rounded-full bg-emerald-500"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -2197,7 +1964,7 @@
                                         <div class="text-black/50">Uptime</div>
                                     </div>
                                     <div class="rounded-lg border border-orange-200 bg-orange-50 p-2">
-                                        <div class="font-semibold text-[var(--orange)]">A+</div>
+                                        <div class="font-semibold text-[#EE3923]">A+</div>
                                         <div class="text-black/50">Security</div>
                                     </div>
                                 </div>
@@ -2211,10 +1978,10 @@
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.18),transparent_55%)]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_80%_20%,rgba(245,158,11,0.12),transparent_45%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-white">
@@ -2229,7 +1996,7 @@
                         AEO &amp; SEO Case Studies
                     </div>
                     <h2 class="mt-4 text-3xl font-bold md:text-4xl">Real results from <span
-                            class="text-[var(--orange)]">search optimization</span></h2>
+                            class="text-[#EE3923]">search optimization</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-sm text-white/70 md:text-base">
                         See how our optimization strategies have delivered measurable growth for businesses across
                         various industries.
@@ -2237,7 +2004,8 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Cell Phone Repair</div>
                         <div class="mt-2 text-5xl font-semibold">115+</div>
                         <div class="text-xs text-white/60">Monthly Phone Calls</div>
@@ -2250,7 +2018,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Real Estate / Home Buying</div>
                         <div class="mt-2 text-5xl font-semibold">90+</div>
                         <div class="text-xs text-white/60">Monthly Phone Calls</div>
@@ -2263,7 +2032,8 @@
                                 class="inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/10">→</span>
                         </div>
                     </div>
-                    <div class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-5">
                         <div class="text-xs text-white/60">Healthcare / Neurology</div>
                         <div class="mt-2 text-5xl font-semibold">1,519%</div>
                         <div class="text-xs text-white/60">Organic Traffic Growth</div>
@@ -2293,13 +2063,13 @@
                             <div class="text-xs text-white/60">Visibility Increase</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-prefix="+"
-                                data-target="285" data-suffix="%">+0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num inline-block tabular-nums"
+                                data-prefix="+" data-target="285" data-suffix="%">+0%</div>
                             <div class="text-xs text-white/60">Organic Traffic</div>
                         </div>
                         <div>
-                            <div class="text-2xl font-semibold text-emerald-300 count-num" data-target="99"
-                                data-suffix="%">0%</div>
+                            <div class="text-2xl font-semibold text-emerald-300 count-num inline-block tabular-nums"
+                                data-target="99" data-suffix="%">0%</div>
                             <div class="text-xs text-white/60">Client Satisfaction</div>
                         </div>
                     </div>
@@ -2308,7 +2078,7 @@
 
             <div class="mb-12 text-center">
                 <a href="/case-study"
-                    class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                    class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
         </section>
@@ -2317,7 +2087,7 @@
             <div class="mx-auto max-w-6xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M20 7h-9" />
@@ -2327,8 +2097,8 @@
                         </svg>
                         Industry Expertise
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">AEO strategies for <span
-                            class="text-[var(--orange)]">your industry</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">AEO strategies for <span class="text-[#EE3923]">your
+                            industry</span></h2>
                     <p class="mx-auto mt-3 max-w-3xl text-base text-black/60 md:text-lg">
                         Every industry has unique AI search patterns. Our specialized AEO strategies are designed for
                         your specific market needs.
@@ -2336,14 +2106,15 @@
                 </div>
 
                 <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">E-commerce</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +285%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2367,23 +2138,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Product schema</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Entity citations</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Product schema</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Entity citations</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">SaaS</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +240%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2406,24 +2178,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Product entities</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Developer/brand
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Product entities</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Developer/brand
                                     signals</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Legal</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +330%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2446,24 +2219,25 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Legal content
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Legal content
                                     optimization</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Authority citations</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Authority citations</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Healthcare</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +195%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2484,23 +2258,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Medical schema</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Credibility signals</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Medical schema</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Credibility signals</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Real Estate</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +225%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2521,23 +2296,24 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Market data entities</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Location authority</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Market data entities</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Location authority</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
 
-                    <div class="scroll-reveal rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
+                    <div
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-black/10 bg-white p-5 shadow-sm">
                         <div class="flex items-start justify-between">
                             <div>
                                 <div class="text-sm font-semibold">Home Services</div>
                                 <div class="text-xs text-black/50">Avg. Conversion: +310%</div>
                             </div>
                             <span
-                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[var(--orange-100)] text-[var(--orange)]">
+                                class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-[#fff1ed] text-[#EE3923]">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                     stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                     stroke-linejoin="round" class="h-5 w-5">
@@ -2558,12 +2334,12 @@
                         <div class="mt-4">
                             <div class="text-xs font-semibold text-black/60">Our solutions</div>
                             <div class="mt-2 flex flex-wrap gap-2 text-xs text-black/50">
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Service schema</span>
-                                <span class="rounded-full bg-[var(--orange-100)] px-3 py-1">Review relevance</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Service schema</span>
+                                <span class="rounded-full bg-[#fff1ed] px-3 py-1">Review relevance</span>
                             </div>
                         </div>
                         <a href="/case-study"
-                            class="mt-4 inline-flex items-center text-xs font-semibold text-[var(--orange)]">Learn more
+                            class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
                 </div>
@@ -2572,7 +2348,7 @@
                     verticals.</div>
                 <div class="mt-4 text-center">
                     <a href="/services"
-                        class="btn-glow inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
             </div>
@@ -2582,7 +2358,7 @@
             <div class="mx-auto max-w-4xl px-6 py-16">
                 <div class="text-center">
                     <div
-                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[var(--orange-100)] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[var(--orange)]">
+                        class="mx-auto inline-flex items-center gap-2 rounded-full bg-[#fff1ed] px-4 py-2 text-xs font-semibold uppercase tracking-wider text-[#EE3923]">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5">
                             <path d="M9.09 9a3 3 0 0 1 5.82 1c0 2-3 3-3 3" />
@@ -2591,64 +2367,90 @@
                         </svg>
                         Frequently Asked Questions
                     </div>
-                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common AEO <span
-                            class="text-[var(--orange)]">questions answered</span></h2>
+                    <h2 class="mt-4 text-3xl font-bold md:text-4xl">Common AEO <span class="text-[#EE3923]">questions
+                            answered</span></h2>
                     <p class="mx-auto mt-3 max-w-2xl text-sm text-black/60 md:text-base">
                         Everything you need to know about our answer engine optimization services.
                     </p>
                 </div>
 
                 <div class="mt-10 space-y-3">
-                    <details class="scroll-reveal rounded-2xl bg-white p-4" open>
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4"
+                        open>
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EE3923]">
                             What is AEO and how is it different from traditional SEO?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none text-[#EE3923] transition-transform duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">AEO focuses on optimizing your content to be cited and
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden text-sm text-black/60 opacity-0 transition-[max-height,opacity,margin-top] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:mt-3 group-open:max-h-[360px] group-open:opacity-100">
+                            AEO focuses on optimizing your content to be cited and
                             recommended by AI answer engines like ChatGPT and Perplexity, while traditional SEO focuses
                             on rankings in standard search results.
                         </p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EE3923]">
                             How long does it take to see AEO results?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none text-[#EE3923] transition-transform duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Most clients begin seeing improved AI visibility within
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden text-sm text-black/60 opacity-0 transition-[max-height,opacity,margin-top] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:mt-3 group-open:max-h-[360px] group-open:opacity-100">
+                            Most clients begin seeing improved AI visibility within
                             4–8 weeks, with stronger citation growth as optimization compounds.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EE3923]">
                             Which AI platforms do you optimize for?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none text-[#EE3923] transition-transform duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">We optimize for ChatGPT, Perplexity, Google AI
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden text-sm text-black/60 opacity-0 transition-[max-height,opacity,margin-top] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:mt-3 group-open:max-h-[360px] group-open:opacity-100">
+                            We optimize for ChatGPT, Perplexity, Google AI
                             Overviews, Claude, Gemini, Grok, and emerging answer engines.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EE3923]">
                             Do you provide ongoing monitoring and reporting?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none text-[#EE3923] transition-transform duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We provide citation tracking, response quality
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden text-sm text-black/60 opacity-0 transition-[max-height,opacity,margin-top] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:mt-3 group-open:max-h-[360px] group-open:opacity-100">
+                            Yes. We provide citation tracking, response quality
                             monitoring, and monthly performance reports with clear next actions.</p>
                     </details>
-                    <details class="scroll-reveal rounded-2xl bg-white p-4">
-                        <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold">
+                    <details
+                        class="group scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl bg-white p-4">
+                        <summary
+                            class="flex cursor-pointer list-none items-center justify-between text-sm font-semibold [&::-webkit-details-marker]:hidden focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#EE3923]">
                             Is AEO suitable for my industry?
-                            <span class="faq-icon text-[var(--orange)]">+</span>
+                            <span
+                                class="inline-block leading-none text-[#EE3923] transition-transform duration-[400ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-open:rotate-45">+</span>
                         </summary>
-                        <p class="mt-3 text-sm text-black/60">Yes. We tailor AEO strategies for legal, healthcare,
+                        <p
+                            class="mt-0 max-h-0 overflow-hidden text-sm text-black/60 opacity-0 transition-[max-height,opacity,margin-top] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] group-open:mt-3 group-open:max-h-[360px] group-open:opacity-100">
+                            Yes. We tailor AEO strategies for legal, healthcare,
                             home services, SaaS, e-commerce, real estate, and many other industries.</p>
                     </details>
                 </div>
 
-                <div class="mt-8 rounded-2xl border border-black/10 bg-[var(--orange-100)] p-6 text-center">
+                <div class="mt-8 rounded-2xl border border-black/10 bg-[#fff1ed] p-6 text-center">
                     <div class="text-sm font-semibold">Still have questions?</div>
                     <p class="mt-2 text-xs text-black/60">Let's review your current AI visibility and map the fastest
                         path to stronger citations and brand authority.</p>
                     <a href="/contact"
-                        class="btn-glow mt-4 inline-flex items-center justify-center rounded-full bg-[var(--orange)] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
             </div>
@@ -2660,7 +2462,7 @@
                     class="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.06)_1px,transparent_1px)] bg-[size:56px_56px]">
                 </div>
                 <div
-                    class="absolute inset-0 bg-float bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
+                    class="absolute inset-0 animate-float-glow saturate-110 motion-reduce:animate-none bg-[radial-gradient(circle_at_top,rgba(255,122,26,0.2),transparent_55%)]">
                 </div>
             </div>
             <div class="relative mx-auto max-w-6xl px-6 py-16 text-center text-white">
@@ -2672,7 +2474,7 @@
                     </svg>
                     Limited Time Offer
                 </div>
-                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Get Your Free <span class="text-[var(--orange)]">AEO
+                <h2 class="mt-4 text-3xl font-bold md:text-5xl">Get Your Free <span class="text-[#EE3923]">AEO
                         Audit Today</span>
                 </h2>
                 <p class="mx-auto mt-4 max-w-2xl text-sm text-white/70 md:text-base">
@@ -2682,7 +2484,7 @@
 
                 <div class="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-3">
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2696,7 +2498,7 @@
                         <div class="mt-1 text-xs text-white/60">Current AI citation and visibility review</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2709,7 +2511,7 @@
                         <div class="mt-1 text-xs text-white/60">Benchmark your AI presence against competitors</div>
                     </div>
                     <div
-                        class="scroll-reveal rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
+                        class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:blur-0 motion-reduce:transition-none rounded-2xl border border-white/10 bg-white/10 backdrop-blur-xl p-4 text-left">
                         <div class="inline-flex h-7 w-7 items-center justify-center rounded-md border border-white/20">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -2763,25 +2565,25 @@
             <div>
                 <div class="text-sm font-semibold">Services</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/services_seo" class="hover:text-[var(--orange)]">SEO</a></li>
-                    <li><a href="/services_ppc" class="hover:text-[var(--orange)]">PPC</a></li>
-                    <li><a href="/services_web_development" class="hover:text-[var(--orange)]">Web Development</a></li>
+                    <li><a href="/services_seo" class="hover:text-[#EE3923]">SEO</a></li>
+                    <li><a href="/services_ppc" class="hover:text-[#EE3923]">PPC</a></li>
+                    <li><a href="/services_web_development" class="hover:text-[#EE3923]">Web Development</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Company</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/about" class="hover:text-[var(--orange)]">About</a></li>
-                    <li><a href="/pricing" class="hover:text-[var(--orange)]">Pricing</a></li>
-                    <li><a href="/contact" class="hover:text-[var(--orange)]">Contact</a></li>
+                    <li><a href="/about" class="hover:text-[#EE3923]">About</a></li>
+                    <li><a href="/pricing" class="hover:text-[#EE3923]">Pricing</a></li>
+                    <li><a href="/contact" class="hover:text-[#EE3923]">Contact</a></li>
                 </ul>
             </div>
             <div>
                 <div class="text-sm font-semibold">Resources</div>
                 <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/case-study" class="hover:text-[var(--orange)]">Case Studies</a></li>
-                    <li><a href="#faq" class="hover:text-[var(--orange)]">FAQ</a></li>
-                    <li><a href="/" class="hover:text-[var(--orange)]">Home</a></li>
+                    <li><a href="/case-study" class="hover:text-[#EE3923]">Case Studies</a></li>
+                    <li><a href="#faq" class="hover:text-[#EE3923]">FAQ</a></li>
+                    <li><a href="/" class="hover:text-[#EE3923]">Home</a></li>
                 </ul>
             </div>
         </div>
@@ -2790,8 +2592,8 @@
                 class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-black/60 md:flex-row">
                 <div>Copyright 2024 Adryze. All rights reserved.</div>
                 <div class="flex gap-4">
-                    <a href="/privacy" class="hover:text-[var(--orange)]">Privacy</a>
-                    <a href="/terms" class="hover:text-[var(--orange)]">Terms</a>
+                    <a href="/privacy" class="hover:text-[#EE3923]">Privacy</a>
+                    <a href="/terms" class="hover:text-[#EE3923]">Terms</a>
                 </div>
             </div>
         </div>
@@ -2810,12 +2612,12 @@
             var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
             if (reduceMotion) {
-                elements.forEach(function (el) { el.classList.add("in-view"); });
+                elements.forEach(function (el) { el.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0"); });
             } else if (elements.length) {
                 var revealObserver = new IntersectionObserver(function (entries, obs) {
                     entries.forEach(function (entry) {
                         if (entry.isIntersecting) {
-                            entry.target.classList.add("in-view");
+                            entry.target.classList.add("opacity-100", "translate-y-0", "translate-x-0", "blur-0");
                             obs.unobserve(entry.target);
                         }
                     });
@@ -2874,7 +2676,7 @@
             var header = document.getElementById("site-header");
             if (header) {
                 window.addEventListener("scroll", function () {
-                    header.classList.toggle("scrolled", window.scrollY > 20);
+                    header.classList.toggle("shadow-[0_2px_20px_rgba(0,0,0,0.08)]", window.scrollY > 20);
                 }, { passive: true });
             }
 

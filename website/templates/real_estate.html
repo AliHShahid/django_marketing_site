@@ -4,15 +4,1031 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate | ADRYZE</title>
+    <title>Real Estate Marketing | ADRYZE</title>
+    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .js-scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 90;
+            height: 3px;
+            width: 0;
+            background: #EE3923;
+            box-shadow: 0 0 8px rgba(238, 57, 35, 0.4);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-float {
+            animation: floatPulse 5s ease-in-out infinite;
+        }
+
+        .kpi-animated {
+            font-variant-numeric: tabular-nums;
+        }
+
+        @keyframes floatPulse {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * { animation: none !important; transition: none !important; }
+            .reveal { opacity: 1; transform: none; }
+        }
+
+        details summary { list-style: none; cursor: pointer; }
+        details summary::-webkit-details-marker { display: none; }
+
+        a:focus-visible, button:focus-visible, summary:focus-visible {
+            outline: 3px solid #EE3923;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
-<body>
-    <main style="max-width: 800px; margin: 4rem auto; font-family: Arial, sans-serif; padding: 0 1rem;">
-        <h1>Real Estate</h1>
-        <p>This page is now connected to the navigation and Django routing.</p>
-        <p><a href="/">Back to Home</a></p>
+<body class="bg-white text-gray-900 antialiased">
+    <main>
+
+        <!-- Hero -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8 lg:py-28">
+                <div class="grid gap-14 lg:grid-cols-2 lg:items-center">
+                    <div>
+                        <p class="mb-5 inline-flex items-center gap-2 rounded-full border border-[#EE3923]/30 bg-[#EE3923]/5 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-[#EE3923]">
+                            Real Estate Marketing Agency
+                        </p>
+                        <h1 class="text-4xl font-black leading-tight text-gray-900 sm:text-5xl lg:text-6xl">
+                            Real Estate Marketing That Delivers <span class="text-[#EE3923]">Qualified Leads</span>
+                        </h1>
+                        <p class="mt-6 max-w-xl text-lg text-gray-600">Stop wasting money on overpriced portal leads.
+                            Build predictable buyer and seller pipelines with SEO, PPC, AEO, and conversion systems
+                            built for real estate professionals.</p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="/get-started"
+                                class="rounded-lg bg-[#EE3923] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#d7331e]">Get
+                                Free Marketing Audit</a>
+                            <a href="/case-studies"
+                                class="rounded-lg border border-gray-300 px-6 py-3 text-sm font-bold text-gray-900 transition hover:border-gray-900">View
+                                Case Studies</a>
+                        </div>
+                        <div class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">47K+</p>
+                                <p class="text-xs uppercase tracking-wider text-gray-500">Leads Generated</p>
+                            </div>
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">400%</p>
+                                <p class="text-xs uppercase tracking-wider text-gray-500">Average ROI</p>
+                            </div>
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">$2.3B+</p>
+                                <p class="text-xs uppercase tracking-wider text-gray-500">Property Sales</p>
+                            </div>
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">50+</p>
+                                <p class="text-xs uppercase tracking-wider text-gray-500">Active Clients</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-100 bg-white p-8 shadow-lg">
+                        <p class="text-sm font-semibold uppercase tracking-[0.14em] text-[#EE3923]">Why agents switch</p>
+                        <h2 class="mt-3 text-2xl font-bold text-gray-900">From lead roulette to consistent closings</h2>
+                        <ul class="mt-6 space-y-4 text-sm text-gray-600 list-none">
+                            <li class="rounded-lg border border-gray-100 bg-gray-50 p-4">Launch campaigns in <span
+                                    class="font-bold text-gray-900">24-48 hours</span> and start generating
+                                opportunities while SEO compounds.</li>
+                            <li class="rounded-lg border border-gray-100 bg-gray-50 p-4">Lower your cost per lead by
+                                building <span class="font-bold text-gray-900">owned channels</span> instead of
+                                depending on shared portals.</li>
+                            <li class="rounded-lg border border-gray-100 bg-gray-50 p-4">Track the full funnel from
+                                click to closing with <span class="font-bold text-gray-900">transaction-focused
+                                    reporting</span>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <div class="grid gap-12 lg:grid-cols-2">
+                    <div>
+                        <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Why ADRYZE</p>
+                        <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Real estate marketing that
+                            actually works</h2>
+                        <p class="mt-5 text-gray-600">Generic agencies do not understand hyperlocal competition,
+                            compliance requirements, or long sales cycles. We work only with agents, brokers, teams, and
+                            investors who need exclusive demand and predictable growth.</p>
+                        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">400%</p>
+                                <p class="text-sm font-semibold text-gray-900">Average ROI</p>
+                            </div>
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">Proven</p>
+                                <p class="text-sm font-semibold text-gray-900">Playbook</p>
+                            </div>
+                            <div class="rounded-xl border border-zinc-100 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-[#EE3923]">Lower</p>
+                                <p class="text-sm font-semibold text-gray-900">Lead Costs</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-2xl border border-zinc-100 bg-white p-8 shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900">Why lead portals keep you stuck</h3>
+                        <ul class="mt-6 space-y-3 text-sm text-gray-600 list-disc list-inside">
+                            <li>Shared leads sold to multiple competitors in your market.</li>
+                            <li>Rising monthly costs without ownership of your audience.</li>
+                            <li>No long-term asset creation for your brand or search visibility.</li>
+                            <li>Feast-or-famine lead cycles tied to ad spend spikes.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problems We Solve -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Common Challenges</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">The problems we solve daily</h2>
+                <p class="mt-4 max-w-3xl text-gray-600">If these pain points sound familiar, you are exactly who this
+                    system is built for.</p>
+                <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Expensive Lead Portals</h3>
+                        <p class="mt-2 text-sm text-gray-600">$500-$2,000 monthly for shared leads that convert poorly.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Inconsistent Lead Flow</h3>
+                        <p class="mt-2 text-sm text-gray-600">No predictable engine for recurring buyer and seller
+                            demand.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Lost to Competitors</h3>
+                        <p class="mt-2 text-sm text-gray-600">Competitors dominate local search and social channels.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Outdated Website</h3>
+                        <p class="mt-2 text-sm text-gray-600">Slow pages, weak UX, and poor conversion rates under 1%.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">No Time for Marketing</h3>
+                        <p class="mt-2 text-sm text-gray-600">Client delivery leaves little time for strategy and
+                            optimization.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Wasted Ad Spend</h3>
+                        <p class="mt-2 text-sm text-gray-600">Campaigns run without tracking, testing, and conversion
+                            clarity.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Approach -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Our Approach</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">How we build predictable growth</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Immediate Lead Generation</h3>
+                        <p class="mt-2 text-sm text-gray-600">PPC launch in 48 hours for fast pipeline impact.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Market Dominance</h3>
+                        <p class="mt-2 text-sm text-gray-600">SEO + AEO authority in your target neighborhoods.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Personal Brand Building</h3>
+                        <p class="mt-2 text-sm text-gray-600">Positioning that makes you the obvious expert in your
+                            market.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Systems That Scale</h3>
+                        <p class="mt-2 text-sm text-gray-600">CRM integration and lead nurture automations that run
+                            24/7.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Our Process</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">From first call to consistent leads</h2>
+                <div class="mt-10 grid gap-5 lg:grid-cols-4">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Week 1</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Discovery &amp; Audit</h3>
+                        <p class="mt-2 text-sm text-gray-600">Market analysis, competitor research, funnel and website
+                            audit.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Week 2</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Strategy Development</h3>
+                        <p class="mt-2 text-sm text-gray-600">Zip-code targeting, campaign mapping, offer and content
+                            plan.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Month 1</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Launch</h3>
+                        <p class="mt-2 text-sm text-gray-600">Ads live, landing pages deployed, CRM and conversion
+                            tracking active.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Month 2+</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Growth &amp; Optimization</h3>
+                        <p class="mt-2 text-sm text-gray-600">Scale winners, optimize CPL-to-close metrics, expand into
+                            new markets.</p>
+                    </article>
+                </div>
+                <div class="mt-10 rounded-2xl border border-[#EE3923]/20 bg-[#EE3923]/5 p-7">
+                    <h3 class="text-xl font-bold text-gray-900">Ready to get started?</h3>
+                    <p class="mt-2 text-sm text-gray-600">Book a call and we will map exactly how to fill your pipeline
+                        with qualified buyers and sellers.</p>
+                    <a href="/get-started"
+                        class="mt-5 inline-flex rounded-lg bg-[#EE3923] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d7331e]">Start
+                        Your Journey Today</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Our Services</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Buyer and seller lead generation</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">01</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Real Estate SEO</h3>
+                        <p class="mt-2 text-sm text-gray-600">Own local search results for target neighborhoods and
+                            intents.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">02</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Real Estate PPC</h3>
+                        <p class="mt-2 text-sm text-gray-600">Capture high-intent prospects before they contact
+                            competitors.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">03</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Real Estate AEO</h3>
+                        <p class="mt-2 text-sm text-gray-600">Get recommended by AI answer engines and voice
+                            assistants.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">04</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Website Development</h3>
+                        <p class="mt-2 text-sm text-gray-600">Fast, IDX-ready websites designed to convert traffic to
+                            leads.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">05</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Landing Pages</h3>
+                        <p class="mt-2 text-sm text-gray-600">Dedicated funnels for valuation, buyers, sellers, and
+                            listings.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold text-[#EE3923]">06</p>
+                        <h3 class="mt-2 font-bold text-gray-900">Social Media Marketing</h3>
+                        <p class="mt-2 text-sm text-gray-600">Stay top-of-mind with market insights and listing-driven
+                            content.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- DIY vs Expert Table -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">The True Cost of DIY
+                    Marketing</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">DIY marketing vs hiring experts</h2>
+                <div class="mt-10 overflow-x-auto rounded-2xl border border-gray-200 shadow-sm">
+                    <table class="w-full min-w-[720px] text-left text-sm">
+                        <thead class="bg-gray-50 text-xs uppercase tracking-[0.12em] text-gray-500">
+                            <tr>
+                                <th class="px-5 py-4 font-semibold">Aspect</th>
+                                <th class="px-5 py-4 font-semibold">DIY Marketing</th>
+                                <th class="px-5 py-4 font-semibold text-[#EE3923]">ADRYZE Marketing</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-100 text-gray-700">
+                            <tr>
+                                <td class="px-5 py-4 font-semibold text-gray-900">Time Investment</td>
+                                <td class="px-5 py-4">20-30 hours/week</td>
+                                <td class="px-5 py-4 font-semibold text-[#EE3923]">0 hours (we handle everything)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-4 font-semibold text-gray-900">Learning Curve</td>
+                                <td class="px-5 py-4">6-12 months</td>
+                                <td class="px-5 py-4 font-semibold text-[#EE3923]">Results in 30-60 days</td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-4 font-semibold text-gray-900">Tools &amp; Software</td>
+                                <td class="px-5 py-4">$500-$1,500/month</td>
+                                <td class="px-5 py-4 font-semibold text-[#EE3923]">Included in service</td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-4 font-semibold text-gray-900">Average Cost Per Lead</td>
+                                <td class="px-5 py-4">$150-$300+</td>
+                                <td class="px-5 py-4 font-semibold text-[#EE3923]">$25-$75 (optimized)</td>
+                            </tr>
+                            <tr>
+                                <td class="px-5 py-4 font-semibold text-gray-900">Support</td>
+                                <td class="px-5 py-4">Forums and guesswork</td>
+                                <td class="px-5 py-4 font-semibold text-[#EE3923]">Dedicated account manager</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- Specialized Solutions -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Specialized Solutions</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Marketing for every real estate business</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Real Estate Agents</h3>
+                        <p class="mt-2 text-sm text-gray-600">Build authority and generate consistent buyer/seller
+                            leads without portal dependence.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">25-40
+                            leads/month</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Real Estate Investors</h3>
+                        <p class="mt-2 text-sm text-gray-600">Capture motivated sellers and off-market opportunities
+                            with high-intent campaigns.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">40-70 seller
+                            leads/month</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Brokers &amp; Teams</h3>
+                        <p class="mt-2 text-sm text-gray-600">Scale across agents with lead distribution, CRM routing,
+                            and team visibility systems.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">100-300+
+                            leads/month</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Property Management</h3>
+                        <p class="mt-2 text-sm text-gray-600">Attract owners and renters while increasing occupancy and
+                            doors under management.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">20-50 owner
+                            leads/month</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Website Solutions -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Website Solutions</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Websites that convert visitors</h2>
+                <div class="mt-10 grid gap-5 lg:grid-cols-2">
+                    <div class="grid gap-5 sm:grid-cols-2">
+                        <article
+                            class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h3 class="font-bold text-gray-900">Mobile-First Design</h3>
+                            <p class="mt-2 text-sm text-gray-600">Optimized for the 78% of real estate searches
+                                happening on mobile.</p>
+                        </article>
+                        <article
+                            class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h3 class="font-bold text-gray-900">Speed Optimization</h3>
+                            <p class="mt-2 text-sm text-gray-600">Sub-2 second load performance to improve rankings and
+                                conversion rates.</p>
+                        </article>
+                        <article
+                            class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h3 class="font-bold text-gray-900">Lead Capture Systems</h3>
+                            <p class="mt-2 text-sm text-gray-600">Strategic forms and CTAs designed to convert before
+                                users bounce.</p>
+                        </article>
+                        <article
+                            class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h3 class="font-bold text-gray-900">IDX Integration</h3>
+                            <p class="mt-2 text-sm text-gray-600">Property search experiences buyers expect with
+                                automatic updates.</p>
+                        </article>
+                    </div>
+                    <div class="rounded-xl border border-zinc-100 bg-gray-50 p-6">
+                        <h3 class="text-lg font-bold text-gray-900">Every website includes</h3>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Professional brand-aligned design</li>
+                            <li>Advanced search and filtering</li>
+                            <li>CRM-connected lead capture workflows</li>
+                            <li>SEO-ready architecture and content structure</li>
+                            <li>Analytics, tracking, and ongoing support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Landing Pages -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Landing pages that maximize conversions</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Higher Conversion Rates</h3>
+                        <p class="mt-2 text-sm text-gray-600">3-5x better than generic service pages.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Audience Targeting</h3>
+                        <p class="mt-2 text-sm text-gray-600">Buyers, sellers, investors, and niche property segments.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Better Ad Performance</h3>
+                        <p class="mt-2 text-sm text-gray-600">Improves quality score and lowers CPC by 40-60%.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Easy Testing</h3>
+                        <p class="mt-2 text-sm text-gray-600">Fast A/B testing of offers, headlines, and layouts.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- PPC -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">PPC that delivers qualified leads</h2>
+                <div class="mt-10 grid gap-5 lg:grid-cols-2">
+                    <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm">
+                        <h3 class="font-bold text-gray-900">What you get</h3>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Immediate launch and fast lead flow</li>
+                            <li>Neighborhood and demographic precision targeting</li>
+                            <li>Scalable budgets with transparent reporting</li>
+                            <li>Lower lead costs than portal dependency</li>
+                        </ul>
+                    </div>
+                    <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm">
+                        <h3 class="font-bold text-gray-900">Average performance metrics</h3>
+                        <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+                            <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
+                                <p class="text-xl font-extrabold text-[#EE3923]">$25-$75</p>
+                                <p class="text-gray-600">Cost per lead</p>
+                            </div>
+                            <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
+                                <p class="text-xl font-extrabold text-[#EE3923]">4-8%</p>
+                                <p class="text-gray-600">Conversion rate</p>
+                            </div>
+                            <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
+                                <p class="text-xl font-extrabold text-[#EE3923]">300-500%</p>
+                                <p class="text-gray-600">ROI in 6 months</p>
+                            </div>
+                            <div class="rounded-lg border border-gray-100 bg-gray-50 p-4">
+                                <p class="text-xl font-extrabold text-[#EE3923]">24-48hr</p>
+                                <p class="text-gray-600">Time to first leads</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">SEO that builds lasting dominance</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-5">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Local Dominance</h3>
+                        <p class="mt-2 text-sm text-gray-600">Rank for neighborhood-specific buyer and seller searches.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Lower CPL</h3>
+                        <p class="mt-2 text-sm text-gray-600">75-90% lower lead costs than PPC once established.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Trust &amp; Authority</h3>
+                        <p class="mt-2 text-sm text-gray-600">Organic visibility builds confidence and conversion
+                            rates.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">Compound Growth</h3>
+                        <p class="mt-2 text-sm text-gray-600">Work in month 3 still drives traffic in month 24.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-5 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="font-bold text-gray-900">24/7 Leads</h3>
+                        <p class="mt-2 text-sm text-gray-600">Generate opportunities even when ads are paused.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEO + PPC Combined -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Why the best agents use both together</h2>
+                <div class="mt-10 grid gap-5 lg:grid-cols-3">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">SEO</h3>
+                        <p class="mt-2 text-sm text-gray-600">Long-term asset creation, lower CPL, and trust-building
+                            authority.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">Timeline: 4-6
+                            months</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">PPC</h3>
+                        <p class="mt-2 text-sm text-gray-600">Instant lead flow, precise targeting, and controlled
+                            scaling.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">Timeline:
+                            24-48 hours</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-[#EE3923]/20 bg-[#EE3923]/5 p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Combined Strategy</h3>
+                        <p class="mt-2 text-sm text-gray-600">Use PPC revenue to fund SEO, then shift budget as organic
+                            lead volume compounds.</p>
+                        <p class="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">400-700%
+                            combined ROI</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ROI Calculator -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">Calculate your potential return on investment</h2>
+                <div class="mt-10 grid gap-6 lg:grid-cols-2">
+                    <div class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm">
+                        <h3 class="font-bold text-gray-900">Your current situation</h3>
+                        <div class="mt-4 space-y-4 text-sm text-gray-600">
+                            <div>
+                                <p class="mb-1">Monthly Marketing Budget</p>
+                                <div class="h-2 rounded-full bg-gray-200">
+                                    <div class="h-2 w-2/3 rounded-full bg-[#EE3923]"></div>
+                                </div>
+                                <p class="mt-1 font-semibold text-[#EE3923]">$5,000</p>
+                            </div>
+                            <div>
+                                <p class="mb-1">Average Commission per Deal</p>
+                                <div class="h-2 rounded-full bg-gray-200">
+                                    <div class="h-2 w-1/2 rounded-full bg-[#EE3923]"></div>
+                                </div>
+                                <p class="mt-1 font-semibold text-[#EE3923]">$8,000</p>
+                            </div>
+                            <div>
+                                <p class="mb-1">Current Conversion Rate</p>
+                                <div class="h-2 rounded-full bg-gray-200">
+                                    <div class="h-2 w-1/4 rounded-full bg-[#EE3923]"></div>
+                                </div>
+                                <p class="mt-1 font-semibold text-[#EE3923]">5%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-xl border border-[#EE3923]/20 bg-[#EE3923]/5 p-6">
+                        <p class="text-xs font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Projected ROI</p>
+                        <p class="mt-2 text-5xl font-black text-gray-900">+444%</p>
+                        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                            <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-gray-900">3</p>
+                                <p class="text-xs uppercase tracking-[0.12em] text-gray-500">Additional Deals/Month</p>
+                            </div>
+                            <div class="rounded-lg border border-gray-200 bg-white p-4 shadow-sm">
+                                <p class="text-2xl font-extrabold text-gray-900">$27,200</p>
+                                <p class="text-xs uppercase tracking-[0.12em] text-gray-500">Additional Revenue</p>
+                            </div>
+                        </div>
+                        <a href="/get-started"
+                            class="mt-6 inline-flex rounded-lg bg-[#EE3923] px-5 py-3 text-sm font-bold text-white transition hover:bg-[#d7331e]">Get
+                            Your Custom Strategy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AEO vs SEO -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <h2 class="text-3xl font-bold text-gray-900 sm:text-4xl">AEO vs SEO: What's the difference?</h2>
+                <div class="mt-10 grid gap-5 lg:grid-cols-2">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Traditional SEO</h3>
+                        <p class="mt-2 text-sm text-gray-600">Optimizes for Google rankings, clicks, and website
+                            sessions.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Keyword rankings</li>
+                            <li>Backlinks and authority</li>
+                            <li>On-page optimization</li>
+                        </ul>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <h3 class="text-lg font-bold text-gray-900">Answer Engine Optimization</h3>
+                        <p class="mt-2 text-sm text-gray-600">Optimizes for ChatGPT, Perplexity, Gemini, and voice
+                            assistants.</p>
+                        <ul class="mt-4 space-y-2 text-sm text-gray-600 list-disc list-inside">
+                            <li>Conversational content formats</li>
+                            <li>Structured data and schema</li>
+                            <li>Direct answer visibility</li>
+                        </ul>
+                    </article>
+                </div>
+                <div class="mt-8 rounded-xl border border-[#EE3923]/20 bg-[#EE3923]/5 p-6">
+                    <h3 class="text-lg font-bold text-gray-900">Why real estate businesses need both</h3>
+                    <p class="mt-2 text-sm text-gray-600">Your future clients search in multiple ways: traditional
+                        Google (46%), AI engines (31%), and voice assistants (23%). A dual strategy keeps your brand
+                        visible everywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proven Results -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Proven Results</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Marketing that delivers for real estate
+                    professionals</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-3">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">PPC &bull; Real Estate</p>
+                        <h3 class="mt-2 font-bold text-gray-900">+600% increase in serious leads</h3>
+                        <p class="mt-2 text-sm text-gray-600">Cash home buyer campaign generated dramatic lead quality
+                            growth.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">SEO &bull; Real Estate</p>
+                        <h3 class="mt-2 font-bold text-gray-900">90+ monthly seller calls</h3>
+                        <p class="mt-2 text-sm text-gray-600">Organic strategy produced predictable inbound
+                            opportunities.</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-xs font-semibold uppercase tracking-[0.14em] text-[#EE3923]">Landing Pages</p>
+                        <h3 class="mt-2 font-bold text-gray-900">+85% conversion rate increase</h3>
+                        <p class="mt-2 text-sm text-gray-600">Multi-step funnel outperformed standard campaign pages.</p>
+                    </article>
+                </div>
+                <div class="mt-8 grid grid-cols-2 gap-4 text-sm sm:grid-cols-4">
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">200+</p>
+                        <p class="text-gray-600">Clients Served</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">$47M+</p>
+                        <p class="text-gray-600">Revenue Generated</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">400%</p>
+                        <p class="text-gray-600">Average ROI</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">98%</p>
+                        <p class="text-gray-600">Retention Rate</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="border-b border-gray-100 bg-white">
+            <div class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Client Reviews</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Trusted by businesses across industries</h2>
+                <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-sm text-gray-600">"Professional, responsive, and deeply knowledgeable about real
+                            estate PPC campaigns."</p>
+                        <p class="mt-4 text-sm font-bold text-gray-900">Mallie</p>
+                        <p class="text-xs text-gray-500">Home Buyer Company</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-sm text-gray-600">"The team responds quickly and consistently improves our
+                            account performance."</p>
+                        <p class="mt-4 text-sm font-bold text-gray-900">Michael Belmont</p>
+                        <p class="text-xs text-gray-500">Energy Provider</p>
+                    </article>
+                    <article
+                        class="rounded-xl border border-zinc-100 bg-white p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                        <p class="text-sm text-gray-600">"Excellent communication, high standards, and measurable ROI
+                            from campaigns."</p>
+                        <p class="mt-4 text-sm font-bold text-gray-900">Drew Deleon</p>
+                        <p class="text-xs text-gray-500">Realtor</p>
+                    </article>
+                </div>
+                <div class="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">4.9/5</p>
+                        <p class="text-xs text-gray-500">Average Rating</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">200+</p>
+                        <p class="text-xs text-gray-500">Happy Clients</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">98%</p>
+                        <p class="text-xs text-gray-500">Retention</p>
+                    </div>
+                    <div class="rounded-lg border border-zinc-100 bg-white p-4 shadow-sm">
+                        <p class="text-2xl font-extrabold text-[#EE3923]">9+</p>
+                        <p class="text-xs text-gray-500">Years Experience</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="border-b border-gray-100 bg-gray-50">
+            <div class="mx-auto max-w-4xl px-6 py-20 lg:px-8">
+                <p class="text-sm font-semibold uppercase tracking-[0.16em] text-[#EE3923]">Frequently Asked Questions</p>
+                <h2 class="mt-3 text-3xl font-bold text-gray-900 sm:text-4xl">Real estate marketing questions answered</h2>
+                <div class="mt-10 space-y-3">
+                    <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm" open>
+                        <summary
+                            class="flex items-center justify-between text-base font-semibold text-gray-900 cursor-pointer">
+                            Why choose a real estate-specialized agency?
+                            <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-600">Real estate requires fair housing compliance, hyperlocal
+                            targeting, and long sales-cycle conversion strategies that generic agencies usually miss.</p>
+                    </details>
+                    <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                        <summary
+                            class="flex items-center justify-between text-base font-semibold text-gray-900 cursor-pointer">
+                            What business models do you support?
+                            <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-600">Solo agents, teams, brokerages, investors, and property
+                            management businesses with tailored campaign systems.</p>
+                    </details>
+                    <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                        <summary
+                            class="flex items-center justify-between text-base font-semibold text-gray-900 cursor-pointer">
+                            How do you approach seasonal market shifts?
+                            <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-600">We rebalance channels by season while maintaining
+                            continuous momentum through SEO and lead nurture automation.</p>
+                    </details>
+                    <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                        <summary
+                            class="flex items-center justify-between text-base font-semibold text-gray-900 cursor-pointer">
+                            What metrics matter most?
+                            <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-600">We optimize for closed-deal ROI, not vanity metrics:
+                            tracking from click to close and cost per transaction.</p>
+                    </details>
+                    <details class="group rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
+                        <summary
+                            class="flex items-center justify-between text-base font-semibold text-gray-900 cursor-pointer">
+                            What ongoing support can we expect?
+                            <svg class="w-5 h-5 text-gray-400 transition-transform group-open:rotate-180 flex-shrink-0 ml-4"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </summary>
+                        <p class="mt-3 text-sm text-gray-600">Dedicated account management, routine strategy calls, and
+                            transparent monthly reporting with next-step actions.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="relative overflow-hidden bg-black">
+            <div
+                class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#EE3923]/20 via-transparent to-transparent">
+            </div>
+            <div
+                class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#EE3923]/10 via-transparent to-transparent">
+            </div>
+            <div class="relative mx-auto max-w-7xl px-6 py-24 lg:px-8">
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[#EE3923]">Free Marketing
+                            Audit &mdash; $2,500 Value</p>
+                        <h2 class="mt-3 text-3xl font-black text-white sm:text-4xl">Stop losing leads to competitors.
+                            Start dominating your market.</h2>
+                        <p class="mt-4 max-w-2xl text-zinc-400">Get a free, comprehensive audit showing exactly where
+                            your opportunities are and the 90-day action plan to capture more qualified buyers and
+                            sellers.</p>
+                        <div class="mt-8 flex flex-wrap gap-4">
+                            <a href="/get-started"
+                                class="rounded-lg bg-[#EE3923] px-6 py-3 text-sm font-bold text-white transition hover:bg-[#d7331e]">Get
+                                Your Free Audit</a>
+                            <a href="/case-studies"
+                                class="rounded-lg border border-white/20 px-6 py-3 text-sm font-bold text-white transition hover:bg-white/5">View
+                                Case Studies</a>
+                        </div>
+                    </div>
+                    <div
+                        class="hero-float rounded-2xl border border-white/10 bg-white/5 p-7 backdrop-blur-sm shadow-2xl">
+                        <h3 class="text-lg font-bold text-white">You will receive</h3>
+                        <ul class="mt-4 space-y-3 text-sm text-zinc-300 list-none">
+                            <li class="flex items-start gap-2">
+                                <span class="text-[#EE3923] mt-0.5 font-bold">&#10003;</span>
+                                Competitive analysis against top agents in your market
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-[#EE3923] mt-0.5 font-bold">&#10003;</span>
+                                High-value keyword and location opportunity map
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-[#EE3923] mt-0.5 font-bold">&#10003;</span>
+                                Custom 90-day growth plan with clear milestones
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-[#EE3923] mt-0.5 font-bold">&#10003;</span>
+                                Response within 24 hours from our strategy team
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            // Scroll progress bar
+            var progressBar = document.createElement("div");
+            progressBar.className = "js-scroll-progress";
+            progressBar.setAttribute("aria-hidden", "true");
+            document.body.prepend(progressBar);
+
+            // Reveal on scroll
+            var revealTargets = document.querySelectorAll("section, article, details");
+            revealTargets.forEach(function (node, index) {
+                node.classList.add("reveal");
+                node.style.transitionDelay = (index % 6) * 0.06 + "s";
+            });
+
+            var io = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                        io.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealTargets.forEach(function (node) { io.observe(node); });
+
+            // Scroll progress
+            var ticking = false;
+            window.addEventListener("scroll", function () {
+                if (!ticking) {
+                    window.requestAnimationFrame(function () {
+                        var scrollY = window.scrollY || window.pageYOffset;
+                        var maxScrollable = Math.max(document.body.scrollHeight - window.innerHeight, 1);
+                        progressBar.style.width = (Math.min(scrollY / maxScrollable, 1) * 100).toFixed(2) + "%";
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            }, { passive: true });
+
+            // KPI counter animation
+            var parseKpi = function (rawText) {
+                var trimmed = rawText.trim();
+                var match = trimmed.match(/^(\$)?(\d+(?:\.\d+)?)([KMB]?)(\+?%?)$/i);
+                if (!match) return null;
+                var prefix = match[1] || "";
+                var baseValue = parseFloat(match[2]);
+                var unit = (match[3] || "").toUpperCase();
+                var tail = match[4] || "";
+                var multipliers = { "": 1, K: 1000, M: 1000000, B: 1000000000 };
+                return { prefix: prefix, value: baseValue * (multipliers[unit] || 1), unit: unit, tail: tail, decimals: match[2].indexOf(".") !== -1 ? 1 : 0 };
+            };
+
+            var formatKpi = function (value, config) {
+                var divisors = { "": 1, K: 1000, M: 1000000, B: 1000000000 };
+                return config.prefix + (value / divisors[config.unit]).toFixed(config.decimals) + config.unit + config.tail;
+            };
+
+            var kpiNodes = document.querySelectorAll("p.text-2xl.font-extrabold, p.text-xl.font-extrabold, p.text-5xl.font-black");
+            var kpiObserver = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    var node = entry.target;
+                    var parsed = parseKpi(node.textContent || "");
+                    if (parsed && !node.dataset.countDone) {
+                        node.classList.add("kpi-animated");
+                        var start = performance.now();
+                        var frame = function (now) {
+                            var progress = Math.min((now - start) / 1300, 1);
+                            var eased = 1 - Math.pow(1 - progress, 3);
+                            node.textContent = formatKpi(parsed.value * eased, parsed);
+                            if (progress < 1) requestAnimationFrame(frame);
+                            else { node.textContent = formatKpi(parsed.value, parsed); node.dataset.countDone = "1"; }
+                        };
+                        requestAnimationFrame(frame);
+                    }
+                    kpiObserver.unobserve(node);
+                });
+            }, { threshold: 0.6 });
+
+            kpiNodes.forEach(function (node) { kpiObserver.observe(node); });
+
+            // FAQ accordion - one open at a time
+            var faqItems = Array.from(document.querySelectorAll("details"));
+            faqItems.forEach(function (item) {
+                item.addEventListener("toggle", function () {
+                    if (!item.open) return;
+                    faqItems.forEach(function (other) {
+                        if (other !== item) other.open = false;
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
