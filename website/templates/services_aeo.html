@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
@@ -5,11 +6,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AEO Services | Adryze</title>
-    <link rel="icon" type="image/png" href="/static/images/logo.png">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap"
-        rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -37,11 +36,13 @@
     <style id="adryze-global-theme">
         :root {
             --adryze-brand-primary: #EE3923;
-            --adryze-brand-accent: #FF4801;
+            --adryze-brand-accent: #EE3923;
             --adryze-brand-dark: #0B0B0F;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -51,42 +52,72 @@
 
         .text-orange-400,
         .text-orange-500,
-        .text-orange-600 { color: #EE3923 !important; }
+        .text-orange-600 {
+            color: #EE3923 !important;
+        }
 
         .text-orange-700,
-        .text-orange-800 { color: #b12a1b !important; }
+        .text-orange-800 {
+            color: #b12a1b !important;
+        }
 
-        .bg-orange-50 { background-color: #fff3ef !important; }
-        .bg-orange-100 { background-color: #ffe6df !important; }
-        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-50 {
+            background-color: #fff3ef !important;
+        }
+
+        .bg-orange-100 {
+            background-color: #ffe6df !important;
+        }
+
+        .bg-orange-200 {
+            background-color: #ffd1c4 !important;
+        }
+
         .bg-orange-500,
-        .bg-orange-600 { background-color: #EE3923 !important; }
+        .bg-orange-600 {
+            background-color: #EE3923 !important;
+        }
 
-        .border-orange-100 { border-color: #ffd8cd !important; }
-        .border-orange-600 { border-color: #EE3923 !important; }
+        .border-orange-100 {
+            border-color: #ffd8cd !important;
+        }
 
-        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
-        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
-        .hover\:text-orange-600:hover { color: #EE3923 !important; }
-        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+        .border-orange-600 {
+            border-color: #EE3923 !important;
+        }
+
+        .hover\:bg-orange-200:hover {
+            background-color: #ffd1c4 !important;
+        }
+
+        .hover\:bg-orange-700:hover {
+            background-color: #cf301d !important;
+        }
+
+        .hover\:text-orange-600:hover {
+            color: #EE3923 !important;
+        }
+
+        .focus\:ring-orange-400:focus {
+            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        }
     </style>
 </head>
 
 <body class="bg-white font-['Inter'] antialiased [text-rendering:optimizeLegibility] text-[#121212]">
     <div id="scroll-progress"
-        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-gradient-to-r from-[#FF4801] to-[#EE3923] transition-[width] duration-100">
+        class="fixed left-0 top-0 z-[9999] h-[3px] w-0 bg-gradient-to-r from-[#EE3923] to-[#EE3923] transition-[width] duration-100">
     </div>
-    <nav id="site-header"
-        class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 transition-[box-shadow] duration-300">
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+            <a href="{% url 'home' %}" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
                 AD<span class="text-[#EE3923]">RYZE</span>
             </a>
 
             <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
                 <div class="relative group/nav">
                     <button
-                        class="relative flex items-center gap-1.5 px-4 py-2 font-semibold text-gray-900 transition-all duration-200 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:text-[#EE3923] hover:before:w-10">
+                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
                         <span class="relative">Services
                             <span
                                 class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
@@ -137,7 +168,7 @@
                                         <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
                                             session and see how we can 10X your results.</p>
                                         <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
-                                            href="/get-started?cta=Get+Started+Free">Get Started Free
+                                            href="{% url 'get_started' %}?cta=Get+Started+Free">Get Started Free
                                             <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
                                                 stroke-width="2.5">
@@ -153,7 +184,7 @@
                                 <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/ppc">
+                                            href="{% url 'service_ppc' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -176,7 +207,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/seo">
+                                            href="{% url 'service_seo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -199,7 +230,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development">
+                                            href="{% url 'service_web_development' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -222,7 +253,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/web-development/landing-pages">
+                                            href="{% url 'service_landing_pages' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -245,7 +276,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/aeo">
+                                            href="{% url 'service_aeo' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -268,7 +299,7 @@
                                         </a>
 
                                         <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
-                                            href="/services/social-media">
+                                            href="{% url 'service_social_media' %}">
                                             <div class="flex items-start gap-3">
                                                 <div
                                                     class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
@@ -293,7 +324,7 @@
 
                                     <div class="mt-6 pt-6 border-t border-gray-200">
                                         <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
-                                            href="/services">
+                                            href="{% url 'services' %}">
                                             View all services
                                             <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
                                                 fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -309,35 +340,222 @@
                     </div>
                 </div>
 
-                <div class="relative group">
-                    <button
-                        class="relative flex items-center gap-1 px-4 py-4 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">
+                <div id="industriesNavItem" class="relative group/industry">
+                    <button class="nav-link flex items-center gap-1 py-4">
                         Industries
-                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover:rotate-180" fill="none"
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover/industry:rotate-180" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M19 9l-7 7-7-7"></path>
                         </svg>
                     </button>
-                    <div
-                        class="absolute left-0 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <a href="/saas/"
-                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">SaaS</a>
-                        <a href="/b2b/"
-                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">B2B</a>
-                        <a href="/dtc/"
-                            class="block px-4 py-2.5 text-sm hover:bg-[#fff7ed] hover:text-[#FF4801]">DTC</a>
+                    <div class="industries-hover-bridge" aria-hidden="true"></div>
+                    <div class="industries-mega z-50">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden">
+                            <div class="p-6 pb-4 border-b border-gray-200/80">
+                                <div class="flex items-start gap-4">
+                                    <span class="inline-block w-1 h-7 rounded-full bg-[#EE3923]"></span>
+                                    <div>
+                                        <h3 class="text-base font-bold tracking-tight text-gray-900">Industries We
+                                            Serve</h3>
+                                        <p class="text-gray-500 text-xs mt-1">Specialized strategies for <span
+                                                class="text-[#EE3923] font-semibold">8+ industries</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div class="grid grid-cols-4 gap-x-7 gap-y-6">
+                                    <div class="industry-card">
+                                        <a href="{% url 'healthcare' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path
+                                                        d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.65-7 10-7 10z" />
+                                                </svg></span><span>Healthcare</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'dentists' %}"
+                                                class="industry-link">Dentists</a>
+                                            <a href="{% url 'industry_detail' 'chiropractors' %}"
+                                                class="industry-link">Chiropractors</a>
+                                            <a href="{% url 'industry_detail' 'med-spas' %}" class="industry-link">Med
+                                                Spas</a>
+                                            <a href="{% url 'industry_detail' 'plastic-surgeons' %}"
+                                                class="industry-link">Plastic Surgeons</a>
+                                        </div>
+                                    </div>
+                                    <div class="industry-card">
+                                        <a href="{% url 'real_estate' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 11 12 4l9 7" />
+                                                    <path d="M5 10v10h14V10" />
+                                                    <path d="M10 20v-6h4v6" />
+                                                </svg></span><span>Real
+                                                Estate</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'real-estate-agents' %}"
+                                                class="industry-link">Real Estate
+                                                Agents</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-investors' %}"
+                                                class="industry-link">Real Estate
+                                                Investors</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-brokers' %}"
+                                                class="industry-link">Real Estate
+                                                Brokers</a>
+                                            <a href="{% url 'industry_detail' 'property-management' %}"
+                                                class="industry-link">Property
+                                                Management</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'home_services' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="3" />
+                                                    <path
+                                                        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 1 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.6z" />
+                                                </svg></span><span>Home
+                                                Services</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'hvac-companies' %}"
+                                                class="industry-link">HVAC Companies</a>
+                                            <a href="{% url 'industry_detail' 'plumbers' %}"
+                                                class="industry-link">Plumbers</a>
+                                            <a href="{% url 'industry_detail' 'electricians' %}"
+                                                class="industry-link">Electricians</a>
+                                            <a href="{% url 'industry_detail' 'roofing-companies' %}"
+                                                class="industry-link">Roofing
+                                                Companies</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'automotive' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 14h18" />
+                                                    <path d="M5 14 7 9h10l2 5" />
+                                                    <circle cx="7" cy="17" r="2" />
+                                                    <circle cx="17" cy="17" r="2" />
+                                                </svg></span><span>Automotive</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'car-detailers' %}"
+                                                class="industry-link">Car Detailers</a>
+                                            <a href="{% url 'industry_detail' 'auto-repair-shops' %}"
+                                                class="industry-link">Auto Repair Shops</a>
+                                            <a href="{% url 'industry_detail' 'car-dealerships' %}"
+                                                class="industry-link">Car Dealerships</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'legal' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M12 3v18" />
+                                                    <path d="M5 7h14" />
+                                                    <path d="M7 7v2a3 3 0 1 0 6 0V7" />
+                                                    <path d="M11 7v2a3 3 0 1 0 6 0V7" />
+                                                </svg></span><span>Legal</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'personal-injury-lawyers' %}"
+                                                class="industry-link">Personal Injury
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'family-law-attorneys' %}"
+                                                class="industry-link">Family Law Attorneys</a>
+                                            <a href="{% url 'industry_detail' 'criminal-defense-lawyers' %}"
+                                                class="industry-link">Criminal Defense
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'estate-planning-attorneys' %}"
+                                                class="industry-link">Estate Planning
+                                                Attorneys</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'ecommerce' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="9" cy="20" r="1.8" />
+                                                    <circle cx="17" cy="20" r="1.8" />
+                                                    <path
+                                                        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H7" />
+                                                </svg></span><span>E-commerce</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'fashion-apparel' %}"
+                                                class="industry-link">Fashion &amp;
+                                                Apparel</a>
+                                            <a href="{% url 'industry_detail' 'beauty-cosmetics' %}"
+                                                class="industry-link">Beauty &amp;
+                                                Cosmetics</a>
+                                            <a href="{% url 'industry_detail' 'health-supplements' %}"
+                                                class="industry-link">Health &amp;
+                                                Supplements</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'finance' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="8" />
+                                                    <path d="M12 8v8" />
+                                                    <path
+                                                        d="M9.5 10.5c0-1 1.1-1.8 2.5-1.8s2.5.8 2.5 1.8-1.1 1.8-2.5 1.8-2.5.8-2.5 1.8 1.1 1.8 2.5 1.8 2.5-.8 2.5-1.8" />
+                                                </svg></span><span>Finance</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'financial-advisors' %}"
+                                                class="industry-link">Financial Advisors</a>
+                                            <a href="{% url 'industry_detail' 'wealth-management' %}"
+                                                class="industry-link">Wealth Management</a>
+                                            <a href="{% url 'industry_detail' 'accounting-firms' %}"
+                                                class="industry-link">Accounting Firms</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'construction' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M4 20h16" />
+                                                    <path d="M6 20V8h12v12" />
+                                                    <path d="M9 8V5h6v3" />
+                                                    <path d="M9 12h2M13 12h2M9 15h2M13 15h2" />
+                                                </svg></span><span>Construction</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'home-remodelers' %}"
+                                                class="industry-link">Home Remodelers</a>
+                                            <a href="{% url 'industry_detail' 'custom-home-builders' %}"
+                                                class="industry-link">Custom Home
+                                                Builders</a>
+                                            <a href="{% url 'industry_detail' 'commercial-contractors' %}"
+                                                class="industry-link">Commercial
+                                                Contractors</a>
+                                            <a href="{% url 'industry_detail' 'pool-builders' %}"
+                                                class="industry-link">Pool Builders</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between px-6 py-4 border-t border-gray-200/80 bg-gray-50/70">
+                                <p class="text-xs text-gray-500">Don't see your industry? <span
+                                        class="font-semibold text-gray-900">We work with all business types</span></p>
+                                <a href="{% url 'all_industries' %}"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white text-xs font-semibold hover:bg-[#EE3923] transition-colors">View
+                                    All Industries <span>→</span></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <a href="/case_study/"
-                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">Case
-                    Studies</a>
+                <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
 
-                <a href="/blog/"
-                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">Blog</a>
+                <a href="{% url 'blog' %}" class="nav-link">Blog</a>
 
-                <a href="/about/"
-                    class="relative px-4 py-2 transition-all duration-300 before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:bg-[#FF4801] before:transition-[width] before:duration-300 before:content-[''] hover:before:w-10">About</a>
+                <a href="{% url 'about' %}" class="nav-link">About</a>
             </div>
 
             <div class="hidden md:block">
@@ -347,7 +565,8 @@
                 </a>
             </div>
 
-            <button id="menuBtn" class="md:hidden" aria-label="Toggle menu" aria-expanded="false">
+            <button id="menuBtn" class="md:hidden p-2" aria-controls="mobileMenu" aria-expanded="false"
+                aria-label="Toggle navigation menu">
                 <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path d="M4 6h16M4 12h16M4 18h16"></path>
                 </svg>
@@ -355,33 +574,48 @@
         </div>
 
         <div id="mobileMenu"
-            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300"
+            aria-hidden="true">
             <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block py-2">Solutions</a>
-                <a href="/services/" class="block py-2">Services</a>
+                <div>
+                    <button onclick="toggleMobileMenu('mobileServicesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Services <span data-toggle-icon>+</span>
+                    </button>
+                    <div id="mobileServicesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'service_ppc' %}" class="block text-gray-600">PPC Management</a>
+                        <a href="{% url 'service_seo' %}" class="block text-gray-600">SEO Services</a>
+                        <a href="{% url 'service_web_development' %}" class="block text-gray-600">Web Development</a>
+                        <a href="{% url 'service_landing_pages' %}" class="block text-gray-600">Landing
+                            Pages</a>
+                        <a href="{% url 'service_aeo' %}" class="block text-gray-600">Answer Engine Optimization</a>
+                        <a href="{% url 'service_social_media' %}" class="block text-gray-600">Social Media
+                            Marketing</a>
+                        <a href="{% url 'services' %}" class="block text-gray-600">View all services</a>
+                    </div>
+                </div>
 
                 <div>
-                    <button onclick="toggleMobileMenu('mobileIndustriesMenu')" class="flex justify-between w-full py-2">
-                        Industries <span>+</span>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Industries <span data-toggle-icon>+</span>
                     </button>
                     <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/saas/" class="block text-gray-600">SaaS</a>
-                        <a href="/dtc/" class="block text-gray-600">DTC</a>
-                        <a href="/b2b/" class="block text-gray-600">B2B</a>
+                        <a href="{% url 'real_estate' %}" class="block text-gray-600">Real Estate</a>
+                        <a href="{% url 'healthcare' %}" class="block text-gray-600">Healthcare</a>
+                        <a href="{% url 'home_services' %}" class="block text-gray-600">Home Services</a>
+                        <a href="{% url 'automotive' %}" class="block text-gray-600">Automotive</a>
+                        <a href="{% url 'legal' %}" class="block text-gray-600">Legal</a>
+                        <a href="{% url 'ecommerce' %}" class="block text-gray-600">E-commerce</a>
+                        <a href="{% url 'finance' %}" class="block text-gray-600">Finance</a>
+                        <a href="{% url 'construction' %}" class="block text-gray-600">Construction</a>
+                        <a href="{% url 'all_industries' %}" class="block text-gray-600">View all industries</a>
                     </div>
                 </div>
 
-                <a href="/case_study/" class="block py-2">Case Studies</a>
-
-                <div>
-                    <button onclick="toggleMobileMenu('mobileLearnMenu')" class="flex justify-between w-full py-2">
-                        Learn <span>+</span>
-                    </button>
-                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
-                        <a href="/about/" class="block text-gray-600">About</a>
-                    </div>
-                </div>
+                <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
+                <a href="{% url 'blog' %}" class="block mobile-link">Blog</a>
+                <a href="{% url 'about' %}" class="block mobile-link">About</a>
 
                 <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
                     Get Started
@@ -389,6 +623,238 @@
             </div>
         </div>
     </nav>
+
+    <!-- Styles -->
+    <style>
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #EE3923;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 2.5rem;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: #fff7ed;
+            color: #EE3923;
+        }
+
+        .mobile-link {
+            padding: 0.5rem 0;
+        }
+
+        .industry-card {
+            transition: transform 0.2s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-1px);
+        }
+
+        .industry-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.55rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .industry-icon {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 0.7rem;
+            background: #f3f4f6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            transition: all 0.2s ease;
+        }
+
+        .industry-svg {
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        .industry-card:hover .industry-icon {
+            background: #fff1ed;
+            color: #EE3923;
+        }
+
+        .industry-card:hover .industry-head {
+            color: #EE3923;
+        }
+
+        .industry-links {
+            margin-left: 0.9rem;
+            padding-left: 0.85rem;
+            border-left: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .industry-link {
+            color: #4b5563;
+            font-size: 0.7rem;
+            line-height: 1.35;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .industry-link:hover {
+            color: #EE3923;
+            transform: translateX(3px);
+        }
+
+        .industries-mega {
+            position: fixed;
+            top: 74px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            transform: translateX(-50%) translateY(6px) scale(0.985);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+        }
+
+        .industries-hover-bridge {
+            position: fixed;
+            top: 56px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            height: 28px;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .group\/industry:hover .industries-mega,
+        .group\/industry.industry-open .industries-mega,
+        .industries-mega:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0) scale(1);
+            transition-delay: 0s;
+        }
+
+        .group\/industry:hover .industries-hover-bridge,
+        .group\/industry.industry-open .industries-hover-bridge,
+        .industries-hover-bridge:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if (menuBtn && mobileMenu) {
+            const setMobileMenuState = (open) => {
+                mobileMenu.style.maxHeight = open
+                    ? `${Math.min(mobileMenu.scrollHeight, window.innerHeight - 88)}px`
+                    : "0px";
+                mobileMenu.classList.toggle("overflow-y-auto", open);
+                mobileMenu.classList.toggle("overflow-hidden", !open);
+                menuBtn.setAttribute("aria-expanded", String(open));
+                mobileMenu.setAttribute("aria-hidden", String(!open));
+                document.body.classList.toggle("overflow-hidden", open);
+            };
+
+            const closeMobileMenu = () => setMobileMenuState(false);
+
+            menuBtn.addEventListener("click", () => {
+                const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+                setMobileMenuState(!isOpen);
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
+                    return;
+                }
+
+                if (menuBtn.getAttribute("aria-expanded") === "true") {
+                    setMobileMenuState(true);
+                }
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeMobileMenu);
+            });
+        }
+
+        // Helper for mobile sub-menus
+        function toggleMobileMenu(id, trigger) {
+            const menu = document.getElementById(id);
+            if (!menu) return;
+
+            menu.classList.toggle("hidden");
+
+            if (trigger) {
+                const isExpanded = !menu.classList.contains("hidden");
+                trigger.setAttribute("aria-expanded", String(isExpanded));
+                const icon = trigger.querySelector("[data-toggle-icon]");
+                if (icon) {
+                    icon.textContent = isExpanded ? "−" : "+";
+                }
+            }
+        }
+
+        const learnBtn = document.getElementById("learnBtn");
+        const learnMenu = document.getElementById("learnMenu");
+
+        if (learnBtn && learnMenu) {
+            learnBtn.addEventListener("click", () => {
+                learnMenu.classList.toggle("opacity-0");
+                learnMenu.classList.toggle("invisible");
+            });
+        }
+
+        const industriesNavItem = document.getElementById("industriesNavItem");
+        if (industriesNavItem) {
+            let industriesCloseTimer;
+            industriesNavItem.addEventListener("mouseenter", () => {
+                clearTimeout(industriesCloseTimer);
+                industriesNavItem.classList.add("industry-open");
+            });
+            industriesNavItem.addEventListener("mouseleave", () => {
+                industriesCloseTimer = setTimeout(() => {
+                    industriesNavItem.classList.remove("industry-open");
+                }, 220);
+            });
+        }
+    </script>
 
     <main class="pt-20">
         <section class="relative overflow-hidden bg-[#0b0d12]">
@@ -447,7 +913,7 @@
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
                         <a href="/contact"
-                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#EE3923] to-[#EE3923] border border-[#EE3923]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Free AEO Audit →</a>
                         <a href="#process"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
@@ -665,7 +1131,7 @@
                             </div>
                         </div>
                         <a href="/contact"
-                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
+                            class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#EE3923] to-[#EE3923] border border-[#EE3923]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free AEO Audit
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
                                 class="h-4 w-4">
@@ -2114,7 +2580,7 @@
 
             <div class="mb-12 text-center">
                 <a href="/case-study"
-                    class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                    class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#EE3923] to-[#EE3923] border border-[#EE3923]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
         </section>
@@ -2384,7 +2850,7 @@
                     verticals.</div>
                 <div class="mt-4 text-center">
                     <a href="/services"
-                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#EE3923] to-[#EE3923] border border-[#EE3923]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
             </div>
@@ -2486,7 +2952,7 @@
                     <p class="mt-2 text-xs text-black/60">Let's review your current AI visibility and map the fastest
                         path to stronger citations and brand authority.</p>
                     <a href="/contact"
-                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#FF4801] to-[#EE3923] border border-[#FF4801]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
+                        class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] bg-gradient-to-br from-[#EE3923] to-[#EE3923] border border-[#EE3923]/35 hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
             </div>
@@ -2592,44 +3058,158 @@
 
     </main>
 
-    <footer class="bg-white">
-        <div class="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-5">
-            <div class="md:col-span-2">
-                <div class="text-xl font-bold">Adryze</div>
-                <p class="mt-3 text-sm text-black/70">Performance marketing and growth for modern brands.</p>
+    <footer class="bg-[#0B0B0F] text-white py-16 px-6 md:px-16">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
+            <div class="md:col-span-2 space-y-5">
+                <div class="text-2xl font-black tracking-tight">Adryze</div>
+                <p class="text-sm text-zinc-400 leading-relaxed max-w-sm">
+                    Premium digital marketing agency for ambitious businesses. We deliver data-driven growth
+                    strategies that generate measurable results.
+                </p>
+                <div class="flex flex-wrap gap-2">
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
+                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Google
+                        Partner</span>
+                    <span
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
+                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            stroke-width="2.5" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                        </svg>
+                        Meta
+                        Partner</span>
+                </div>
+                <div class="flex gap-2">
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 6.5V18H12v-8.5H9.5zM10.75 6.25a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM18 12.25c0-2.2-1.2-3.25-2.8-3.25-1.3 0-1.9.7-2.2 1.2V9.5H10.5V18H13v-4.5c0-1.2.2-2.3 1.6-2.3s1.4 1.3 1.4 2.4V18H18v-5.75z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M13 3H9a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6V9a6 6 0 0 0-6-6zm-1 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.5-9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path
+                                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
+                        </svg>
+                    </a>
+                </div>
             </div>
-            <div>
-                <div class="text-sm font-semibold">Services</div>
-                <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/services_seo" class="hover:text-[#EE3923]">SEO</a></li>
-                    <li><a href="/services_ppc" class="hover:text-[#EE3923]">PPC</a></li>
-                    <li><a href="/services_web_development" class="hover:text-[#EE3923]">Web Development</a></li>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold text-white">SERVICES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/services/ppc/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">PPC
+                            Management</a></li>
+                    <li><a href="/services/seo/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">SEO
+                            Services</a></li>
+                    <li><a href="/services/web-development/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Web
+                            Development</a>
+                    </li>
+                    <li><a href="/services/web-development/landing-pages/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Landing
+                            Pages</a></li>
+                    <li><a href="/services/aeo/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Answer
+                            Engine Optimization</a></li>
+                    <li><a href="/services/social-media/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Social
+                            Media Marketing</a>
+                    </li>
                 </ul>
             </div>
-            <div>
-                <div class="text-sm font-semibold">Company</div>
-                <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/about" class="hover:text-[#EE3923]">About</a></li>
-                    <li><a href="/pricing" class="hover:text-[#EE3923]">Pricing</a></li>
-                    <li><a href="/contact" class="hover:text-[#EE3923]">Contact</a></li>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold text-white">COMPANY</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/about/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">About
+                            Us</a></li>
+                    <li><a href="/case_study/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Case
+                            Studies</a></li>
+                    <li><a href="/about/"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Testimonials</a>
+                    </li>
+                    <li><a href="{% url 'contact' %}"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Contact</a>
+                    </li>
                 </ul>
             </div>
-            <div>
-                <div class="text-sm font-semibold">Resources</div>
-                <ul class="mt-3 space-y-2 text-sm text-black/70">
-                    <li><a href="/case-study" class="hover:text-[#EE3923]">Case Studies</a></li>
-                    <li><a href="#faq" class="hover:text-[#EE3923]">FAQ</a></li>
-                    <li><a href="/" class="hover:text-[#EE3923]">Home</a></li>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold text-white">INDUSTRIES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Real
+                            Estate</a></li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Healthcare</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Home
+                            Services</a></li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Automotive</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Legal</a>
+                    </li>
+                    <li><a href="#"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">E-commerce</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="space-y-3">
+                <p class="text-xs font-semibold text-white">RESOURCES</p>
+                <ul class="space-y-2 text-sm text-zinc-300">
+                    <li><a href="/blogs"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Blog</a>
+                    </li>
+                    <li><a href="#faq"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">FAQ</a>
+                    </li>
+                    <li><a href="{% url 'contact' %}"
+                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Get
+                            Started</a></li>
                 </ul>
             </div>
         </div>
-        <div class="border-t border-black/10">
-            <div
-                class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-6 text-xs text-black/60 md:flex-row">
-                <div>Copyright 2024 Adryze. All rights reserved.</div>
-                <div class="flex gap-4">
-                    <a href="/privacy" class="hover:text-[#EE3923]">Privacy</a>
-                    <a href="/terms" class="hover:text-[#EE3923]">Terms</a>
+
+        <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-zinc-500">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
+                    <p>&copy; 2026 Adryze LLC. All rights reserved.</p>
+                    <p class="flex items-center gap-1.5">
+                        <svg class="w-3.5 h-3.5 text-[#EE3923]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            stroke-width="2" aria-hidden="true">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M12 21s7-4.35 7-10a7 7 0 10-14 0c0 5.65 7 10 7 10z" />
+                            <circle cx="12" cy="11" r="2.5" />
+                        </svg>
+                        Based in United States
+                    </p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
                 </div>
             </div>
         </div>

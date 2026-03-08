@@ -1,4 +1,4 @@
-"""
+﻿"""
 URL configuration for my_startup project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -52,6 +52,6 @@ urlpatterns = [
     path('get-started/', get_started, name='get_started'),
     path('industries/', all_industries, name='all_industries'),
     path('industries/<slug:slug>/', industry_detail, name='industry_detail')
-    
-
 ]
+
+handler404 = 'website.views.custom_404'

@@ -198,6 +198,12 @@ def industry_detail(request, slug):
     industry_name = SUB_INDUSTRY_PAGES.get(slug)
     if not industry_name:
         raise Http404('Industry page not found')
+    
+    template_name = SUB_INDUSTRY_TEMPLATES.get(slug, 'industry_detail.html')
+    return render(request, template_name, {'name': industry_name})
+
+def custom_404(request, exception):
+    return render(request, '404.html', status=404)
 
     dedicated_template = SUB_INDUSTRY_TEMPLATES.get(slug)
     if dedicated_template:
