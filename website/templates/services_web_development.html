@@ -537,7 +537,7 @@
             </div>
 
             <div class="hidden md:block">
-                <a href="#contact"
+                <a href="{% url 'get_started' %}"
                     class="bg-[#EE3923] text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition">
                     Get Started
                 </a>
@@ -595,7 +595,7 @@
                 <a href="{% url 'blog' %}" class="block mobile-link">Blog</a>
                 <a href="{% url 'about' %}" class="block mobile-link">About</a>
 
-                <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
+                <a href="{% url 'get_started' %}" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
                     Get Started
                 </a>
             </div>
@@ -835,6 +835,7 @@
     </script>
 
     <main>
+        <div class="h-20"></div>
         <section class="relative overflow-hidden bg-[#0b0d12]">
             <div class="pointer-events-none absolute inset-0 opacity-40" aria-hidden="true">
                 <div
@@ -890,10 +891,10 @@
                         </div>
                     </div>
                     <div class="mt-8 flex flex-wrap items-center gap-3">
-                        <a href="/contact"
+                        <a href="{% url 'get_started' %}"
                             class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#EE3923,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-3 text-sm font-semibold text-white hover:bg-[#ff8a3a]">Get
                             Start Your Project →</a>
-                        <a href="#process"
+                        <a href="{% url 'case_study' %}"
                             class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-3 text-sm font-semibold text-white/90 hover:bg-white/10">See
                             View Portfolio</a>
                     </div>
@@ -1115,7 +1116,7 @@
                                 your needs.
                             </div>
                         </div>
-                        <a href="/contact"
+                        <a href="{% url 'get_started' %}"
                             class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#EE3923,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center gap-2 rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white whitespace-nowrap">Get
                             Free Consultation
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
@@ -1387,7 +1388,7 @@
                         </div>
                         <div class="mt-1 text-sm text-black/70">Get a free website audit and discover hidden issues in
                             your current site.</div>
-                        <a href="/contact"
+                        <a href="{% url 'get_started' %}"
                             class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2.5 text-sm font-semibold text-white hover:opacity-90 transition-opacity">Get
                             Free Website Audit</a>
                     </div>
@@ -1757,7 +1758,7 @@
                     <h3 class="text-lg font-semibold">Ready to build your perfect website?</h3>
                     <p class="mt-2 text-sm text-black/60">Our web development experts will bring your vision to life
                         with modern, high-performance solutions.</p>
-                    <a href="/contact"
+                    <a href="{% url 'get_started' %}"
                         class="mt-5 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white">Get
                         Free Consultation</a>
                 </div>
@@ -1955,19 +1956,17 @@
                                 class="h-3.5 w-3.5">
                                 <path
                                     d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3l-8.47-14.14a2 2 0 0 0-3.42 0z" />
-                                How long does it take to build a website?
                             </svg>
                             Don't Waste Another Day
                         </div>
                         <h3 class="mt-4 text-3xl font-bold leading-tight">Your slow, outdated website is <span
                                 class="text-[#EE3923]">costing you customers</span></h3>
                         <ul class="mt-5 space-y-2 text-sm text-white/75">
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Visitors abandon
+                            <li class="flex items-start gap-2"><span class="text-red-400">x</span> Visitors abandon
                                 your site due to slow load times</li>
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Losing mobile
+                            <li class="flex items-start gap-2"><span class="text-red-400">x</span> Losing mobile
                                 traffic with poor responsive design</li>
-                            How much does a professional website cost?
-                            <li class="flex items-start gap-2"><span class="text-red-400">✕</span> Security
+                            <li class="flex items-start gap-2"><span class="text-red-400">x</span> Security
                                 vulnerabilities putting your business at risk</li>
                         </ul>
                         <div class="mt-6 rounded-lg border border-white/10 bg-white/5 px-4 py-3">
@@ -1975,132 +1974,50 @@
                             <div class="text-xs text-white/60">of users won't return to a website after a bad
                                 experience</div>
                         </div>
-                        Do you build websites on WordPress, Shopify, or custom?
-                        <div class="rounded-2xl border border-white/15 bg-white/5 p-7 backdrop-blur-xl">
-                            <div
-                                class="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-[#EE3923] text-white">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                    stroke-linejoin="round" class="h-5 w-5">
-                                    <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
-                                </svg>
-                                Will my website be mobile-friendly and responsive?
-                                class="text-[#EE3923]">6–8 weeks</span></h3>
-                                <p class="mt-3 text-center text-sm text-white/70">Get a modern, high-performance website
-                                    that
-                                    loads fast, converts visitors, and ranks in search engines.</p>
-                                <div class="mt-5 space-y-2 text-sm text-white/80">
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Sub-2-second
-                                        load times</div>
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Mobile-first
-                                        responsive design</div>
-                                    Can you help with website content and copywriting?
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Enterprise-grade security</div>
-                                    <div class="flex items-start gap-2"><span class="text-emerald-400">●</span>
-                                        Conversion-focused UX</div>
-                                </div>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Do you handle website redesigns or only new builds?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">We do both. If your current site has
-                                        potential, we can
-                                        redesign and improve performance without rebuilding everything. If needed, we
-                                        also handle
-                                        full rebuilds from scratch.</p>
-                                </details>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Will my website be optimized for SEO from day one?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Yes. We include technical SEO fundamentals
-                                        such as clean
-                                        structure, metadata, schema basics, image optimization, internal linking, and
-                                        performance
-                                        best practices during development.</p>
-                                </details>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Do you provide ongoing maintenance and support?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Yes. We offer ongoing maintenance plans
-                                        covering updates,
-                                        backups, security monitoring, bug fixes, and performance tuning so your website
-                                        stays fast
-                                        and reliable after launch.</p>
-                                </details>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        Can you integrate third-party tools and APIs?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">Absolutely. We integrate CRMs, payment
-                                        gateways, booking
-                                        tools, analytics platforms, marketing automation software, and custom APIs based
-                                        on your
-                                        business workflow.</p>
-                                </details>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        How do you ensure website security?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">We implement SSL, secure authentication,
-                                        role-based
-                                        access, regular updates, secure coding practices, and hardening measures to
-                                        reduce
-                                        vulnerabilities and protect user data.</p>
-                                </details>
-                                <details
-                                    class="scroll-reveal opacity-0 translate-y-4 blur-[6px] transition-[opacity,transform,filter] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] [transition-delay:var(--delay,0ms)] will-change-[opacity,transform] [&.in-view]:opacity-100 [&.in-view]:translate-x-0 [&.in-view]:translate-y-0 [&.in-view]:blur-0 rounded-2xl bg-white p-4">
-                                    <summary
-                                        class="flex cursor-pointer items-center justify-between text-sm font-semibold">
-                                        What happens after the website goes live?
-                                        <span class="text-[#EE3923]">+</span>
-                                    </summary>
-                                    <p class="mt-3 text-sm text-black/60">After launch, we monitor site health, fix
-                                        post-launch
-                                        issues, provide team handover/training, and track performance metrics so your
-                                        site keeps
-                                        improving over time.</p>
-                                </details>
-                                <a href="/contact"
-                                    class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#EE3923] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90">Get
-                                    Your Free Website Audit</a>
-                                <div class="mt-3 text-center text-[11px] text-white/45">No obligation. See exactly what
-                                    needs
-                                    fixing.</div>
-                            </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/15 bg-white/5 p-7 backdrop-blur-xl">
+                        <div
+                            class="mx-auto flex h-11 w-11 items-center justify-center rounded-lg bg-[#EE3923] text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="h-5 w-5">
+                                <path d="M13 2 4 14h7l-1 8 10-14h-7z" />
+                            </svg>
+                        </div>
+                        <h3 class="mt-4 text-center text-2xl font-bold">Launch your new high-converting website in <span
+                                class="text-[#EE3923]">6-8 weeks</span></h3>
+                        <p class="mt-3 text-center text-sm text-white/70">Get a modern, high-performance website that
+                            loads fast, converts visitors, and ranks in search engines.</p>
+
+                        <div class="mt-5 space-y-2 text-sm text-white/80">
+                            <div class="flex items-start gap-2"><span class="text-emerald-400">o</span> Sub-2-second
+                                load times</div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400">o</span> Mobile-first
+                                responsive design</div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400">o</span>
+                                Enterprise-grade security</div>
+                            <div class="flex items-start gap-2"><span class="text-emerald-400">o</span>
+                                Conversion-focused UX</div>
                         </div>
 
-                        <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/60">
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>Free
-                                consultation</span>
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>No
-                                credit card required</span>
-                            <span class="inline-flex items-center gap-2"><span
-                                    class="h-2 w-2 rounded-full bg-emerald-400"></span>6–8
-                                weeks delivery</span>
-                        </div>
+                        <a href="{% url 'get_started' %}"
+                            class="mt-6 inline-flex w-full items-center justify-center rounded-full bg-[#EE3923] px-5 py-2.5 text-sm font-semibold text-white hover:opacity-90">Get
+                            Your Free Website Audit</a>
+                        <div class="mt-3 text-center text-[11px] text-white/45">No obligation. See exactly what needs
+                            fixing.</div>
                     </div>
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-white/60">
+                    <span class="inline-flex items-center gap-2"><span
+                            class="h-2 w-2 rounded-full bg-emerald-400"></span>Free consultation</span>
+                    <span class="inline-flex items-center gap-2"><span
+                            class="h-2 w-2 rounded-full bg-emerald-400"></span>No credit card required</span>
+                    <span class="inline-flex items-center gap-2"><span
+                            class="h-2 w-2 rounded-full bg-emerald-400"></span>6-8 weeks delivery</span>
+                </div>
+            </div>
         </section>
 
         <section id="process" class="bg-white">
@@ -2721,7 +2638,7 @@
             </div>
 
             <div class="mb-12 text-center">
-                <a href="/case-study"
+                <a href="{% url 'case_study' %}"
                     class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#EE3923,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                     All Case Studies →</a>
             </div>
@@ -2786,7 +2703,7 @@
                                 <span class="rounded-full bg-[#fff1ed] px-3 py-1">ERP shipping support</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2825,7 +2742,7 @@
                                 <span class="rounded-full bg-[#fff1ed] px-3 py-1">Automated billing</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2865,7 +2782,7 @@
                                     flow</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2904,7 +2821,7 @@
                                     forms</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2942,7 +2859,7 @@
                                 <span class="rounded-full bg-[#fff1ed] px-3 py-1">3D/VR walkthroughs</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2981,7 +2898,7 @@
                                 <span class="rounded-full bg-[#fff1ed] px-3 py-1">Calls-to-action</span>
                             </div>
                         </div>
-                        <a href="/case-study"
+                        <a href="{% url 'case_study' %}"
                             class="mt-4 inline-flex items-center text-xs font-semibold text-[#EE3923]">Learn more
                             →</a>
                     </div>
@@ -2990,7 +2907,7 @@
                 <div class="mt-10 text-center text-xs text-black/50">Do not see your industry? We work with 50+
                     verticals.</div>
                 <div class="mt-4 text-center">
-                    <a href="/services"
+                    <a href="{% url 'all_industries' %}"
                         class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#EE3923,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-sm font-semibold text-white hover:bg-[#ff8a3a]">View
                         All Industries →</a>
                 </div>
@@ -3097,7 +3014,7 @@
                     <div class="text-sm font-semibold">Still have questions?</div>
                     <p class="mt-2 text-xs text-black/60">Let's discuss your project goals, timeline, and the best
                         approach for your website.</p>
-                    <a href="/contact"
+                    <a href="{% url 'get_started' %}"
                         class="transition-[transform,box-shadow] duration-[220ms] ease-[cubic-bezier(0.22,1,0.36,1)] border border-[rgba(255,72,1,0.35)] bg-[linear-gradient(135deg,#EE3923,#EE3923)] hover:-translate-y-px hover:shadow-[0_14px_30px_rgba(255,72,1,0.35)] active:translate-y-0 active:shadow-[0_10px_20px_rgba(255,72,1,0.25)] mt-4 inline-flex items-center justify-center rounded-full bg-[#EE3923] px-6 py-2 text-xs font-semibold text-white hover:bg-[#ff8a3a]">Schedule
                         Free Consultation →</a>
                 </div>
@@ -3173,10 +3090,10 @@
                 </div>
 
                 <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
-                    <a href="/contact"
+                    <a href="{% url 'get_started' %}"
                         class="inline-flex items-center justify-center rounded-full bg-white px-6 py-2 text-sm font-semibold text-black hover:bg-white/90">Get
                         Your Free Consultation <span class="ml-2">→</span></a>
-                    <a href="/case-study"
+                    <a href="{% url 'case_study' %}"
                         class="inline-flex items-center justify-center rounded-full border border-white/20 px-6 py-2 text-sm font-semibold text-white hover:bg-white/10"><svg
                             xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-4 w-4">
@@ -3257,23 +3174,23 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">SERVICES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/services/ppc/"
+                    <li><a href="{% url 'service_ppc' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">PPC
                             Management</a></li>
-                    <li><a href="/services/seo/"
+                    <li><a href="{% url 'service_seo' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">SEO
                             Services</a></li>
-                    <li><a href="/services/web-development/"
+                    <li><a href="{% url 'service_web_development' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Web
                             Development</a>
                     </li>
-                    <li><a href="/services/web-development/landing-pages/"
+                    <li><a href="{% url 'service_landing_pages' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Landing
                             Pages</a></li>
-                    <li><a href="/services/aeo/"
+                    <li><a href="{% url 'service_aeo' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Answer
                             Engine Optimization</a></li>
-                    <li><a href="/services/social-media/"
+                    <li><a href="{% url 'service_social_media' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Social
                             Media Marketing</a>
                     </li>
@@ -3283,16 +3200,16 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">COMPANY</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/about/"
+                    <li><a href="{% url 'about' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">About
                             Us</a></li>
-                    <li><a href="/case_study/"
+                    <li><a href="{% url 'case_study' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Case
                             Studies</a></li>
-                    <li><a href="/about/"
+                    <li><a href="{% url 'about' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Testimonials</a>
                     </li>
-                    <li><a href="{% url 'contact' %}"
+                    <li><a href="{% url 'get_started' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Contact</a>
                     </li>
                 </ul>
@@ -3301,22 +3218,22 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">INDUSTRIES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="#"
+                    <li><a href="{% url 'real_estate' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Real
                             Estate</a></li>
-                    <li><a href="#"
+                    <li><a href="{% url 'healthcare' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Healthcare</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{% url 'home_services' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Home
                             Services</a></li>
-                    <li><a href="#"
+                    <li><a href="{% url 'automotive' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Automotive</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{% url 'legal' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Legal</a>
                     </li>
-                    <li><a href="#"
+                    <li><a href="{% url 'ecommerce' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">E-commerce</a>
                     </li>
                 </ul>
@@ -3325,13 +3242,13 @@
             <div class="space-y-3">
                 <p class="text-xs font-semibold text-white">RESOURCES</p>
                 <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/blogs"
+                    <li><a href="{% url 'blog' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Blog</a>
                     </li>
                     <li><a href="#faq"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">FAQ</a>
                     </li>
-                    <li><a href="{% url 'contact' %}"
+                    <li><a href="{% url 'get_started' %}"
                             class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Get
                             Started</a></li>
                 </ul>

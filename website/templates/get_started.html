@@ -1,4 +1,3 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,241 +5,870 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Get Started | ADRYZE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style id="adryze-global-theme">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
         :root {
-            --adryze-brand-primary: #EE3923;
-            --adryze-brand-accent: #EE3923;
-            --adryze-brand-dark: #0B0B0F;
-        }
-
-        html {
-            scroll-behavior: smooth;
+            --page-bg: #ecebf3;
+            --text-strong: #0a0a14;
+            --text-muted: #6b7280;
+            --cta-bg: #080a17;
+            --accent-line: #ee3923;
+            --success: #22c55e;
+            --card-border: #d5d7e1;
+            --strip-bg: #e4e5ea;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            color: #18181b;
-            background-color: #ffffff;
+            margin: 0;
+            background:
+                radial-gradient(1000px 500px at 50% -10%, #f6f6fb 0%, var(--page-bg) 75%),
+                var(--page-bg);
+            color: var(--text-strong);
+            font-family: 'Manrope', sans-serif;
         }
 
-        .text-orange-400,
-        .text-orange-500,
-        .text-orange-600 {
-            color: #EE3923 !important;
-        }
-
-        .text-orange-700,
-        .text-orange-800 {
-            color: #b12a1b !important;
-        }
-
-        .bg-orange-50 {
-            background-color: #fff3ef !important;
-        }
-
-        .bg-orange-100 {
-            background-color: #ffe6df !important;
-        }
-
-        .bg-orange-200 {
-            background-color: #ffd1c4 !important;
-        }
-
-        .bg-orange-500,
-        .bg-orange-600 {
-            background-color: #EE3923 !important;
-        }
-
-        .border-orange-100 {
-            border-color: #ffd8cd !important;
-        }
-
-        .border-orange-600 {
-            border-color: #EE3923 !important;
-        }
-
-        .hover\:bg-orange-200:hover {
-            background-color: #ffd1c4 !important;
-        }
-
-        .hover\:bg-orange-700:hover {
-            background-color: #cf301d !important;
-        }
-
-        .hover\:text-orange-600:hover {
-            color: #EE3923 !important;
-        }
-
-        .focus\:ring-orange-400:focus {
-            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        .hero-title {
+            font-family: 'Sora', sans-serif;
         }
     </style>
 </head>
 
 <body>
-    <main style="max-width: 800px; margin: 4rem auto; font-family: 'Inter', sans-serif; padding: 0 1rem;">
-        <h1>Get Started</h1>
-        <p>You can use this page to start your onboarding or strategy session.</p>
-        <p><a href="/contact/">Go to Contact</a></p>
-        <p><a href="/">Back to Home</a></p>
-    </main>
-    <footer class="bg-[#0B0B0F] text-white py-16 px-6 md:px-16">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
-            <div class="md:col-span-2 space-y-5">
-                <div class="text-2xl font-black tracking-tight">Adryze</div>
-                <p class="text-sm text-zinc-400 leading-relaxed max-w-sm">
-                    Premium digital marketing agency for ambitious businesses. We deliver data-driven growth
-                    strategies that generate measurable results.
+    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="{% url 'home' %}" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
+                AD<span class="text-[#EE3923]">RYZE</span>
+            </a>
+
+            <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
+                <div class="relative group/nav">
+                    <button
+                        class="nav-link flex items-center gap-1.5 font-semibold text-gray-900 hover:text-[#EE3923] transition-all duration-200">
+                        <span class="relative">Services
+                            <span
+                                class="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#EE3923] transition-all duration-200 group-hover/nav:w-full opacity-0 group-hover/nav:opacity-100"></span>
+                        </span>
+                        <svg class="w-4 h-4 transition-transform duration-200 group-hover/nav:rotate-180" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
+                            </path>
+                        </svg>
+                    </button>
+
+                    <div
+                        class="absolute top-full left-0 w-[860px] max-w-[860px] transition-all duration-300 ease-out opacity-0 invisible -translate-y-1 scale-[0.98] pointer-events-none group-hover/nav:opacity-100 group-hover/nav:visible group-hover/nav:translate-y-0 group-hover/nav:scale-100 group-hover/nav:pointer-events-auto z-50">
+                        <div class="h-4"></div>
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200 overflow-hidden">
+                            <div class="flex flex-col lg:flex-row">
+                                <div
+                                    class="lg:w-2/5 bg-gradient-to-br from-black via-zinc-900 to-black p-4 lg:p-5 relative overflow-hidden">
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-[#EE3923]/30 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#EE3923]/20 via-transparent to-transparent">
+                                    </div>
+                                    <div
+                                        class="absolute top-0 right-0 w-72 h-72 bg-[#EE3923]/20 rounded-full blur-[120px]">
+                                    </div>
+                                    <div
+                                        class="absolute bottom-0 left-0 w-64 h-64 bg-[#EE3923]/10 rounded-full blur-[100px]">
+                                    </div>
+                                    <div
+                                        class="absolute inset-0 bg-gradient-to-b from-transparent via-[#EE3923]/5 to-transparent">
+                                    </div>
+
+                                    <div class="relative z-10 flex flex-col h-full justify-center">
+                                        <div
+                                            class="inline-flex items-center gap-2 px-3 py-1.5 bg-[#EE3923]/20 border border-[#EE3923]/40 rounded-full text-orange-100 text-xs font-bold mb-4 backdrop-blur-sm self-start">
+                                            <span class="relative flex h-2 w-2">
+                                                <span
+                                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#EE3923] opacity-75"></span>
+                                                <span
+                                                    class="relative inline-flex rounded-full h-2 w-2 bg-[#EE3923]"></span>
+                                            </span>
+                                            Limited Spots Available
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-white mb-3 leading-tight">Ready to
+                                            grow<br>your business?</h3>
+                                        <p class="text-gray-300 text-base mb-6 leading-relaxed">Get a free strategy
+                                            session and see how we can 10X your results.</p>
+                                        <a class="inline-flex items-center gap-2 px-4 py-2.5 bg-[#EE3923] hover:bg-[#d7331e] text-white font-semibold text-sm rounded-lg transition-all group/link shadow-lg hover:shadow-xl hover:scale-105 self-start"
+                                            href="{% url 'get_started' %}?cta=Get+Started+Free">Get Started Free
+                                            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                        <p class="text-gray-400 text-xs mt-4">No credit card required • Free
+                                            consultation</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex-1 p-6 lg:p-8 bg-gradient-to-br from-gray-50 to-white">
+                                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_ppc' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25V4.5m5.834.166l-1.591 1.591M20.25 10.5H18M7.757 14.743l-1.59 1.59M6 10.5H3.75m4.007-4.243l-1.59-1.59">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        PPC Management
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Turn
+                                                        ad spend into predictable revenue</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_seo' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        SEO Services
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        Dominate search rankings organically</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_web_development' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Web Development
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting websites that perform</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_landing_pages' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Landing Pages
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">
+                                                        High-converting pages that turn clicks into customers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_aeo' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Answer Engine Optimization
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Get
+                                                        featured in AI answers</p>
+                                                </div>
+                                            </div>
+                                        </a>
+
+                                        <a class="group/service p-4 rounded-xl hover:bg-white hover:shadow-lg border border-transparent hover:border-gray-200 transition-all duration-200"
+                                            href="{% url 'service_social_media' %}">
+                                            <div class="flex items-start gap-3">
+                                                <div
+                                                    class="w-10 h-10 rounded-lg bg-gray-100 group-hover/service:bg-orange-100 flex items-center justify-center text-gray-600 group-hover/service:text-[#EE3923] transition-colors flex-shrink-0">
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor"
+                                                        viewBox="0 0 24 24" stroke-width="1.5">
+                                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                                            d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="flex-1 min-w-0">
+                                                    <h4
+                                                        class="font-semibold text-sm text-gray-900 mb-1 group-hover/service:text-[#EE3923] transition-colors">
+                                                        Social Media Marketing
+                                                    </h4>
+                                                    <p class="text-xs text-gray-500 leading-relaxed line-clamp-2">Build
+                                                        engaged communities</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+
+                                    <div class="mt-6 pt-6 border-t border-gray-200">
+                                        <a class="inline-flex items-center gap-2 text-sm font-semibold text-[#EE3923] hover:text-[#d7331e] group/all transition-colors"
+                                            href="{% url 'services' %}">
+                                            View all services
+                                            <svg class="w-4 h-4 group-hover/all:translate-x-1 transition-transform"
+                                                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                                stroke-width="2.5">
+                                                <path stroke-linecap="round" stroke-linejoin="round"
+                                                    d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="industriesNavItem" class="relative group/industry">
+                    <button class="nav-link flex items-center gap-1 py-4">
+                        Industries
+                        <svg class="w-4 h-4 mt-0.5 transition-transform group-hover/industry:rotate-180" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="industries-hover-bridge" aria-hidden="true"></div>
+                    <div class="industries-mega z-50">
+                        <div class="bg-white rounded-2xl shadow-2xl border border-gray-200/90 overflow-hidden">
+                            <div class="p-6 pb-4 border-b border-gray-200/80">
+                                <div class="flex items-start gap-4">
+                                    <span class="inline-block w-1 h-7 rounded-full bg-[#EE3923]"></span>
+                                    <div>
+                                        <h3 class="text-base font-bold tracking-tight text-gray-900">Industries We
+                                            Serve</h3>
+                                        <p class="text-gray-500 text-xs mt-1">Specialized strategies for <span
+                                                class="text-[#EE3923] font-semibold">8+ industries</span></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="p-6">
+                                <div class="grid grid-cols-4 gap-x-7 gap-y-6">
+                                    <div class="industry-card">
+                                        <a href="{% url 'healthcare' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path
+                                                        d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.7A4 4 0 0 1 19 11c0 5.65-7 10-7 10z" />
+                                                </svg></span><span>Healthcare</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'dentists' %}"
+                                                class="industry-link">Dentists</a>
+                                            <a href="{% url 'industry_detail' 'chiropractors' %}"
+                                                class="industry-link">Chiropractors</a>
+                                            <a href="{% url 'industry_detail' 'med-spas' %}" class="industry-link">Med
+                                                Spas</a>
+                                            <a href="{% url 'industry_detail' 'plastic-surgeons' %}"
+                                                class="industry-link">Plastic Surgeons</a>
+                                        </div>
+                                    </div>
+                                    <div class="industry-card">
+                                        <a href="{% url 'real_estate' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 11 12 4l9 7" />
+                                                    <path d="M5 10v10h14V10" />
+                                                    <path d="M10 20v-6h4v6" />
+                                                </svg></span><span>Real
+                                                Estate</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'real-estate-agents' %}"
+                                                class="industry-link">Real Estate
+                                                Agents</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-investors' %}"
+                                                class="industry-link">Real Estate
+                                                Investors</a>
+                                            <a href="{% url 'industry_detail' 'real-estate-brokers' %}"
+                                                class="industry-link">Real Estate
+                                                Brokers</a>
+                                            <a href="{% url 'industry_detail' 'property-management' %}"
+                                                class="industry-link">Property
+                                                Management</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'home_services' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="3" />
+                                                    <path
+                                                        d="M19.4 15a1 1 0 0 0 .2 1.1l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1 1 0 0 0-1.1-.2 1 1 0 0 0-.6.9V20a2 2 0 1 1-4 0v-.2a1 1 0 0 0-.6-.9 1 1 0 0 0-1.1.2l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1 1 0 0 0 .2-1.1 1 1 0 0 0-.9-.6H4a2 2 0 1 1 0-4h.2a1 1 0 0 0 .9-.6 1 1 0 0 0-.2-1.1l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1 1 0 0 0 1.1.2 1 1 0 0 0 .6-.9V4a2 2 0 1 1 4 0v.2a1 1 0 0 0 .6.9 1 1 0 0 0 1.1-.2l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1 1 0 0 0-.2 1.1 1 1 0 0 0 .9.6H20a2 2 0 1 1 0 4h-.2a1 1 0 0 0-.9.6z" />
+                                                </svg></span><span>Home
+                                                Services</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'hvac-companies' %}"
+                                                class="industry-link">HVAC Companies</a>
+                                            <a href="{% url 'industry_detail' 'plumbers' %}"
+                                                class="industry-link">Plumbers</a>
+                                            <a href="{% url 'industry_detail' 'electricians' %}"
+                                                class="industry-link">Electricians</a>
+                                            <a href="{% url 'industry_detail' 'roofing-companies' %}"
+                                                class="industry-link">Roofing
+                                                Companies</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'automotive' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M3 14h18" />
+                                                    <path d="M5 14 7 9h10l2 5" />
+                                                    <circle cx="7" cy="17" r="2" />
+                                                    <circle cx="17" cy="17" r="2" />
+                                                </svg></span><span>Automotive</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'car-detailers' %}"
+                                                class="industry-link">Car Detailers</a>
+                                            <a href="{% url 'industry_detail' 'auto-repair-shops' %}"
+                                                class="industry-link">Auto Repair Shops</a>
+                                            <a href="{% url 'industry_detail' 'car-dealerships' %}"
+                                                class="industry-link">Car Dealerships</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'legal' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M12 3v18" />
+                                                    <path d="M5 7h14" />
+                                                    <path d="M7 7v2a3 3 0 1 0 6 0V7" />
+                                                    <path d="M11 7v2a3 3 0 1 0 6 0V7" />
+                                                </svg></span><span>Legal</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'personal-injury-lawyers' %}"
+                                                class="industry-link">Personal Injury
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'family-law-attorneys' %}"
+                                                class="industry-link">Family Law Attorneys</a>
+                                            <a href="{% url 'industry_detail' 'criminal-defense-lawyers' %}"
+                                                class="industry-link">Criminal Defense
+                                                Lawyers</a>
+                                            <a href="{% url 'industry_detail' 'estate-planning-attorneys' %}"
+                                                class="industry-link">Estate Planning
+                                                Attorneys</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'ecommerce' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="9" cy="20" r="1.8" />
+                                                    <circle cx="17" cy="20" r="1.8" />
+                                                    <path
+                                                        d="M3 4h2l2.3 10.2a2 2 0 0 0 2 1.6h8.9a2 2 0 0 0 2-1.6L22 7H7" />
+                                                </svg></span><span>E-commerce</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'fashion-apparel' %}"
+                                                class="industry-link">Fashion &amp;
+                                                Apparel</a>
+                                            <a href="{% url 'industry_detail' 'beauty-cosmetics' %}"
+                                                class="industry-link">Beauty &amp;
+                                                Cosmetics</a>
+                                            <a href="{% url 'industry_detail' 'health-supplements' %}"
+                                                class="industry-link">Health &amp;
+                                                Supplements</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'finance' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <circle cx="12" cy="12" r="8" />
+                                                    <path d="M12 8v8" />
+                                                    <path
+                                                        d="M9.5 10.5c0-1 1.1-1.8 2.5-1.8s2.5.8 2.5 1.8-1.1 1.8-2.5 1.8-2.5.8-2.5 1.8 1.1 1.8 2.5 1.8 2.5-.8 2.5-1.8" />
+                                                </svg></span><span>Finance</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'financial-advisors' %}"
+                                                class="industry-link">Financial Advisors</a>
+                                            <a href="{% url 'industry_detail' 'wealth-management' %}"
+                                                class="industry-link">Wealth Management</a>
+                                            <a href="{% url 'industry_detail' 'accounting-firms' %}"
+                                                class="industry-link">Accounting Firms</a>
+                                        </div>
+                                    </div>
+
+                                    <div class="industry-card">
+                                        <a href="{% url 'construction' %}" class="industry-head"><span
+                                                class="industry-icon"><svg class="industry-svg" viewBox="0 0 24 24"
+                                                    fill="none" stroke="currentColor" stroke-width="1.9">
+                                                    <path d="M4 20h16" />
+                                                    <path d="M6 20V8h12v12" />
+                                                    <path d="M9 8V5h6v3" />
+                                                    <path d="M9 12h2M13 12h2M9 15h2M13 15h2" />
+                                                </svg></span><span>Construction</span></a>
+                                        <div class="industry-links">
+                                            <a href="{% url 'industry_detail' 'home-remodelers' %}"
+                                                class="industry-link">Home Remodelers</a>
+                                            <a href="{% url 'industry_detail' 'custom-home-builders' %}"
+                                                class="industry-link">Custom Home
+                                                Builders</a>
+                                            <a href="{% url 'industry_detail' 'commercial-contractors' %}"
+                                                class="industry-link">Commercial
+                                                Contractors</a>
+                                            <a href="{% url 'industry_detail' 'pool-builders' %}"
+                                                class="industry-link">Pool Builders</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div
+                                class="flex items-center justify-between px-6 py-4 border-t border-gray-200/80 bg-gray-50/70">
+                                <p class="text-xs text-gray-500">Don't see your industry? <span
+                                        class="font-semibold text-gray-900">We work with all business types</span></p>
+                                <a href="{% url 'all_industries' %}"
+                                    class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black text-white text-xs font-semibold hover:bg-[#EE3923] transition-colors">View
+                                    All Industries <span>→</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'case_study' %}" class="nav-link">Case Studies</a>
+
+                <a href="{% url 'blog' %}" class="nav-link">Blog</a>
+
+                <a href="{% url 'about' %}" class="nav-link">About</a>
+            </div>
+
+            <div class="hidden md:block">
+                <a href="#contact"
+                    class="bg-[#EE3923] text-white px-5 py-2 rounded-lg font-bold hover:bg-opacity-90 transition">
+                    Get Started
+                </a>
+            </div>
+
+            <button id="menuBtn" class="md:hidden p-2" aria-controls="mobileMenu" aria-expanded="false"
+                aria-label="Toggle navigation menu">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobileMenu"
+            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300"
+            aria-hidden="true">
+            <div class="px-6 py-4 space-y-4 font-bold">
+                <div>
+                    <button onclick="toggleMobileMenu('mobileServicesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Services <span data-toggle-icon>+</span>
+                    </button>
+                    <div id="mobileServicesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'service_ppc' %}" class="block text-gray-600">PPC Management</a>
+                        <a href="{% url 'service_seo' %}" class="block text-gray-600">SEO Services</a>
+                        <a href="{% url 'service_web_development' %}" class="block text-gray-600">Web Development</a>
+                        <a href="{% url 'service_landing_pages' %}" class="block text-gray-600">Landing
+                            Pages</a>
+                        <a href="{% url 'service_aeo' %}" class="block text-gray-600">Answer Engine Optimization</a>
+                        <a href="{% url 'service_social_media' %}" class="block text-gray-600">Social Media
+                            Marketing</a>
+                        <a href="{% url 'services' %}" class="block text-gray-600">View all services</a>
+                    </div>
+                </div>
+
+                <div>
+                    <button onclick="toggleMobileMenu('mobileIndustriesMenu', this)"
+                        class="flex justify-between w-full mobile-link" aria-expanded="false">
+                        Industries <span data-toggle-icon>+</span>
+                    </button>
+                    <div id="mobileIndustriesMenu" class="hidden pl-4 mt-2 space-y-2">
+                        <a href="{% url 'real_estate' %}" class="block text-gray-600">Real Estate</a>
+                        <a href="{% url 'healthcare' %}" class="block text-gray-600">Healthcare</a>
+                        <a href="{% url 'home_services' %}" class="block text-gray-600">Home Services</a>
+                        <a href="{% url 'automotive' %}" class="block text-gray-600">Automotive</a>
+                        <a href="{% url 'legal' %}" class="block text-gray-600">Legal</a>
+                        <a href="{% url 'ecommerce' %}" class="block text-gray-600">E-commerce</a>
+                        <a href="{% url 'finance' %}" class="block text-gray-600">Finance</a>
+                        <a href="{% url 'construction' %}" class="block text-gray-600">Construction</a>
+                        <a href="{% url 'all_industries' %}" class="block text-gray-600">View all industries</a>
+                    </div>
+                </div>
+
+                <a href="{% url 'case_study' %}" class="block mobile-link">Case Studies</a>
+                <a href="{% url 'blog' %}" class="block mobile-link">Blog</a>
+                <a href="{% url 'about' %}" class="block mobile-link">About</a>
+
+                <a href="#contact" class="block bg-[#EE3923] text-white text-center py-2 rounded-lg">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Styles -->
+    <style>
+        .nav-link {
+            position: relative;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s;
+        }
+
+        .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 2px;
+            width: 0;
+            background: #EE3923;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::before {
+            width: 2.5rem;
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+        }
+
+        .dropdown-link:hover {
+            background: #fff7ed;
+            color: #EE3923;
+        }
+
+        .mobile-link {
+            padding: 0.5rem 0;
+        }
+
+        .industry-card {
+            transition: transform 0.2s ease;
+        }
+
+        .industry-card:hover {
+            transform: translateY(-1px);
+        }
+
+        .industry-head {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: #111827;
+            margin-bottom: 0.55rem;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .industry-icon {
+            width: 2.2rem;
+            height: 2.2rem;
+            border-radius: 0.7rem;
+            background: #f3f4f6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #6b7280;
+            transition: all 0.2s ease;
+        }
+
+        .industry-svg {
+            width: 1.05rem;
+            height: 1.05rem;
+        }
+
+        .industry-card:hover .industry-icon {
+            background: #fff1ed;
+            color: #EE3923;
+        }
+
+        .industry-card:hover .industry-head {
+            color: #EE3923;
+        }
+
+        .industry-links {
+            margin-left: 0.9rem;
+            padding-left: 0.85rem;
+            border-left: 1px solid #e5e7eb;
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .industry-link {
+            color: #4b5563;
+            font-size: 0.7rem;
+            line-height: 1.35;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .industry-link:hover {
+            color: #EE3923;
+            transform: translateX(3px);
+        }
+
+        .industries-mega {
+            position: fixed;
+            top: 74px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            transform: translateX(-50%) translateY(6px) scale(0.985);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0s linear 0.2s;
+        }
+
+        .industries-hover-bridge {
+            position: fixed;
+            top: 56px;
+            left: 50%;
+            width: min(calc(100vw - 90px), 1180px);
+            height: 28px;
+            transform: translateX(-50%);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .group\/industry:hover .industries-mega,
+        .group\/industry.industry-open .industries-mega,
+        .industries-mega:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0) scale(1);
+            transition-delay: 0s;
+        }
+
+        .group\/industry:hover .industries-hover-bridge,
+        .group\/industry.industry-open .industries-hover-bridge,
+        .industries-hover-bridge:hover {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+
+    <!-- JS -->
+    <script>
+
+        const menuBtn = document.getElementById("menuBtn");
+        const mobileMenu = document.getElementById("mobileMenu");
+
+        if (menuBtn && mobileMenu) {
+            const setMobileMenuState = (open) => {
+                mobileMenu.style.maxHeight = open
+                    ? `${Math.min(mobileMenu.scrollHeight, window.innerHeight - 88)}px`
+                    : "0px";
+                mobileMenu.classList.toggle("overflow-y-auto", open);
+                mobileMenu.classList.toggle("overflow-hidden", !open);
+                menuBtn.setAttribute("aria-expanded", String(open));
+                mobileMenu.setAttribute("aria-hidden", String(!open));
+                document.body.classList.toggle("overflow-hidden", open);
+            };
+
+            const closeMobileMenu = () => setMobileMenuState(false);
+
+            menuBtn.addEventListener("click", () => {
+                const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+                setMobileMenuState(!isOpen);
+            });
+
+            window.addEventListener("resize", () => {
+                if (window.innerWidth >= 768) {
+                    closeMobileMenu();
+                    return;
+                }
+
+                if (menuBtn.getAttribute("aria-expanded") === "true") {
+                    setMobileMenuState(true);
+                }
+            });
+
+            mobileMenu.querySelectorAll("a").forEach((link) => {
+                link.addEventListener("click", closeMobileMenu);
+            });
+        }
+
+        // Helper for mobile sub-menus
+        function toggleMobileMenu(id, trigger) {
+            const menu = document.getElementById(id);
+            if (!menu) return;
+
+            menu.classList.toggle("hidden");
+
+            if (trigger) {
+                const isExpanded = !menu.classList.contains("hidden");
+                trigger.setAttribute("aria-expanded", String(isExpanded));
+                const icon = trigger.querySelector("[data-toggle-icon]");
+                if (icon) {
+                    icon.textContent = isExpanded ? "−" : "+";
+                }
+            }
+        }
+
+        const learnBtn = document.getElementById("learnBtn");
+        const learnMenu = document.getElementById("learnMenu");
+
+        if (learnBtn && learnMenu) {
+            learnBtn.addEventListener("click", () => {
+                learnMenu.classList.toggle("opacity-0");
+                learnMenu.classList.toggle("invisible");
+            });
+        }
+
+        const industriesNavItem = document.getElementById("industriesNavItem");
+        if (industriesNavItem) {
+            let industriesCloseTimer;
+            industriesNavItem.addEventListener("mouseenter", () => {
+                clearTimeout(industriesCloseTimer);
+                industriesNavItem.classList.add("industry-open");
+            });
+            industriesNavItem.addEventListener("mouseleave", () => {
+                industriesCloseTimer = setTimeout(() => {
+                    industriesNavItem.classList.remove("industry-open");
+                }, 220);
+            });
+        }
+    </script>
+    <div class="h-20"></div>
+    <main class="min-h-screen flex flex-col justify-between">
+        <section class="px-4 pt-10 pb-10 sm:pt-14">
+            <div class="mx-auto max-w-5xl text-center">
+                <div
+                    class="inline-flex items-center gap-3 rounded-full border border-[var(--card-border)] bg-white/80 px-3 py-1 shadow-sm">
+                    <span class="inline-flex h-3 w-3 rounded-full bg-[var(--success)]"></span>
+                    <p class="text-xs font-semibold text-slate-700 sm:text-sm md:text-xs">
+                        Only 5 spots left this month
+                    </p>
+                </div>
+
+                <h1
+                    class="hero-title mt-10 text-lg font-bold leading-[1.08] tracking-[-0.03em] text-[var(--text-strong)] sm:text-[2.6rem] md:text-5xl">
+                    Your competitors are<br>
+                    <span class="relative inline-block">
+                        stealing your customers
+                        <span class="absolute inset-x-0 bottom-[0.1em] h-[0.17em] bg-[var(--accent-line)] -z-10"></span>
+                    </span>
+                </h1>
+
+                <p class="mx-auto mt-6 max-w-3xl text-[0.95rem] leading-relaxed text-[var(--text-muted)] sm:text-lg"
+                    style="line-height: 1.45;">
+                    Get a <span class="font-extrabold text-[var(--text-strong)]">free Growth Map</span>
+                    showing exactly how to outrank <br> them and capture more leads.
+                    Worth <span class="font-semibold text-[var(--text-strong)]">$1,000</span> and yours <br> free.
                 </p>
-                <div class="flex flex-wrap gap-2">
+
+                <a href="{% url 'contact' %}"
+                    class="mt-9 inline-flex items-center justify-center gap-2 rounded-[0.9rem] bg-[var(--cta-bg)] px-4 py-2 text-[0.85rem] font-bold text-white shadow-[0_20px_35px_-22px_rgba(0,0,0,0.6)] transition hover:-translate-y-0.5 hover:bg-black focus:outline-none focus:ring-4 focus:ring-black/20 sm:min-w-[280px] sm:text-[0.98rem] sm:py-4">
+                    Claim My Free Growth Map
+                    <span aria-hidden="true">&rarr;</span>
+                </a>
+
+                <!-- <div class="mx-auto mt-10 flex w-fit flex-col items-center gap-4 text-left sm:flex-row sm:gap-6">
+                    <div class="flex -space-x-2">
+                        <span
+                            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ecebf3] bg-[#d7dbe3] text-sm font-bold text-slate-600">JD</span>
+                        <span
+                            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ecebf3] bg-[#d7dbe3] text-sm font-bold text-slate-600">MK</span>
+                        <span
+                            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ecebf3] bg-[#d7dbe3] text-sm font-bold text-slate-600">AS</span>
+                        <span
+                            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ecebf3] bg-[#d7dbe3] text-sm font-bold text-slate-600">PR</span>
+                        <span
+                            class="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[#ecebf3] bg-[#d7dbe3] text-sm font-bold text-slate-600">LM</span>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400" aria-label="5 star rating">
+                            <span>&#9733;</span>
+                            <span>&#9733;</span>
+                            <span>&#9733;</span>
+                            <span>&#9733;</span>
+                            <span>&#9733;</span>
+                        </div>
+                        <p class="mt-1 text-sm text-[var(--text-muted)] sm:text-[1.02rem]">Trusted by 500+ businesses
+                        </p>
+                    </div>
+                </div> -->
+            </div>
+        </section>
+
+        <section class="border-t border-slate-300/70 bg-[var(--strip-bg)]">
+            <div
+                class="mx-auto flex max-w-xl flex-wrap items-center justify-center gap-x-10 gap-y-4 px-4 py-5 text-[0.55rem] text-slate-600 sm:text-[0.85rem] sm:py-8 sm:gap-x-14">
+                <div class="flex items-center gap-2.5">
                     <span
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
-                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2.5" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Google
-                        Partner</span>
+                        class="inline-flex h-3 w-3 items-center justify-center rounded-full bg-[var(--success)] text-white text-xs">&#10003;</span>
+                    100% Free
+                </div>
+                <div class="flex items-center gap-2.5">
                     <span
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
-                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2.5" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Meta
-                        Partner</span>
+                        class="inline-flex h-3 w-3 items-center justify-center rounded-full bg-[var(--success)] text-white text-xs">&#10003;</span>
+                    No Obligation
                 </div>
-                <div class="flex gap-2">
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 6.5V18H12v-8.5H9.5zM10.75 6.25a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM18 12.25c0-2.2-1.2-3.25-2.8-3.25-1.3 0-1.9.7-2.2 1.2V9.5H10.5V18H13v-4.5c0-1.2.2-2.3 1.6-2.3s1.4 1.3 1.4 2.4V18H18v-5.75z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M13 3H9a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6V9a6 6 0 0 0-6-6zm-1 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.5-9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
-                        </svg>
-                    </a>
+                <div class="flex items-center gap-2.5">
+                    <span
+                        class="inline-flex h-3 w-3 items-center justify-center rounded-full bg-[var(--success)] text-white text-xs">&#10003;</span>
+                    30-Min Call
                 </div>
             </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">SERVICES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/services/ppc/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">PPC
-                            Management</a></li>
-                    <li><a href="/services/seo/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">SEO
-                            Services</a></li>
-                    <li><a href="/services/web-development/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Web
-                            Development</a>
-                    </li>
-                    <li><a href="/services/web-development/landing-pages/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Landing
-                            Pages</a></li>
-                    <li><a href="/services/aeo/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Answer
-                            Engine Optimization</a></li>
-                    <li><a href="/services/social-media/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Social
-                            Media Marketing</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">COMPANY</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/about/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">About
-                            Us</a></li>
-                    <li><a href="/case_study/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Case
-                            Studies</a></li>
-                    <li><a href="/about/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Testimonials</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Contact</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">INDUSTRIES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Real
-                            Estate</a></li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Healthcare</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Home
-                            Services</a></li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Automotive</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Legal</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">E-commerce</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">RESOURCES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/blogs"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Blog</a>
-                    </li>
-                    <li><a href="#faq"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">FAQ</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Get
-                            Started</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-zinc-500">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                    <p>&copy; 2026 Adryze LLC. All rights reserved.</p>
-                    <!-- <p class="flex items-center gap-1.5">
-                        <svg class="w-3.5 h-3.5 text-[#EE3923]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 21s7-4.35 7-10a7 7 0 10-14 0c0 5.65 7 10 7 10z" />
-                            <circle cx="12" cy="11" r="2.5" />
-                        </svg>
-                        Based in United States
-                    </p> -->
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+        </section>
+    </main>
 </body>
 
 </html>
