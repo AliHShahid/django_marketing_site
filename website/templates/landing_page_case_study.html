@@ -5,9 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beauty Brand Growth | Paid Acquisition | ADRYZE</title>
+    <title>Landing Page + Web Development Case Study | ADRYZE</title>
     <meta name="description"
-        content="See how Adryze scaled a beauty brand with paid acquisition strategy, creative testing, and tighter conversion tracking.">
+        content="See how Adryze improved lead quality and conversion rate with a landing page and web development performance overhaul.">
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
     <link rel="stylesheet" href="{% static 'css/typography.css' %}">
@@ -26,24 +26,18 @@
             color: white;
         }
 
-        @keyframes morph {
+        @keyframes flow {
+            0% {
+                transform: translateX(-100%);
+            }
 
-            0%,
             100% {
-                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-            }
-
-            34% {
-                border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-            }
-
-            67% {
-                border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+                transform: translateX(100%);
             }
         }
 
-        .animate-morph {
-            animation: morph 12s ease-in-out infinite;
+        .animate-flow {
+            animation: flow 3s linear infinite;
         }
 
         .reveal {
@@ -131,219 +125,260 @@
 <body class="bg-white text-zinc-900 antialiased overflow-x-hidden">
 
         {% include 'partials/site_nav.html' %}
-
-    <section class="bg-white pt-24 pb-32 relative">
-        <div
-            class="absolute top-40 right-0 w-[600px] h-[600px] bg-pink-500/5 rounded-full blur-[120px] -z-10 animate-pulse">
-        </div>
-
-        <div class="max-w-[1600px] mx-auto px-6 md:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div class="space-y-8">
-                    <div
-                        class="inline-flex items-center gap-3 bg-zinc-100 px-4 py-1.5 rounded-full border border-zinc-200">
-                        <span class="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-500">Industry â€” Beauty
-                            & Wellness</span>
-                    </div>
-                    <h1
-                        class="text-6xl md:text-8xl lg:text-[10rem] font-[1000] tracking-tighter text-zinc-900 leading-[0.85] uppercase">
-                        Glow <br /> <span class="text-[#EE3923]">Acquisition.</span>
+    <section class="relative overflow-hidden bg-white pt-44 pb-20">
+        <div class="absolute -top-10 right-0 h-[420px] w-[420px] rounded-full bg-[#EE3923]/10 blur-[110px]"
+            aria-hidden="true"></div>
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid gap-12 lg:grid-cols-[1.25fr_0.75fr] lg:items-end">
+                <div class="space-y-6 reveal">
+                    <span
+                        class="inline-flex items-center rounded-full border border-zinc-200 bg-zinc-50 px-4 py-2 text-[11px] font-black uppercase tracking-[0.28em] text-zinc-600">
+                        Case Study - Landing Page + Web Development
+                    </span>
+                    <h1 class="text-4xl font-[1000] leading-tight tracking-tighter text-zinc-900 md:text-6xl">
+                        Rebuilding a B2B Funnel with
+                        <span class="text-[#EE3923]">React, TypeScript, Tailwind, and Django</span>
                     </h1>
-                    <p class="text-xl md:text-2xl font-medium text-zinc-400 max-w-lg leading-snug uppercase">
-                        Scaling a luxury beauty brand to new heights via <span
-                            class="text-zinc-900 border-b-4 border-[#EE3923]">Meta & Google Ads</span> dominance.
+                    <p class="max-w-3xl text-base leading-relaxed text-zinc-600 md:text-lg">
+                        A services brand had strong traffic but weak conversion performance. We redesigned the landing
+                        architecture, modernized frontend delivery with React and TypeScript, connected APIs to Django,
+                        and shipped a performance-focused design system in Tailwind CSS. Result: faster pages,
+                        stronger trust signals, and a pipeline-ready conversion lift.
                     </p>
+                    <div class="flex flex-wrap gap-3 text-sm font-semibold text-zinc-700">
+                        <span class="rounded-full bg-[#fff1ed] px-3 py-1">Stack: React + TypeScript</span>
+                        <span class="rounded-full bg-[#fff1ed] px-3 py-1">Tailwind UI System</span>
+                        <span class="rounded-full bg-[#fff1ed] px-3 py-1">Django Backend</span>
+                        <span class="rounded-full bg-[#fff1ed] px-3 py-1">12-Week Delivery</span>
+                    </div>
                 </div>
 
-                <div class="relative flex justify-center">
-                    <div
-                        class="w-72 h-72 md:w-96 md:h-96 rounded-full bg-gradient-to-tr from-[#EE3923] to-pink-500 animate-morph shadow-[0_0_100px_rgba(255,72,1,0.2)]">
+                <aside class="reveal rounded-3xl border border-zinc-200 bg-zinc-950 p-8 text-white">
+                    <p class="text-xs font-black uppercase tracking-[0.24em] text-zinc-500">Executive Snapshot</p>
+                    <div class="mt-6 grid gap-5 sm:grid-cols-2">
+                        <div>
+                            <p class="text-3xl font-[1000] text-[#EE3923]">+173%</p>
+                            <p class="text-xs uppercase tracking-wider text-zinc-400">Qualified Leads</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-[1000]">-41%</p>
+                            <p class="text-xs uppercase tracking-wider text-zinc-400">Cost Per Lead</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-[1000]">+92%</p>
+                            <p class="text-xs uppercase tracking-wider text-zinc-400">Landing CVR</p>
+                        </div>
+                        <div>
+                            <p class="text-3xl font-[1000]">1.9s</p>
+                            <p class="text-xs uppercase tracking-wider text-zinc-400">LCP (Mobile)</p>
+                        </div>
                     </div>
-                    <div class="absolute inset-0 flex flex-col items-center justify-center">
-                        <span class="text-7xl md:text-9xl font-[1000] text-white tracking-tighter italic">SCALED</span>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-zinc-50 py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+                <article class="reveal rounded-2xl border border-zinc-200 bg-white p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Project Type</p>
+                    <p class="mt-3 text-2xl font-[1000] tracking-tight text-zinc-900">Funnel + Platform Rebuild</p>
+                    <p class="mt-2 text-sm text-zinc-600">From disconnected pages to one coherent conversion journey.
+                    </p>
+                </article>
+                <article class="reveal rounded-2xl border border-zinc-200 bg-white p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Primary Goal</p>
+                    <p class="mt-3 text-2xl font-[1000] tracking-tight text-zinc-900">Increase SQL Volume</p>
+                    <p class="mt-2 text-sm text-zinc-600">More sales-qualified leads without increasing total ad budget.
+                    </p>
+                </article>
+                <article class="reveal rounded-2xl border border-zinc-200 bg-white p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Tech Stack</p>
+                    <p class="mt-3 text-2xl font-[1000] tracking-tight text-zinc-900">React + TS + Django</p>
+                    <p class="mt-2 text-sm text-zinc-600">Componentized frontend with typed API contracts and robust
+                        backend forms.</p>
+                </article>
+                <article class="reveal rounded-2xl border border-zinc-200 bg-white p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.22em] text-zinc-500">Delivery Window</p>
+                    <p class="mt-3 text-2xl font-[1000] tracking-tight text-zinc-900">12 Weeks</p>
+                    <p class="mt-2 text-sm text-zinc-600">Research, design, implementation, QA, and post-launch
+                        optimization.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-white py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid gap-10 lg:grid-cols-2">
+                <div class="reveal rounded-3xl border border-zinc-200 bg-white p-8">
+                    <p class="text-xs font-black uppercase tracking-[0.26em] text-[#EE3923]">The Challenge</p>
+                    <h2 class="mt-4 text-3xl font-[1000] tracking-tight text-zinc-900">Traffic Was Growing, Pipeline Was
+                        Not</h2>
+                    <p class="mt-4 text-sm leading-relaxed text-zinc-600 md:text-base">
+                        The old website had inconsistent messaging, slow mobile performance, and form flows with high
+                        abandonment. Marketing was driving sessions, but product and engineering debt blocked
+                        conversion velocity. Sales feedback also showed low-quality inquiries due to weak qualification
+                        logic in forms.
+                    </p>
+                    <ul class="mt-6 space-y-3 text-sm text-zinc-700">
+                        <li class="flex gap-3"><span class="font-black text-[#EE3923]">01</span><span>7 disconnected
+                                landing templates with no shared component system.</span></li>
+                        <li class="flex gap-3"><span class="font-black text-[#EE3923]">02</span><span>Static pages were
+                                difficult to update across campaigns and audiences.</span></li>
+                        <li class="flex gap-3"><span class="font-black text-[#EE3923]">03</span><span>Core Web Vitals
+                                and form UX issues reduced conversion intent.</span></li>
+                        <li class="flex gap-3"><span class="font-black text-[#EE3923]">04</span><span>Backend lead
+                                capture lacked structured validation and attribution context.</span></li>
+                    </ul>
+                </div>
+
+                <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-950 p-8 text-white">
+                    <p class="text-xs font-black uppercase tracking-[0.26em] text-zinc-500">Solution Architecture</p>
+                    <h3 class="mt-4 text-2xl font-[1000]">How We Rebuilt the Stack</h3>
+                    <div class="mt-6 grid gap-4 sm:grid-cols-2">
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                            <p class="text-sm font-bold">UI Foundation</p>
+                            <p class="mt-1 text-xs text-zinc-300">Tailwind tokens + reusable React components for
+                                consistent UX.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                            <p class="text-sm font-bold">Typed Frontend</p>
+                            <p class="mt-1 text-xs text-zinc-300">TypeScript models for forms, analytics, and API
+                                payloads.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                            <p class="text-sm font-bold">Backend Reliability</p>
+                            <p class="mt-1 text-xs text-zinc-300">Django view validation, cleaner payload handling, and
+                                lead routing.</p>
+                        </div>
+                        <div class="rounded-2xl border border-white/10 bg-white/5 p-4">
+                            <p class="text-sm font-bold">Performance Layer</p>
+                            <p class="mt-1 text-xs text-zinc-300">Asset optimization, lazy loading, and critical-path
+                                tuning.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="max-w-[1600px] mx-auto px-4 md:px-8 pb-24">
-        <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
-            <article class="reveal rounded-[2rem] border border-zinc-200 bg-white p-8">
-                <p class="text-[11px] font-black uppercase tracking-[0.25em] text-zinc-500">Incremental ROAS</p>
-                <p class="mt-3 text-6xl font-[1000] tracking-tighter text-zinc-900">3.2x</p>
-                <p class="mt-3 text-sm text-zinc-600">Improved through margin-aware budget allocation and disciplined
-                    creative testing.</p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-zinc-200 bg-white p-8">
-                <p class="text-[11px] font-black uppercase tracking-[0.25em] text-zinc-500">New Customers</p>
-                <p class="mt-3 text-6xl font-[1000] tracking-tighter text-zinc-900">+15K</p>
-                <p class="mt-3 text-sm text-zinc-600">Acquired in 90 days from high-intent Meta and Google traffic
-                    clusters.</p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-zinc-200 bg-[#EE3923] p-8 text-white">
-                <p class="text-[11px] font-black uppercase tracking-[0.25em] text-white/75">CPA Reduction</p>
-                <p class="mt-3 text-6xl font-[1000] tracking-tighter">-42%</p>
-                <p class="mt-3 text-sm text-white/85">Lower CAC from tighter audience control and post-click conversion
-                    improvements.</p>
-            </article>
-            <article class="reveal rounded-[2rem] border border-zinc-200 bg-zinc-950 p-8 text-white">
-                <p class="text-[11px] font-black uppercase tracking-[0.25em] text-zinc-400">AOV Growth</p>
-                <p class="mt-3 text-6xl font-[1000] tracking-tighter">+27%</p>
-                <p class="mt-3 text-sm text-zinc-300">Bundle merchandising and checkout order-bumps increased average
-                    basket size.</p>
-            </article>
-        </div>
-    </section>
-
-    <section class="py-24 bg-zinc-50 border-y border-zinc-200">
-        <div class="max-w-7xl mx-auto px-6 grid gap-14 lg:grid-cols-2">
-            <div class="reveal">
-                <span class="mb-6 block text-[11px] font-black uppercase tracking-[0.35em] text-[#EE3923]">The
-                    Challenge</span>
-                <h3 class="text-4xl font-[1000] tracking-tighter text-zinc-900 md:text-5xl">Great Product,
-                    <span class="text-zinc-300">Broken Growth System</span>
-                </h3>
-                <p class="mt-6 text-base leading-relaxed text-zinc-600">
-                    This beauty brand had strong organic demand, but paid media performance was unstable. Campaign
-                    structure changed too often, creative direction lacked consistency, and attribution signals were
-                    noisy. Spend was increasing while profitability moved in the opposite direction.
-                </p>
-                <ul class="mt-6 space-y-3 text-sm text-zinc-700">
-                    <li class="flex gap-3"><span class="font-bold text-[#EE3923]">01</span><span>Platform reporting and
-                            backend sales data were not aligned.</span></li>
-                    <li class="flex gap-3"><span class="font-bold text-[#EE3923]">02</span><span>Meta and Google ran in
-                            silos without message or offer continuity.</span></li>
-                    <li class="flex gap-3"><span class="font-bold text-[#EE3923]">03</span><span>Landing pages looked
-                            premium but leaked conversions on mobile.</span></li>
-                    <li class="flex gap-3"><span class="font-bold text-[#EE3923]">04</span><span>No repeatable framework
-                            to scale winners without killing efficiency.</span></li>
-                </ul>
-            </div>
-
-            <div class="reveal rounded-3xl border border-zinc-200 bg-white p-8">
-                <p class="text-[11px] font-black uppercase tracking-[0.35em] text-zinc-500">What We Changed</p>
-                <div class="mt-6 space-y-5">
-                    <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-                        <p class="text-sm font-bold text-zinc-900">Measurement First</p>
-                        <p class="mt-1 text-sm text-zinc-600">Rebuilt event tracking, naming rules, and source-level
-                            reporting to make decisions on clean data.</p>
-                    </div>
-                    <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-                        <p class="text-sm font-bold text-zinc-900">Creative Operating System</p>
-                        <p class="mt-1 text-sm text-zinc-600">Launched weekly concept sprints across UGC, testimonial,
-                            product demo, and ingredient-focused hooks.</p>
-                    </div>
-                    <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-                        <p class="text-sm font-bold text-zinc-900">Channel Sequencing</p>
-                        <p class="mt-1 text-sm text-zinc-600">Mapped Meta discovery to Google capture so intent
-                            generated in-feed converted through search.</p>
-                    </div>
-                    <div class="rounded-2xl border border-zinc-200 bg-zinc-50 p-4">
-                        <p class="text-sm font-bold text-zinc-900">Post-Click Optimization</p>
-                        <p class="mt-1 text-sm text-zinc-600">Improved mobile speed, social proof blocks, and checkout
-                            flow to lift CVR and protect CAC.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-24">
+    <section class="bg-zinc-950 py-20 text-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="reveal text-center">
-                <p class="text-[11px] font-black uppercase tracking-[0.35em] text-[#EE3923]">Execution Timeline</p>
-                <h3 class="mt-4 text-3xl font-[1000] tracking-tighter text-zinc-900 md:text-5xl">How 90 Days Were Used
-                </h3>
+                <p class="text-xs font-black uppercase tracking-[0.3em] text-[#EE3923]">Delivery Roadmap</p>
+                <h2 class="mt-4 text-3xl font-[1000] tracking-tight md:text-5xl">From Discovery to Scalable Launch</h2>
+                <p class="mx-auto mt-4 max-w-3xl text-sm text-zinc-300 md:text-base">
+                    This was not a visual refresh only. It was a full funnel and platform engineering initiative with
+                    design, frontend, backend, and analytics moving in lockstep.
+                </p>
             </div>
 
-            <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-                <article class="reveal rounded-2xl border border-zinc-200 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Weeks 1-2</p>
-                    <p class="mt-2 text-lg font-bold text-zinc-900">Stabilize Account</p>
-                    <p class="mt-2 text-sm text-zinc-600">Tracking fixes, campaign cleanup, and baseline performance
-                        model.</p>
+            <div class="mt-12 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 1</p>
+                    <h3 class="mt-2 text-lg font-bold">Research + UX Audit</h3>
+                    <p class="mt-2 text-sm text-zinc-300">Heatmap review, persona interviews, and high-friction path
+                        analysis.</p>
                 </article>
-                <article class="reveal rounded-2xl border border-zinc-200 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Weeks 3-4</p>
-                    <p class="mt-2 text-lg font-bold text-zinc-900">Launch Test Matrix</p>
-                    <p class="mt-2 text-sm text-zinc-600">Hook testing by audience intent and offer type with clear
-                        pass/fail rules.</p>
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 2</p>
+                    <h3 class="mt-2 text-lg font-bold">Design System Setup</h3>
+                    <p class="mt-2 text-sm text-zinc-300">Tailwind utility conventions, component variants, and content
+                        hierarchy rules.</p>
                 </article>
-                <article class="reveal rounded-2xl border border-zinc-200 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Weeks 5-8</p>
-                    <p class="mt-2 text-lg font-bold text-zinc-900">Scale Winners</p>
-                    <p class="mt-2 text-sm text-zinc-600">Budget expansion on profitable ad sets and high-margin product
-                        categories.</p>
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 3</p>
+                    <h3 class="mt-2 text-lg font-bold">React + TS Build</h3>
+                    <p class="mt-2 text-sm text-zinc-300">Modular sections, typed forms, and dynamic testimonial/proof
+                        blocks.</p>
                 </article>
-                <article class="reveal rounded-2xl border border-zinc-200 p-5">
-                    <p class="text-xs font-black uppercase tracking-[0.2em] text-zinc-500">Weeks 9-12</p>
-                    <p class="mt-2 text-lg font-bold text-zinc-900">Lock Profitability</p>
-                    <p class="mt-2 text-sm text-zinc-600">Fatigue control, retargeting refinement, and lifecycle revenue
-                        amplification.</p>
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 4</p>
+                    <h3 class="mt-2 text-lg font-bold">Django Integration</h3>
+                    <p class="mt-2 text-sm text-zinc-300">Lead capture endpoints, source tracking fields, and success
+                        routing.</p>
+                </article>
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 5</p>
+                    <h3 class="mt-2 text-lg font-bold">QA + Accessibility</h3>
+                    <p class="mt-2 text-sm text-zinc-300">Cross-device testing, keyboard flow checks, and semantic
+                        refinements.</p>
+                </article>
+                <article class="reveal rounded-2xl border border-white/10 bg-white/5 p-6">
+                    <p class="text-xs font-black uppercase tracking-[0.2em] text-[#EE3923]">Phase 6</p>
+                    <h3 class="mt-2 text-lg font-bold">Post-Launch CRO</h3>
+                    <p class="mt-2 text-sm text-zinc-300">A/B headline tests, CTA hierarchy tuning, and lead quality
+                        scoring loops.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="bg-zinc-950 py-24 text-white">
+    <section class="bg-white py-20">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid gap-10 lg:grid-cols-2 lg:items-start">
-                <div class="reveal">
-                    <p class="text-[11px] font-black uppercase tracking-[0.35em] text-[#EE3923]">Performance Breakdown
-                    </p>
-                    <h3 class="mt-4 text-3xl font-[1000] tracking-tighter md:text-5xl">Where Growth Came From</h3>
-                    <p class="mt-5 text-sm leading-relaxed text-zinc-300 md:text-base">
-                        The strongest gains came from creative-message alignment and intent-based channel sequencing,
-                        not from brute-force spend. Each channel had a clearly defined role in the journey.
-                    </p>
+            <div class="grid gap-10 lg:grid-cols-2">
+                <div class="reveal rounded-3xl border border-zinc-200 bg-zinc-50 p-8">
+                    <p class="text-xs font-black uppercase tracking-[0.26em] text-zinc-500">Measured Outcomes</p>
+                    <h3 class="mt-3 text-3xl font-[1000] tracking-tight text-zinc-900">What Changed After Launch</h3>
+                    <div class="mt-7 space-y-4">
+                        <div>
+                            <div class="flex items-center justify-between text-sm font-semibold text-zinc-700">
+                                <span>Landing Page CVR</span><span>+92%</span>
+                            </div>
+                            <div class="mt-2 h-2 rounded-full bg-zinc-200">
+                                <div class="h-2 w-[82%] rounded-full bg-[#EE3923]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm font-semibold text-zinc-700">
+                                <span>Sales Qualified Leads</span><span>+173%</span>
+                            </div>
+                            <div class="mt-2 h-2 rounded-full bg-zinc-200">
+                                <div class="h-2 w-[90%] rounded-full bg-[#EE3923]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm font-semibold text-zinc-700">
+                                <span>Cost Per Lead</span><span>-41%</span>
+                            </div>
+                            <div class="mt-2 h-2 rounded-full bg-zinc-200">
+                                <div class="h-2 w-[56%] rounded-full bg-[#EE3923]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex items-center justify-between text-sm font-semibold text-zinc-700">
+                                <span>Mobile Bounce Rate</span><span>-35%</span>
+                            </div>
+                            <div class="mt-2 h-2 rounded-full bg-zinc-200">
+                                <div class="h-2 w-[49%] rounded-full bg-[#EE3923]"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="reveal space-y-4 rounded-3xl border border-white/10 bg-white/5 p-7">
-                    <div>
-                        <div class="flex items-center justify-between text-sm"><span>Meta
-                                Prospecting</span><span>+158%</span></div>
-                        <div class="mt-2 h-2 rounded-full bg-white/10">
-                            <div class="h-2 w-[85%] rounded-full bg-[#EE3923]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-sm"><span>Google Search +
-                                Shopping</span><span>+116%</span></div>
-                        <div class="mt-2 h-2 rounded-full bg-white/10">
-                            <div class="h-2 w-[73%] rounded-full bg-[#EE3923]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-sm"><span>Retargeting
-                                Efficiency</span><span>+61%</span></div>
-                        <div class="mt-2 h-2 rounded-full bg-white/10">
-                            <div class="h-2 w-[51%] rounded-full bg-[#EE3923]"></div>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="flex items-center justify-between text-sm"><span>Email/SMS Assisted
-                                Revenue</span><span>+34%</span></div>
-                        <div class="mt-2 h-2 rounded-full bg-white/10">
-                            <div class="h-2 w-[38%] rounded-full bg-[#EE3923]"></div>
-                        </div>
+                <div class="reveal rounded-3xl border border-zinc-200 bg-white p-8">
+                    <p class="text-xs font-black uppercase tracking-[0.26em] text-zinc-500">Client Feedback</p>
+                    <blockquote class="mt-4 text-2xl font-semibold leading-relaxed text-zinc-900">
+                        "This is the first time our design, engineering, and marketing stack are working as one system.
+                        We ship faster and convert better."
+                    </blockquote>
+                    <p class="mt-4 text-sm text-zinc-600">Head of Growth, B2B Services Brand</p>
+
+                    <div class="mt-8 rounded-2xl border border-zinc-200 bg-[#fff1ed] p-5">
+                        <p class="text-sm font-bold text-zinc-900">Key Technical Wins</p>
+                        <ul class="mt-3 space-y-2 text-sm text-zinc-700">
+                            <li>Reusable React sections reduced campaign page production time by 58%.</li>
+                            <li>TypeScript contracts cut frontend/backend payload mismatches significantly.</li>
+                            <li>Django form handling improved lead data quality for downstream sales routing.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-white py-24">
-        <div class="max-w-6xl mx-auto px-6 text-center reveal">
-            <p class="text-[11px] font-black uppercase tracking-[0.35em] text-zinc-500">Client Outcome</p>
-            <h3 class="mt-4 text-3xl font-[1000] tracking-tighter text-zinc-900 md:text-5xl">"We stopped guessing and
-                started scaling with confidence."</h3>
-            <p class="mx-auto mt-6 max-w-3xl text-sm leading-relaxed text-zinc-600 md:text-base">
-                By combining creative velocity, channel orchestration, and conversion-focused UX, this beauty brand
-                moved from unpredictable paid results to repeatable and profitable growth.
-            </p>
-        </div>
-    </section>
     <footer class="bg-[#0B0B0F] text-white py-16 px-6 md:px-16">
         <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
             <div class="md:col-span-2 space-y-5">
@@ -502,7 +537,6 @@
     </footer>
 
     <script>
-        // Intersection Observer for reveal animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) entry.target.classList.add('active');

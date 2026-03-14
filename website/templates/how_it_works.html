@@ -5,8 +5,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Framework | How We Scale | ADRYZE</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>How It Works | Adryze Growth Framework</title>
+    <meta name="description"
+        content="Learn the Adryze growth framework, from strategy and launch to optimization and scaling across your highest-impact channels.">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
@@ -54,7 +58,9 @@
             --adryze-brand-dark: #0B0B0F;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -64,173 +70,64 @@
 
         .text-orange-400,
         .text-orange-500,
-        .text-orange-600 { color: #EE3923 !important; }
+        .text-orange-600 {
+            color: #EE3923 !important;
+        }
 
         .text-orange-700,
-        .text-orange-800 { color: #b12a1b !important; }
+        .text-orange-800 {
+            color: #b12a1b !important;
+        }
 
-        .bg-orange-50 { background-color: #fff3ef !important; }
-        .bg-orange-100 { background-color: #ffe6df !important; }
-        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-50 {
+            background-color: #fff3ef !important;
+        }
+
+        .bg-orange-100 {
+            background-color: #ffe6df !important;
+        }
+
+        .bg-orange-200 {
+            background-color: #ffd1c4 !important;
+        }
+
         .bg-orange-500,
-        .bg-orange-600 { background-color: #EE3923 !important; }
+        .bg-orange-600 {
+            background-color: #EE3923 !important;
+        }
 
-        .border-orange-100 { border-color: #ffd8cd !important; }
-        .border-orange-600 { border-color: #EE3923 !important; }
+        .border-orange-100 {
+            border-color: #ffd8cd !important;
+        }
 
-        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
-        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
-        .hover\:text-orange-600:hover { color: #EE3923 !important; }
-        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+        .border-orange-600 {
+            border-color: #EE3923 !important;
+        }
+
+        .hover\:bg-orange-200:hover {
+            background-color: #ffd1c4 !important;
+        }
+
+        .hover\:bg-orange-700:hover {
+            background-color: #cf301d !important;
+        }
+
+        .hover\:text-orange-600:hover {
+            color: #EE3923 !important;
+        }
+
+        .focus\:ring-orange-400:focus {
+            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        }
     </style>
 </head>
 
 <body class="text-zinc-900 antialiased overflow-x-hidden">
 
-    <nav class="fixed w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
-            <a href="/" class="text-2xl font-black tracking-tighter hover:opacity-90 transition">
-                AD<span class="text-[#EE3923]">RYZE</span>
-            </a>
+    {% include 'partials/site_nav.html' %}
 
 
-            <!-- Desktop Menu -->
-            <div class="hidden md:flex flex-1 justify-center items-center space-x-6 font-bold">
 
-                <a href="/#solutions" class="nav-link">Solutions</a>
-                <a href="/services/" class="nav-link">Services</a>
-                <a href="/case_study/" class="nav-link">Case Studies</a>
-                <!-- <a href="/pricing/" class="nav-link">Pricing</a> -->
-
-                <!-- Learn Dropdown -->
-                <div class="relative">
-                    <button id="learnBtn" class="nav-link flex items-center gap-1">
-                        Learn
-                        <svg class="w-4 h-4 mt-0.5" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
-                            <path d="M19 9l-7 7-7-7"></path>
-                        </svg>
-                    </button>
-
-                    <div id="learnMenu"
-                        class="absolute left-0 mt-3 w-48 bg-white border border-gray-100 shadow-lg rounded-lg opacity-0 invisible transition-all duration-200">
-                        <a href="/how_it_works/" class="dropdown-link">How It Works</a>
-                        <!--<a href="#" class="dropdown-link">Blog</a>-->
-                        <a href="/about/" class="dropdown-link">About</a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="hidden md:block">
-                <a href="#contact"
-                    class="bg-black text-white px-5 py-2 rounded-lg font-bold hover:bg-gray-900 transition">
-                    Get Access
-                </a>
-            </div>
-
-            <!-- Mobile Hamburger -->
-            <button id="menuBtn" class="md:hidden">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                    <path d="M4 6h16M4 12h16M4 18h16"></path>
-                </svg>
-            </button>
-        </div>
-
-        <!-- Mobile Menu -->
-        <div id="mobileMenu"
-            class="md:hidden bg-white border-t border-gray-100 max-h-0 overflow-hidden transition-all duration-300">
-
-            <div class="px-6 py-4 space-y-4 font-bold">
-                <a href="/case_study/#solutions" class="block mobile-link">Solutions</a>
-                <a href="/services/" class="block mobile-link">Services</a>
-                <a href="/case_study/" class="block mobile-link">Case Studies</a>
-                <!-- <a href="/pricing/" class="block mobile-link">Pricing</a> -->
-
-                <!-- Mobile Dropdown -->
-                <div>
-                    <button id="mobileLearnBtn" class="flex justify-between w-full mobile-link">
-                        Learn
-                        <span>+</span>
-                    </button>
-                    <div id="mobileLearnMenu" class="hidden pl-4 mt-2 space-y-2">
-                        <a href="/how_it_works/" class="block text-gray-600">How It Works</a>
-                        <!--<a href="#" class="block text-gray-600">Blog</a>-->
-                        <a href="/about/" class="block text-gray-600">About</a>
-                    </div>
-                </div>
-
-                <a href="#contact" class="block bg-black text-white text-center py-2 rounded-lg">
-                    Get Access
-                </a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Styles -->
-    <style>
-        .nav-link {
-            position: relative;
-            padding: 0.5rem 1rem;
-            transition: all 0.3s;
-        }
-
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 2px;
-            width: 0;
-            background: #EE3923;
-            transition: width 0.3s ease;
-        }
-
-        .nav-link:hover::before {
-            width: 2.5rem;
-        }
-
-        .dropdown-link {
-            display: block;
-            padding: 0.6rem 1rem;
-            font-size: 0.9rem;
-        }
-
-        .dropdown-link:hover {
-            background: #fff7ed;
-            color: #EE3923;
-        }
-
-        .mobile-link {
-            padding: 0.5rem 0;
-        }
-    </style>
-
-    <!-- JS -->
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-
-        menuBtn.addEventListener("click", () => {
-            mobileMenu.classList.toggle("max-h-[500px]");
-        });
-
-        const learnBtn = document.getElementById("learnBtn");
-        const learnMenu = document.getElementById("learnMenu");
-
-        learnBtn.addEventListener("click", () => {
-            learnMenu.classList.toggle("opacity-0");
-            learnMenu.classList.toggle("invisible");
-        });
-
-        const mobileLearnBtn = document.getElementById("mobileLearnBtn");
-        const mobileLearnMenu = document.getElementById("mobileLearnMenu");
-
-        mobileLearnBtn.addEventListener("click", () => {
-            mobileLearnMenu.classList.toggle("hidden");
-        });
-    </script>
     <header class="pt-48 pb-32 text-center relative overflow-hidden">
         <div
             class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orange-500/5 rounded-full blur-[120px] -z-10">
@@ -346,130 +243,7 @@
         </div>
     </section>
 
-    <footer class="bg-black text-white py-12 px-6 md:px-16 font-sans">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-
-            <div class="space-y-6">
-                <div class="flex items-start gap-3">
-                    <div class="relative w-12 h-12 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" class="absolute inset-0 fill-none stroke-red-600 stroke-2">
-                            <polygon points="50 1, 93 25, 93 75, 50 99, 7 75, 7 25" />
-                        </svg>
-                        <div class="text-[8px] font-bold text-red-600 text-center leading-tight uppercase">
-                            AD<br>RYZE
-                        </div>
-                    </div>
-                </div>
-                <p class="leading-relaxed text-gray-300 text-sm max-w-sm">
-                    Trusted global PPC partner for B2B SaaS and e-commerce brands, delivering consistent growth and
-                    measurable results.
-                </p>
-            </div>
-
-            <div class="space-y-6 md:pl-10">
-                <h3 class="text-xl font-bold text-white">Quick Links</h3>
-                <ul class="space-y-3">
-                    <li>
-                        <a href="/" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🏠</span>
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">💻</span>
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/blogs"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">📖</span>
-                            Blogs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">👤</span>
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🎧</span>
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-white">PPC Growth Plan</h3>
-                <form id="hero-form" onsubmit="transferEmail(event)" class="flex flex-col gap-3">
-                    <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
-                        class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
-                    <button type="submit"
-                        class="bg-red-600 text-white px-6 py-2 w-max font-bold rounded-md hover:bg-red-700 transition-colors">
-                        Let's Start
-                    </button>
-                </form>
-
-                <div class="pt-2">
-                    <p class="text-lg font-medium mb-4">Follow Us On:</p>
-                    <div class="flex gap-3">
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide text-gray-400">
-            <p>© 2026 Adryze. All rights reserved.</p>
-            <div class="flex gap-6 uppercase">
-                <a href="#" class="hover:text-red-500 transition">Disclaimer</a>
-                <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-red-500 transition">Terms & Conditions</a>
-            </div>
-        </div>
-    </footer>
+    {% include 'partials/site_footer.html' %}
     <script>
         function transferEmail(event) {
             event.preventDefault();
@@ -500,7 +274,3 @@
 </body>
 
 </html>
-
-
-
-

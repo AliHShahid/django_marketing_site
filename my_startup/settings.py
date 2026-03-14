@@ -1,5 +1,11 @@
-import pymysql
-pymysql.install_as_MySQLdb()
+import os
+
+try:
+    import pymysql
+
+    pymysql.install_as_MySQLdb()
+except ModuleNotFoundError:
+    pymysql = None
 
 """
 Django settings for my_startup project.
@@ -23,15 +29,23 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-j!3pc8z+4u1_%4%l29sz$zpg_7mzud6ngjk!56^1$mp+w7*lbl'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me-in-env')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+_debug_env = os.getenv('DJANGO_DEBUG')
+if _debug_env is None:
+    # Default to True for local runserver convenience.
+    DEBUG = True
+else:
+    DEBUG = _debug_env.strip().lower() in ('1', 'true', 'yes', 'on')
 
 ALLOWED_HOSTS = [
-    "51650c220b0c.ngrok-free.app",
-    "shayna-ungauged-complainingly.ngrok-free.dev",
-    "127.0.0.1"
+    host.strip()
+    for host in os.getenv(
+        'DJANGO_ALLOWED_HOSTS',
+        '127.0.0.1,localhost,51650c220b0c.ngrok-free.app,shayna-ungauged-complainingly.ngrok-free.dev',
+    ).split(',')
+    if host.strip()
 ]
 CSRF_TRUSTED_ORIGINS = [
     "https://shayna-ungauged-complainingly.ngrok-free.dev",
@@ -135,7 +149,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "website/static",  # make sure this path points to your static folder

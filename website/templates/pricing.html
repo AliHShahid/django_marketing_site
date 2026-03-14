@@ -5,9 +5,12 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pricing - ADRYZE</title>
+    <title>Pricing Plans | Adryze</title>
+    <meta name="description"
+        content="Compare Adryze pricing plans and choose the growth package that fits your goals, channel mix, and stage of scale.">
     <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{% static 'css/tailwind.css' %}">
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -26,7 +29,9 @@
             --adryze-brand-dark: #0B0B0F;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -36,28 +41,60 @@
 
         .text-orange-400,
         .text-orange-500,
-        .text-orange-600 { color: #EE3923 !important; }
+        .text-orange-600 {
+            color: #EE3923 !important;
+        }
 
         .text-orange-700,
-        .text-orange-800 { color: #b12a1b !important; }
+        .text-orange-800 {
+            color: #b12a1b !important;
+        }
 
-        .bg-orange-50 { background-color: #fff3ef !important; }
-        .bg-orange-100 { background-color: #ffe6df !important; }
-        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-50 {
+            background-color: #fff3ef !important;
+        }
+
+        .bg-orange-100 {
+            background-color: #ffe6df !important;
+        }
+
+        .bg-orange-200 {
+            background-color: #ffd1c4 !important;
+        }
+
         .bg-orange-500,
-        .bg-orange-600 { background-color: #EE3923 !important; }
+        .bg-orange-600 {
+            background-color: #EE3923 !important;
+        }
 
-        .border-orange-100 { border-color: #ffd8cd !important; }
-        .border-orange-600 { border-color: #EE3923 !important; }
+        .border-orange-100 {
+            border-color: #ffd8cd !important;
+        }
 
-        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
-        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
-        .hover\:text-orange-600:hover { color: #EE3923 !important; }
-        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+        .border-orange-600 {
+            border-color: #EE3923 !important;
+        }
+
+        .hover\:bg-orange-200:hover {
+            background-color: #ffd1c4 !important;
+        }
+
+        .hover\:bg-orange-700:hover {
+            background-color: #cf301d !important;
+        }
+
+        .hover\:text-orange-600:hover {
+            color: #EE3923 !important;
+        }
+
+        .focus\:ring-orange-400:focus {
+            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        }
     </style>
 </head>
 
-<body>
+
+    {% include 'partials/site_nav.html' %}
     <nav class="fixed w-full z-[100] bg-white/70 backdrop-blur-xl border-b border-zinc-100">
         <div class="max-w-[1600px] mx-auto px-6 h-24 flex items-center justify-between">
 
@@ -102,7 +139,7 @@
             </div>
 
             <div class="hidden md:block">
-                <a href="#contact"
+                <a href="{% url 'get_started' %}"
                     class="group relative inline-flex items-center justify-center px-8 py-3.5 bg-zinc-900 text-white rounded-full font-black text-[10px] uppercase tracking-widest overflow-hidden transition-all duration-500 hover:bg-[#EE3923] hover:shadow-[0_10px_30px_rgba(255,72,1,0.3)] active:scale-95">
                     <span class="relative z-10">Get Access</span>
                 </a>
@@ -125,24 +162,13 @@
                 Studies</a>
             <a href="{% url 'pricing' %}"
                 class="text-4xl font-[1000] tracking-tighter uppercase hover:text-[#EE3923]">Pricing</a>
-            <a href="#contact"
+            <a href="{% url 'get_started' %}"
                 class="mt-8 px-12 py-5 bg-[#EE3923] text-white rounded-full font-black uppercase tracking-widest text-xs">Get
                 Started</a>
         </div>
     </nav>
 
-    <script>
-        const menuBtn = document.getElementById("menuBtn");
-        const mobileMenu = document.getElementById("mobileMenu");
-        let isMenuOpen = false;
-
-        menuBtn.addEventListener("click", () => {
-            isMenuOpen = !isMenuOpen;
-            mobileMenu.classList.toggle("opacity-0");
-            mobileMenu.classList.toggle("invisible");
-            // Change menu icon to "X" effect would go here
-        });
-    </script>
+    
 
     {% load static %}
     <div class="h-10 pt-12">
@@ -156,9 +182,13 @@
         <div class="text-center mb-20">
             <span class="text-[#EE3923] font-black text-[10px] uppercase tracking-[0.4em] mb-4 block">Investment
                 Tiers</span>
-            <h2 class="text-5xl md:text-7xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none">
-                Choose Your <span class="text-[#EE3923]">Scale.</span>
-            </h2>
+            <h1 class="text-5xl md:text-7xl font-[1000] tracking-tighter text-zinc-900 uppercase leading-none">
+                Choose Your <span class="text-[#EE3923]">Growth Plan.</span>
+            </h1>
+            <p class="mt-6 text-sm md:text-base text-zinc-500 max-w-2xl mx-auto">
+                Flexible retainers designed for teams that need consistent execution, clear reporting, and reliable
+                performance gains.
+            </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
@@ -190,7 +220,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#contact" data-package="1000"
+                <a href="{% url 'get_started' %}" data-package="1000"
                     class="purchase-btn mt-12 block text-center py-5 rounded-2xl border-2 border-zinc-900 font-black uppercase tracking-widest text-xs hover:bg-zinc-900 hover:text-white transition-all duration-300">
                     Purchase Plan
                 </a>
@@ -228,7 +258,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a href="#contact" data-package="2000"
+                    <a href="{% url 'get_started' %}" data-package="2000"
                         class="purchase-btn relative z-10 mt-12 block text-center py-5 rounded-2xl bg-[#EE3923] text-white font-black uppercase tracking-widest text-xs hover:scale-105 transition-all shadow-lg shadow-[#EE3923]/20">
                         Get Started Now
                     </a>
@@ -262,7 +292,7 @@
                         </li>
                     </ul>
                 </div>
-                <a href="#contact" data-package="3000"
+                <a href="{% url 'get_started' %}" data-package="3000"
                     class="purchase-btn mt-12 block text-center py-5 rounded-2xl border-2 border-zinc-900 font-black uppercase tracking-widest text-xs hover:bg-zinc-900 hover:text-white transition-all duration-300">
                     Purchase Plan
                 </a>
@@ -285,130 +315,7 @@
     </script>
 
 
-    <footer class="bg-black text-white py-12 px-6 md:px-16 font-sans">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
-
-            <div class="space-y-6">
-                <div class="flex items-start gap-3">
-                    <div class="relative w-12 h-12 flex items-center justify-center">
-                        <svg viewBox="0 0 100 100" class="absolute inset-0 fill-none stroke-red-600 stroke-2">
-                            <polygon points="50 1, 93 25, 93 75, 50 99, 7 75, 7 25" />
-                        </svg>
-                        <div class="text-[8px] font-bold text-red-600 text-center leading-tight uppercase">
-                            AD<br>RYZE
-                        </div>
-                    </div>
-                </div>
-                <p class="leading-relaxed text-gray-300 text-sm max-w-sm">
-                    Trusted global PPC partner for B2B SaaS and e-commerce brands, delivering consistent growth and
-                    measurable results.
-                </p>
-            </div>
-
-            <div class="space-y-6 md:pl-10">
-                <h3 class="text-xl font-bold text-white">Quick Links</h3>
-                <ul class="space-y-3">
-                    <li>
-                        <a href="/" class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🏠</span>
-                            Home
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#skills"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">💻</span>
-                            Services
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/blogs"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">📖</span>
-                            Blogs
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">👤</span>
-                            About Us
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/contact"
-                            class="flex items-center gap-3 text-gray-300 hover:text-red-500 transition group">
-                            <span class="text-red-600 text-lg group-hover:scale-110 transition-transform">🎧</span>
-                            Contact Us
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="space-y-6">
-                <h3 class="text-xl font-bold text-white">PPC Growth Plan</h3>
-                <form id="hero-form" onsubmit="transferEmail(event)" class="flex flex-col gap-3">
-                    <input id="hero-email-input" type="email" placeholder="example@gmail.com" required
-                        class="w-full bg-white text-black py-2.5 px-4 rounded-md focus:ring-2 focus:ring-red-600 outline-none">
-                    <button type="submit"
-                        class="bg-red-600 text-white px-6 py-2 w-max font-bold rounded-md hover:bg-red-700 transition-colors">
-                        Let's Start
-                    </button>
-                </form>
-
-                <div class="pt-2">
-                    <p class="text-lg font-medium mb-4">Follow Us On:</p>
-                    <div class="flex gap-3">
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2zM4 2a2 2 0 1 1-2 2 2 2 0 0 1 2-2z">
-                                </path>
-                            </svg>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center text-white hover:bg-white hover:text-red-600 transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round">
-                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div
-            class="max-w-7xl mx-auto mt-12 pt-6 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-wide text-gray-400">
-            <p>© 2026 Adryze. All rights reserved.</p>
-            <div class="flex gap-6 uppercase">
-                <a href="#" class="hover:text-red-500 transition">Disclaimer</a>
-                <a href="#" class="hover:text-red-500 transition">Privacy Policy</a>
-                <a href="#" class="hover:text-red-500 transition">Terms & Conditions</a>
-            </div>
-        </div>
-    </footer>
+        {% include 'partials/site_footer.html' %}
     <script>
         function transferEmail(event) {
             event.preventDefault();
@@ -427,7 +334,3 @@
 </body>
 
 </html>
-
-
-
-

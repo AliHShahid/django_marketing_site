@@ -5,7 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ industry_name }} | ADRYZE</title>
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
+    <title>{{ industry_name }} Marketing Services | Adryze</title>
+    <meta name="description"
+        content="Discover how Adryze builds tailored growth strategies for {{ industry_name }} brands through performance marketing and conversion-focused execution.">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style id="adryze-global-theme">
         :root {
@@ -78,169 +82,150 @@
     </style>
 </head>
 
-<body>
+
+    {% include 'partials/site_nav.html' %}
     <main style="max-width: 900px; margin: 4rem auto; font-family: 'Inter', sans-serif; padding: 0 1rem;">
         <h1>{{ industry_name }}</h1>
         <p>This dedicated page is now connected from the Industries menu.</p>
         <p><a href="{% url 'all_industries' %}">View All Industries</a></p>
         <p><a href="{% url 'home' %}">Back to Home</a></p>
     </main>
-    <footer class="bg-[#0B0B0F] text-white py-16 px-6 md:px-16">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-10">
-            <div class="md:col-span-2 space-y-5">
-                <div class="text-2xl font-black tracking-tight">Adryze</div>
-                <p class="text-sm text-zinc-400 leading-relaxed max-w-sm">
-                    Premium digital marketing agency for ambitious businesses. We deliver data-driven growth
-                    strategies that generate measurable results.
-                </p>
-                <div class="flex flex-wrap gap-2">
-                    <span
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
-                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2.5" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Google
-                        Partner</span>
-                    <span
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-white/5 border border-white/10 text-xs text-zinc-300">
-                        <svg class="w-3.5 h-3.5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2.5" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
-                        </svg>
-                        Meta
-                        Partner</span>
-                </div>
-                <div class="flex gap-2">
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M19 3A2 2 0 0 1 21 5v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-9.5 6.5V18H12v-8.5H9.5zM10.75 6.25a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zM18 12.25c0-2.2-1.2-3.25-2.8-3.25-1.3 0-1.9.7-2.2 1.2V9.5H10.5V18H13v-4.5c0-1.2.2-2.3 1.6-2.3s1.4 1.3 1.4 2.4V18H18v-5.75z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M13 3H9a6 6 0 0 0-6 6v4a6 6 0 0 0 6 6h4a6 6 0 0 0 6-6V9a6 6 0 0 0-6-6zm-1 13a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm4.5-9.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
-                        </svg>
-                    </a>
-                    <a href="#"
-                        class="w-9 h-9 rounded-md bg-white/5 border border-white/10 flex items-center justify-center text-zinc-300 hover:text-[#EE3923] hover:border-[#EE3923]/40 hover:bg-[#EE3923]/10 transition">
-                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                            <path
-                                d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.4h-1.2c-1.2 0-1.6.8-1.6 1.6v1.9h2.7l-.4 2.9h-2.3v7A10 10 0 0 0 22 12z" />
-                        </svg>
-                    </a>
-                </div>
-            </div>
+    
+    {% include 'partials/site_footer.html' %}
 
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">SERVICES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/services/ppc/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">PPC
-                            Management</a></li>
-                    <li><a href="/services/seo/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">SEO
-                            Services</a></li>
-                    <li><a href="/services/web-development/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Web
-                            Development</a>
-                    </li>
-                    <li><a href="/services/web-development/landing-pages/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Landing
-                            Pages</a></li>
-                    <li><a href="/services/aeo/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Answer
-                            Engine Optimization</a></li>
-                    <li><a href="/services/social-media/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Social
-                            Media Marketing</a>
-                    </li>
-                </ul>
-            </div>
+<!-- Adryze Industry FAQ Normalizer -->
+<script id="adryze-industry-faq-normalizer">
+  document.addEventListener('DOMContentLoaded', function () {
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
 
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">COMPANY</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/about/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">About
-                            Us</a></li>
-                    <li><a href="/case_study/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Case
-                            Studies</a></li>
-                    <li><a href="/about/"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Testimonials</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    var faqSection = document.getElementById('faq');
+    if (!faqSection) {
+      faqSection = Array.from(document.querySelectorAll('section')).find(function (section) {
+        var txt = (section.textContent || '').toLowerCase();
+        return (txt.includes('frequently asked questions') || /\bfaq\b/.test(txt))
+          && (section.querySelector('button') || section.querySelector('details') || section.querySelector('summary'));
+      });
+    }
+    if (!faqSection) return;
+    faqSection.id = 'faq';
 
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">INDUSTRIES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Real
-                            Estate</a></li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Healthcare</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Home
-                            Services</a></li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Automotive</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Legal</a>
-                    </li>
-                    <li><a href="#"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">E-commerce</a>
-                    </li>
-                </ul>
-            </div>
+    var accordion = faqSection.querySelector('#faq-accordion');
+    if (!accordion) {
+      accordion = Array.from(faqSection.querySelectorAll('div[class*="space-y-"]')).find(function (node) {
+        return !!(node.querySelector('button') || node.querySelector('details') || node.querySelector('summary'));
+      });
+    }
+    if (!accordion) return;
 
-            <div class="space-y-3">
-                <p class="text-xs font-semibold text-white">RESOURCES</p>
-                <ul class="space-y-2 text-sm text-zinc-300">
-                    <li><a href="/blogs"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Blog</a>
-                    </li>
-                    <li><a href="#faq"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">FAQ</a>
-                    </li>
-                    <li><a href="{% url 'contact' %}"
-                            class="inline-flex items-center gap-0.5 text-[0.8125rem] text-zinc-400 transition-colors duration-200 before:content-['>'] before:text-[#EE3923] before:opacity-0 before:-translate-x-1 before:transition-all before:duration-200 hover:text-[#EE3923] hover:before:opacity-100 hover:before:translate-x-0">Get
-                            Started</a></li>
-                </ul>
-            </div>
-        </div>
+    var faqData = [];
+    var detailsItems = Array.from(accordion.querySelectorAll(':scope > details'));
+    if (detailsItems.length) {
+      faqData = detailsItems.map(function (item) {
+        var summary = item.querySelector('summary');
+        var answer = item.querySelector('p');
+        var summaryClone = summary ? summary.cloneNode(true) : null;
+        if (summaryClone) {
+          summaryClone.querySelectorAll('span, i, svg').forEach(function (node) { node.remove(); });
+        }
+        return {
+          question: summaryClone ? (summaryClone.textContent || '').replace(/\s+/g, ' ').trim() : '',
+          answer: answer ? (answer.textContent || '').replace(/\s+/g, ' ').trim() : ''
+        };
+      }).filter(function (item) { return item.question && item.answer; });
+    } else {
+      faqData = Array.from(accordion.querySelectorAll(':scope > div > button, :scope > button')).map(function (button) {
+        var answerWrap = button.nextElementSibling;
+        var answerNode = answerWrap ? answerWrap.querySelector('p') : null;
+        if (!answerNode) return null;
+        var questionNode = button.querySelector('span') || button;
+        return {
+          question: (questionNode.textContent || '').replace(/\s+/g, ' ').trim(),
+          answer: (answerNode.textContent || '').replace(/\s+/g, ' ').trim()
+        };
+      }).filter(function (item) { return item && item.question && item.answer; });
+    }
 
-        <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-white/10 text-xs text-zinc-500">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4">
-                    <p>&copy; 2026 Adryze LLC. All rights reserved.</p>
-                    <!-- <p class="flex items-center gap-1.5">
-                        <svg class="w-3.5 h-3.5 text-[#EE3923]" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            stroke-width="2" aria-hidden="true">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 21s7-4.35 7-10a7 7 0 10-14 0c0 5.65 7 10 7 10z" />
-                            <circle cx="12" cy="11" r="2.5" />
-                        </svg>
-                        Based in United States
-                    </p> -->
-                </div>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    if (!faqData.length) return;
+
+    accordion.id = 'faq-accordion';
+    accordion.className = 'mt-10 space-y-3';
+    accordion.innerHTML = faqData.map(function (item, index) {
+      var open = index === 0;
+      var num = String(index + 1).padStart(2, '0');
+      var cardClass = open
+        ? 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-orange-400 bg-white shadow-sm ease-in-out duration-300'
+        : 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-gray-200 bg-white ease-in-out duration-300 hover:border-orange-200 hover:shadow-sm mt-3.5 group/0';
+      var railClass = open
+        ? 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] transition-opacity ease-in-out duration-300'
+        : 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] opacity-0 transition-opacity ease-in-out duration-300';
+      var badgeClass = open
+        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-600 text-xs leading-4 font-bold text-white ease-in-out duration-300'
+        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-xs leading-4 font-bold text-gray-500 ease-in-out duration-300 group-hover/0:bg-orange-100 group-hover/0:text-orange-600';
+      var questionClass = open
+        ? 'flex-1 text-base leading-6 font-semibold text-neutral-900 transition-colors duration-150 ease-in-out'
+        : 'flex-1 text-base leading-6 font-semibold text-gray-700 transition-colors duration-150 ease-in-out';
+      var iconWrapClass = open
+        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-600 ease-in-out duration-300'
+        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-400 ease-in-out duration-300 group-hover/0:bg-orange-50 group-hover/0:text-orange-500';
+      var iconClass = open
+        ? 'fill-none stroke-current h-3.5 w-3.5 rotate-180 transition-transform ease-in-out duration-300'
+        : 'fill-none stroke-current h-3.5 w-3.5 transition-transform ease-in-out duration-300';
+      var panelClass = open
+        ? 'grid grid-rows-[1fr] duration-300 ease-in-out'
+        : 'grid grid-rows-[0fr] duration-300 ease-in-out';
+
+      return ''
+        + '<div class="' + cardClass + '">'
+        + '<div class="' + railClass + '"></div>'
+        + '<button class="[appearance:auto] text-[100%] cursor-pointer flex w-full items-center justify-between gap-y-3.5 gap-x-3.5 p-5 text-left">'
+        + '<div class="' + badgeClass + '">' + num + '</div>'
+        + '<span class="' + questionClass + '">' + escapeHtml(item.question) + '</span>'
+        + '<div class="' + iconWrapClass + '">'
+        + '<svg class="' + iconClass + '" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'
+        + '</div></button>'
+        + '<div class="' + panelClass + '"><div class="overflow-x-hidden overflow-y-hidden"><div class="pr-5 pb-5 pl-20"><p class="leading-relaxed text-gray-600">' + escapeHtml(item.answer) + '</p></div></div></div>'
+        + '</div>';
+    }).join('');
+
+    var items = Array.from(accordion.children);
+    function setOpen(item, shouldOpen) {
+      var panel = item.querySelector('.grid');
+      var icon = item.querySelector('button svg');
+      var rail = item.querySelector(':scope > div');
+      if (!panel || !icon || !rail) return;
+      panel.classList.toggle('grid-rows-[1fr]', shouldOpen);
+      panel.classList.toggle('grid-rows-[0fr]', !shouldOpen);
+      icon.classList.toggle('rotate-180', shouldOpen);
+      item.classList.toggle('border-orange-400', shouldOpen);
+      item.classList.toggle('border-gray-200', !shouldOpen);
+      item.classList.toggle('shadow-sm', shouldOpen);
+      rail.classList.toggle('opacity-0', !shouldOpen);
+    }
+
+    items.forEach(function (item) {
+      var button = item.querySelector('button');
+      if (!button) return;
+      button.addEventListener('click', function () {
+        var panel = item.querySelector('.grid');
+        var isOpen = panel && panel.classList.contains('grid-rows-[1fr]');
+        items.forEach(function (other) { setOpen(other, false); });
+        setOpen(item, !isOpen);
+      });
+    });
+
+    if (items.length) {
+      items.forEach(function (item) { setOpen(item, false); });
+      setOpen(items[0], true);
+    }
+  });
+</script>
 </body>
 
 </html>

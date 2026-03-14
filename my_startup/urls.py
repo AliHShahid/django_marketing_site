@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from website.views import home, how_it_works, about, case_study, pricing, services, ecommerce_case_study, amazon_ppc_case_study, beauty_brand_case_study, saas, b2b, dtc, service_ppc, service_seo, service_web_development, service_landing_pages, service_aeo, service_social_media, contact, blog, real_estate, healthcare, home_services, automotive, legal, ecommerce, finance, construction, get_started, all_industries, industry_detail
+from website.views import home, how_it_works, about, case_study, pricing, services, ecommerce_case_study, amazon_ppc_case_study, landing_page_case_study, beauty_brand_case_study, saas, b2b, dtc, service_ppc, service_ppc_linkedin, service_ppc_tiktok, service_ppc_google, service_ppc_meta, service_seo, service_web_development, service_landing_pages, service_aeo, service_social_media, contact, blog, real_estate, healthcare, home_services, automotive, legal, ecommerce, finance, construction, get_started, all_industries, industry_detail
 # from website import views  
 
 urlpatterns = [
@@ -28,12 +28,17 @@ urlpatterns = [
     path('pricing/', pricing, name='pricing'),
     path('services/', services, name='services'),
     path('ecommerce_case_study/', ecommerce_case_study, name = 'ecommerce_case_study'),
-    path('amazon_ppc_case_study/', amazon_ppc_case_study, name = 'amazon_ppc_case_study'),
+    path('landing_page_case_study/', landing_page_case_study, name='landing_page_case_study'),
+    path('amazon_ppc_case_study/', amazon_ppc_case_study, name='amazon_ppc_case_study'),
     path('beauty_brand_case_study/', beauty_brand_case_study, name = 'beauty_brand_case_study'),
     path('saas/', saas, name = 'saas'),
     path('b2b/', b2b, name = 'b2b'),
     path('dtc/', dtc, name = 'dtc'),
     path('services/ppc/', service_ppc, name='service_ppc'),
+    path('services/ppc/linkedin/', service_ppc_linkedin, name='service_ppc_linkedin'),
+    path('services/ppc/tiktok/', service_ppc_tiktok, name='service_ppc_tiktok'),
+    path('services/ppc/google/', service_ppc_google, name='service_ppc_google'),
+    path('services/ppc/meta/', service_ppc_meta, name='service_ppc_meta'),
     path('services/seo/', service_seo, name='service_seo'),
     path('services/web-development/', service_web_development, name='service_web_development'),
     path('services/web-development/landing-pages/', service_landing_pages, name='service_landing_pages'),

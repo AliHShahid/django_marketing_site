@@ -5,7 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automotive | ADRYZE</title>
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
+    <title>Automotive Marketing Agency | Adryze</title>
+    <meta name="description"
+        content="Adryze helps automotive brands and dealerships generate qualified leads with performance marketing built for local and regional growth.">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style id="adryze-global-theme">
         :root {
@@ -14,7 +18,9 @@
             --adryze-brand-dark: #0B0B0F;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -24,37 +30,200 @@
 
         .text-orange-400,
         .text-orange-500,
-        .text-orange-600 { color: #EE3923 !important; }
+        .text-orange-600 {
+            color: #EE3923 !important;
+        }
 
         .text-orange-700,
-        .text-orange-800 { color: #b12a1b !important; }
+        .text-orange-800 {
+            color: #b12a1b !important;
+        }
 
-        .bg-orange-50 { background-color: #fff3ef !important; }
-        .bg-orange-100 { background-color: #ffe6df !important; }
-        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-50 {
+            background-color: #fff3ef !important;
+        }
+
+        .bg-orange-100 {
+            background-color: #ffe6df !important;
+        }
+
+        .bg-orange-200 {
+            background-color: #ffd1c4 !important;
+        }
+
         .bg-orange-500,
-        .bg-orange-600 { background-color: #EE3923 !important; }
+        .bg-orange-600 {
+            background-color: #EE3923 !important;
+        }
 
-        .border-orange-100 { border-color: #ffd8cd !important; }
-        .border-orange-600 { border-color: #EE3923 !important; }
+        .border-orange-100 {
+            border-color: #ffd8cd !important;
+        }
 
-        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
-        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
-        .hover\:text-orange-600:hover { color: #EE3923 !important; }
-        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+        .border-orange-600 {
+            border-color: #EE3923 !important;
+        }
+
+        .hover\:bg-orange-200:hover {
+            background-color: #ffd1c4 !important;
+        }
+
+        .hover\:bg-orange-700:hover {
+            background-color: #cf301d !important;
+        }
+
+        .hover\:text-orange-600:hover {
+            color: #EE3923 !important;
+        }
+
+        .focus\:ring-orange-400:focus {
+            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        }
     </style>
 </head>
 
-<body>
+
+    {% include 'partials/site_nav.html' %}
     <main style="max-width: 800px; margin: 4rem auto; font-family: 'Inter', sans-serif; padding: 0 1rem;">
         <h1>Automotive</h1>
         <p>This page is now connected to the navigation and Django routing.</p>
         <p><a href="/">Back to Home</a></p>
     </main>
+    {% include 'partials/site_footer.html' %}
+
+<!-- Adryze Industry FAQ Normalizer -->
+<script id="adryze-industry-faq-normalizer">
+  document.addEventListener('DOMContentLoaded', function () {
+    function escapeHtml(str) {
+      return String(str || '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    var faqSection = document.getElementById('faq');
+    if (!faqSection) {
+      faqSection = Array.from(document.querySelectorAll('section')).find(function (section) {
+        var txt = (section.textContent || '').toLowerCase();
+        return (txt.includes('frequently asked questions') || /\bfaq\b/.test(txt))
+          && (section.querySelector('button') || section.querySelector('details') || section.querySelector('summary'));
+      });
+    }
+    if (!faqSection) return;
+    faqSection.id = 'faq';
+
+    var accordion = faqSection.querySelector('#faq-accordion');
+    if (!accordion) {
+      accordion = Array.from(faqSection.querySelectorAll('div[class*="space-y-"]')).find(function (node) {
+        return !!(node.querySelector('button') || node.querySelector('details') || node.querySelector('summary'));
+      });
+    }
+    if (!accordion) return;
+
+    var faqData = [];
+    var detailsItems = Array.from(accordion.querySelectorAll(':scope > details'));
+    if (detailsItems.length) {
+      faqData = detailsItems.map(function (item) {
+        var summary = item.querySelector('summary');
+        var answer = item.querySelector('p');
+        var summaryClone = summary ? summary.cloneNode(true) : null;
+        if (summaryClone) {
+          summaryClone.querySelectorAll('span, i, svg').forEach(function (node) { node.remove(); });
+        }
+        return {
+          question: summaryClone ? (summaryClone.textContent || '').replace(/\s+/g, ' ').trim() : '',
+          answer: answer ? (answer.textContent || '').replace(/\s+/g, ' ').trim() : ''
+        };
+      }).filter(function (item) { return item.question && item.answer; });
+    } else {
+      faqData = Array.from(accordion.querySelectorAll(':scope > div > button, :scope > button')).map(function (button) {
+        var answerWrap = button.nextElementSibling;
+        var answerNode = answerWrap ? answerWrap.querySelector('p') : null;
+        if (!answerNode) return null;
+        var questionNode = button.querySelector('span') || button;
+        return {
+          question: (questionNode.textContent || '').replace(/\s+/g, ' ').trim(),
+          answer: (answerNode.textContent || '').replace(/\s+/g, ' ').trim()
+        };
+      }).filter(function (item) { return item && item.question && item.answer; });
+    }
+
+    if (!faqData.length) return;
+
+    accordion.id = 'faq-accordion';
+    accordion.className = 'mt-10 space-y-3';
+    accordion.innerHTML = faqData.map(function (item, index) {
+      var open = index === 0;
+      var num = String(index + 1).padStart(2, '0');
+      var cardClass = open
+        ? 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-orange-400 bg-white shadow-sm ease-in-out duration-300'
+        : 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-gray-200 bg-white ease-in-out duration-300 hover:border-orange-200 hover:shadow-sm mt-3.5 group/0';
+      var railClass = open
+        ? 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] transition-opacity ease-in-out duration-300'
+        : 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] opacity-0 transition-opacity ease-in-out duration-300';
+      var badgeClass = open
+        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-600 text-xs leading-4 font-bold text-white ease-in-out duration-300'
+        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-xs leading-4 font-bold text-gray-500 ease-in-out duration-300 group-hover/0:bg-orange-100 group-hover/0:text-orange-600';
+      var questionClass = open
+        ? 'flex-1 text-base leading-6 font-semibold text-neutral-900 transition-colors duration-150 ease-in-out'
+        : 'flex-1 text-base leading-6 font-semibold text-gray-700 transition-colors duration-150 ease-in-out';
+      var iconWrapClass = open
+        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-600 ease-in-out duration-300'
+        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-400 ease-in-out duration-300 group-hover/0:bg-orange-50 group-hover/0:text-orange-500';
+      var iconClass = open
+        ? 'fill-none stroke-current h-3.5 w-3.5 rotate-180 transition-transform ease-in-out duration-300'
+        : 'fill-none stroke-current h-3.5 w-3.5 transition-transform ease-in-out duration-300';
+      var panelClass = open
+        ? 'grid grid-rows-[1fr] duration-300 ease-in-out'
+        : 'grid grid-rows-[0fr] duration-300 ease-in-out';
+
+      return ''
+        + '<div class="' + cardClass + '">'
+        + '<div class="' + railClass + '"></div>'
+        + '<button class="[appearance:auto] text-[100%] cursor-pointer flex w-full items-center justify-between gap-y-3.5 gap-x-3.5 p-5 text-left">'
+        + '<div class="' + badgeClass + '">' + num + '</div>'
+        + '<span class="' + questionClass + '">' + escapeHtml(item.question) + '</span>'
+        + '<div class="' + iconWrapClass + '">'
+        + '<svg class="' + iconClass + '" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'
+        + '</div></button>'
+        + '<div class="' + panelClass + '"><div class="overflow-x-hidden overflow-y-hidden"><div class="pr-5 pb-5 pl-20"><p class="leading-relaxed text-gray-600">' + escapeHtml(item.answer) + '</p></div></div></div>'
+        + '</div>';
+    }).join('');
+
+    var items = Array.from(accordion.children);
+    function setOpen(item, shouldOpen) {
+      var panel = item.querySelector('.grid');
+      var icon = item.querySelector('button svg');
+      var rail = item.querySelector(':scope > div');
+      if (!panel || !icon || !rail) return;
+      panel.classList.toggle('grid-rows-[1fr]', shouldOpen);
+      panel.classList.toggle('grid-rows-[0fr]', !shouldOpen);
+      icon.classList.toggle('rotate-180', shouldOpen);
+      item.classList.toggle('border-orange-400', shouldOpen);
+      item.classList.toggle('border-gray-200', !shouldOpen);
+      item.classList.toggle('shadow-sm', shouldOpen);
+      rail.classList.toggle('opacity-0', !shouldOpen);
+    }
+
+    items.forEach(function (item) {
+      var button = item.querySelector('button');
+      if (!button) return;
+      button.addEventListener('click', function () {
+        var panel = item.querySelector('.grid');
+        var isOpen = panel && panel.classList.contains('grid-rows-[1fr]');
+        items.forEach(function (other) { setOpen(other, false); });
+        setOpen(item, !isOpen);
+      });
+    });
+
+    if (items.length) {
+      items.forEach(function (item) { setOpen(item, false); });
+      setOpen(items[0], true);
+    }
+  });
+</script>
 </body>
 
 </html>
-
-
-
-

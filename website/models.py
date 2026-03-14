@@ -1,20 +1,23 @@
 from django.db import models
 
 class Lead(models.Model):
-    PACKAGE_CHOICES = [
-        ('1000', '1000 items'),
-        ('2000', '2000 items'),
-        ('3000', '3000 items'),
-        ('custom', 'Custom items'),
+    SERVICE_CHOICES = [
+        ('google_ads', 'Google Ads'),
+        ('meta_ads', 'Meta Ads'),
+        ('linkedin_ads', 'Linked in Ads'),
+        ('seo_aeo', 'SEO/AEO'),
+        ('web_development', 'Web Development'),
+        ('landing_page_optimization', 'Landing page Optimization'),
+        ('go_high_level_automation', 'Go High Level Automation'),
     ]
-    name = models.CharField(max_length=100)
+
+    business_name = models.CharField(max_length=150)
+    website = models.URLField(blank=True)
     email = models.EmailField()
-    date = models.DateField(null=True, blank=True)
-    package = models.CharField(max_length=20, choices=PACKAGE_CHOICES)
-    phone = models.CharField(max_length=20)
+    service = models.CharField(max_length=40, choices=SERVICE_CHOICES)
     message = models.TextField(blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.name} - {self.email}"
+        return f"{self.business_name} - {self.email}"
 

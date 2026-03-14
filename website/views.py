@@ -2,6 +2,29 @@ from django.shortcuts import render, redirect
 from django.http import Http404
 from .models import Lead
 from django.contrib import messages
+from django.db import DatabaseError, transaction
+
+from .forms import LeadCaptureForm
+
+
+def _handle_lead_submission(request, *, template_name, success_redirect, success_message):
+    if request.method != 'POST':
+        return render(request, template_name, {'lead_form': LeadCaptureForm()})
+
+    lead_form = LeadCaptureForm(request.POST)
+    if not lead_form.is_valid():
+        messages.error(request, 'Please fix the highlighted fields and try again.')
+        return render(request, template_name, {'lead_form': lead_form}, status=400)
+
+    try:
+        with transaction.atomic():
+            lead_form.save()
+    except DatabaseError:
+        messages.error(request, 'We could not save your request right now. Please try again shortly.')
+        return render(request, template_name, {'lead_form': lead_form}, status=500)
+
+    messages.success(request, success_message)
+    return redirect(success_redirect)
 
 
 # def home(request):
@@ -20,43 +43,33 @@ from django.contrib import messages
 
 #     return render(request, 'index.html', {'success': success})
 def home(request):
-    if request.method == 'POST':
-        Lead.objects.create(
-            name=request.POST.get('name'),
-            email=request.POST.get('email'),
-            date=request.POST.get('date'),
-            package=request.POST.get('package'),
-            phone=request.POST.get('phone'),
-            message=request.POST.get('message')
-        )
-
-        messages.success(request, "Your message has been sent successfully!")
-        return redirect('home')   # important
-
-    return render(request, 'index.html')
+    return _handle_lead_submission(
+        request,
+        template_name='index.html',
+        success_redirect='home',
+        success_message='Your message has been sent successfully!',
+    )
 
 
 def contact(request):
-    if request.method == 'POST':
-        Lead.objects.create(
-            name=request.POST.get('name'),
-            email=request.POST.get('email'),
-            date=request.POST.get('date') or None,
-            package=request.POST.get('package'),
-            phone=request.POST.get('phone'),
-            message=request.POST.get('message', '')
-        )
-        messages.success(request, "Thanks! Your details were submitted successfully.")
-        return redirect('contact')
-
-    return render(request, 'contact.html')
+    return _handle_lead_submission(
+        request,
+        template_name='contact.html',
+        success_redirect='get_started',
+        success_message='Thanks! Your details were submitted successfully.',
+    )
 
 
 def how_it_works(request):
     return render(request, 'how_it_works.html')
 
 def about(request):
-    return render(request, 'about.html')
+    return _handle_lead_submission(
+        request,
+        template_name='about.html',
+        success_redirect='about',
+        success_message='Thanks! We received your request and will be in touch soon.',
+    )
 
 def case_study(request):
     return render(request, 'case_study.html')
@@ -70,8 +83,13 @@ def services(request):
 def ecommerce_case_study(request):
     return render(request, 'ecommerce_case_study.html')
 
+def landing_page_case_study(request):
+    return render(request, 'landing_page_case_study.html')
+
+
 def amazon_ppc_case_study(request):
-    return render(request, 'amazon_ppc_case_study.html')
+    # Backward-compatible alias for old URL references.
+    return render(request, 'landing_page_case_study.html')
 
 def beauty_brand_case_study(request):
     return render(request, 'beauty_brand_case_study.html')
@@ -88,6 +106,22 @@ def dtc(request):
 
 def service_ppc(request):
     return render(request, 'services_ppc.html')
+
+
+def service_ppc_linkedin(request):
+    return render(request, 'services_ppc_linkedin.html')
+
+
+def service_ppc_tiktok(request):
+    return render(request, 'services_ppc_tiktok.html')
+
+
+def service_ppc_google(request):
+    return render(request, 'services_ppc_google.html')
+
+
+def service_ppc_meta(request):
+    return render(request, 'services_ppc_meta.html')
 
 
 def service_seo(request):

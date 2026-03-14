@@ -1,0 +1,24 @@
+{
+  "name": "my_startup",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./website/static/css/tailwind.input.css -o ./website/static/css/tailwind.css --minify",
+    "watch:css": "tailwindcss -i ./website/static/css/tailwind.input.css -o ./website/static/css/tailwind.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AliHShahid/django_marketing_site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AliHShahid/django_marketing_site/issues"
+  },
+  "homepage": "https://github.com/AliHShahid/django_marketing_site#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}

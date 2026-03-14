@@ -7,3 +7,4 @@ whitenoise[brotli]
 asgiref>=3.7
 sqlparse>=0.4
 tzdata; sys_platform == "win32"
+PyMySQL

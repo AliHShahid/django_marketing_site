@@ -1,4 +1,7 @@
 db.sqlite3
 __pycache__/
 migrations/
+node_modules/
+npm-debug.log*
+website/static/css/tailwind.css.map
 static/

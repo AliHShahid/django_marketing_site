@@ -6,7 +6,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/typography.css' %}">
     <title>404 - Page Not Found</title>
+    <meta name="description"
+        content="The page you are looking for does not exist. Return to Adryze to explore our services, case studies, and growth resources.">
+    <link rel="icon" type="image/png" href="{% static 'images/logo.png' %}">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style id="adryze-global-theme">
@@ -16,7 +20,9 @@
             --adryze-brand-dark: #0B0B0F;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
 
         body {
             font-family: 'Inter', sans-serif;
@@ -26,24 +32,55 @@
 
         .text-orange-400,
         .text-orange-500,
-        .text-orange-600 { color: #EE3923 !important; }
+        .text-orange-600 {
+            color: #EE3923 !important;
+        }
 
         .text-orange-700,
-        .text-orange-800 { color: #b12a1b !important; }
+        .text-orange-800 {
+            color: #b12a1b !important;
+        }
 
-        .bg-orange-50 { background-color: #fff3ef !important; }
-        .bg-orange-100 { background-color: #ffe6df !important; }
-        .bg-orange-200 { background-color: #ffd1c4 !important; }
+        .bg-orange-50 {
+            background-color: #fff3ef !important;
+        }
+
+        .bg-orange-100 {
+            background-color: #ffe6df !important;
+        }
+
+        .bg-orange-200 {
+            background-color: #ffd1c4 !important;
+        }
+
         .bg-orange-500,
-        .bg-orange-600 { background-color: #EE3923 !important; }
+        .bg-orange-600 {
+            background-color: #EE3923 !important;
+        }
 
-        .border-orange-100 { border-color: #ffd8cd !important; }
-        .border-orange-600 { border-color: #EE3923 !important; }
+        .border-orange-100 {
+            border-color: #ffd8cd !important;
+        }
 
-        .hover\:bg-orange-200:hover { background-color: #ffd1c4 !important; }
-        .hover\:bg-orange-700:hover { background-color: #cf301d !important; }
-        .hover\:text-orange-600:hover { color: #EE3923 !important; }
-        .focus\:ring-orange-400:focus { --tw-ring-color: rgb(238 57 35 / 0.45) !important; }
+        .border-orange-600 {
+            border-color: #EE3923 !important;
+        }
+
+        .hover\:bg-orange-200:hover {
+            background-color: #ffd1c4 !important;
+        }
+
+        .hover\:bg-orange-700:hover {
+            background-color: #cf301d !important;
+        }
+
+        .hover\:text-orange-600:hover {
+            color: #EE3923 !important;
+        }
+
+        .focus\:ring-orange-400:focus {
+            --tw-ring-color: rgb(238 57 35 / 0.45) !important;
+        }
     </style>
 </head>
 
@@ -74,7 +111,7 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
             </a>
-            <a href="{% url 'projects' %}"
+            <a href="{% url 'case_study' %}"
                 class="flex items-center justify-between bg-orange-100 hover:bg-orange-200 text-orange-800 font-semibold px-6 py-3 rounded-lg shadow-md transition">
                 <span>Projects</span>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
@@ -84,11 +121,7 @@
             </a>
         </div>
     </div>
-    
+
 </body>
 
 </html>
-
-
-
-
