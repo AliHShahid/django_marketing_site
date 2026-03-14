@@ -21,6 +21,12 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
+try:
+    import whitenoise  # noqa: F401
+    HAS_WHITENOISE = True
+except ModuleNotFoundError:
+    HAS_WHITENOISE = False
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -43,11 +49,13 @@ ALLOWED_HOSTS = [
     host.strip()
     for host in os.getenv(
         'DJANGO_ALLOWED_HOSTS',
-        '127.0.0.1,localhost,51650c220b0c.ngrok-free.app,shayna-ungauged-complainingly.ngrok-free.dev',
+        '127.0.0.1,localhost,adryze.co,www.adryze.co,51650c220b0c.ngrok-free.app,shayna-ungauged-complainingly.ngrok-free.dev',
     ).split(',')
     if host.strip()
 ]
 CSRF_TRUSTED_ORIGINS = [
+    "https://adryze.co",
+    "https://www.adryze.co",
     "https://shayna-ungauged-complainingly.ngrok-free.dev",
 ]
 
@@ -66,6 +74,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    *(['whitenoise.middleware.WhiteNoiseMiddleware'] if HAS_WHITENOISE else []),
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -150,10 +159,28 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "website/static",  # make sure this path points to your static folder
-]
+# Assets in website/static are auto-discovered via AppDirectoriesFinder.
+STATICFILES_DIRS = []
+
+# Allow WhiteNoise to serve static assets directly from app/static when
+# collectstatic cannot be run in the hosting environment.
+if HAS_WHITENOISE:
+    WHITENOISE_USE_FINDERS = True
+
+STORAGES = {
+    'default': {
+        'BACKEND': 'django.core.files.storage.FileSystemStorage',
+    },
+    'staticfiles': {
+        'BACKEND': (
+            'whitenoise.storage.CompressedStaticFilesStorage'
+            if HAS_WHITENOISE
+            else 'django.contrib.staticfiles.storage.StaticFilesStorage'
+        ),
+    },
+}
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
