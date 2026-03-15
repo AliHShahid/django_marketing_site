@@ -48,12 +48,17 @@
 
     html {
       scroll-behavior: smooth;
+      font-size: 15px;
     }
 
     body {
       font-family: 'Inter', sans-serif;
       color: #18181b;
       background-color: #ffffff;
+    }
+
+    main p {
+      font-size: 0.9em !important;
     }
 
     .text-orange-400,
@@ -161,7 +166,7 @@
   <!-- Analytics placeholder (add your own GTM ID if needed):
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden" title="Google Tag Manager"></iframe></noscript>
   -->
-      {% include 'partials/site_nav.html' %}
+  {% include 'partials/site_nav.html' %}
   <main><!--/$-->
     <section class="relative bg-black pt-32 pb-20 lg:pt-40 lg:pb-28 overflow-hidden">
       <div class="absolute inset-0">
@@ -3593,7 +3598,7 @@
       </div>
     </section>
   </main>
-  
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const hiddenClassPattern = /(opacity-0|-translate-x-\d+|translate-x-\d+|translate-y-\d+|scale-\[[^\]]+\]|scale-95|blur-[^\s"']+)/;
@@ -3638,146 +3643,146 @@
       });
     });
   </script>
-    {% include 'partials/site_footer.html' %}
+  {% include 'partials/site_footer.html' %}
 
-<!-- Adryze Industry FAQ Normalizer -->
-<script id="adryze-industry-faq-normalizer">
-  document.addEventListener('DOMContentLoaded', function () {
-    function escapeHtml(str) {
-      return String(str || '')
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/\"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-    }
+  <!-- Adryze Industry FAQ Normalizer -->
+  <script id="adryze-industry-faq-normalizer">
+    document.addEventListener('DOMContentLoaded', function () {
+      function escapeHtml(str) {
+        return String(str || '')
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/\"/g, '&quot;')
+          .replace(/'/g, '&#39;');
+      }
 
-    var faqSection = document.getElementById('faq');
-    if (!faqSection) {
-      faqSection = Array.from(document.querySelectorAll('section')).find(function (section) {
-        var txt = (section.textContent || '').toLowerCase();
-        return (txt.includes('frequently asked questions') || /\bfaq\b/.test(txt))
-          && (section.querySelector('button') || section.querySelector('details') || section.querySelector('summary'));
-      });
-    }
-    if (!faqSection) return;
-    faqSection.id = 'faq';
+      var faqSection = document.getElementById('faq');
+      if (!faqSection) {
+        faqSection = Array.from(document.querySelectorAll('section')).find(function (section) {
+          var txt = (section.textContent || '').toLowerCase();
+          return (txt.includes('frequently asked questions') || /\bfaq\b/.test(txt))
+            && (section.querySelector('button') || section.querySelector('details') || section.querySelector('summary'));
+        });
+      }
+      if (!faqSection) return;
+      faqSection.id = 'faq';
 
-    var accordion = faqSection.querySelector('#faq-accordion');
-    if (!accordion) {
-      accordion = Array.from(faqSection.querySelectorAll('div[class*="space-y-"]')).find(function (node) {
-        return !!(node.querySelector('button') || node.querySelector('details') || node.querySelector('summary'));
-      });
-    }
-    if (!accordion) return;
+      var accordion = faqSection.querySelector('#faq-accordion');
+      if (!accordion) {
+        accordion = Array.from(faqSection.querySelectorAll('div[class*="space-y-"]')).find(function (node) {
+          return !!(node.querySelector('button') || node.querySelector('details') || node.querySelector('summary'));
+        });
+      }
+      if (!accordion) return;
 
-    var detailsItems = Array.from(accordion.querySelectorAll(':scope > details'));
-    var faqData = [];
+      var detailsItems = Array.from(accordion.querySelectorAll(':scope > details'));
+      var faqData = [];
 
-    if (detailsItems.length) {
-      faqData = detailsItems.map(function (item) {
-        var summary = item.querySelector('summary');
-        var answer = item.querySelector('p');
-        var summaryClone = summary ? summary.cloneNode(true) : null;
-        if (summaryClone) {
-          summaryClone.querySelectorAll('span, i, svg').forEach(function (node) { node.remove(); });
-        }
-        return {
-          question: summaryClone ? (summaryClone.textContent || '').replace(/\s+/g, ' ').trim() : '',
-          answer: answer ? (answer.textContent || '').replace(/\s+/g, ' ').trim() : ''
-        };
-      }).filter(function (item) { return item.question && item.answer; });
-    } else {
-      faqData = Array.from(accordion.querySelectorAll('button')).map(function (button) {
-        var answerWrap = button.nextElementSibling;
-        var answerNode = answerWrap ? answerWrap.querySelector('p') : null;
-        if (!answerNode) return null;
+      if (detailsItems.length) {
+        faqData = detailsItems.map(function (item) {
+          var summary = item.querySelector('summary');
+          var answer = item.querySelector('p');
+          var summaryClone = summary ? summary.cloneNode(true) : null;
+          if (summaryClone) {
+            summaryClone.querySelectorAll('span, i, svg').forEach(function (node) { node.remove(); });
+          }
+          return {
+            question: summaryClone ? (summaryClone.textContent || '').replace(/\s+/g, ' ').trim() : '',
+            answer: answer ? (answer.textContent || '').replace(/\s+/g, ' ').trim() : ''
+          };
+        }).filter(function (item) { return item.question && item.answer; });
+      } else {
+        faqData = Array.from(accordion.querySelectorAll('button')).map(function (button) {
+          var answerWrap = button.nextElementSibling;
+          var answerNode = answerWrap ? answerWrap.querySelector('p') : null;
+          if (!answerNode) return null;
 
-        var questionClone = button.cloneNode(true);
-        questionClone.querySelectorAll('svg, i').forEach(function (n) { n.remove(); });
-        var qText = (questionClone.textContent || '').replace(/\s+/g, ' ').trim();
+          var questionClone = button.cloneNode(true);
+          questionClone.querySelectorAll('svg, i').forEach(function (n) { n.remove(); });
+          var qText = (questionClone.textContent || '').replace(/\s+/g, ' ').trim();
 
-        return {
-          question: qText,
-          answer: (answerNode.textContent || '').replace(/\s+/g, ' ').trim()
-        };
-      }).filter(function (item) { return item && item.question && item.answer; });
-    }
+          return {
+            question: qText,
+            answer: (answerNode.textContent || '').replace(/\s+/g, ' ').trim()
+          };
+        }).filter(function (item) { return item && item.question && item.answer; });
+      }
 
-    if (!faqData.length) return;
+      if (!faqData.length) return;
 
-    accordion.id = 'faq-accordion';
-    accordion.className = 'mt-10 space-y-3';
-    accordion.innerHTML = faqData.map(function (item, index) {
-      var open = index === 0;
-      var num = String(index + 1).padStart(2, '0');
-      var cardClass = open
-        ? 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-orange-400 bg-white shadow-sm ease-in-out duration-300'
-        : 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-gray-200 bg-white ease-in-out duration-300 hover:border-orange-200 hover:shadow-sm mt-3.5 group/0';
-      var railClass = open
-        ? 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] transition-opacity ease-in-out duration-300'
-        : 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] opacity-0 transition-opacity ease-in-out duration-300';
-      var badgeClass = open
-        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-600 text-xs leading-4 font-bold text-white ease-in-out duration-300'
-        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-xs leading-4 font-bold text-gray-500 ease-in-out duration-300 group-hover/0:bg-orange-100 group-hover/0:text-orange-600';
-      var questionClass = open
-        ? 'flex-1 text-base leading-6 font-semibold text-neutral-900 transition-colors duration-150 ease-in-out'
-        : 'flex-1 text-base leading-6 font-semibold text-gray-700 transition-colors duration-150 ease-in-out';
-      var iconWrapClass = open
-        ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-600 ease-in-out duration-300'
-        : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-400 ease-in-out duration-300 group-hover/0:bg-orange-50 group-hover/0:text-orange-500';
-      var iconClass = open
-        ? 'fill-none stroke-current h-3.5 w-3.5 rotate-180 transition-transform ease-in-out duration-300'
-        : 'fill-none stroke-current h-3.5 w-3.5 transition-transform ease-in-out duration-300';
-      var panelClass = open
-        ? 'grid grid-rows-[1fr] duration-300 ease-in-out'
-        : 'grid grid-rows-[0fr] duration-300 ease-in-out';
+      accordion.id = 'faq-accordion';
+      accordion.className = 'mt-10 space-y-3';
+      accordion.innerHTML = faqData.map(function (item, index) {
+        var open = index === 0;
+        var num = String(index + 1).padStart(2, '0');
+        var cardClass = open
+          ? 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-orange-400 bg-white shadow-sm ease-in-out duration-300'
+          : 'relative overflow-x-hidden overflow-y-hidden rounded-2xl border-2 border-gray-200 bg-white ease-in-out duration-300 hover:border-orange-200 hover:shadow-sm mt-3.5 group/0';
+        var railClass = open
+          ? 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] transition-opacity ease-in-out duration-300'
+          : 'absolute bottom-0 left-0 top-0 w-1 rounded-tl-2xl rounded-bl-2xl bg-[linear-gradient(#EE3923,#EE3923)] opacity-0 transition-opacity ease-in-out duration-300';
+        var badgeClass = open
+          ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-orange-600 text-xs leading-4 font-bold text-white ease-in-out duration-300'
+          : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-gray-100 text-xs leading-4 font-bold text-gray-500 ease-in-out duration-300 group-hover/0:bg-orange-100 group-hover/0:text-orange-600';
+        var questionClass = open
+          ? 'flex-1 text-base leading-6 font-semibold text-neutral-900 transition-colors duration-150 ease-in-out'
+          : 'flex-1 text-base leading-6 font-semibold text-gray-700 transition-colors duration-150 ease-in-out';
+        var iconWrapClass = open
+          ? 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-orange-100 text-orange-600 ease-in-out duration-300'
+          : 'flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-400 ease-in-out duration-300 group-hover/0:bg-orange-50 group-hover/0:text-orange-500';
+        var iconClass = open
+          ? 'fill-none stroke-current h-3.5 w-3.5 rotate-180 transition-transform ease-in-out duration-300'
+          : 'fill-none stroke-current h-3.5 w-3.5 transition-transform ease-in-out duration-300';
+        var panelClass = open
+          ? 'grid grid-rows-[1fr] duration-300 ease-in-out'
+          : 'grid grid-rows-[0fr] duration-300 ease-in-out';
 
-      return ''
-        + '<div class="' + cardClass + '">'
-        + '<div class="' + railClass + '"></div>'
-        + '<button class="[appearance:auto] text-[100%] cursor-pointer flex w-full items-center justify-between gap-y-3.5 gap-x-3.5 p-5 text-left">'
-        + '<div class="' + badgeClass + '">' + num + '</div>'
-        + '<span class="' + questionClass + '" style="font-size:1rem;line-height:1.5rem;font-weight:600;">' + escapeHtml(item.question) + '</span>'
-        + '<div class="' + iconWrapClass + '">'
-        + '<svg class="' + iconClass + '" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'
-        + '</div></button>'
-        + '<div class="' + panelClass + '"><div class="overflow-x-hidden overflow-y-hidden"><div class="pr-5 pb-5 pl-20"><p class="leading-relaxed text-gray-600" style="font-size:1rem;line-height:1.625;">' + escapeHtml(item.answer) + '</p></div></div></div>'
-        + '</div>';
-    }).join('');
+        return ''
+          + '<div class="' + cardClass + '">'
+          + '<div class="' + railClass + '"></div>'
+          + '<button class="[appearance:auto] text-[100%] cursor-pointer flex w-full items-center justify-between gap-y-3.5 gap-x-3.5 p-5 text-left">'
+          + '<div class="' + badgeClass + '">' + num + '</div>'
+          + '<span class="' + questionClass + '" style="font-size:1rem;line-height:1.5rem;font-weight:600;">' + escapeHtml(item.question) + '</span>'
+          + '<div class="' + iconWrapClass + '">'
+          + '<svg class="' + iconClass + '" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>'
+          + '</div></button>'
+          + '<div class="' + panelClass + '"><div class="overflow-x-hidden overflow-y-hidden"><div class="pr-5 pb-5 pl-20"><p class="leading-relaxed text-gray-600" style="font-size:1rem;line-height:1.625;">' + escapeHtml(item.answer) + '</p></div></div></div>'
+          + '</div>';
+      }).join('');
 
-    var items = Array.from(accordion.children);
-    function setOpen(item, shouldOpen) {
-      var panel = item.querySelector('.grid');
-      var icon = item.querySelector('button svg');
-      var rail = item.querySelector(':scope > div');
-      if (!panel || !icon || !rail) return;
-      panel.classList.toggle('grid-rows-[1fr]', shouldOpen);
-      panel.classList.toggle('grid-rows-[0fr]', !shouldOpen);
-      icon.classList.toggle('rotate-180', shouldOpen);
-      item.classList.toggle('border-orange-400', shouldOpen);
-      item.classList.toggle('border-gray-200', !shouldOpen);
-      item.classList.toggle('shadow-sm', shouldOpen);
-      rail.classList.toggle('opacity-0', !shouldOpen);
-    }
-
-    items.forEach(function (item) {
-      var button = item.querySelector('button');
-      if (!button) return;
-      button.addEventListener('click', function () {
+      var items = Array.from(accordion.children);
+      function setOpen(item, shouldOpen) {
         var panel = item.querySelector('.grid');
-        var isOpen = panel && panel.classList.contains('grid-rows-[1fr]');
-        items.forEach(function (other) { setOpen(other, false); });
-        setOpen(item, !isOpen);
-      });
-    });
+        var icon = item.querySelector('button svg');
+        var rail = item.querySelector(':scope > div');
+        if (!panel || !icon || !rail) return;
+        panel.classList.toggle('grid-rows-[1fr]', shouldOpen);
+        panel.classList.toggle('grid-rows-[0fr]', !shouldOpen);
+        icon.classList.toggle('rotate-180', shouldOpen);
+        item.classList.toggle('border-orange-400', shouldOpen);
+        item.classList.toggle('border-gray-200', !shouldOpen);
+        item.classList.toggle('shadow-sm', shouldOpen);
+        rail.classList.toggle('opacity-0', !shouldOpen);
+      }
 
-    if (items.length) {
-      items.forEach(function (item) { setOpen(item, false); });
-      setOpen(items[0], true);
-    }
-  });
-</script>
+      items.forEach(function (item) {
+        var button = item.querySelector('button');
+        if (!button) return;
+        button.addEventListener('click', function () {
+          var panel = item.querySelector('.grid');
+          var isOpen = panel && panel.classList.contains('grid-rows-[1fr]');
+          items.forEach(function (other) { setOpen(other, false); });
+          setOpen(item, !isOpen);
+        });
+      });
+
+      if (items.length) {
+        items.forEach(function (item) { setOpen(item, false); });
+        setOpen(items[0], true);
+      }
+    });
+  </script>
 </body>
 
 </html>
