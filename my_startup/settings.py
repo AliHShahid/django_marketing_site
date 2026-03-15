@@ -38,12 +38,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'change-me-in-env')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-_debug_env = os.getenv('DJANGO_DEBUG')
-if _debug_env is None:
-    # Default to True for local runserver convenience.
-    DEBUG = True
-else:
-    DEBUG = _debug_env.strip().lower() in ('1', 'true', 'yes', 'on')
+DEBUG = False
 
 ALLOWED_HOSTS = [
     host.strip()
